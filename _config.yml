@@ -47,7 +47,10 @@ kramdown:
 
 
 # Disqus settings
-disqus_username:  pynbgang
+comments_provider: disqus
+disqus:
+    username: pynbgang
+#disqus_username:  pynbgang
 
 # Duoshuo settings
 #duoshuo_username: huxblog
