@@ -48,7 +48,6 @@ kramdown:
 
 # Disqus settings
 disqus_username:  pynbgang
-disqus_shortname: pynbgang-github-io
 
 # Duoshuo settings
 #duoshuo_username: huxblog
