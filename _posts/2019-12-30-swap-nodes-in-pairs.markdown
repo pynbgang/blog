@@ -27,7 +27,9 @@ class Solution:
     """
     def swapPairs(self, head):
         # write your code here
+
         # dummy head and pointer p: node before the pair nodes to be swapped
+
         dummy=p=ListNode(-1000, head)
 
         #adjacent node pair to be swapped
