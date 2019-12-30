@@ -23,15 +23,20 @@ TABLE OF CONTENT
 
 - - -
 
-# swap-two-nodes-in-linked-list
+# [swap-two-nodes-in-linked-list](https://www.lintcode.com/problem/swap-two-nodes-in-linked-list/description?_from=ladder&&fromId=99)
 
-https://www.lintcode.com/problem/swap-two-nodes-in-linked-list/description?_from=ladder&&fromId=99
 
+## 打油诗
+
+![image](https://user-images.githubusercontent.com/2038044/71569321-4048d080-2a9c-11ea-8832-55b0c9b02958.png)
+![image](https://user-images.githubusercontent.com/2038044/71569303-18596d00-2a9c-11ea-9121-683edd653e8c.png)
+
+古人云： 重提kb九月末，空叹流年不禁过
 
 ## mine (swap value only)
 
 
-```python
+```py
 """
 Definition of ListNode
 class ListNode(object):
@@ -62,7 +67,7 @@ class Solution:
 
 ## mine
 
-```python
+```py
 class Solution:
     """
     @param head: a ListNode
@@ -124,7 +129,7 @@ class Solution:
 
 ## jiuzhang
 
-```python
+```py
 class Solution:
     # @param {ListNode} head, a ListNode
     # @oaram {int} v1 an integer
@@ -198,7 +203,7 @@ class Solution:
 
 ## jj1
 
-```python
+```py
 class Solution:
     """
     @param head: a ListNode
@@ -246,7 +251,7 @@ keys:
 
 ## jj2 (best)
 
-```python
+```py
 class Solution:
     """
     @param head: a ListNode
