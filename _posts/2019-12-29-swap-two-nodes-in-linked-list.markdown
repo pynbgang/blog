@@ -36,7 +36,7 @@ TABLE OF CONTENT
 ## mine (swap value only)
 
 
-```py
+```python
 """
 Definition of ListNode
 class ListNode(object):
@@ -67,7 +67,7 @@ class Solution:
 
 ## mine
 
-```py
+```python
 class Solution:
     """
     @param head: a ListNode
@@ -129,7 +129,7 @@ class Solution:
 
 ## jiuzhang
 
-```py
+```python
 class Solution:
     # @param {ListNode} head, a ListNode
     # @oaram {int} v1 an integer
@@ -203,7 +203,7 @@ class Solution:
 
 ## jj1
 
-```py
+```python
 class Solution:
     """
     @param head: a ListNode
@@ -251,7 +251,7 @@ keys:
 
 ## jj2 (best)
 
-```py
+```python
 class Solution:
     """
     @param head: a ListNode
