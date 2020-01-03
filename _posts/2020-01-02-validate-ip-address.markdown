@@ -147,15 +147,11 @@ def validIPAddress(self, IP):
 * `x or y` instead of `expr if else`
 * ...
 
-## jiuzhang
+## zhangba
 
 ```python
 class Solution(object):
     def validIPAddress(self, IP):
-        """
-        :type IP: str
-        :rtype: str
-        """
         ip = IP.split('.')
         if len(ip) == 4:
             # ipv4 candidate, validate it

@@ -17,7 +17,7 @@ TABLE OF CONTENT
 
 # [delete-node-in-a-linked-list](https://www.lintcode.com/problem/delete-node-in-a-linked-list/description?_from=ladder&&fromId=99)
 
-## jiuzhang
+## zhangba
 
 ```python
 class Solution:

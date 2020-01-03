@@ -128,7 +128,7 @@ class Solution:
         return dummy.next
 ```
 
-## jiuzhang
+## zhangba
 
 ```python
 class Solution:
@@ -139,32 +139,24 @@ class Solution:
     def swapNodes(self, head, v1, v2):
         if head is None:
             return None
-            
         dummy = ListNode(0)
         dummy.next = head
-        
         prev1, prev2 = self.findPrevs(dummy, v1, v2)
-        
         if prev1 is None or prev2 is None:
             return head
-            
         if prev1 == prev2:
             return head
-            
         if prev1.next == prev2:
             self.swapAdjcent(prev1)
         elif prev2.next == prev1:
             self.swapAdjcent(prev2)
         else:
             self.swapRemote(prev1, prev2)
-            
         return dummy.next
-    
     # head->...->prev1->v1->...->prev2->v2...
     # return prev1 & prev2
     def findPrevs(self, dummy, v1, v2):
         prev1, prev2 = None, None
-        
         node = dummy
         while node.next is not None:
             if node.next.val == v1:
@@ -173,30 +165,27 @@ class Solution:
                 prev2 = node
             node = node.next
         return prev1, prev2
-            
     # dummy->head->..->prev->node1->node2->post...
     # swap node1 & node2
     def swapAdjcent(self, prev):
         node1 = prev.next
         node2 = node1.next
         post = node2.next
-        
         prev.next = node2
         node2.next = node1
         node1.next = post
-    
     # dummy->head->..->prev1->node1->post1->...->prev2->node2->post2...
     # swap node1 & node2
     def swapRemote(self, prev1, prev2):
         node1 = prev1.next
         post1 = node1.next
-        
+
         node2 = prev2.next
         post2 = node2.next
-        
+
         prev1.next = node2
         node2.next = post1
-        
+
         prev2.next = node1
         node1.next = post2
 ```
