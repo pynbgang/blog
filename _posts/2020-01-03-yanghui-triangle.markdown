@@ -3,7 +3,7 @@ layout: post
 title: "yanghui triangle"
 published: true
 created:  2020 Jan 03 03:58:31 PM
-tags: [python, generator, liaoxuefeng]
+tags: [python, generator, zip, liaoxuefeng]
 categories: [tech]
 
 ---
@@ -44,12 +44,70 @@ def yanghui_tri():
 ## zb solution
 
 ```python
-def triangles():
+def yanghui_triangles():
     L = [1]
     while True:
         yield L
         L = [sum(i) for i in zip([0]+L, L+[0])]
 ```
+
+illustration:
+
+    [1]
+    ||
+    vv
+    [0, 1]
+            =zip=> (0,1), (1,0) =sum=> [1,1]
+    [1, 0]
+
+    [1, 1]
+    ||
+    vv
+    [0, 1, 1]
+            =zip=> (0,1), (1,1), (1,0) =sum=> [1,2,1]
+    [1, 1, 0]
+
+
+### about zip
+
+zip
+
+    In [45]: a = [1,2,3] 
+        ...: b = [4,5,6] 
+        ...: c = [4,5,6,7,8]                                                        
+
+    In [58]: z=zip(a,b)
+    In [60]: from collections import Iterable                                       
+    In [61]: isinstance(z, Iterable)                                         
+    Out[61]: True
+
+    In [46]: x=list(z)                                                       
+
+    In [47]: x                                                                      
+    Out[47]: [(1, 4), (2, 5), (3, 6)]
+
+unzip: zip(*...)
+
+    In [49]: y=zip(*z)
+
+    In [50]: y                                                                      
+    Out[50]: <zip at 0x7f50fd2bb808>
+
+    In [51]: a1,a2=y                                                                
+
+    In [52]: a1                                                                     
+    Out[52]: (1, 2, 3)
+
+    In [53]: a2                                                                     
+    Out[53]: (4, 5, 6)
+
+    In [54]: a1,a2,a3=y                                                             
+    ---------------------------------------------------------------------------
+    ValueError                                Traceback (most recent call last)
+    <ipython-input-54-41d44e776e2a> in <module>
+    ----> 1 a1,a2,a3=y
+
+    ValueError: not enough values to unpack (expected 3, got 0)
 
 
 ## test
