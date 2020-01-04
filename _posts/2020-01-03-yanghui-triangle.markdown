@@ -3,7 +3,7 @@ layout: post
 title: "yanghui triangle"
 published: true
 created:  2020 Jan 03 03:58:31 PM
-tags: [python, generator, zip, liaoxuefeng]
+tags: [python, generator, zip, liaoxuefeng, 打油诗]
 categories: [tech]
 
 ---
@@ -133,3 +133,13 @@ for t in yanghui_tri():
        [1, 8, 28, 56, 70, 56, 28, 8, 1]
       [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]
 
+## zhoufeizhou
+
+                                粥非粥，洲非洲。
+                              待米为粥，粥涌如洲。
+                         今朝非周做新米 他日去时粥未熟 
+                                 哈哈 真个是：
+                        来时急急如避雨，离似沾靴恶臭蛆。
+                           你当我大J是何等地界？曰 - 
+                           歇脚的长亭， 换马的驿站， 
+                    只道修:)得玉阶长伫立，奈何那宿鸟归飞急！
