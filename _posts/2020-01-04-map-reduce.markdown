@@ -95,7 +95,7 @@ output:
 
     13579
 
-## example3: string to num
+## example3: implement `int()`
 
 ```python
 from functools import reduce
@@ -123,13 +123,75 @@ def str2int(s):
                    +---2.reduce---+
 
 
-## example4: string to num (lamda version)
+## example4: implement `int()` (lamda version)
 
 ```python
 from functools import reduce
 DIGITS=dict( ( zip( [i for i in '0123456789'], range(10) ) )  )
 def str2int(s):
     return reduce(lambda x,y: x*10+y, map(lambda s:DIGITS[s], s))
+```
+
+# exercises
+
+## exercise1
+
+利用map()函数，把用户输入的不规范的英文名字，变为首字母大写，其他小写的规范名字
+。输入：['adam', 'LISA', 'barT']，输出：['Adam', 'Lisa', 'Bart']：
+
+```python
+def normalize(name):
+    return name.capitalize()
+L1 = ['adam', 'LISA', 'barT']
+L2 = list(map(normalize, L1))
+print(L2)
+
+```
+
+## exercise2
+
+Python提供的sum()函数可以接受一个list并求和，请编写一个prod()函数，可以接受一个
+list并利用reduce()求积：
+
+```python
+from functools import reduce
+def prod(l):
+    return reduce(lambda x,y: x*y, l)
+
+print('3 * 5 * 7 * 9 =', prod([3, 5, 7, 9]))
+
+if prod([3, 5, 7, 9]) == 945:
+    print('测试成功!')
+else:
+    print('测试失败!')
+```
+
+## exercise3
+
+利用map和reduce编写一个str2float函数，把字符串'123.456'转换成浮点数123.456：
+
+
+```python
+from functools import reduce
+
+def str2float(s):
+
+    DIGITS=dict( ( zip( [i for i in '0123456789'], range(10) ) )  )
+
+    def char2num(c):
+        return DIGITS[c] if c in '0123456789' else '.'
+
+    def fn(x, y):
+        
+
+
+print('str2float(\'123.456\') =', str2float('123.456'))
+
+if abs(str2float('123.456') - 123.456) < 0.00001:
+    print('测试成功!')
+else:
+    print('测试失败!')
+
 ```
 
 # resources
