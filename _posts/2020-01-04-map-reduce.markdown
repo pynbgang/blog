@@ -3,7 +3,7 @@ layout: post
 title: "map reduce"
 published: true
 created:  2020 Jan 04 07:39:29 PM
-tags: [map, reduce, lambda, zip]
+tags: [python, map, reduce, lambda, zip]
 categories: [tech]
 
 ---
@@ -128,7 +128,8 @@ def str2int(s):
 ```python
 from functools import reduce
 DIGITS=dict( ( zip( [i for i in '0123456789'], range(10) ) )  )
-reduce(lambda x,y: x*10+y, map(lambda s:DIGITS[s], s))
+def str2int(s):
+    return reduce(lambda x,y: x*10+y, map(lambda s:DIGITS[s], s))
 ```
 
 # resources
