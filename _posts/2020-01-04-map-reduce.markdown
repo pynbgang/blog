@@ -187,8 +187,13 @@ def str2float(s):
     def rd2(x, y):
         return x*0.1+y
 
+    #121.23 => [1, 2, 1, '.', 2, 3]
     l=list(map(map1, s))
+
+    #l1=[1, 2, 1]
     l1=l[0:l.index('.')]
+
+    #l2=[2, 3]
     l2=l[l.index('.')+1:]
 
     return reduce(rd1, l1) + reduce(rd2, reversed(l2)) * 0.1
@@ -202,6 +207,11 @@ else:
 
 ```
 
+                                            [3, 2]
+                                         -----------
+    return reduce(rd1, l1) + reduce(rd2, reversed(l2)) * 0.1
+           --------------    -------------------------
+           121                      2.3
 
 ## exercise3: map and reduce (lambda)
 
@@ -227,6 +237,30 @@ else:
     print('测试失败!')
 
 ```
+
+
+## exercise3: zb solution
+
+```python
+from functools import reduce
+
+def str2float(s):
+    DIGITS=dict( ( zip( [i for i in '0123456789'], range(10) ) )  )
+    l=list(map(lambda c: DIGITS[c] if c in '0123456789' else '.', s))
+    power, div = len(l)-l.index('.')-1, 1       #get power 123.23 => 2
+    for i in range(power): div *= 10            #get div (/100) per power(2)
+    l.pop(l.index('.'))                         #remove '.' in list
+    return reduce(lambda x,y:x*10+y, l) / div   #integer(12323) / div(100)
+
+print('str2float(\'123.456\') =', str2float('123.456'))
+
+if abs(str2float('123.456') - 123.456) < 0.00001:
+    print('测试成功!')
+else:
+    print('测试失败!')
+
+```
+
 
 
 # resources
