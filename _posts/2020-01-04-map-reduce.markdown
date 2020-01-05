@@ -134,7 +134,7 @@ def str2int(s):
 
 # exercises
 
-## exercise1
+## exercise1: map
 
 利用map()函数，把用户输入的不规范的英文名字，变为首字母大写，其他小写的规范名字
 。输入：['adam', 'LISA', 'barT']，输出：['Adam', 'Lisa', 'Bart']：
@@ -148,7 +148,7 @@ print(L2)
 
 ```
 
-## exercise2
+## exercise2: reduce
 
 Python提供的sum()函数可以接受一个list并求和，请编写一个prod()函数，可以接受一个
 list并利用reduce()求积：
@@ -166,7 +166,7 @@ else:
     print('测试失败!')
 ```
 
-## exercise3
+## exercise3: map and reduce
 
 利用map和reduce编写一个str2float函数，把字符串'123.456'转换成浮点数123.456：
 
@@ -178,12 +178,20 @@ def str2float(s):
 
     DIGITS=dict( ( zip( [i for i in '0123456789'], range(10) ) )  )
 
-    def char2num(c):
+    def map1(c):
         return DIGITS[c] if c in '0123456789' else '.'
 
-    def fn(x, y):
-        
+    def rd1(x, y):
+        return x*10+y
 
+    def rd2(x, y):
+        return x*0.1+y
+
+    l=list(map(map1, s))
+    l1=l[0:l.index('.')]
+    l2=l[l.index('.')+1:]
+
+    return reduce(rd1, l1) + reduce(rd2, reversed(l2)) * 0.1
 
 print('str2float(\'123.456\') =', str2float('123.456'))
 
@@ -193,6 +201,33 @@ else:
     print('测试失败!')
 
 ```
+
+
+## exercise3: map and reduce (lambda)
+
+
+```python
+from functools import reduce
+
+def str2float(s):
+
+    DIGITS=dict( ( zip( [i for i in '0123456789'], range(10) ) )  )
+
+    l=list(map(lambda c: DIGITS[c] if c in '0123456789' else '.', s))
+    l1=l[0:l.index('.')]
+    l2=l[l.index('.')+1:]
+
+    return reduce(lambda x,y:x*10+y, l1) + reduce(lambda x,y:x*0.1+y, reversed(l2)) * 0.1
+
+print('str2float(\'123.456\') =', str2float('123.456'))
+
+if abs(str2float('123.456') - 123.456) < 0.00001:
+    print('测试成功!')
+else:
+    print('测试失败!')
+
+```
+
 
 # resources
 http://research.google.com/archive/mapreduce.html
