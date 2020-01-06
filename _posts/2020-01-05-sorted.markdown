@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "sorted"
-published: false
+published: true
 created:  2020 Jan 05 10:21:22 PM
 tags: [liaoxuefeng, python, sorted, py2]
 categories: [tech]
