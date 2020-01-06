@@ -3,7 +3,7 @@ layout: post
 title: "sorted"
 published: false
 created:  2020 Jan 05 10:21:22 PM
-tags: [life]
+tags: [liaoxuefeng, python, sorted, py2]
 categories: [tech]
 
 ---
