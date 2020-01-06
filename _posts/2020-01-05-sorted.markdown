@@ -1,0 +1,91 @@
+---
+layout: post
+title: "sorted"
+published: false
+created:  2020 Jan 05 10:21:22 PM
+tags: [life]
+categories: [tech]
+
+---
+
+TABLE OF CONTENT
+
+* auto-gen TOC:
+{:toc}
+
+- - -
+
+# sorted
+
+## sorted
+
+```python
+>>> sorted([36, 5, -12, 9, -21])
+[-21, -12, 5, 9, 36]
+```
+
+## sorted with 'key' func
+
+```python
+>>> sorted([36, 5, -12, 9, -21], key=abs)
+[5, 9, -12, -21, 36]
+
+
+>>> sorted(['bob', 'about', 'Zoo', 'Credit'])
+['Credit', 'Zoo', 'about', 'bob']
+
+>>> sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower)
+['about', 'bob', 'Credit', 'Zoo']
+
+>>> sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True)
+['Zoo', 'Credit', 'bob', 'about']
+
+```
+
+
+## py2 and py3
+
+感觉py3的key和它“取代”了的py2 的cmp完全两回事。
+
+* py2的cmp是提供了对比较“算法”的自定制功能
+* py3的key是提供了对原始”数据“的一个包装或者映射。
+* py3对比较算法没有改变。如需改变仍然需要调用类似py2的cmp函数。
+  见[sorted-in-py3](https://pynbgang.github.io/tech/2020/01/05/largest-number/#sorted-in-p3)
+
+<!--
+{{ site.url }}/assets/2020-01-05-largest-number.markdown
+-->
+
+## sorted exercise1
+
+假设我们用一组tuple表示学生名字和成绩：
+
+L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+请用sorted()对上述列表分别按名字排序：
+
+
+```python
+L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+
+def by_name(tup):
+    return tup[0]
+
+L2 = sorted(L, key=by_name)
+print(L2)
+```
+
+## sorted exercise2
+
+再按成绩从高到低排序：
+
+
+```python
+L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+
+def by_name(tup):
+    return tup[1]
+
+L2 = sorted(L, key=by_name, reverse=True)
+print(L2)
+```
+

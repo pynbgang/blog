@@ -21,6 +21,8 @@ https://www.lintcode.com/problem/largest-number/description?_from=ladder&&fromId
 
 ## zhangba
 
+py2:
+
 ```python
 class Solution:    
     # @param num: A list of non negative integers
@@ -39,6 +41,7 @@ class Solution:
         return largest[i:]
 ```
 
+py3:
 
 ```python
 class Solution:    
@@ -86,10 +89,11 @@ p2: `sorted` with `cmp`
     In [7]: 'ab' < 'ba'
     Out[7]: True
 
-the cmp logic is:
+the cmp logic is: convert x, y comparison to xy yx comparison.
+making 'x+y < y+x' to return 1 to indicate: 'make sure in the sorted list: xy is less than yx'
 
-    x+y > y+x => -1 => x b4 y => [x, y]
-    x+y < y+x => 1 => x after y => [y, x]
+    x+y < y+x == -1 => x b4 y => [x, y]
+    x+y > y+x == 1 => x after y => [y, x]
 
 therefore, take:
 
