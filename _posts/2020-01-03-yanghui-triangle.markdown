@@ -3,7 +3,7 @@ layout: post
 title: "yanghui triangle"
 published: true
 created:  2020 Jan 03 03:58:31 PM
-tags: [python, generator, zip, liaoxuefeng, 打油诗]
+tags: [python, generator, zip, liaoxuefeng, dayoushi]
 categories: [tech]
 
 ---
