@@ -1,0 +1,193 @@
+---
+layout: post
+title: "closure"
+published: true
+created:  2020 Jan 06 09:59:11 AM
+tags: [closure, python]
+categories: [tech]
+
+---
+
+TABLE OF CONTENT
+
+* auto-gen TOC:
+{:toc}
+
+- - -
+
+# closure
+
+## example1
+
+
+```python
+def calc_sum(*args):
+    ax = 0
+    for n in args:
+        ax = ax + n
+    return ax
+```
+
+```python
+def lazy_sum(*args):
+    def sum():
+        ax = 0
+        for n in args:
+            ax = ax + n
+        return ax
+    return sum
+```
+
+* f take exactly 1 param:
+
+        In [150]: f=lazy_sum(1,3,5)                                                               
+
+        In [153]: f()                                                                             
+        Out[153]: 9
+
+        In [154]: f(1)                                                                            
+        ---------------------------------------------------------------------------
+        TypeError                                 Traceback (most recent call last)
+        <ipython-input-154-281ab0a37d7d> in <module>
+        ----> 1 f(1)
+
+        TypeError: sum() takes 0 positional arguments but 1 was given
+
+* f is different each time:
+
+        In [155]: f                                                                               
+        Out[155]: <function __main__.lazy_sum.<locals>.sum()>
+
+        In [156]: id(f)                                                                           
+        Out[156]: 139716829242096
+
+        In [157]: f1=lazy_sum(1,3,5)                                                              
+
+        In [158]: id(f1)                                                                          
+        Out[158]: 139716823959480
+
+## example2
+
+```python
+def count():
+    fs = []
+    for i in range(1, 4):
+        def f():
+            return i*i
+        fs.append(f)
+    return fs
+
+f1, f2, f3 = count()
+f1()
+f2()
+f3()
+```
+
+    In [175]: f1()                                                                            
+    Out[175]: 9
+
+    In [176]: f2()                                                                            
+    Out[176]: 9
+
+    In [177]: f3()                                                                            
+    Out[177]: 9
+
+原因就在于返回的函数引用了变量i，但它并非立刻执行。等到3个函数都返回时，它们所引用的变量i已经变成了3，因此最终结果为9。
+
+## example3
+
+```python
+def count():
+    fs = []
+    def f(j):
+        def g():
+            return j*j
+        return g
+    for i in range(1, 4):
+        fs.append(f(i)) # f(i)立刻被执行，因此i的当前值被传入f()
+    return fs
+
+f1, f2, f3 = count()
+f1()
+f2()
+f3()
+
+```
+
+    In [180]: f1()                                                                            
+    Out[180]: 1
+
+    In [181]: f2()                                                                            
+    Out[181]: 4
+
+    In [182]: f3()                                                                            
+    Out[182]: 9
+
+
+
+## exercise
+
+### 1: nonlocal(cheat)
+
+```python
+def createCounter():
+    i=0
+    def counter():
+        nonlocal i
+        i+=1
+        return i
+    return counter
+```
+
+### 2: generator(cheat)
+
+```python
+def createCounter():
+    def gene():
+        i = 0
+        while True:
+            i = i + 1
+            yield i
+    g = gene()
+    def counter():
+        return next(g)
+    return counter
+```
+
+### 3: ?
+
+
+```python
+def createCounter():
+    def f(j):
+        return j
+    for i in range(1, 4):
+        yield f(i)
+```
+
+    In [201]: print(counterA(), counterA(), counterA(), counterA(), counterA()) # 1 2 3 4 5   
+    ---------------------------------------------------------------------------
+    TypeError                                 Traceback (most recent call last)
+    <ipython-input-201-524d73bc7552> in <module>
+    ----> 1 print(counterA(), counterA(), counterA(), counterA(), counterA()) # 1 2 3 4 5
+
+    TypeError: 'generator' object is not callable
+
+### test
+
+```python
+
+# 测试:
+counterA = createCounter()
+print(counterA(), counterA(), counterA(), counterA(), counterA()) # 1 2 3 4 5
+counterB = createCounter()
+if [counterB(), counterB(), counterB(), counterB()] == [1, 2, 3, 4]:
+    print('测试通过!')
+else:
+    print('测试失败!')
+```
+
+
+
+
+
