@@ -79,8 +79,8 @@ print(f.__name__)       # print the original func name
     In [45]: print(f.__name__)
     wrap        #<--- problem.
 
-*problem*: the orignal functions name is also changed.
-*solution*: use `functools.wraps` to recover it back
+* **problem**: the orignal functions name is also changed.
+* **solution**: use `functools.wraps` to recover it back
 
 ## example3: functools.wraps
 
