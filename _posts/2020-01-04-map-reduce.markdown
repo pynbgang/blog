@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "map reduce"
+title: "map reduce filter"
 published: true
 created:  2020 Jan 04 07:39:29 PM
-tags: [python, map, reduce, lambda, zip]
+tags: [python, map, reduce, lambda, zip, prime, generator]
 categories: [tech]
 
 ---
@@ -132,7 +132,7 @@ def str2int(s):
     return reduce(lambda x,y: x*10+y, map(lambda s:DIGITS[s], s))
 ```
 
-# exercises
+# map reduce exercises
 
 ## exercise1: map
 
@@ -262,6 +262,105 @@ else:
 ```
 
 
+
+# filter
+
+## filter example1: get odd number from list
+
+```python
+def is_odd(n):
+    return n % 2 == 1
+
+list(filter(is_odd, [1, 2, 4, 5, 6, 9, 10, 15]))
+```
+
+## filter example2: remove empty string from list
+
+```python
+def not_empty(s):
+    return s and s.strip()
+
+list(filter(not_empty, ['A', '', 'B', None, 'C', '  ']))
+```
+
+## filter example3: find primes
+
+```python
+#先构造一个从3开始的奇数序列
+#[3, 5, 7]
+def _odd_iter():
+    n = 1
+    while True:
+        n = n + 2
+        yield n
+
+#然后定义一个筛选函数
+def _not_divisible(n):
+    return lambda x: x % n > 0
+
+#最后，定义一个生成器，不断返回下一个素数
+def primes():
+    yield 2
+    #[3, 5, 7]
+    it = _odd_iter() # 初始序列
+    while True:
+        n = next(it) # 返回序列的第一个数
+        yield n
+        #i for i in [3, 5, 7] if i % 3
+        it = filter(_not_divisible(n), it) # 构造新序列
+
+# 打印1000以内的素数:
+for n in primes():
+    if n < 1000:
+        print(n)
+    else:
+        break
+```
+
+idea:
+
+* 素数必然在奇数里找
+* 每一个奇数, 只要不被所有比自己小的奇数整除, 必然是素数
+
+运行：
+
+    yield 2
+    it=[3,5,7,9,11,13,15,17,19,21,23,25]
+    loop:
+        yield next(it) => yield 3
+        it=[i for i in [3,5,7,9,11,13,15,17,19,21,23,25] if i % 3] 
+        =>          it=[x,5,7,x,11,13,xx,17,19,xx,23,25]
+        =>          it=[5,7,11,13,17,19,23,25]
+        最小的数'5' 已经尝试过所有比自己小的奇数(3)，都不能整除，所以5必是素数
+
+        yield next(it) => yield 5
+        it=[i for i in [5,7,11,13,17,19,23,25] if i % 5]
+        =>          it=[x,7,11,13,17,19,23,xx]
+        =>          it=[7,11,13,17,19,23]
+        最小的数'7' 已经尝试过所有比自己小的奇数(3,5)，都不能整除，所以7必是素数
+
+        yield next(it) => yield 7
+        ......
+
+
+## filter exercises1
+
+回数是指从左向右读和从右向左读都是一样的数，例如12321，909。请利用filter()筛选出回数：
+
+
+```python
+def is_palindrome(n):
+    return str(n) == str(n)[::-1]
+
+# 测试:
+output = filter(is_palindrome, range(1, 1000))
+print('1~1000:', list(output))
+
+if list(filter(is_palindrome, range(1, 200))) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55, 66, 77, 88, 99, 101, 111, 121, 131, 141, 151, 161, 171, 181, 191]:
+    print('测试成功!')
+else:
+    print('测试失败!')
+```
 
 # resources
 http://research.google.com/archive/mapreduce.html
