@@ -1,0 +1,309 @@
+---
+layout: post
+title: "socket"
+published: true
+created:  2020 Jan 07 02:30:52 PM
+tags: [python, socket, module]
+categories: [tech]
+
+---
+
+TABLE OF CONTENT
+
+* auto-gen TOC:
+{:toc}
+
+- - -
+
+
+# socket
+
+## TCP client: download webpage
+
+```python
+# 导入socket库:
+import socket
+
+# 创建一个socket:
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# 建立连接:
+s.connect(('www.google.com', 80))
+s.send(b'GET / HTTP/1.1\r\nHost: www.google.com\r\nConnection: close\r\n\r\n')
+
+buffer = []
+while True:
+    # 每次最多接收1k字节:
+    d = s.recv(1024)
+    if d:
+        buffer.append(d)
+    else:
+        break
+
+data = b''.join(buffer)
+
+s.close()
+
+header, html = data.split(b'\r\n\r\n', 1)
+print(header.decode('utf-8'))
+# 把接收的数据写入文件:
+with open('sina.html', 'wb') as f:
+    f.write(html)
+```
+
+## TCP server and client
+
+### server
+
+```python
+import socket 
+import threading 
+import time
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# 监听端口:
+s.bind(('127.0.0.1', 9991))
+s.listen(5)
+print('Waiting for connection...')
+while True:
+    # 接受一个新连接:
+    sock, addr = s.accept()
+    # 创建新线程来处理TCP连接:
+    t = threading.Thread(target=tcplink, args=(sock, addr))
+    t.start()
+
+def tcplink(sock, addr):
+    print('Accept new connection from %s:%s...' % addr)
+    sock.send(b'Welcome!')
+    while True:
+        data = sock.recv(1024)
+        time.sleep(1)
+        if not data or data.decode('utf-8') == 'exit':
+            break
+        sock.send(('Hello, %s!' % data.decode('utf-8')).encode('utf-8'))
+    sock.close()
+    print('Connection from %s:%s closed.' % addr)
+```
+
+### client:
+
+```python
+import socket
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# 建立连接:
+s.connect(('127.0.0.1', 9991))
+# 接收欢迎消息:
+print(s.recv(1024).decode('utf-8'))
+for data in [b'Michael', b'Tracy', b'Sarah']:
+    # 发送数据:
+    s.send(data)
+    print(s.recv(1024).decode('utf-8'))
+s.send(b'exit')
+s.close()
+```
+
+
+## UDP server and client
+
+.client
+
+```python
+import socket
+
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+for data in [b'Michael', b'Tracy', b'Sarah']:
+    # 发送数据:
+    s.sendto(data, ('127.0.0.1', 9999))
+    # 接收数据:
+    print(s.recv(1024).decode('utf-8'))
+
+s.close()
+```
+
+.server
+
+```python
+import socket
+
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+# 绑定端口:
+s.bind(('127.0.0.1', 9999))
+
+print('Bind UDP on 9999...')
+
+while True:
+    # 接收数据:
+    data, addr = s.recvfrom(1024)
+    print('Received from %s:%s.' % addr)
+    reply = 'Hello, %s!' % data.decode('utf-8')
+    s.sendto(reply.encode('utf-8'), addr)
+```
+
+
+## chatting room
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time : 2018/12/6 14:10
+# @Author : Mr.Zuo
+# @File : chatrom.py
+# @desc : 简易聊天室
+import socket
+import threading
+import logging
+
+# 客户端 数据分隔符
+CLIENT_SPLIT = ']]][[['
+# 消息编码
+MESSAGE_ENCODING = 'utf-8'
+# TCP最大等待连接数
+TCP_MAX_WAITING = 10
+# 一次读取字节数
+BUFFER_SIZE = 1024
+# 默认主机名和端口
+DEFAULT_ADDRESS = ('127.0.0.1', 8080)
+logging.basicConfig(level=logging.INFO)
+
+
+# 聊天室服务器
+class Server(socket.socket):
+
+    def __init__(self, address=DEFAULT_ADDRESS):
+        super(Server, self).__init__(type=socket.SOCK_DGRAM)
+        # 服务器地址
+        self.__address = address
+        # 保存客户端信息 key为用户名 value为用户地址
+        self.__clients = dict()
+
+    # 启动服务器
+    def start(self):
+        # 绑定UDP地址
+        self.bind(self.__address)
+        logging.info('【服务器已启动，主机：%s，端口：%s】' % self.__address)
+        while True:
+            try:
+                # 接收用户消息
+                data, addr = self.recvfrom(BUFFER_SIZE)
+                data = data.decode(MESSAGE_ENCODING)
+                # 如果data不包含分隔符，则是第一次发送
+                if CLIENT_SPLIT not in data:
+                    # 将该用户存入客户端字典
+                    self.__clients[data] = addr
+                    self.sys_message('欢迎%s进入聊天室' % data)
+                else:
+                    # 向聊天室广播
+                    self.user_message(data, addr)
+            except ConnectionError as e:
+                logging.debug(e)
+
+    # 像聊天室所有用户发送信息(除发送消息的用户)
+    def user_message(self, msg, from_address=None):
+        logging.info('接收到消息：%s' % msg)
+        logging.info('当前客户端：%s' % self.__clients)
+        for name, address in self.__clients.items():
+            # 排除发送消息的客户端
+            if from_address != address:
+                self.sendto(msg.encode(MESSAGE_ENCODING), address)
+
+    # 发送系统消息
+    def sys_message(self, msg):
+        msg = 'sys' + CLIENT_SPLIT + msg
+        for name, address in self.__clients.items():
+            self.sendto(msg.encode(MESSAGE_ENCODING), address)
+
+
+# 聊天室客户端
+class Client(socket.socket):
+
+    def __init__(self, name, address=DEFAULT_ADDRESS):
+        super(Client, self).__init__(type=socket.SOCK_DGRAM)
+        # 服务器地址
+        self.__address = address
+        # 聊天室昵称
+        self.__name = name
+
+    # 启动客户端
+    def start(self):
+        logging.info('【客户端已启动】')
+        # 启动后向服务器发送昵称和客户端地址
+        self.sendto(self.__name.encode(MESSAGE_ENCODING), self.__address)
+        # 启动子线程接收服务器消息
+        t = threading.Thread(target=self.recv_handler)
+        t.start()
+        while True:
+            msg = input()
+            self.send_msg(msg)
+
+    # 发送消息
+    def send_msg(self, msg):
+        # 将用户昵称加入消息
+        data = (self.__name+CLIENT_SPLIT+msg).encode(MESSAGE_ENCODING)
+        # 发送消息至服务器
+        self.sendto(data, self.__address)
+        self.show_msg(data)
+
+    # 打印消息
+    def show_msg(self, data):
+        name, msg = data.decode(MESSAGE_ENCODING).split(CLIENT_SPLIT)
+        if name == 'sys':
+            print('----------%s----------' % msg)
+        elif name == self.__name:
+            print('%s：%s' % (name, msg))
+        else:
+            print('\t\t\t\t\t\t%s：%s' % (msg, name))
+
+    # 接收服务器发送的数据
+    def recv_handler(self):
+        while True:
+            data = self.recv(BUFFER_SIZE)
+            self.show_msg(data)
+
+
+
+# 创建服务器
+from chatrom import Server
+
+server = Server(address=('127.0.0.1', 8080))
+
+server.start()
+
+# 创建客户端
+from chatrom import Client
+c = Client('Alex1', address=('127.0.0.1', 8080))
+
+c.start()
+```
+
+
+### test
+
+server:
+
+    In [114]: server.start()                                                        
+    INFO:root:【服务器已启动，主机：127.0.0.1，端口：8080】
+    INFO:root:接收到消息：Alex1]]][[[hi
+    INFO:root:当前客户端：{'Alex1': ('127.0.0.1', 59956)}
+    INFO:root:接收到消息：Alex1]]][[[how are you?
+    INFO:root:当前客户端：{'Alex1': ('127.0.0.1', 59956)}
+    hi
+    INFO:root:接收到消息：Alex1]]][[[
+    INFO:root:当前客户端：{'Alex1': ('127.0.0.1', 59956)}
+    INFO:root:接收到消息：Alex1]]][[[what are you talking about?
+    INFO:root:当前客户端：{'Alex1': ('127.0.0.1', 59956)}
+
+client:
+
+    In [8]: c = Client('Alex1', address=('127.0.0.1', 8080)) 
+    ...: c.start()                                                               
+    INFO:root:【客户端已启动】
+    ----------欢迎Alex1进入聊天室----------
+    hi
+    Alex1：hi
+    how are you?
+    Alex1：how are you?
+
+    Alex1：
+    what are you talking about?
+    Alex1：what are you talking about?
+
