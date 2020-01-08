@@ -57,7 +57,6 @@ keys:
     root =  -----------------
             2a
 
-$$root = \frac{-b \pm\sqrt{b^2 - 4ac}}{2a}$$
 
 ## zhangba
 
