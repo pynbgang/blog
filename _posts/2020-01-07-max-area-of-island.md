@@ -18,7 +18,9 @@ published: true
 ---
 
 TABLE OF CONTENT
-[TOC]
+
+* auto-gen TOC:
+{:toc}
 
 - - -
 
