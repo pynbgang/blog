@@ -3,7 +3,7 @@ layout: post
 title: "validate-ip-address"
 published: true
 created:  2020 Jan 02 03:30:01 PM
-tags: [leetcode, python, lintcode, networking, all, split, count]
+tags: [leetcode, python, lintcode, networking, all, split, count, wangmazi]
 categories: [tech]
 
 ---
@@ -147,7 +147,7 @@ def validIPAddress(self, IP):
 * `x or y` instead of `expr if else`
 * ...
 
-## zhangba
+## wangmazi
 
 ```python
 class Solution(object):

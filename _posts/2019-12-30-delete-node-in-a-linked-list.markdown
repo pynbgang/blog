@@ -3,7 +3,7 @@ layout: post
 title: "delete-node-in-a-linked-list"
 published: true
 created:  2019 Dec 30 12:47:06 AM
-tags: [python, lintcode, LinkedList, easy]
+tags: [python, lintcode, LinkedList, easy, wangmazi]
 categories: [tech]
 
 ---
@@ -17,7 +17,7 @@ TABLE OF CONTENT
 
 # [delete-node-in-a-linked-list](https://www.lintcode.com/problem/delete-node-in-a-linked-list/description?_from=ladder&&fromId=99)
 
-## zhangba
+## wangmazi
 
 ```python
 class Solution:

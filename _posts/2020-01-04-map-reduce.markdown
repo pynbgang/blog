@@ -21,7 +21,9 @@ what it does:
 
 ```python
 l=[x1, x2, x3, x4]
-map(f, l) = [f(i) for i in l]
+map(f, l)
+#same as
+[f(i) for i in l]
 ```
 
 ## example1: sqrt of list

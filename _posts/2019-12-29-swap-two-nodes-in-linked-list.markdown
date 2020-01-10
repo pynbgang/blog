@@ -11,6 +11,7 @@ tags:
     - medium
     - python
     - dayoushi
+    - wangmazi
 created:  2019 Dec 29 11:53:49 PM
 categories: [tech]
 published: true
@@ -127,7 +128,7 @@ class Solution:
         return dummy.next
 ```
 
-## zhangba
+## wangmazi
 
 ```python
 class Solution:

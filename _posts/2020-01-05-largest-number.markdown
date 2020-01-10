@@ -3,7 +3,7 @@ layout: post
 title: "largest number"
 published: true
 created:  2020 Jan 05 07:54:57 PM
-tags: [lintcode, python, sorted, join, lambda, functools]
+tags: [lintcode, python, sorted, join, lambda, functools, wangmazi]
 categories: [tech]
 
 ---
@@ -19,7 +19,7 @@ TABLE OF CONTENT
 
 https://www.lintcode.com/problem/largest-number/description?_from=ladder&&fromId=99
 
-## zhangba
+## wangmazi
 
 py2:
 
