@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "max-area-of-island-suppliment"
+title: "max-area-of-island"
 subtitle: ""
 date: 2020-01-07
 author: "xiaofo"
