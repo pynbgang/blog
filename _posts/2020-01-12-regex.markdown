@@ -304,7 +304,8 @@ re.split(r'[\s,;]+', 'a,b;; c  d')
 Out[55]: ['a', 'b', 'c', 'd']
 ```
 
-----
+
+```python
 >>> re.split(r'[\s\,\;]+', 'a,b;; c d')
 ['a', 'b', 'c', 'd']
 
@@ -314,30 +315,33 @@ Out[55]: ['a', 'b', 'c', 'd']
 >>> re.split(r'[\s,;]+', 'a,b;; c d')
 ['a', 'b', 'c', 'd']
 >>>
-----
+```
 
 ## sub()
 
 * http://www.crifan.com/python_re_sub_detailed_introduction/
 
-    In [8]: inputStr = "hello crifan, nihao crifan";
-    ...: replacedStr = re.sub(r"hello (\w+), nihao \1", "crifanli", inputStr);
-                                      -----        --    -------- 
-    ...: print "replacedStr=",replacedStr; #crifanli
-    ...:
-    replacedStr= crifanli
 
-    In [7]: inputStr = "hello crifan, nihao crifan";
-    ...: replacedStr = re.sub(r"hello (\w+), nihao \1", "\g<1>", inputStr);
-                                      -----        --    -----
-    ...: print "replacedStr=",replacedStr; #crifan
-    ...:
-    replacedStr= crifan
+```python
+In [8]: inputStr = "hello crifan, nihao crifan";
+...: replacedStr = re.sub(r"hello (\w+), nihao \1", "crifanli", inputStr);
+                                  -----        --    -------- 
+...: print "replacedStr=",replacedStr; #crifanli
+...:
+replacedStr= crifanli
 
-    In [9]: inputStr = "hello crifan, nihao crifan";
-    ...: replacedStr = re.sub(r"hello (?P<name>\w+), nihao (?P=name)", "\g<name>", in
-    ...: putStr);
-    ...: print "replacedStr=",replacedStr; #crifan
-    ...:
-    replacedStr= crifan
+In [7]: inputStr = "hello crifan, nihao crifan";
+...: replacedStr = re.sub(r"hello (\w+), nihao \1", "\g<1>", inputStr);
+                                  -----        --    -----
+...: print "replacedStr=",replacedStr; #crifan
+...:
+replacedStr= crifan
 
+In [9]: inputStr = "hello crifan, nihao crifan";
+...: replacedStr = re.sub(r"hello (?P<name>\w+), nihao (?P=name)", "\g<name>", in
+...: putStr);
+...: print "replacedStr=",replacedStr; #crifan
+...:
+replacedStr= crifan
+
+```
