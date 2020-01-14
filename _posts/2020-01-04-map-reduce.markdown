@@ -16,8 +16,8 @@ TABLE OF CONTENT
 - - -
 
 # code
+ def addtwostring(str1,str2):
 
-def addtwostring(str1,str2):
     if not str1 and str2:
         return str2
     if not str2 and str1:
