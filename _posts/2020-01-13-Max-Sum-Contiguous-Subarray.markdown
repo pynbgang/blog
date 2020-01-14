@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Max Sum Contiguous Subarray"
+author: "owen"
 published: true
 created:  2020 Jan 13 23:34:22 PM
 tags: [fb, google, python, interview]
@@ -21,14 +22,14 @@ Find the contiguous subarray within an array, A of length N which has the larges
 https://www.interviewbit.com/problems/max-sum-contiguous-subarray/
 
 # Code
-class Solution:
 
+```python
+class Solution:
     def maxSubArray(self, nums):
         # write your code here
         n=len(nums)
         if n==1:
             return nums[0]
-            
         min_prefix_sum=0
         max_sum=-sys.maxsize
         prefix_sum=0
@@ -37,6 +38,8 @@ class Solution:
             max_sum=max(max_sum,prefix_sum-min_prefix_sum)
             min_prefix_sum=min(min_prefix_sum,prefix_sum)
         return max_sum
+```
+
 # 思路
 
   - 字符子串问题 

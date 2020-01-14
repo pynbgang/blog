@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "adding two stringnum"
+author: "owen"
 published: true
 created:  2020 Jan 13 23:13:29 PM
 tags: [python, string, int, fb, math, lstrip, assert, zip]
@@ -49,7 +50,6 @@ def addtwostring(str1,str2):
 def addtwostring(str1,str2):
     str2num=dict((zip('0123456789', range(10))))
     num2str=dict((zip(range(10), '0123456789')))
-    num2str={str2num[i]:i for i in str2num}
     l1=[i for i in str1][::-1]
     l2=[i for i in str2][::-1]
     if len(l1) >= len(l2): l1, l2 = l2, l1
