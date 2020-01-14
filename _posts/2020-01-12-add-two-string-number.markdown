@@ -48,7 +48,7 @@ def addtwostring(str1,str2):
 ```python
 def addtwostring(str1,str2):
     str2num=dict((zip('0123456789', range(10))))
-    num2str=dict((range(10), zip('0123456789')))
+    num2str=dict((zip(range(10), '0123456789')))
     num2str={str2num[i]:i for i in str2num}
     l1=[i for i in str1][::-1]
     l2=[i for i in str2][::-1]
@@ -68,7 +68,7 @@ def addtwostring(str1,str2):
     # char <--> digit mapping
     # str2num={'0':0, '1':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9}
     str2num=dict((zip('0123456789', range(10))))
-    num2str=dict((range(10), zip('0123456789')))
+    num2str=dict((zip(range(10), '0123456789')))
 
     # '123' -> ['1','2','3'] -> ['3','2','1']
     #  '45'  ->['4','9']     -> ['9','4']
