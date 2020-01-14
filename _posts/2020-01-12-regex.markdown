@@ -101,7 +101,7 @@ m.groups()
     [ins] In [44]: m.groups()                                                       
     Out[44]: ('19', '05', '30')
 
-## non-greedy(`+`)
+## non-greedy(`?`)
 
 .greedy: `\d+`
 

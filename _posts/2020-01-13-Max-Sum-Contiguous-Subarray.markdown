@@ -3,7 +3,7 @@ layout: post
 title: "Max Sum Contiguous Subarray"
 published: true
 created:  2020 Jan 13 23:34:22 PM
-tags: [FB,GOOGLE,Python]
+tags: [fb, google, python, interview]
 categories: [tech]
 
 ---
