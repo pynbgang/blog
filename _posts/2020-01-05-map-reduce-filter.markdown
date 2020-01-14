@@ -97,6 +97,8 @@ output:
 
     13579
 
+# map and reduce
+
 ## example3: implement `int()`
 
 ```python

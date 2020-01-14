@@ -3,7 +3,7 @@ layout: post
 title: "adding two stringnum"
 published: true
 created:  2020 Jan 13 23:13:29 PM
-tags: [python, string, int, fb, math, lstrip, assert]
+tags: [python, string, int, fb, math, lstrip, assert, zip]
 categories: [tech]
 
 ---
@@ -47,7 +47,8 @@ def addtwostring(str1,str2):
 
 ```python
 def addtwostring(str1,str2):
-    str2num={'0':0, '1':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9}
+    str2num=dict((zip('0123456789', range(10))))
+    num2str=dict((range(10), zip('0123456789')))
     num2str={str2num[i]:i for i in str2num}
     l1=[i for i in str1][::-1]
     l2=[i for i in str2][::-1]
@@ -65,8 +66,9 @@ def addtwostring(str1,str2):
 ```python
 def addtwostring(str1,str2):
     # char <--> digit mapping
-    str2num={'0':0, '1':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9}
-    num2str={str2num[i]:i for i in str2num}
+    # str2num={'0':0, '1':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9}
+    str2num=dict((zip('0123456789', range(10))))
+    num2str=dict((range(10), zip('0123456789')))
 
     # '123' -> ['1','2','3'] -> ['3','2','1']
     #  '45'  ->['4','9']     -> ['9','4']
@@ -79,6 +81,7 @@ def addtwostring(str1,str2):
     # convert to digit and plus the 2 lists -> [12, 6, 1]
     for i in range(len(l2)):
         l2[i] = str2num[l1[i]]+str2num[l2[i]] if i < len(l1) else str2num[l2[i]]
+
 
     # give one more digit for carry: [12, 6, 1, 0]
     l2.append(0)
