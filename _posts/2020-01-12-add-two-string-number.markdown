@@ -46,6 +46,7 @@ def addtwostring(str1,str2):
 ## ping
 
 ```python
+def addtwostring(str1,str2):
     str2num={'0':0, '1':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9}
     num2str={str2num[i]:i for i in str2num}
     l1=[i for i in str1][::-1]
