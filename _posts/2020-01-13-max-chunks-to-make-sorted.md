@@ -51,8 +51,8 @@ class Solution:
         return res
 ```
 ## solution (from owen'blind guess)
- class Solution(object):
-    def maxChunksToSorted(self, arr):
+class Solution(object):
+   def maxChunksToSorted(self, arr):
         if len(arr)==1:
             return 1
         count=1
