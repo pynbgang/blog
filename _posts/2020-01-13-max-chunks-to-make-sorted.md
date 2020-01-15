@@ -52,14 +52,23 @@ class Solution:
 ```
 ## solution (from owen'blind guess)
 class Solution(object):
+
    def maxChunksToSorted(self, arr):
+   
         if len(arr)==1:
+        
             return 1
+            
         count=1
+        
         for i in range(1,len(arr)):
+        
             if min(arr[i:])>max(arr[0:i]):
+            
                 count+=1
+                
         return count
+        
 
 ## takeaway 
 
