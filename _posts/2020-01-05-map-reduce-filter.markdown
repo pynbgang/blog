@@ -103,7 +103,7 @@ output:
 
 ```python
 from functools import reduce
-DIGITS=dict( ( zip( [i for i in '0123456789'], range(10) ) )  )
+DIGITS=dict( ( zip('0123456789', range(10)) )  )
 
 def str2int(s):
 
@@ -131,7 +131,7 @@ def str2int(s):
 
 ```python
 from functools import reduce
-DIGITS=dict( ( zip( [i for i in '0123456789'], range(10) ) )  )
+DIGITS=dict( ( zip('0123456789', range(10)) )  )
 def str2int(s):
     return reduce(lambda x,y: x*10+y, map(lambda s:DIGITS[s], s))
 ```
@@ -180,7 +180,7 @@ from functools import reduce
 
 def str2float(s):
 
-    DIGITS=dict( ( zip( [i for i in '0123456789'], range(10) ) )  )
+    DIGITS=dict( ( zip('0123456789', range(10)) )  )
 
     def map1(c):
         return DIGITS[c] if c in '0123456789' else '.'
@@ -225,7 +225,7 @@ from functools import reduce
 
 def str2float(s):
 
-    DIGITS=dict( ( zip( [i for i in '0123456789'], range(10) ) )  )
+    DIGITS=dict( ( zip('0123456789', range(10)) )  )
 
     l=list(map(lambda c: DIGITS[c] if c in '0123456789' else '.', s))
     l1=l[0:l.index('.')]
@@ -249,7 +249,7 @@ else:
 from functools import reduce
 
 def str2float(s):
-    DIGITS=dict( ( zip( [i for i in '0123456789'], range(10) ) )  )
+    DIGITS=dict( ( zip('0123456789', range(10)) )  )
     l=list(map(lambda c: DIGITS[c] if c in '0123456789' else '.', s))
     power, div = len(l)-l.index('.')-1, 1       #get power 123.23 => 2
     for i in range(power): div *= 10            #get div (/100) per power(2)
