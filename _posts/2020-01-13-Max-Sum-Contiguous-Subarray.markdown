@@ -168,7 +168,7 @@ corrected:
 ，然后用sum减去这个最小sum值就是这一段总的最大值。
 -->
 
-# another solution (best)
+## another solution (best)
 
 https://github.com/yuzhangcmu/LeetCode/blob/master/array/MaxSubArray_1220_2014.java
 https://soulmachine.gitbooks.io/algorithm-essentials/java/dp/maximum-subarray.html
