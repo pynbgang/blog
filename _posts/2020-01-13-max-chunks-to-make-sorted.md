@@ -10,6 +10,7 @@ tags:
     - medium
     - python
     - xiaofo
+    - enumerate
 created:  2020 Jan 13 22:50:11 AM
 categories: [tech]
 published: true
@@ -24,6 +25,8 @@ TABLE OF CONTENT
 - - -
 
 # [max-chunks-to-make-sorted](https://leetcode.com/problems/max-chunks-to-make-sorted/)
+
+https://www.lintcode.com/problem/max-chunks-to-make-sorted/description
 
 ## solution (most voted answer 1) 
 
@@ -53,4 +56,6 @@ class Solution:
 
 ## takeaway 
 
-- each chunk should have same set of numbers while seperate from other chunks, since index will keep increasing, tracking max value or sum of all previous numbers should be reliable
+- each chunk should have same set of numbers while seperate from other chunks,
+  since index will keep increasing, tracking max value or sum of all previous
+  numbers should be reliable
