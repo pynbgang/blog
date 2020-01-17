@@ -86,7 +86,6 @@ is not:
 * not divisible by 400
 
 ```python
-# not working
 return bool(not (n % 4 or not n % 100) and n % 400)
 ```
 
