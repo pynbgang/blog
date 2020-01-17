@@ -1,0 +1,108 @@
+---
+layout: post
+title: "leap year"
+published: true
+created:  2020 Jan 17 10:51:20 AM
+tags: [python, logical, lintcode]
+categories: [tech]
+
+---
+
+TABLE OF CONTENT
+
+* auto-gen TOC:
+{:toc}
+
+- - -
+
+
+# posted: easy:leap-year
+
+[leap year](https://www.lintcode.com/problem/leap-year/)
+
+A leap year (also known as an intercalary year or bissextile year) is a
+calendar year containing one additional day. 
+
+A leap year (also known as an intercalary year or bissextile year) is a
+calendar year containing one additional day.if a year is divisible by 4 and not
+divisible by 100 or divisible by 400,it is a leap year. --wikipedia
+
+* is divisible by 4 and not divisible by 100 , or
+* or divisible by 400
+
+
+```python
+class Solution:
+    """
+    @param n: a number represent year
+    @return: whether year n is a leap year.
+    """
+    def isLeapYear(self, n):
+        # write your code here
+        if not n % 4:
+            if not n % 100:
+                if not n % 400:
+                    return True
+                else:
+                    return False
+            else:
+                return True
+        else:
+            return False
+```
+
+using python operator precedence: not -> and -> or
+
+```python
+return (n % 4 == 0) and not (n % 100 == 0) or (n % 100 == 0) and (n % 400 == 0)
+```
+
+removing the 2nd `n%100` (dup with `n%400`)
+
+```python
+return n % 400 == 0 or n % 4 == 0 and n % 100 != 0
+```
+
+using 'not':
+
+```python
+#wrong: because True and 3 => 3, not True
+return not n % 400 or not n % 4 and n % 100
+```
+
+```python
+#correct
+return bool(not n % 400 or not n % 4 and n % 100)
+```
+
+use `not (xxx)`:
+
+is:
+* divisible by 4 and not divisible by 100 , or
+* divisible by 400
+
+equals to:
+
+is not:
+* not divisible by 4 or divisible by 100 , and
+* not divisible by 400
+
+```python
+# not working
+return bool(not (n % 4 or not n % 100) and n % 400)
+```
+
+<!--
+    a and b <=> not (not a or not b)
+    not a or not b  <=> not (a and b) ?
+
+but 
+
+    [ins] In [70]: a,b=3, 4
+    [ins] In [71]: (not a or not b) == (not (a and b))
+    Out[71]: True
+    [ins] In [72]: (a or b) == (not (not a and not b))
+    Out[72]: False
+?
+-->
+

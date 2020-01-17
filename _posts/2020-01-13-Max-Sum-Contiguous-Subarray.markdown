@@ -93,7 +93,7 @@ class Solution:
         -------------------------       pres: 0到n的简单累加
         --------------                  pres: 0到m的简单累加
 
-   因此m，n任意区间求和转化为两个从0开始的遍历，但问题认为on2
+   因此m，n任意区间求和转化为两个从0开始的遍历，但问题仍为on2
 
 
 2. 基于1，对任意n，sums(m,n) 最大必然 ===> pres(m)最小. 
@@ -181,10 +181,6 @@ https://soulmachine.gitbooks.io/algorithm-essentials/java/dp/maximum-subarray.ht
     so:      for s[j-1] (max sums from 0 to j-1), if it is nagative, ignore it,
              (because it won't contribute to the result)
 
-so: just iterate and accumlate sums. if previous sum becomes negative, drop it (by set 0)
-
-much easier to understand?
-
 ```python
 class Solution:
     def maxSubArray(self, nums):
@@ -195,3 +191,6 @@ class Solution:
         return maxs
 ```
 
+so: just iterate and accumlate sums. if previous sum becomes negative, drop it (by set 0)
+
+much easier to understand?
