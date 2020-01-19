@@ -90,7 +90,7 @@ class Solution:
         """
 ```
 
-## oneliners
+## oneliners (jj, best) 
 
 ```python
     def fizzBuzz(self, n):

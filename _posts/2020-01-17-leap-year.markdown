@@ -16,7 +16,7 @@ TABLE OF CONTENT
 - - -
 
 
-# leap year](https://www.lintcode.com/problem/leap-year/)
+# [leap year](https://www.lintcode.com/problem/leap-year/)
 
 A leap year (also known as an intercalary year or bissextile year) is a
 calendar year containing one additional day. 
