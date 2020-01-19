@@ -119,14 +119,14 @@ others will be empty ''. so '+' effectively becomes 'or'.
         ]
   ```
 
-  or
+  or (best, saved condition for str(i) with `or`)
 
 
   ```python
       def fizzBuzz(self, n):
           return ["fizz" * (not i%3)  +
             " " * (not i%15)          +
-            "buzz" * (not i%5)        +
+            "buzz" * (not i%5)        or
             str(i) for i in range(1, n + 1)
             ]
   ```
