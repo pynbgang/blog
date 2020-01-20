@@ -104,8 +104,8 @@ tips:
     * and need shift, => 
     * this is `&` and `<<1` operation: `(a&b)<<1`
 * addition is the sum of above 2 =>
-* this is recursion (use a `sum` to implement a `sum`)
-* use loop (`while`) to avoid time out of recursion
+* this is recursion (use a `sum` to implement a `sum`), or
+* use loop (`while`) to avoid recursion
 
 - https://stackoverflow.com/questions/30696484/a-b-without-arithmetic-operators-python-vs-c
 
@@ -130,6 +130,20 @@ stop since b is 0, return a as sum: 1100 (12)
 TODO: read about 补码
 -->
 
+### lintcode error
+
+    Time Limit Exceeded
+    Powered by LintCode FlashJudge
+    50%
+    50% test cases passedTotal runtime 1120 ms
+    Input
+    100
+    -100
+    Expected
+    0
+    Hint
+    Your code ran too much time than we expected. Check your time complexity. Time limit exceeded usually caused by infinite loop if your time complexity is the best.
+
 ## solution2 (recursion)
 
 ```python
@@ -151,7 +165,22 @@ class Solution:
     complexity. Time limit exceeded usually caused by infinite loop if your time
     complexity is the best.
 
+### lintcode error
+
+    Memory Limit Exceeded
+    Powered by LintCode FlashJudge
+    50%
+    50% test cases passedTotal runtime 111 ms
+    Input
+    100
+    -100
+    Expected
+    0
+    Hint
+    Your code cost too much memory than we expected. Check your space complexity. Memory limit exceeded usually caused by you create a 2D-array which is unnecessary.
+
 ## solution3
+
 ```python
 class Solution:
     def aplusb(self, a, b):
@@ -162,5 +191,3 @@ class Solution:
             a, b = (a ^ b) % MASK, ((a & b) << 1) % MASK
         return a if a <= MAX_INT else ~((a % MIN_INT) ^ MAX_INT)
 ```
-
-this works, but I don't quite get it yet :(
