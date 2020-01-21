@@ -3,7 +3,7 @@ layout: post
 title: "palindrome-number"
 published: true
 created:  2020 Jan 21 01:59:22 PM
-tags: [easy, python]
+tags: [easy, python, lintcode]
 categories: [tech]
 
 ---

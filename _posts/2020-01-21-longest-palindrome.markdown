@@ -3,7 +3,7 @@ layout: post
 title: "longest-palindrome"
 published: true
 created:  2020 Jan 21 01:28:00 PM
-tags: [dict, python, Counter]
+tags: [dict, python, Counter, easy, lintcode]
 categories: [tech]
 
 ---
@@ -15,9 +15,7 @@ TABLE OF CONTENT
 
 - - -
 
-# posted:easy:longest-palindrome
-
-https://www.lintcode.com/problem/longest-palindrome/description?_from=ladder&&fromId=99
+# [longest-palindrome](https://www.lintcode.com/problem/longest-palindrome/description?_from=ladder&&fromId=99)
 
 ## wangmazi
 
