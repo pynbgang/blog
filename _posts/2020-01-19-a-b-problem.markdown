@@ -161,10 +161,6 @@ class Solution:
         return self.aplusb(a^b, ((a&b)<<1))
 ```
 
-    leetcode: Your code ran too much time than we expected. Check your time
-    complexity. Time limit exceeded usually caused by infinite loop if your time
-    complexity is the best.
-
 ### lintcode error
 
     Memory Limit Exceeded
@@ -186,7 +182,7 @@ class Solution:
     def aplusb(self, a, b):
         MAX_INT = 0x7FFFFFFF
         MIN_INT = 0x80000000
-        MASK = 0x100000000
+        MASK    = 0x100000000
         while b:
             a, b = (a ^ b) % MASK, ((a & b) << 1) % MASK
         return a if a <= MAX_INT else ~((a % MIN_INT) ^ MAX_INT)
