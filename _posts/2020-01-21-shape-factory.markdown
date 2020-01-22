@@ -3,7 +3,7 @@ layout: post
 title: "shape-factory"
 published: true
 created:  2020 Jan 21 10:54:51 PM
-tags: [oo, python, exception]
+tags: [oo, python, exception, easy, lintcode]
 categories: [tech]
 
 ---
