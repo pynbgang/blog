@@ -3,7 +3,7 @@ layout: post
 title: "a b problem"
 published: true
 created:  2020 Jan 19 04:21:15 PM
-tags: [bit, python, lintcode, easy]
+tags: [bit, python, lintcode, easy, pending]
 categories: [tech]
 
 ---
