@@ -27,9 +27,7 @@ TABLE OF CONTENT
 
 # [palindromic-substrings](https://www.lintcode.com/problem/palindromic-substrings/description)
 
-## Owen
-
-within helper function, however it is O(N**2)
+## Owen(within helper function On2)
 
 ```python
 class Solution:
@@ -60,7 +58,7 @@ class Solution:
         return True
 ```
 
-## High voted answer
+## High voted answer (wangmazi)
 
 ```python
 class Solution:
