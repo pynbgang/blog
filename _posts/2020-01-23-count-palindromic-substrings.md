@@ -10,6 +10,7 @@ tags:
     - medium
     - python
     - Google Phone interview
+    - string
 created:  20120 Jan 23 00:14:49 AM
 categories: [tech]
 published: true
@@ -24,9 +25,9 @@ TABLE OF CONTENT
 
 - - -
 
-# [palindromic-substrings](https://www.lintcode.com/problem/palindromic-substrings/description
+# [palindromic-substrings](https://www.lintcode.com/problem/palindromic-substrings/description)
 
-## Owen's Solution
+## Owen
 
 within helper function, however it is O(N**2)
 
