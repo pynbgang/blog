@@ -24,7 +24,13 @@ TABLE OF CONTENT
 
 - - -
 
-# Owen's Solution(within helper function),however it is O(N**2)
+# [palindromic-substrings](https://www.lintcode.com/problem/palindromic-substrings/description
+
+## Owen's Solution
+
+within helper function, however it is O(N**2)
+
+```python
 class Solution:
 
     def countPalindromicSubstrings(self, str):
@@ -51,10 +57,12 @@ class Solution:
             i+=1
             j-=1
         return True
-# High voted answer
+```
 
+## High voted answer
+
+```python
 class Solution:
-
    
     def countPalindromicSubstrings(self, str):
         dp = [[0 for j in range(len(str))] for i in range(len(str))]
@@ -66,3 +74,18 @@ class Solution:
                     dp[j][i] = 1
                 ans += dp[j][i]
         return ans
+```
+
+## ping: oneliner with generator
+
+```python
+class Solution:
+    def countPalindromicSubstrings(self, str):
+        return sum( 
+            ( 1 for i in 
+                (str[i:j] for i in range(len(str)) for j in range(i+1, len(str)+1)) if i==i[::-1]
+            )
+        )
+```
+
+
