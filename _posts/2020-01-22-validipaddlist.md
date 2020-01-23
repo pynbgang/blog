@@ -26,8 +26,8 @@ TABLE OF CONTENT
 - - -
 
 # Code
-class Solution:
 
+class Solution:
     def allipaddress(self, ipstr):
     #0/8 is reversed by IANA#        
         if ipstr[0]=="0":
