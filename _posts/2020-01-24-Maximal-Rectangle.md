@@ -31,6 +31,7 @@ TABLE OF CONTENT
 class Solution:
 
     # find L/R first smaller than itself, increasing monotone stack
+    
     def largestRectangleArea(self, height):
         height = [0] + height + [0]
         id_stack = []  # monotonic stack in the sense that height_ext[id_stack[:]] is monotonic
@@ -50,6 +51,7 @@ class Solution:
     # @param {boolean[][]} matrix, a list of lists of boolean
     # @return {int} an integer
 
+    
     def maximalRectangle(self, matrix):
         if not matrix:
             return 0
