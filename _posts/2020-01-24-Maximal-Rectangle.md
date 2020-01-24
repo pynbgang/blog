@@ -40,16 +40,19 @@ class Solution:
             # find the left / right first smaller than itself
             # montone increasing pop out all top element from stack if larger than new comer
             while id_stack and h <= height[id_stack[-1]]:  # kick out all greater than comming value h
+            
                 id = id_stack.pop()
                 nh = height[id]
                 w = (i - 1) - id_stack[-1] if len(id_stack) > 0 else i
                 area = max(area, nh * w)
+                
             id_stack.append(i)
         return area
 
     # similar problem
     # @param {boolean[][]} matrix, a list of lists of boolean
     # @return {int} an integer
+
 
     
     def maximalRectangle(self, matrix):
