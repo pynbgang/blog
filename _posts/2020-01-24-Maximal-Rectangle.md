@@ -39,7 +39,9 @@ class Solution:
         for i, h in enumerate(height):
             # find the left / right first smaller than itself
             # montone increasing pop out all top element from stack if larger than new comer
-            while id_stack and h <= height[id_stack[-1]]:  # kick out all greater than comming value h
+            
+            while id_stack and h <= height[id_stack[-1]]: 
+            # kick out all greater than comming value h
             
                 id = id_stack.pop()
                 nh = height[id]
