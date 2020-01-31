@@ -11,6 +11,7 @@ tags:
     - python
     - Google Phone interview
     - string
+    - wangmazi
 created:  20120 Jan 23 00:14:49 AM
 categories: [tech]
 published: true
@@ -60,6 +61,14 @@ class Solution:
 
 ## High voted answer (wangmazi)
 
+考虑如果substring(i,j)如果是回文串，那么str[i]和str[j]一定相同，并且一定满足以
+下两个条件之一
+
+1. substring(i+1,j-1)也是回文串
+2. `j-i<=2`，即substring(i,j)长度 `<=` 2
+
+那么我们就只需要顺着这个思路dp就行了，复杂度On2
+
 ```python
 class Solution:
    
@@ -69,13 +78,38 @@ class Solution:
         for i in range(len(str)):
             for j in range(i + 1):
                 if(str[j] == str[i] and (i - j <= 2 or dp[j + 1][i - 1] == 1)):
-                <<<---need to understand how this dp logical comes from 
+                    #need to understand how this dp logical comes from 
                     dp[j][i] = 1
                 ans += dp[j][i]
         return ans
 ```
 
-## ping: oneliner with generator
+## ping
+
+
+```python
+class Solution:
+    def countPalindromicSubstrings(self, str):
+        count=0
+        for i in range(len(str)):
+            for j in range(i+1, len(str)+1):
+                if str[i:j]==str[i:j][::-1]: count+=1
+        return count
+```
+
+or, oneliner with generator:
+
+use `int` to convert `True/False` to `1/0`
+
+```python
+class Solution:
+    def countPalindromicSubstrings(self, str):
+        return sum((int(str[i:j]==str[i:j][::-1]) for i in range(len(str)) for j in range(i+1, len(str)+1)))
+```
+
+lintcode: time limit exceeded
+
+or:
 
 ```python
 class Solution:
@@ -86,5 +120,4 @@ class Solution:
             )
         )
 ```
-
 
