@@ -93,7 +93,7 @@ or simply:
     for number in range(10 ** (n-1),  10 ** n - 1):
 
 
-## wangmazi (no idea)
+## wangmazi (数字拆分 先MOD 然后除10取整)
 
 ```python
 class Solution:
