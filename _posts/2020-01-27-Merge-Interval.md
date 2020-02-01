@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Merge interval"
-subtitle: "abc"
 date: 2020-01-27
 author: "Owen"
 tags: 

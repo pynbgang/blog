@@ -78,6 +78,20 @@ https://chuansongme.com/n/390896436960
 
 ### running process
 
+example: 213423
+
+              4        
+             +--+      
+           3 |  |   3  
+     2    +--+  |2 +--+
+    +--+  |  |  +--+  |
+    |  |1 |  |  |  |  |
+    |  +--+  |  |  |  |
+    +--------+--+--+--+
+     0  1  2  3  4  5  
+
+running process:
+
     first, push id0 => 0
     id1 is lower, pop stack:
         pop0, area: 2x1=2
@@ -127,6 +141,18 @@ https://chuansongme.com/n/390896436960
     done
 
 ### running process (detail)
+
+example: 213423
+
+              4        
+             +--+      
+           3 |  |   3  
+     2    +--+  |2 +--+
+    +--+  |  |  +--+  |
+    |  |1 |  |  |  |  |
+    |  +--+  |  |  |  |
+    +--------+--+--+--+
+     0  1  2  3  4  5  
 
 * for id, height in enumerate(heights+[0]):
 
@@ -198,6 +224,8 @@ https://chuansongme.com/n/390896436960
     * return maxarea6
 
 ### illustration
+
+example: 213423
 
     I         4                II         4 
              +--+                        +--+
@@ -274,6 +302,9 @@ https://chuansongme.com/n/390896436960
 
 ### how/why it works
 
+1. brute force: "find all substrings" and compare
+2. use some "rules"
+
 looking at this figure:
 
     I         4                II         4 
@@ -294,37 +325,52 @@ looking at this figure:
         |LIS: last id in IS
         |LNIS: left neighboring ID in IS for 2
 
-1. brute force: "find all substrings" and compare
-2. find some "rules"
-
 the rules:
 
 * scan each id and check their height, try to search for some incremental
   sequences (IS)
 * some IS must can be found. save in a list or stack e.g. [1, 2, 3]
-* in any IS, say 1,2,3, there is a "rule" to compose the max area.
+* in any IS, say 1,2,3, for each individual id, there are some "rules" to
+  compose the max rectangle it may span. the key is to find the left and right
+  borders of the max rectangle.
   * the *"right border(RB)"* of the max area must be the first lower id(FLI)
-    found during the process 4. because it is "lower".
-      * for 2, 3, the RB rule is true. because they are "taller" than the FLI(4),
-        there is no chance any of them could extend further.
-        * for each of 2,3 which are both "taller" than 4, the *"left border(LB)"*
-          is simply its left neighboring id in IS (LNIS). because the LNIS (say
-          2) is lower, making 3 not possible to extend left-ward further.
-      * for 1, however, the RB rule is NOT true. it is even lower (than the FLI
-        4), so it can extend right-ward further beyond FLI 4. there is no way
-        to know where it stops at the moment, so have to leave the RB later.
-        But what about the LB? 1 is already the last id in the sequence (LIS),
-        so there is no LNIS to use. in this case the LB is actually 0 - the
-        very beginning of the whole list. because it must be the lowest ID
-        we've ever seen so far, reason is: 
-        * LIS was also FLI for its previous IS so LIS `<` anything in previous IS.
-        * LIS is smallest in an IS LIS so LIS `<=` anything is current IS.
+    found during the process 4. because the FLI is "lower" by definition.
+    * for 2, 3, which are "taller" then the FLI4, the RB rule is true.
+      there is no chance any of them could extend further beyand FLI4.
+      * now determine the *"left border(LB)"*. for each of 2,3 which are both
+        taller than FLI4, their LB is simply their "left neighboring id in IS
+        (LNIS)". e.g. id3, the LNIS2 is lower, making 3 not possible to
+        extend left-ward further.
+    * however, for 1, which is lower than FLI4, the RB rule does *NOT* apply.
+      apparently it can extend right-ward further beyond FLI4. there is no way
+      to know where it will stop at the moment, so we have to leave the RB
+      determinition later.
+      * But what about the 1's *LB*? 1 is already the last id in the sequence
+        (LIS), so there is no LNIS to use. in this case the LB is actually 0,
+        that is the very beginning of the whole list. because it must be the
+        lowest ID we've ever seen *so far*, reasons are: 
+          * LIS (last id in IS) was also FLI(first lower id for IS) for its
+            previous IS, so LIS `<` anything in previous IS.
+          * LIS is smallest in an IS, so LIS `<=` anything in current IS.
+  * based above observation, we can conclude: in any IS, if we iterate from
+    right to left, we can find the LB and RB of each id's corresponding max
+    width:
+    * LB: this can be determined anytime
+        * if the id is not the LIS, it's LB is the LNIS
+        * if the id is LIS, it's LB is beginning of the list (0)
+    * RB: some can be determined, some can't
+        * if the id is taller than FLI, then it's RB is the FLI
+        * if the id is lower or same as FLI, it's RB can't be determined so far
+    * use a stack to maintain IS, then pop those IDs for which we can determine
+      the max width(and rectangle), leave those IDs for which we can't determine
+      yet.
+
 * repeat this process, found a new IS: 4, 5
 * now, *merge* whatever left over in previous sequence(1) and get a new merged
   IS [1,4,5]
 * in order to repeat this algorithm, we have to find a FLI for this new
   sequence, but we can't. so just making up one with height 0 (which is
-  guaranteed to be lower than anyone)
+  guaranteed to be lower than any existing one)
 * now we can repeat the method inside of the IS.
   * for 5, RB is 6, LB is its LNIS 4
   * for 4, RB is 6, LB is its LNIS 1.
