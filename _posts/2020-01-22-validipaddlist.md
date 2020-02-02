@@ -26,7 +26,7 @@ TABLE OF CONTENT
 
 # [restore-ip-addresses](https://www.lintcode.com/problem/restore-ip-addresses/description)
 
-## owen
+## owen1
 
 ```python
 class Solution:
@@ -63,12 +63,50 @@ class Solution:
         if str1[0]!="0":
             return True
         return False 
-        
+```
+
+## owen2
+
+```python
+class Solution:
+    """
+    @param s: the IP string
+    @return: All possible valid IP addresses
+    """
+    def restoreIpAddresses(self, s):
+        if not s or len(s)<=1:
+            return []
+        ipstr=s
+        list1=[]
+        if len(ipstr)<4 or len(ipstr)>12 or not ipstr:
+            return []
+        for i in range(0,3):
+            if  self.helper(ipstr[0:i+1]) and int(ipstr[0:i+1])<256:
+                temp1=ipstr[0:i+1]+"."
+                layer1=ipstr[i+1:]
+                for j in range(0,3):
+                    if j<len(layer1)-1  and int(layer1[0:j+1])<256 and self.helper(layer1[0:j+1]):
+                        temp2=layer1[0:j+1]+"."
+                        layer2=layer1[j+1:]
+                        for z in range(0,3):
+                            if z<len(layer2)-1  and self.helper(layer2[0:z+1]) and self.helper(layer2[z+1:]):
+                                print layer2[z+1:]
+                                temp3=layer2[0:z+1]+"."+layer2[z+1:]
+                                list1.append(temp1+temp2+temp3)
+        return list1
+    def helper(self,str1):
+        if len(str1)==1:
+            return True
+        if int(str1)>255 :
+            return False
+        if str1[0]!="0":
+            return True
+        return False 
 ```
 
 
 
-## test result
+## owen test result
 
     k=Solution()
     print k.allipaddress("1111111111")
@@ -76,16 +114,6 @@ class Solution:
     ['1.111.111.111', '11.11.111.111', '11.111.11.111', '11.111.111.11',
     '111.1.111.111', '111.11.11.111', '111.11.111.11', '111.111.1.111',
     '111.111.11.11', '111.111.111.1']
-
-## test
-
-```python
-S=Solution()
-ipstr="987654321"
-ipstr="12345678"
-S.restoreIpAddresses(ipstr)
-```
-Out[16]: ['1.234.56.78', '12.34.56.78', '123.4.56.78', '123.45.6.78', '123.45.67.8']
 
 ## a solution in leetcode (best, easy to understand)
 
@@ -165,6 +193,16 @@ i=3
       123|456|7|8
       123|456|78|       #<---k>=len(s): break
       123|456|78|       #<---k>=len(s): break
+
+### test
+
+```python
+S=Solution()
+ipstr="987654321"
+ipstr="12345678"
+S.restoreIpAddresses(ipstr)
+```
+Out[16]: ['1.234.56.78', '12.34.56.78', '123.4.56.78', '123.45.6.78', '123.45.67.8']
 
 ## wangmazi: DFS
 
