@@ -62,10 +62,6 @@ class Solution:
         return False
 ```
 
-
-
-
-
 ## owen test result
 
     k=Solution()
@@ -191,7 +187,7 @@ class Solution:
         return ips
 ```
 
-### run DFS code manually
+### run DFS code manually (not done yet)
 
 
 ```python
