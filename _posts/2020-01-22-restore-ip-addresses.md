@@ -9,6 +9,7 @@ tags:
     - python
     - medium
     - dfs
+    - brute force
 
 created:  2020 Jan 22 11:35:49 PM
 categories: [tech]
@@ -117,22 +118,25 @@ class Solution:
 
 ## a solution in leetcode (best, easy to understand)
 
+### code
+
 ```python
 class Solution:
-    res=[]
-    for i in [1,2,3]:
-        for j in [i+1,i+2,i+3]:
-            for k in [j+1,j+2,j+3]:
-                if k>=len(s):
-                    break
-                s1,s2,s3,s4=s[:i],s[i:j],s[j:k],s[k:]
-                add_ip = True
-                for st in [s1,s2,s3,s4]:
-                    if (st!="0" and st[0]=="0") or int(st)>255:
-                        add_ip=False
+    def restoreIpAddresses(self, s):
+        res=[]
+        for i in [1,2,3]:
+            for j in [i+1,i+2,i+3]:
+                for k in [j+1,j+2,j+3]:
+                    if k>=len(s):
                         break
-                if add_ip: res.append(s1+"."+s2+"."+s3+"."+s4)
-    return res
+                    s1,s2,s3,s4=s[:i],s[i:j],s[j:k],s[k:]
+                    add_ip = True
+                    for st in [s1,s2,s3,s4]:
+                        if (st!="0" and st[0]=="0") or int(st)>255:
+                            add_ip=False
+                            break
+                    if add_ip: res.append(s1+"."+s2+"."+s3+"."+s4)
+        return res
 ```
 
 ### idea
