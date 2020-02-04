@@ -1,0 +1,60 @@
+---
+layout: post
+title: "two sum"
+published: true
+created:  2020 Feb 03 07:56:23 PM
+tags: [python, easy, leetcode, lintcode, dict]
+categories: [tech]
+
+---
+
+TABLE OF CONTENT
+
+* auto-gen TOC:
+{:toc}
+
+- - -
+
+# [two sum](https://www.lintcode.com/problem/two-sum/description)
+
+# wangmazi
+
+```python
+class Solution(object):
+    def twoSum(self, nums, target):
+        #hash用于建立数值到下标的映射
+        hash = {}
+        #循环nums数值，并添加映射
+        for i in range(len(nums)):
+            if target - nums[i] in hash:
+                return [hash[target - nums[i]], i]
+            hash[nums[i]] = i
+        #无解的情况
+        return [-1, -1]
+```
+
+# leetcode most voted
+
+Python solution using hash
+
+https://leetcode.com/problems/two-sum/discuss/2
+
+* Lang:    python
+* Author:  Google
+* Votes:   71
+
+```python
+class Solution:
+    # @return a tuple, (index1, index2)
+    # 8:42
+    def twoSum(self, num, target):
+        map = {}
+        for i in range(len(num)):
+            if num[i] not in map:
+                map[target - num[i]] = i + 1
+            else:
+                return map[num[i]], i + 1
+
+        return -1, -1
+```
+
