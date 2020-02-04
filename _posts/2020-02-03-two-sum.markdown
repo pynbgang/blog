@@ -3,7 +3,7 @@ layout: post
 title: "two sum"
 published: true
 created:  2020 Feb 03 07:56:23 PM
-tags: [python, easy, leetcode, lintcode, dict]
+tags: [python, easy, leetcode, lintcode, dict, brute force]
 categories: [tech]
 
 ---
@@ -16,6 +16,25 @@ TABLE OF CONTENT
 - - -
 
 # [two sum](https://www.lintcode.com/problem/two-sum/description)
+
+# ping: brute force
+
+```python
+class Solution(object):
+    def twoSum(self, nums, target):
+        for i in range(len(nums) - 1):
+            for j in range(i+1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+        return [-1, -1]
+```
+
+## test
+
+    ✔ Accepted
+    ✔ 29/29 cases passed (5988 ms)
+    ✔ Your runtime beats 10.08 % of python3 submissions
+    ✔ Your memory usage beats 80.23 % of python3 submissions (13.7 MB)
 
 # wangmazi
 
@@ -105,4 +124,12 @@ class Solution:
 
         return -1, -1
 ```
+
+## test
+
+    ✔ Accepted
+    ✔ 29/29 cases passed (44 ms)        #<---
+    ✔ Your runtime beats 92.62 % of python3 submissions
+    ✔ Your memory usage beats 58.6 % of python3 submissions (14.2 MB)
+
 
