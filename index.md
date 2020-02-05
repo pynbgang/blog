@@ -1,7 +1,7 @@
 ---
 layout: page
-title: STUPID IS AS STUPID DOES
-tagline: -- my collection of tips of life, tech, thought , everything ...
+title: PYNB GANG
+tagline: -- tech (programming, networking) tips 
 ---
 {% include JB/setup %}
 
