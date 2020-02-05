@@ -3,7 +3,7 @@ layout: post
 title: "reverse integer"
 published: true
 created:  2020 Feb 05 02:21:26 PM
-tags: [python, easy, integer, bit]
+tags: [python, easy, integer, bit, str, int, repr]
 categories: [tech]
 
 ---
@@ -127,6 +127,37 @@ class Solution:
         while n > 0:
             reverse = reverse * 10 + n % 10
             n = n / 10
+
+- str vs repr: very similiar.
+    
+        Init signature: str(self, /, *args, **kwargs)
+        Docstring:     
+        str(object='') -> str
+        str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+        Create a new string object from the given object. If encoding or
+        errors is specified, then the object must expose a data buffer
+        that will be decoded using the given encoding and error handler.
+        Otherwise, returns the result of object.__str__() (if defined)
+        or repr(object).
+        encoding defaults to sys.getdefaultencoding().
+        errors defaults to 'strict'.
+        Type:           type
+        Subclasses:     _rstr, LSString, include
+
+        [ins] In [17]: repr?                                                            
+        Signature: repr(obj, /)
+        Docstring:
+        Return the canonical string representation of the object.
+
+        For many object types, including most builtins, eval(repr(obj)) == obj.
+        Type:      builtin_function_or_method
+
+  str: Create a *new* string object. something readable
+  repr: *canonical* string representation of the object. something internal
+
+    [ins] In [2]: repr(123)==str(123)                                     
+    Out[2]: True
 
 ## resources:
 https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html

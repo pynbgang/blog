@@ -9,7 +9,7 @@
 
 class Solution:
 
-    if 0:  # ping
+    if 1:  # ping
 
         def reverse(self, x: int) -> int:
             res = int(str(abs(x))[::-1])
@@ -39,7 +39,7 @@ class Solution:
     ✔ Your memory usage beats 100 % of python3 submissions (12.8 MB)
     """
 
-    if 1:  #wangmazi
+    if 0:  #wangmazi
 
         def reverse(self, n):
             if n == 0:
