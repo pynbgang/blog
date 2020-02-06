@@ -15,9 +15,23 @@ TABLE OF CONTENT
 
 - - -
 
-# [remove-duplicate-numbers-in-array](https://www.lintcode.com/problem/remove-duplicate-numbers-in-array/description?_from=ladder&&fromId=99)
+# [remove-duplicate-numbers-in-array](https://www.lintcode.com/problem/remove-duplicate-numbers-in-array/description)
 
-## use extra space
+Given an array of integers, remove the duplicate numbers in it.
+
+You should:
+
+Do it in place in the array.
+Move the unique numbers to the front of the array.
+Return the total number of the unique numbers.
+
+## ideas
+
+* use set to check if a number is unique
+* use dict
+* sort, so no need extra spaces (and becomes leetcode 26)
+
+## use set
 
 ```python
 class Solution:
@@ -36,9 +50,15 @@ class Solution:
                 res += 1
                 exist.add(num)
         return res
+
+    # test
+    S = Solution()
+    nums = [1,2,3,3,4,4,5,6]
+    S.deduplication(nums)
+    nums
 ```
 
-## wangmazi
+## wangmazi: use dict
 
 ```python
 class Solution:
@@ -54,7 +74,11 @@ class Solution:
                 result += 1
 
         return result
+```
 
+## wangmazi: sort, w/o extra space
+
+```python
 # O(nlogn) time, O(1) extra space
 class Solution:
     # @param {int[]} nums an array of integers

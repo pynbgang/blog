@@ -15,7 +15,7 @@ TABLE OF CONTENT
 
 - - -
 
-# posted: [reverse-integer](https://leetcode.com/problems/reverse-integer/description)
+# [reverse-integer](https://leetcode.com/problems/reverse-integer/description)
 
 https://www.lintcode.com/problem/reverse-integer/my-submissions?_from=ladder&&fromId=99
 
@@ -153,12 +153,13 @@ class Solution:
         For many object types, including most builtins, eval(repr(obj)) == obj.
         Type:      builtin_function_or_method
 
-  str: Create a *new* string object. something readable
-  repr: *canonical* string representation of the object. something internal
+  * str: Create a *new* string object. something readable
+  * repr: *canonical* string representation of the object. something internal
 
-    [ins] In [2]: repr(123)==str(123)                                     
-    Out[2]: True
+        [ins] In [2]: repr(123)==str(123)                                     
+        Out[2]: True
 
 ## resources:
-https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html
+
+* https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html
 
