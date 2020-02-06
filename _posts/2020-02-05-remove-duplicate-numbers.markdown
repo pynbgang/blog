@@ -3,7 +3,7 @@ layout: post
 title: "remove duplicate numbers"
 published: true
 created:  2020 Feb 05 08:17:16 PM
-tags: [list, easy]
+tags: [list, easy, python, leetcode, lintcode]
 categories: [tech]
 
 ---
@@ -30,6 +30,7 @@ Return the total number of the unique numbers.
 * use set to check if a number is unique
 * use dict
 * sort, so no need extra spaces (and becomes leetcode 26)
+* no sort, no extra spaces?
 
 ## use set
 
@@ -97,8 +98,8 @@ class Solution:
         return result
 ```
 
-
-# [remove-duplicates-from-sorted-array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
+after sorted, it becomes leetcode:
+[remove-duplicates-from-sorted-array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
 
 ## leetcode most voted
 
