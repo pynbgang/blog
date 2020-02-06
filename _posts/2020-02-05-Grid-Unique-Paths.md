@@ -3,7 +3,7 @@ layout: post
 title: "3Grid Unique Paths"
 published: true
 created:  2020 Feb 05 02:21:26 PM
-tags: [python, medium, math, leetcode]
+tags: [python, medium, math, leetcode, lintcode]
 categories: [tech]
 
 ---

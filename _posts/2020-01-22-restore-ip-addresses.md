@@ -27,7 +27,7 @@ TABLE OF CONTENT
 
 # [restore-ip-addresses](https://www.lintcode.com/problem/restore-ip-addresses/description)
 
-## owen1
+## owen
 
 ```python
 class Solution:
@@ -62,7 +62,7 @@ class Solution:
         return False
 ```
 
-## owen test result
+### test
 
     k=Solution()
     print k.allipaddress("1111111111")
