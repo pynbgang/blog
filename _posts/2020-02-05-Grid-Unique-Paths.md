@@ -3,7 +3,7 @@ layout: post
 title: "3Grid Unique Paths"
 published: true
 created:  2020 Feb 05 02:21:26 PM
-tags: [python, medium, math, leetcode, lintcode, math, itertools, scipy]
+tags: [python, medium, math, leetcode, lintcode, math, itertools, scipy, functools, reduce, module]
 categories: [tech]
 
 ---
@@ -216,4 +216,20 @@ s = S.uniquePaths(10, 10)
 print(s)
 ```
 
+why?
 
+    result = c(n, m) = n! / (n-m)!m! 
+            = nx(n-1)x(n-2)x...(m+1)xm! / (n-m)!m!
+            = nx(n-1)x(n-2)x...(m+1) / (n-m)!
+
+            if m=A-1, n=A-1+B-1 => m+1=A, n-m=B-1
+
+    result = c(n, m) = c(A+B-2, A-1) 
+            = (A+B-2)x ... x A / (B-1)!
+            = Ax ... x (A+B-2) / (B-1)!
+
+    use m,n notation instead of A, B
+
+    result = m x (m+1) x .. (m+n-2) / (n-1)! = multiply(range(m, m+n-1))/multiply(range(n))
+    or
+    result = n x (n+1) x .. (m+n-2) / (m-1)! = multiply(range(n, m+n-1))/multiply(range(m))
