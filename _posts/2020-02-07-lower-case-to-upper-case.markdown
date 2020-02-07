@@ -3,7 +3,7 @@ layout: post
 title: "lower case to upper case"
 published: true
 created:  2020 Feb 07 01:57:42 PM
-tags: [python, easy, ord, chr]
+tags: [python, naive, ord, chr]
 categories: [tech]
 
 ---
