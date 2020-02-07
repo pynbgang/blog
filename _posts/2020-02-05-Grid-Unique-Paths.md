@@ -25,8 +25,8 @@ https://leetcode.com/problems/unique-paths/description/
 ```python
 from math import factorial as fa
 class Solution:
-    def uniquePaths(self, A: int, B: int): -> int
-        return fa(A-1+B-1)/( fa(B-1) * fa(A-1))
+    def uniquePaths(self, A: int, B: int) -> int:
+        return fa(A-1+B-1)//(fa(B-1) * fa(A-1))
 ```
 
 ### takeaway 
