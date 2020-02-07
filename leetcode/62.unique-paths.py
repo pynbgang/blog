@@ -16,8 +16,10 @@ class Solution:
             return 0
         return self.helper(r+1, c, m, n) + self.helper(r, c+1, m, n)
 
+print("testing...")
 S = Solution()
-S.uniquePaths(23, 12)
+s = S.uniquePaths(2, 3)
+print(s)
 
 """
 $ leetcode test 62.unique-paths.py -t '10\n10'
@@ -37,6 +39,8 @@ $ leetcode test 62.unique-paths.py -t '10\n10'
 ✘ Stdout:
 
 local test:
+[ins] In [3]: S.uniquePaths(23, 12)
+Out[3]: 193536720
 
 """
 
