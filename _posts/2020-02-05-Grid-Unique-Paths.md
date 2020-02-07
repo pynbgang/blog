@@ -3,7 +3,7 @@ layout: post
 title: "3Grid Unique Paths"
 published: true
 created:  2020 Feb 05 02:21:26 PM
-tags: [python, medium, math, leetcode, lintcode]
+tags: [python, medium, math, leetcode, lintcode, math, itertools, scipy]
 categories: [tech]
 
 ---
@@ -20,21 +20,15 @@ TABLE OF CONTENT
 
 https://leetcode.com/problems/unique-paths/description/
 
-## Owen: math
+## owen: math.factorial
 
 ```python
-import math
+from math import factorial as fa
 class Solution:
-    # @param A : integer
-    # @param B : integer
-    # @return an integer
-    def uniquePaths(self, A, B):
-        n=A-1+B-1
-        m=A-1
-        return self.helper(n,m)
-    def helper(self,n,m):
-        return math.factorial(n)/(math.factorial(n-m)*math.factorial(m))
+    def uniquePaths(self, A: int, B: int): -> int
+        return fa(A-1+B-1)/( fa(B-1) * fa(A-1))
 ```
+
 ### takeaway 
 
 - just a math quiz 
@@ -201,13 +195,13 @@ https://www.youtube.com/watch?v=M8BYckxI8_U
     [ins] In [22]: math.factorial(4)                                  
     Out[22]: 24
 
-* permutations A(m,n)
+* permutations A(n,m)
 
-
+        A(n,m) = n! / (n-m)!
 
 * combinations C(m,n)
 
-
+        C(n,m) = A(n,m) / m! = n! / (n-m)!m!
 
 #### reduce (leetcode)
 
