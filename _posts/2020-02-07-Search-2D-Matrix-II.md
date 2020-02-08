@@ -124,7 +124,7 @@ class Solution:
 """
 ```
 
-### one liner (any)
+### one liner (any) (lmv)
 
 ```python
 class Solution:
@@ -139,11 +139,39 @@ class Solution:
 """
 ```
 
-? why it works? shouldn't it be: ?
+### how generator expression works with BIF
+
+    [ins] In [8]: any([1 in row for row in [[1,2],[2,3]]])           
+    Out[8]: True
+
+    [ins] In [9]: any((1 in row for row in [[1,2],[2,3]]))          
+    Out[9]: True
+
+    [ins] In [7]: any(1 in row for row in [[1,2],[2,3]])             
+    Out[7]: True
+
+why the 3rd one works? 
+shouldn't it be within [] - list comprehension?
 
         return any([target in row for row in matrix])
 
-### use "ascending"
+or () - list generator:
+
+        return any((target in row for row in matrix))
+
+
+https://stackoverflow.com/questions/16505456/how-exactly-does-the-python-any-function-work/16505590
+https://www.python.org/dev/peps/pep-0289/
+
+looks like it is just the design, so no need:
+
+    func( (generator expression) )
+
+just:
+
+    func( generator expression )
+
+### use "ascending" (lmv)
 
 ```python
 class Solution:
