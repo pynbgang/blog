@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "word count map reduce"
-published: false
+published: true
 created:  2020 Feb 08 04:14:15 PM
 tags: [python, yield, split]
 categories: [tech]
