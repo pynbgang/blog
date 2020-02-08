@@ -15,9 +15,7 @@ TABLE OF CONTENT
 
 - - -
 
-# Search a 2D Matrix II
-
-https://www.lintcode.com/problem/search-a-2d-matrix-ii/description?_from=ladder&&fromId=137
+# [Search a 2D Matrix II](https://www.lintcode.com/problem/search-a-2d-matrix-ii/description?_from=ladder&&fromId=137)
 
 
 || https://leetcode.com/problems/search-a-2d-matrix-ii/description/
