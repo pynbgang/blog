@@ -3,7 +3,7 @@ layout: post
 title: "Search a 2D Matrix II"
 published: true
 created:  2020 Feb 07 01:57:42 PM
-tags: [python, medium, matrix, binary search, brute force]
+tags: [python, medium, matrix, binary search, brute force, any]
 categories: [tech]
 
 ---
@@ -43,9 +43,10 @@ TABLE OF CONTENT
 || ]
 || Given target = 5, return true.
 || Given target = 20, return false.
-|| [Finished in 2 seconds]
 
-## brute force
+## owen
+
+### brute force
 
 with two for
 
@@ -56,7 +57,7 @@ class Solution:
       count+
 ```
 
-## within binary search 
+### binary search
 
 ```python
 class Solution:
@@ -91,4 +92,75 @@ class Solution:
         if list1[l]==target or list1[r]==target:
             return True
         return False
+||   ✔ Accepted
+||   ✔ 129/129 cases passed (28 ms)
+||   ✔ Your runtime beats 94.19 % of python3 submissions
+||   ✔ Your memory usage beats 92.59 % of python3 submissions (17.4 MB)
+"""
+```
+
+## ping
+
+### brute force: most intuitive
+
+```python
+class Solution:
+    def searchMatrix(self, matrix, target):
+        """
+        :type matrix: List[List[int]]
+        :type target: int
+        :rtype: bool
+        """
+        for l in matrix:
+            if target in l:
+                return True
+        return False
+
+"""
+||   ✔ Accepted
+||   ✔ 129/129 cases passed (24 ms)
+||   ✔ Your runtime beats 98.41 % of python3 submissions
+||   ✔ Your memory usage beats 88.89 % of python3 submissions (17.5 MB)
+"""
+```
+
+### one liner (any)
+
+```python
+class Solution:
+    def searchMatrix(self, matrix, target):
+        return any(target in row for row in matrix)
+
+"""
+||   ✔ Accepted
+||   ✔ 129/129 cases passed (32 ms)
+||   ✔ Your runtime beats 82.37 % of python3 submissions
+||   ✔ Your memory usage beats 92.59 % of python3 submissions (17.4 MB)
+"""
+```
+
+? why it works? shouldn't it be: ?
+
+        return any([target in row for row in matrix])
+
+### use "ascending"
+
+```python
+class Solution:
+    def searchMatrix(self, matrix, target):
+        j = -1
+        for row in matrix:
+            if row:
+                while j + len(row) and row[j] > target:
+                    j -= 1
+                if row[j] == target:
+                    return True
+        return False
+
+"""
+||   ✔ Accepted
+||   ✔ 129/129 cases passed (40 ms)
+||   ✔ Your runtime beats 37.36 % of python3 submissions
+||   ✔ Your memory usage beats 74.07 % of python3 submissions (17.5 MB)
+"""
 ```
