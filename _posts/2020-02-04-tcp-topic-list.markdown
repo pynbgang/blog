@@ -20,6 +20,7 @@ TABLE OF CONTENT
 
 * format
 * how seq is generated? (time based? randomly? from 1?)
+  - Owen:The operating system is free to use any mechanism it likes, but generally it's best if it chooses a random number, as this is more secur
 * how seq:ack works: ack# is the "expected next seq#"
 * state machine (TODO)
 * delayed ack (200ms): to wait and accumulate more data to be sent along with the ack.
