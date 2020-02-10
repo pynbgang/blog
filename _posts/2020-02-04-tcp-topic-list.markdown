@@ -25,6 +25,7 @@ TABLE OF CONTENT
   - Owen:https://packetlife.net/blog/2010/jun/7/understanding-tcp-sequence-acknowledgment-numbers/
 * state machine (TODO)
 * delayed ack (200ms): to wait and accumulate more data to be sent along with the ack.
+ - Owen:https://en.wikipedia.org/wiki/TCP_delayed_acknowledgment
 * Nagle algorithm: allow one outstanding nont-acked small segment only. send more only after its ack received
 * advertised win(sliding window): by receiver
 * (sliding) windows update (via a special ack)
