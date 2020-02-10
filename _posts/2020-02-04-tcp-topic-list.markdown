@@ -30,6 +30,7 @@ TABLE OF CONTENT
 * advertised win(sliding window): by receiver
 * (sliding) windows update (via a special ack)
 * PUSH: indicate to receiver, don't wait for more data, just give to high level app.
+  - Owen: Receiver transport layer, on seeing PSH = 1 immediately forwards the data to application layer.
 * TCP MSS: IP MTU1500-IP20-TCP20=1460
     - the largest amount of bytes can be received in a single TCP segment. 
     - not count the IP or TCP header
