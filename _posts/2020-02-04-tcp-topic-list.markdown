@@ -96,7 +96,9 @@ TABLE OF CONTENT
 
 * TCP new feature/options:
   - selective acknowledge
+    - only ack received parts
   - window scale option
+    - adding additional 16bits
   - timestamp (protection against wrapped sequence numbers - PAWS)
   - improved transactional processing using TCP
   - path MTU discovery (obsolete?)
