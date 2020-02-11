@@ -94,6 +94,7 @@ TABLE OF CONTENT
   - in same LAN, when client gone no ARP reply will be received. so all 10*75s will be arp instead of TCP.
   - in WAN, if client is not reachable, router will give ICMP net unreachable on each tcp KA*75s
 
+*TCP Tahoe ,TCP Reno and TCP new reno
 * TCP new feature/options:
   - selective acknowledge
     - only ack received parts
