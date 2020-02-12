@@ -3,7 +3,7 @@ layout: post
 title: "Longest Consecutive Sequence"
 published: true
 created:  2020 Feb 09 11:02:29 AM
-tags: [list, python, brute force, hard]
+tags: [list, python, brute force, hard, easy, set]
 categories: [tech]
 
 ---
@@ -52,11 +52,56 @@ class Solution:
 
 - within DP ,then return max value in this dp list
 
+owen solution shortened (ping):
+
+```python
+class Solution:
+    def longestConsecutive(self, A: List[int]) -> int:
+        A=sorted(list(set(list(A))))
+        dp=[1]*len(A)
+        for i in range(1,len(A)):
+            if A[i]-A[i-1]==1:
+                dp[i]=dp[i-1]+1
+        return max(dp or [0])
+```
+
 # ping
 
 this is [leetcode 128](https://leetcode.com/problems/longest-consecutive-sequence/description/)
 
-## brute force
+## brute force: initial: timeout
+
+```python
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        maxcount = 0
+
+        for i in nums:
+
+            count = 0
+            i1 = i
+
+            print("take i:", i)
+            while i in nums:
+                i += 1
+                count += 1
+            else:
+                print("not in nums")
+
+            print("take i-1:", i1-1)
+            while i1-1 in nums:
+                i1 -= 1
+                count += 1
+            else:
+                print("not in nums")
+
+            maxcount = max(count, maxcount)
+
+        return maxcount
+```
+
+
+## brute force1: extra set to record checked
 
 ```python
 class Solution:
@@ -92,6 +137,77 @@ class Solution:
 """
 ```
 
+## brute force2: list to set to remove dup
+
+```python
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        maxcount, checked = 0, set()
+
+        nums=set(nums)
+        for i in nums:
+
+            count = 0
+            i1 = i
+
+            if i not in checked:
+                print("take i:", i)
+                while i in nums:
+                    i += 1
+                    count += 1
+                    checked.add(i)
+
+                print("take i-1:", i1-1)
+                while i1-1 in nums:
+                    i1 -= 1
+                    count += 1
+                    checked.add(i1)
+
+            maxcount = max(count, maxcount)
+
+        return maxcount
+
+"""
+||   ✔ Accepted
+||   ✔ 68/68 cases passed (56 ms)
+||   ✔ Your runtime beats 66.84 % of python3 submissions
+||   ✔ Your memory usage beats 7.41 % of python3 submissions (14.8 MB)
+"""
+```
+
+## brute force3: use set.remove, no extra set
+
+this is almost same as lmv
+
+```python
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        maxcount, nums = 0, set(nums)
+        while nums:
+            i1 = i = nums.pop()
+            count = 1
+
+            while i+1 in nums:
+                count += 1
+                nums.remove(i+1)
+                i += 1
+
+            while i1-1 in nums:
+                count += 1
+                nums.remove(i1-1)
+                i1 -= 1
+
+            maxcount = max(count, maxcount)
+
+        return maxcount
+"""
+||   ✔ Accepted
+||   ✔ 68/68 cases passed (64 ms)
+||   ✔ Your runtime beats 31.28 % of python3 submissions
+||   ✔ Your memory usage beats 100 % of python3 submissions (13.7 MB)
+"""
+```
+
 ## lmv
 
 ```python
@@ -124,3 +240,12 @@ class Solution:
     ||   ✔ Your memory usage beats 96.3 % of python3 submissions (13.8 MB)
     """
 ```
+
+## tips:
+
+* use set to remove dup from list
+* use set to speed up `in`
+* use set.pop and set.remove to update `in-place`
+* the `for i in x` hell (comparing with `while i in x`):
+  - `for i in x`, updating in x won't affect the iterated items.
+  - `while i in x`, updating x will affact the progress
