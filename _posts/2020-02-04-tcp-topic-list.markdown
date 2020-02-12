@@ -20,12 +20,12 @@ TABLE OF CONTENT
 
 * format
 * how seq is generated? (time based? randomly? from 1?)
-  - Owen:The operating system is free to use any mechanism it likes, but generally it's best if it chooses a random number, as this is more secur
+  - owen:The operating system is free to use any mechanism it likes, but generally it's best if it chooses a random number, as this is more secur
 * how seq:ack works: ack# is the "expected next seq#"
-  - Owen:https://packetlife.net/blog/2010/jun/7/understanding-tcp-sequence-acknowledgment-numbers/
+  - owen:https://packetlife.net/blog/2010/jun/7/understanding-tcp-sequence-acknowledgment-numbers/
 * state machine (TODO)
 * delayed ack (200ms): to wait and accumulate more data to be sent along with the ack.
-  - Owen:https://en.wikipedia.org/wiki/TCP_delayed_acknowledgment
+  - owen:https://en.wikipedia.org/wiki/TCP_delayed_acknowledgment
 * Nagle algorithm: allow one outstanding nont-acked small segment only. send more only after its ack received
 * advertised win(sliding window): by receiver
 * (sliding) windows update (via a special ack)
@@ -43,7 +43,7 @@ TABLE OF CONTENT
   - RTT: from send a pkt to get its ack
   - RTT measure
   - RTO: how long time to wait before we assume the pkt was lost and needs retransmission? based on RTT measure
-  - https://blog.csdn.net/wdscq1234/article/details/52505191
+      - owen: https://blog.csdn.net/wdscq1234/article/details/52505191
   - karn algorithm (not quite get it)
 
 * slow start
@@ -56,8 +56,8 @@ TABLE OF CONTENT
   - after congestion happens
   - algorithm independent of slow start, but implemented together when congestion happens
   - dup ack: 
-    *** to indicate ooo (out of order)
-    *** sender sent 1,2,3,4; recver get 1,2,4; recver will send 2 ack of 2, to indicate miss of 3.
+    * to indicate ooo (out of order)
+    * sender sent 1,2,3,4; recver get 1,2,4; recver will send 2 ack of 2, to indicate miss of 3.
   - congestion indicators: timeout or received dup of Ack
   - ssthresh counter: set max(current_win/2, 2)
   - increase cwnd by 1/cwnd each time an ACK is received
@@ -66,12 +66,12 @@ TABLE OF CONTENT
   - when a session init: cwnd, ssthresh=1, 655535
   - sender: send min(cwnd, recver_advertised_win) pkts
   - on congestion (dup ack, timeout): 
-    *** ssthresh=max(current_win/2, 2)
-    *** if timeout: also do slow start
-        **** set cwnd=1
-        **** on each ACK receive: cwnd*=2
-        **** until cwnd >= ssthresh
-        **** then change to congestion avoidance: cwnd+=1
+    * ssthresh=max(current_win/2, 2)
+    * if timeout: also do slow start
+        * set cwnd=1
+        * on each ACK receive: cwnd*=2
+        * until cwnd >= ssthresh
+        * then change to congestion avoidance: cwnd+=1
   - ![visualization](https://user-images.githubusercontent.com/2038044/73123679-4e392680-3f60-11ea-8a14-52e48e6368f5.png)
 
 * fast retransmit and fast recovery:
