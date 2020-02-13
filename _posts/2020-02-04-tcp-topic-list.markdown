@@ -103,5 +103,6 @@ TABLE OF CONTENT
   - timestamp (protection against wrapped sequence numbers - PAWS)
   - improved transactional processing using TCP
   - path MTU discovery (obsolete?)
+  - TCP syn cookie(for DDOS)
 
 * global synchronization
