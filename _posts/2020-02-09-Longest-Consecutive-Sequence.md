@@ -3,7 +3,7 @@ layout: post
 title: "Longest Consecutive Sequence"
 published: true
 created:  2020 Feb 09 11:02:29 AM
-tags: [list, python, brute force, hard, easy, set]
+tags: [list, python, brute force, hard, easy, set, leetcode, interviewbit]
 categories: [tech]
 
 ---

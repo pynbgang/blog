@@ -1,7 +1,7 @@
 ﻿---
 layout: post
 title: "swap-two-nodes-in-linked-list"
-subtitle: "abc"
+subtitle: "test only"
 date: 2019-12-30
 author: "ping"
 tags: 
