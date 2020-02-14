@@ -33,7 +33,7 @@ Example 2:
 Input: 660
 Output: [2, 2, 3, 5, 11]
 
-## jj original: timeout
+## jj original: brute force: timeout
 
 ```python
 def primeFactorization(self, num):
