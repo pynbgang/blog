@@ -4,7 +4,7 @@ title: "prime-factorization"
 published: true
 date: 2020-02-11
 created:  2020 Feb 13 02:46:27 PM
-tags: [python, math, lintcode, easy]
+tags: [python, math, lintcode, easy, brute force]
 categories: [tech]
 
 ---
@@ -16,9 +16,22 @@ TABLE OF CONTENT
 
 - - -
 
-# prime-factorization
+# [prime-factorization](https://www.lintcode.com/problem/prime-factorization/description?_from=ladder&&fromId=99)
 
-https://www.lintcode.com/problem/prime-factorization/description?_from=ladder&&fromId=99
+Prime factorize a given integer.
+
+You should sort the factors in ascending order.
+
+Have you met this question in a real interview?  
+Example
+Example 1:
+
+Input: 10
+Output: [2, 5]
+Example 2:
+
+Input: 660
+Output: [2, 2, 3, 5, 11]
 
 ## jj original: timeout
 
@@ -47,7 +60,7 @@ def primeFactorization(self, num):
             num = num / pri
         else:
             pri += 1
-    rtn if num == 1 else rtn + [int(num)]
+    return rtn if num == 1 else rtn + [int(num)]
 ```
 
 ## wangmazi: original
@@ -82,7 +95,7 @@ class Solution:
         return rt
 ```
 
-keys:
+### tips:
 
 - the idea: find all primes under sqrt(num), and iterate them to find all prime
   factors of num
@@ -91,14 +104,14 @@ keys:
 
     what is the biggest primes factors for num?
     assuming num has 2 biggest primes: AxB
-    then one of them (assuming A) has to be < sqrt(num)
+    then one of them (assuming A) has to be `<` sqrt(num)
     find A then B(bigger than sqrt(num)) is easy to know
 
 - how to find all primes under a number (A)
 
     素数筛
 
-## wangmazi: print
+### wangmazi: print to debug
 
 
 ```python
@@ -142,7 +155,7 @@ class Solution:
         return rt
 ```
 
-## wangmazi: manually run the code
+### wangmazi: manually run the code
 
 ```python
     In [258]: num=100
