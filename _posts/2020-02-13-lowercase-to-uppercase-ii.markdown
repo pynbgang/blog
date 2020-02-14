@@ -77,7 +77,7 @@ class Solution:
         return str_new
 ```
 
-keys:
+### tips
 
 - chr and ord
 - '32' method: ord('a')-ord('A')==32
