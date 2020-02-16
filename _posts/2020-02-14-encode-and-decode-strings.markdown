@@ -3,7 +3,7 @@ layout: post
 title: "encode-and-decode-strings"
 published: true
 created:  2020 Feb 14 11:04:01 AM
-tags: [lintcode, leetcode, python, string, medium]
+tags: [lintcode, leetcode, python, string, medium, find, todo]
 categories: [tech]
 
 ---
@@ -223,7 +223,7 @@ Out[51]: "4:they5:don't4:care"
 #           ...
 ```
 
-## test
+### test
 
 ```python
 S=Solution()
@@ -231,4 +231,8 @@ S=Codec()
 strs=["they", "don't", "care"]
 S.encode(strs)
 ```
+
+### usage case (todo)
+
+an "codec script" for personal text file
 
