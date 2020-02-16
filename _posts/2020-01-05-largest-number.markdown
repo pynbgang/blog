@@ -90,7 +90,7 @@ p2: `sorted` with `cmp`
     Out[7]: True
 
 the cmp logic is: convert x, y comparison to xy yx comparison.
-making 'x+y < y+x' to return 1 to indicate: 'make sure in the sorted list: xy is less than yx'
+making `x+y < y+x` to return 1 to indicate: 'make sure in the sorted list: xy is less than yx'
 
     x+y < y+x == -1 => x b4 y => [x, y]
     x+y > y+x == 1 => x after y => [y, x]
@@ -108,10 +108,9 @@ will get:
 
 p3: `sorted` with `key` and `functools.cmp_to_key`
 
-
-    import functools
-
-    l = [1, 9, 92, 3, 12, 7]
-    a = sorted(l, key=functools.cmp_to_key(lambda x, y: 1 if str(x) + str(y) < str(y) + str(x) else -1))
-
-    print("".join([str(c) for c in a]))
+```python
+import functools
+l = [1, 9, 92, 3, 12, 7]
+a = sorted(l, key=functools.cmp_to_key(lambda x, y: 1 if str(x) + str(y) < str(y) + str(x) else -1))
+print("".join([str(c) for c in a]))
+```

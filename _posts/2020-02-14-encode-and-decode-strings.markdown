@@ -136,7 +136,7 @@ class Codec:
         return s.split(chr(258))
 ```
 
-### wangmazi: use ascii delimitor
+### wangmazi: use ascii delimitor, with escape
 
 ```python
 class Solution:
@@ -186,7 +186,7 @@ class Solution:
         return res
 ```
 
-### lmv
+### lmv (combine 2&3)
 
 ```python
 class Codec:
