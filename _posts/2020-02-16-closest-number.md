@@ -61,4 +61,10 @@ def closestNumbers(arr):
         temp1.append(i[1])
     return temp1
 ```
+### test output 
+Input (stdin)
+-5 15 25 71 63
+Output
+63 71
+
                               
