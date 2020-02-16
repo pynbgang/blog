@@ -5,7 +5,7 @@ subtitle: ""
 date: 2020-01-13
 author: "xiaofo"
 tags: 
-    - array
+    - list
     - leetcode
     - medium
     - python

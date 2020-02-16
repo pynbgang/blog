@@ -6,7 +6,7 @@ date: 2020-01-07
 author: "xiaofo"
 tags: 
     - dfs
-    - array
+    - list
     - leetcode
     - medium
     - python

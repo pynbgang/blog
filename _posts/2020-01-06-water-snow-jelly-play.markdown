@@ -3,7 +3,7 @@ layout: post
 title: "water snow jelly play"
 published: true
 created:  2020 Jan 06 07:19:29 PM
-tags: [python, GUI, fun]
+tags: [python, gui, fun]
 categories: [tech]
 
 ---

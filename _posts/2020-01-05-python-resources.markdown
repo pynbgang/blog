@@ -3,7 +3,7 @@ layout: post
 title: "python resources"
 published: true
 created:  2020 Jan 05 03:03:27 PM
-tags: [python, resources]
+tags: [python, resource]
 categories: [tech]
 
 ---
