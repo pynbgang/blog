@@ -44,6 +44,12 @@ The second line contains  space-separated integers, .
 
 Constraints
 
+
+in short: 有序整数列表中找到前后间隔最小的所有数对（可重复）
+
+    [1, 3, 5, 9, 20] => [1,3,3,5]
+                         (2) (2)
+
 ## owen
 
 ```python
@@ -93,5 +99,9 @@ Out[9]: [63, 71]
     -5 15 25 71 63
     Output
     63 71
+
+## tips:
+
+* generator expression: `func(generator expression)`
 
 

@@ -3,7 +3,7 @@ layout: post
 title: "delete-node-in-a-linked-list"
 published: true
 created:  2019 Dec 30 12:47:06 AM
-tags: [python, lintcode, LinkedList, easy, wangmazi]
+tags: [python, lintcode, linkedlist, easy, wangmazi]
 categories: [tech]
 
 ---

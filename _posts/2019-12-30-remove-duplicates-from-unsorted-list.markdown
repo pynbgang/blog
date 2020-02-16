@@ -3,7 +3,7 @@ layout: post
 title: "remove-duplicates-from-unsorted-list"
 published: true
 created:  2019 Dec 30 01:08:48 AM
-tags: [python, lintcode, LinkedList, easy]
+tags: [python, lintcode, linkedlist, easy]
 categories: [tech]
 
 ---

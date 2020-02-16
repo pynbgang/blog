@@ -3,7 +3,7 @@ layout: post
 title: "swap-nodes-in-pairs"
 published: true
 created:  2019 Dec 30 12:54:53 AM
-tags: [python, lintcode, LinkedList, easy, wangmazi, ping]
+tags: [python, lintcode, linkedlist, easy, wangmazi, ping]
 categories: [tech]
 
 ---

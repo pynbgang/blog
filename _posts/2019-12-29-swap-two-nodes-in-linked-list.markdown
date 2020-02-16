@@ -5,7 +5,7 @@ subtitle: "test only"
 date: 2019-12-30
 author: "ping"
 tags: 
-    - LinkedList
+    - linkedlist
     - dict
     - lintcode
     - medium

@@ -232,6 +232,20 @@ strs=["they", "don't", "care"]
 S.encode(strs)
 ```
 
+### tips
+
+* sequence operations: `str.find`
+
+        [ins] In [25]: str.find?
+        Docstring:
+        S.find(sub[, start[, end]]) -> int
+
+        Return the lowest index in S where substring sub is found,
+        such that sub is contained within S[start:end].  Optional
+        arguments start and end are interpreted as in slice notation.
+
+        Return -1 on failure.
+
 ### usage case (todo)
 
 an "codec script" for personal text file
