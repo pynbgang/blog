@@ -16,27 +16,27 @@ TABLE OF CONTENT
 
 - - -
 
-= markdown rules (for fast search)
+# markdown rules (for fast search)
 
-* lxxtcode link is fine, but directly copy&paste question content into blog is better.
+* put lxxtcode link is fine, directly copy&paste question content into blog is even better.
 
-* lower(preferred) vs upper letter
+* lower(always preferred) vs upper letter
     * lower letters for blog file name, tags. e.g. "linkedlist" vs "LinkedList", "2d-matrix" vs "2D-Matrix"
     * lower(preferred) or upper letters for title 
 
 * tag:
-    * use singalar word for tag. e.g. "module", not "modules"; "string" vs "strings"
+    * use singalar word for tag. e.g. "module", not "modules"; "string", not "strings"
     * use existing tags as much as possible: e.g. there is a "list" tag, so no need to add an "array" tag
-    * goal is to avoid duplicated tags
-    * goal is to find a specific topic as quick as possible. 
-    * if we can find the keyword from blog file name, then no need to put in tags, e.g. "matrix"
+    * avoid duplicated tags
+    * avoid uncessary tags: if we can find the keyword from blog file name, then no need to use a new tag, e.g. "2d matrix"
+    * new tags can be added as much as needed, goal is to find a specific topic as quick as possible. 
 
 * optional: author name in tags: e.g.: xiaofo, owen, ping
 
 * what else?
 
 
-= existing tags
+# existing tags
 
 * linkedlist 
 * dict 
