@@ -3,7 +3,7 @@ layout: post
 title: "leap year"
 published: true
 created:  2020 Jan 17 10:51:20 AM
-tags: [python, logical, lintcode, easy]
+tags: [python, operator, lintcode, easy]
 categories: [tech]
 
 ---

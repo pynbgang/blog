@@ -5,11 +5,11 @@ subtitle: "abc"
 date: 2020-01-23
 author: "Owen"
 tags: 
-    - Palindromic
     - lintcode
     - medium
     - python
-    - Google Phone interview
+    - google
+    - interview
     - string
     - wangmazi
 created:  20120 Jan 23 00:14:49 AM

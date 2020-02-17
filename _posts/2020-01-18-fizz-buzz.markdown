@@ -3,7 +3,7 @@ layout: post
 title: "fizz-buzz"
 published: true
 created:  2020 Jan 18 07:30:17 PM
-tags: [python, lintcode, easy, strings]
+tags: [python, lintcode, easy, string]
 categories: [tech]
 
 ---

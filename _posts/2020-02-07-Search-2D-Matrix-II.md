@@ -3,7 +3,7 @@ layout: post
 title: "Search a 2D Matrix II"
 published: true
 created:  2020 Feb 07 01:57:42 PM
-tags: [python, medium, matrix, binary search, brute force, any]
+tags: [python, medium, binary search, brute force, any]
 categories: [tech]
 
 ---

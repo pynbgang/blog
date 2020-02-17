@@ -3,7 +3,7 @@ layout: post
 title: "pickle and json"
 published: true
 created:  2020 Jan 11 02:44:01 PM
-tags: [pickle, json, modules, liaoxuefeng, python]
+tags: [pickle, json, module, liaoxuefeng, python]
 categories: [tech]
 
 ---

@@ -4,7 +4,6 @@ title: "Maximal Rectangle"
 date: 2020-01-24
 author: "Owen"
 tags: 
-    - 2D Matrix
     - lintcode
     - hard
     - python

@@ -3,7 +3,7 @@ layout: post
 title: "longest-palindrome"
 published: true
 created:  2020 Jan 21 01:28:00 PM
-tags: [dict, python, Counter, easy, lintcode]
+tags: [dict, python, module, Counter, easy, lintcode]
 categories: [tech]
 
 ---
