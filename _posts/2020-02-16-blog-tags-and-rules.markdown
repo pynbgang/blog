@@ -2,6 +2,7 @@
 layout: post
 title: "blog tags and some general rules"
 published: true
+date: 2020-02-17
 created:  2020 Feb 16 07:07:38 PM
 tags: [python]
 categories: [tech]
