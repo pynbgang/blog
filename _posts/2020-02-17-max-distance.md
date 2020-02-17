@@ -41,3 +41,5 @@ class Solution:
                 r-=1
         return temp
 ```
+### follow up
+  - it is not the best way,can not pass all the test cases.
