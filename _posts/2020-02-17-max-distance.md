@@ -3,7 +3,7 @@ layout: post
 title: "Max Distance"
 published: true
 created:  2020 Feb 17 11:04:01 AM
-tags: [leetcode, python,list,tow pointer,easy,Amazon]
+tags: [leetcode,python,list,two pointers,easy,amazon,interviewbit,brute force]
 categories: [tech]
 
 ---
@@ -14,9 +14,12 @@ TABLE OF CONTENT
 {:toc}
 
 - - -
-## Max Distance
 
-### https://www.interviewbit.com/problems/max-distance/
+# [Max Distance](https://www.interviewbit.com/problems/max-distance/)
+
+Given an array A of integers, find the maximum of j - i subjected to the constraint of A[i] `<=` A[j].
+If there is no solution possible, return -1.
+
 
 ```python
 class Solution:
@@ -41,5 +44,31 @@ class Solution:
                 r-=1
         return temp
 ```
-### follow up
-  - it is not the best way,can not pass all the test cases.
+
+S = Solution()
+A=[1,2,3]
+S.maximumGap(A)
+
+
+## tips
+
+- it is not the best way,can not pass all the test cases.
+
+## ping: brute force
+
+time exceeded
+
+```python
+class Solution:
+    # @param A : tuple of integers
+    # @return an integer
+    def maximumGap(self, A):
+        max1 = -1
+        for i in range(len(A)-1, -1, -1):
+            for j in range(i+1):
+                if A[i] >= A[j]:
+                    max1 = max(max1, (i-j))
+                    break
+        return max1
+```
+
