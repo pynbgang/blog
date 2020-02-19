@@ -67,7 +67,7 @@ def superReducedString(s):
     len1=len(s)
     for i in range(len1-1):
         if s[i]==s[i+1]:
-            print s,i,s[0:i]+s[i+2:]
+            print(s,i,s[0:i]+s[i+2:])
             return superReducedString(s[0:i]+s[i+2:])
             break
         else:
@@ -82,30 +82,40 @@ def superReducedString(s):
 
 ```python
 def superReducedString(s):
-    res=[]
-    i = 0
-    l=list(s)
+    res, i, l, repever = [], 0, list(s), False
     while l:
-        if res and res[-1]: 
+        if res:
             l.insert(0, res.pop())
-        while len(l) >= 2 and l[0] == l[1]:
+        while len(l) >= 2 and l[0] is l[1]:
             l.pop(0);l.pop(0)
-        if len(l) >= 2:
-            res.extend([l.pop(0), l.pop(0)])
-        elif l:
-            res.extend([l.pop(0)])
+            repever = True
+        if len(l) <= 2:
+            if len(l) == 1:
+                if res and l[0] is res[-1]:
+                    res.pop(); l.pop()
+                else:
+                    res.append(l.pop(0))
+        if len(l) >= 2 and l[0] is not l[1]:
+            if repever and res and l[0] is res[-1]:
+                res.pop(); l.pop(0)
+            else:
+                res.extend([l.pop(0), l.pop(0)])
     return "".join(res) or "Empty String"
 
 ```
-
-not pass yet `baab`
 
 test:
 
 ```python
 s='aaabccddd'
+s='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
 s='ppffccmmssnnhhbbmmggxxaaooeeqqeennffzzaaeeyyaaggggeessvvssggbbccnnrrjjxxuuzzbbjjrruuaaccaaoommkkkkxx'
-s='baab'
+s='baabc'
+s='dqrrqd'
+s='daqrrqad'
+s='a'
+s='acdqglrfkqyuqfjkxyqvnrtysfrzrmzlygfveulqfpdbhlqdqrrqdqlhbdpfqluevfgylzmrzrfsytrnvqyxkjfquyqkfrlacdqj'
+s='acdqglrfkqyuqfjkxyqvnrtysfrzrmzlygfveulqfpdbhlqdqrrqdqlhbdpfqluevfgylzmrzrfsytrnvqyxkjfquyqkfrlacdqj'
 superReducedString(s)
 
 ```
