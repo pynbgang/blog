@@ -87,7 +87,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : whoami
+      short_name : pynbgang
     livefyre :
       site_id : 123
     intensedebate :
