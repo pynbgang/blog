@@ -38,7 +38,7 @@ Example 2:
 ## ideas
 
 1. pop
-2. pointer
+2. pointers
 
 ## two pointers
 
