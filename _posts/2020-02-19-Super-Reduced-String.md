@@ -57,10 +57,8 @@ aaabccddd → abccddd → abddd → abd
 
 ```python
 def superReducedString(s):
-    if len(s)==1:
-        return s
-    if len(s)==2:
-        return "Empty String" if s[0] == s[1] else s
+    if len(s)==1: return s
+    if len(s)==2: return "Empty String" if s[0] == s[1] else s
     for i in range(len(s)-1):
         if s[i]==s[i+1]:
             return superReducedString(s[0:i]+s[i+2:])
