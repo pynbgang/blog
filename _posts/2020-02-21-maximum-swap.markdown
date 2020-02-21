@@ -80,19 +80,14 @@ class Solution:
 ```python
 class Solution:
     def maximumSwap(self, num: int) -> int:
-        #print("get num: ", num)
-        str1 = str(num)
-        list1=list(str1)
+        list1=list(str(num))            #convert to list, for max, swapping
         len1 = len(list1)
-        for i in range(len1-1):
-            maxj = max(s for s in list1[i+1:])
-            slipped = False
-            for j in range(len1-1, i, -1):
-                if list1[j] == maxj:
-                    break
-            #print("found the swap j: ", j)
-            if  list1[i] < list1[j] and i is not j:
-                list1[i], list1[j] = list1[j], list1[i]
+        for i in range(len1-1):         #for each digit, get 
+            maxj = max(s for s in list1[i+1:])  #find max from the rest
+            for j in range(len1-1, i, -1):      #locate it from end backward
+                if list1[j] == maxj: break
+            if  list1[i] < list1[j] and i is not j:     #if worth to swap
+                list1[i], list1[j] = list1[j], list1[i] # swap it
                 break
         return int(''.join(list1))
 ```
@@ -133,3 +128,6 @@ class Solution:
 
         return int("".join(new_num))
 ```
+
+
+
