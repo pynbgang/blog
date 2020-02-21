@@ -3,7 +3,7 @@ layout: post
 title: "maximum-swap"
 published: true
 created:  2020 Feb 21 11:55:40 AM
-tags: [leetcode, number, medium]
+tags: [leetcode, number, medium, int, list]
 categories: [tech]
 
 ---

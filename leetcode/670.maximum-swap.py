@@ -29,7 +29,7 @@ if 0:
                     break
             return int(''.join(list1))
 
-if 1:
+if 0:
     class Solution:
         def maximumSwap(self, num: int) -> int:
             #print("get num: ", num)
