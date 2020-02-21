@@ -78,7 +78,9 @@ def superReducedString(s):
 ```
 
 
-## ping: no recursion
+## ping
+
+### no recursion
 
 ```python
 def superReducedString(s):
@@ -99,8 +101,7 @@ def superReducedString(s):
     return "".join(res) or "Empty String"
 ```
 
-
-test:
+### test
 
 ```python
 s='aaabccddd'
