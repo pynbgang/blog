@@ -82,39 +82,41 @@ def superReducedString(s):
 
 ```python
 def superReducedString(s):
-    res, i, l, repever = [], 0, list(s), False
-    while l:
-        if res:
-            l.insert(0, res.pop())
-        while len(l) >= 2 and l[0] is l[1]:
+    res, l = [], list(s)        #convert to list, so we can del
+    while len(l) >= 2:          #avoid range hell, use while + del
+        if l[0] is l[1]:        # if dup pairs are found, remove them
             l.pop(0);l.pop(0)
-            repever = True
-        if len(l) <= 2:
-            if len(l) == 1:
-                if res and l[0] is res[-1]:
-                    res.pop(); l.pop()
-                else:
-                    res.append(l.pop(0))
-        if len(l) >= 2 and l[0] is not l[1]:
-            if repever and res and l[0] is res[-1]:
+        else:                   # check if match with the last item in res
+            if res and l[0] is res[-1]:
                 res.pop(); l.pop(0)
             else:
                 res.extend([l.pop(0), l.pop(0)])
+    if l:                       # the (possible) leftover one
+        if res and l[0] is res[-1]:
+            res.pop(); l.pop()
+        else:
+            res.append(l.pop())
     return "".join(res) or "Empty String"
-
 ```
+
 
 test:
 
 ```python
 s='aaabccddd'
+superReducedString(s)
 s='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+superReducedString(s)
 s='ppffccmmssnnhhbbmmggxxaaooeeqqeennffzzaaeeyyaaggggeessvvssggbbccnnrrjjxxuuzzbbjjrruuaaccaaoommkkkkxx'
+superReducedString(s)
 s='baabc'
+superReducedString(s)
 s='dqrrqd'
+superReducedString(s)
 s='daqrrqad'
+superReducedString(s)
 s='a'
-s='acdqglrfkqyuqfjkxyqvnrtysfrzrmzlygfveulqfpdbhlqdqrrqdqlhbdpfqluevfgylzmrzrfsytrnvqyxkjfquyqkfrlacdqj'
+superReducedString(s)
 s='acdqglrfkqyuqfjkxyqvnrtysfrzrmzlygfveulqfpdbhlqdqrrqdqlhbdpfqluevfgylzmrzrfsytrnvqyxkjfquyqkfrlacdqj'
 superReducedString(s)
 
