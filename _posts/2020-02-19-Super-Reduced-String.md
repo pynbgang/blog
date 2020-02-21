@@ -3,7 +3,7 @@ layout: post
 title: "Super Reduced String"
 published: true
 created:  2020 Feb 19 11:04:01 PM
-tags: [python, string, recursive]
+tags: [python, string, recursive, list, hackerrank, stringtips, easy, medium]
 categories: [tech]
 
 ---
@@ -64,19 +64,13 @@ def superReducedString(s):
             return "Empty String"
         else:
             return s
-    len1=len(s)
-    for i in range(len1-1):
+    for i in range(len(s)-1):
         if s[i]==s[i+1]:
-            print(s,i,s[0:i]+s[i+2:])
+            # print(s,i,s[0:i]+s[i+2:])
             return superReducedString(s[0:i]+s[i+2:])
             break
-        else:
-            flag = True
-    if flag:
-        return s
-
+    return s
 ```
-
 
 ## ping
 
@@ -122,5 +116,11 @@ s='acdqglrfkqyuqfjkxyqvnrtysfrzrmzlygfveulqfpdbhlqdqrrqdqlhbdpfqluevfgylzmrzrfsy
 superReducedString(s)
 
 ```
+
+## tips
+
+* how to delete in strings?
+  - convert to list, delete item, then join back
+  - compose a new string and reassign
 
 
