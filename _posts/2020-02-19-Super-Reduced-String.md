@@ -63,7 +63,6 @@ def superReducedString(s):
         return "Empty String" if s[0] == s[1] else s
     for i in range(len(s)-1):
         if s[i]==s[i+1]:
-            # print(s,i,s[0:i]+s[i+2:])
             return superReducedString(s[0:i]+s[i+2:])
             break
     return s
