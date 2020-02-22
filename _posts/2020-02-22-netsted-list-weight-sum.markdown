@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "netsted list weight sum"
+title: "nested list weight sum"
 published: true
 created:  2020 Feb 22 02:21:06 PM
-tags: [python, lintcode, leetcode, easy, list]
+tags: [python, lintcode, leetcode, easy, list, isinstance]
 categories: [tech]
 
 ---
