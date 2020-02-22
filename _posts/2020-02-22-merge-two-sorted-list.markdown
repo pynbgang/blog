@@ -33,4 +33,35 @@ TABLE OF CONTENT
 || Input: 1->2->4, 1->3->4
 || Output: 1->1->2->3->4->4
 
+## Owen very dummy way
 
+```python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def mergeTwoLists(self, l1, l2):
+        if not l1 and not l2:
+            return None
+        if not l1:
+            return l2
+        if not l2 :
+            return l1
+        l11=[]
+        l22=[]
+        while(l1):
+            l11.append(l1)
+            l1=l1.next
+        while(l2):
+            l22.append(l2)
+            l2=l2.next
+        l3=l11+l22
+        l3.sort(key=lambda x:x.val)
+        for i in range(len(l3)-1):
+            l3[i].next=l3[i+1]
+        l3[-1].next=None
+        return l3[0]
+```
