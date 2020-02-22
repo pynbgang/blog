@@ -10,8 +10,9 @@ TABLE OF CONTENT
 * auto-gen TOC:
 {:toc}
 - - -
-[141] Linked List Cycle
-https://leetcode.com/problems/linked-list-cycle/description/
+
+# [[141] Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description/)
+
 * algorithms
 * Easy (39.40%)
 * Likes:    2287
@@ -19,6 +20,7 @@ https://leetcode.com/problems/linked-list-cycle/description/
 * Total Accepted:    539.7K
 * Total Submissions: 1.4M
 * Testcase Example:  '[3,2,0,-4]\n1'
+
 Given a linked list, determine if it has a cycle in it.
 To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to. If pos is -1, then there is no cycle in the linked list.
  
