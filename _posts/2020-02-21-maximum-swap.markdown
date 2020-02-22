@@ -133,6 +133,26 @@ class Solution:
 
         return int("".join(new_num))
 ```
+# Owen recursive
 
+```python
+class Solution1(object):
+    def maximumSwap(self, num):
+        str1=str(num)
+        return int(self.helper(str1))
+    def helper(self,str1):
+        if len(str1)==1:
+            return str1
+        if str1[-1]==0:
+            return self.helper(str[0:-1])+"0"
+        list1=list(str1)
+        maxstr=max(list1)
+        if list1[0]==maxstr:
+            return list1[0]+self.helper(str1[1:])
+        for i in range(len(list1)-1,-1,-1):
+            if list1[i]==maxstr:
+                list1[0],list1[i]=list1[i],list1[0]
+        return "".join(list1)
+```
 
 
