@@ -48,19 +48,67 @@
 #        :rtype List[NestedInteger]
 #        """
 
-class Solution:
-    def depthSum(self, nestedList: List[NestedInteger]) -> int:
-        res = 0
-        heler(l, level):
-            if isinstance(l, int):
-                res += l
-            else:
-                level += 1
-                helper(l, level)
+"""
+if 0:
 
-        for l in nestedList:
-            level = 1
-            return helper(l, 1)
+    class Solution:
+        def depthSum(self, nestedList: List[NestedInteger]) -> int:
+            res = 0
+            heler(l, level):
+                if isinstance(l, int):
+                    res += l
+                else:
+                    level += 1
+                    helper(l, level)
+
+            for l in nestedList:
+                level = 1
+                return helper(l, 1)
+"""
+
+if 0:  # owen
+
+    class Solution:
+        # @param {NestedInteger[]} nestedList a list of NestedInteger Object
+        # @return {int} an integer
+        def depthSum(self, nestedList):
+            self.sum = 0
+            def dfs(nestedList,depth):
+                for i in nestedList:
+                    if i.isInteger():
+                        self.sum+=i.getInteger()*depth
+                    else:
+                        dfs(i.getList(),depth+1)
+
+            dfs(nestedList,1)
+            return self.sum
+
+if 0:  #xiaofo
+
+    class Solution(object):
+        # @param {NestedInteger[]} nestedList a list of NestedInteger Object
+        # @return {int} an integer
+        def depthSum(self, nestedList):
+            # Write your code here
+            return sum([self.helper(1, ni) for ni in nestedList])
+
+        def helper(self, depth, ni):
+            return ni.getInteger() * depth if ni.isInteger() else sum([self.helper(depth + 1, n) for n in ni.getList()])
+
+if 1:  #xiaofo, break longline
+
+    class Solution(object):
+        # @param {NestedInteger[]} nestedList a list of NestedInteger Object
+        # @return {int} an integer
+        def depthSum(self, nestedList):
+            # Write your code here
+            return sum([self.helper(1, ni) for ni in nestedList])
+
+        def helper(self, depth, ni):
+            return ni.getInteger() * depth \
+                if ni.isInteger() \
+                else sum([self.helper(depth + 1, n) for n in ni.getList()])
+
 
 
 # @lc code=end

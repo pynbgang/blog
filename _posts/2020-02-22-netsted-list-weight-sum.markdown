@@ -3,7 +3,7 @@ layout: post
 title: "nested list weight sum"
 published: true
 created:  2020 Feb 22 02:21:06 PM
-tags: [python, lintcode, leetcode, easy, list, isinstance]
+tags: [python, lintcode, leetcode, easy, list, recursive, queue]
 categories: [tech]
 
 ---
@@ -48,9 +48,9 @@ see also [lintcode](https://www.lintcode.com/problem/nested-list-weight-sum/desc
 || Explanation: One 1 at depth 1, one 4 at depth 2, and one 6 at depth 3; 1 + 4*2 + 6*3 = 27.
 
 
-## Solution one DFS/recursive 
-Python
-```
+## Solution: owen: DFS/recursive 
+
+```python
  class Solution(object):
     # @param {NestedInteger[]} nestedList a list of NestedInteger Object
     # @return {int} an integer
@@ -66,3 +66,51 @@ Python
         return self.sum
 
 ```
+
+## solution: lmv
+
+```python
+def DFS(nestedList, depth):
+    temp_sum = 0
+    for member in nestedList:
+        if member.isInteger():
+            temp_sum += member.getInteger() * depth
+        else:
+            temp_sum += DFS(member.getList(),depth+1)
+    return temp_sum
+return DFS(nestedList,1)
+```
+
+## solution: xiaofo : recursive
+
+```python
+class Solution(object):
+    # @param {NestedInteger[]} nestedList a list of NestedInteger Object
+    # @return {int} an integer
+    def depthSum(self, nestedList):
+        # Write your code here
+        return sum([self.helper(1, ni) for ni in nestedList])
+
+    def helper(self, depth, ni):
+        return ni.getInteger() * depth if ni.isInteger() else sum([self.helper(depth + 1, n) for n in ni.getList()])
+```
+
+## solution: xiaofo: queue
+
+```python
+class Solution(object):
+    # @param {NestedInteger[]} nestedList a list of NestedInteger Object
+    # @return {int} an integer
+    def depthSum(self, nestedList):
+        # Write your code here
+        rtn, q = 0, [(ni, 1) for ni in nestedList]
+        while q:
+            item = q.pop(0)
+            if item[0].isInteger():
+                rtn += item[0].getInteger() * item[1]
+            else:
+                q += [(ni, item[1] + 1) for ni in item[0].getList()]
+        return rtn
+```
+
+
