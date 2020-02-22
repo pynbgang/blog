@@ -3,7 +3,7 @@ layout: post
 title: "merge two sorted list"
 published: true
 created:  2020 Feb 22 11:32:45 AM
-tags: [python, list, leetcode, easy]
+tags: [python, linkedlist, leetcode, easy]
 categories: [tech]
 
 ---
@@ -32,3 +32,5 @@ TABLE OF CONTENT
 || 
 || Input: 1->2->4, 1->3->4
 || Output: 1->1->2->3->4->4
+
+
