@@ -11,7 +11,7 @@
 #         self.val = x
 #         self.next = None
 
-if 0:  #ping(per wangmazi class)
+if 1:  #ping(per wangmazi class)
     class Solution:
         def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
             res = dummy = ListNode(0)
@@ -26,21 +26,22 @@ if 0:  #ping(per wangmazi class)
             res.next = l1 if l1 else l2
             return dummy.next
 
-    ```python
+    """
     ||   ✔ Accepted
     ||   ✔ 208/208 cases passed (36 ms)
     ||   ✔ Your runtime beats 62.47 % of python3 submissions
     ||   ✔ Your memory usage beats 100 % of python3 submissions (12.7 MB)
-    ```
+    """
 
 if 0:  #lmv
-    ```python
+
+    """
     https://leetcode.com/problems/merge-two-sorted-lists/discuss/9735
 
     * Lang:    python3
     * Author:  caikehe
     * Votes:   383
-    ```
+    """
 
     class Solution:
         # iteratively
