@@ -48,3 +48,21 @@ see also [lintcode](https://www.lintcode.com/problem/nested-list-weight-sum/desc
 || Explanation: One 1 at depth 1, one 4 at depth 2, and one 6 at depth 3; 1 + 4*2 + 6*3 = 27.
 
 
+## Solution one DFS/recursive 
+Python
+```
+ class Solution(object):
+    # @param {NestedInteger[]} nestedList a list of NestedInteger Object
+    # @return {int} an integer
+    def depthSum(self, nestedList):
+        self.sum = 0
+        def dfs(nestedList,depth):
+            for i in nestedList:
+                if i.isInteger():
+                    self.sum+=i.getInteger()*depth
+                else:
+                    dfs(i.getList(),depth+1)
+        dfs(nestedList,1)
+        return self.sum
+
+```
