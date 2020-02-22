@@ -92,6 +92,11 @@ class Solution:
         return int(''.join(list1))
 ```
 
+    ||   ✔ Accepted
+    ||   ✔ 111/111 cases passed (32 ms)
+    ||   ✔ Your runtime beats 20.67 % of python3 submissions
+    ||   ✔ Your memory usage beats 100 % of python3 submissions (12.6 MB)
+
 ```python
 S=Solution()
 num=2736
