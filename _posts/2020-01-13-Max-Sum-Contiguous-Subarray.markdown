@@ -4,7 +4,7 @@ title: "Max Sum Contiguous Subarray"
 author: "owen"
 published: true
 created:  2020 Jan 13 23:34:22 PM
-tags: [fb, google, python, interview, list, sys]
+tags: [fb, google, python, interview, list, sys, easy]
 categories: [tech]
 
 ---
@@ -20,6 +20,31 @@ TABLE OF CONTENT
 
 Find the contiguous subarray within an array, A of length N which has the
 largest sum
+
+
+see all leetcode [[53] Maximum Subarray](https://leetcode.com/problems/maximum-subarray/description/)
+
+|| * algorithms
+|| * Easy (45.52%)
+|| * Likes:    6326
+|| * Dislikes: 272
+|| * Total Accepted:    777.5K
+|| * Total Submissions: 1.7M
+|| * Testcase Example:  '[-2,1,-3,4,-1,2,1,-5,4]'
+|| 
+|| Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+|| 
+|| Example:
+|| 
+|| 
+|| Input: [-2,1,-3,4,-1,2,1,-5,4],
+|| Output: 6
+|| Explanation: [4,-1,2,1] has the largest sum = 6.
+|| 
+|| 
+|| Follow up:
+|| 
+|| If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 
 # owen
 
