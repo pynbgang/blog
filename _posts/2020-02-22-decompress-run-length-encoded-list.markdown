@@ -47,3 +47,27 @@ TABLE OF CONTENT
     2 <= nums.length <= 100
     nums.length % 2 == 0
     1 <= nums[i] <= 100
+
+# ping
+
+```python
+class Solution:
+    def decompressRLElist(self, nums: List[int]) -> List[int]:
+        res=[]
+        i=0
+        while i<len(nums):
+            res.extend( nums[i] * [nums[i+1]] )
+            i+=2
+        return res
+```
+
+tips:
+* list multiplication!
+
+#lmv
+
+```python
+class Solution:
+    def decompressRLElist(self, N: List[int]) -> List[int]:
+        return sum([N[i]*[N[i+1]] for i in range(0,len(N),2)],[])
+```

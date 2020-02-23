@@ -83,7 +83,7 @@ if 0:  # owen
             dfs(nestedList,1)
             return self.sum
 
-if 1:  #xiaofo
+if 0:  #xiaofo
 
     class Solution(object):
         # @param {NestedInteger[]} nestedList a list of NestedInteger Object
