@@ -83,17 +83,17 @@ if 0:  # owen
             dfs(nestedList,1)
             return self.sum
 
-if 0:  #xiaofo
+if 1:  #xiaofo
 
     class Solution(object):
         # @param {NestedInteger[]} nestedList a list of NestedInteger Object
         # @return {int} an integer
         def depthSum(self, nestedList):
             # Write your code here
-            return sum([self.helper(1, ni) for ni in nestedList])
+            return sum(self.helper(1, i) for i in nestedList)
 
-        def helper(self, depth, ni):
-            return ni.getInteger() * depth if ni.isInteger() else sum([self.helper(depth + 1, n) for n in ni.getList()])
+        def helper(self, depth, i):
+            return i.getInteger() * depth if i.isInteger() else sum(self.helper(depth + 1, n) for n in i.getList())
 
 if 1:  #xiaofo, break longline
 
@@ -102,13 +102,29 @@ if 1:  #xiaofo, break longline
         # @return {int} an integer
         def depthSum(self, nestedList):
             # Write your code here
-            return sum([self.helper(1, ni) for ni in nestedList])
+            return sum(self.helper(1, i) for i in nestedList)
 
-        def helper(self, depth, ni):
-            return ni.getInteger() * depth \
-                if ni.isInteger() \
-                else sum([self.helper(depth + 1, n) for n in ni.getList()])
+        def helper(self, depth, i):
+            return (
+                i.getInteger() * depth
+                if i.isInteger() else
+                sum(self.helper(depth + 1, n) for n in i.getList())
+            )
 
+if 0:
+    class Solution(object):
+        # @param {NestedInteger[]} nestedList a list of NestedInteger Object
+        # @return {int} an integer
+        def depthSum(self, nestedList):
+            # Write your code here
+            rtn, q = 0, [(ni, 1) for ni in nestedList]
+            while q:
+                item = q.pop(0)
+                if item[0].isInteger():
+                    rtn += item[0].getInteger() * item[1]
+                else:
+                    q += [(ni, item[1] + 1) for ni in item[0].getList()]
+            return rtn
 
 
 # @lc code=end
