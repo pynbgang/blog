@@ -58,3 +58,22 @@ TABLE OF CONTENT
 || The length of strings in both lists will be in the range of [1, 30].
 || The index is starting from 0 to the list length minus 1.
 || No duplicates in both lists.
+
+## ping
+```python
+class Solution:
+    def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
+        common, d = set(list1) & set(list2), {}
+        for one in common:
+            d[one] = list1.index(one) + list2.index(one)
+        return [k for k in d if d[k] == min(d.values())]
+```
+
+## lmv
+
+```python
+class Solution:
+    def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
+        d = {x: list1.index(x) + list2.index(x) for x in set(list1) & set(list2)}
+        return [x for x in d if d[x] == min(d.values())]
+```

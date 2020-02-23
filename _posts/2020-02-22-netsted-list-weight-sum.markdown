@@ -3,7 +3,7 @@ layout: post
 title: "nested list weight sum"
 published: true
 created:  2020 Feb 22 02:21:06 PM
-tags: [python, lintcode, leetcode, easy, list, recursive, queue]
+tags: [python, lintcode, leetcode, easy, list, recursive, queue, comment]
 categories: [tech]
 
 ---
@@ -126,6 +126,10 @@ class Solution(object):
             sum(self.helper(depth + 1, n) for n in i.getList()) #weighted items
         )
 ```
+
+tips: how to comment a long line
+
+https://stackoverflow.com/questions/17630835/python-comments-after-backslash
 
 ## xiaofo: queue (w/o recursive)
 
