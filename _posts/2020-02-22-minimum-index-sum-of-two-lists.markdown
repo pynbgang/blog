@@ -3,7 +3,7 @@ layout: post
 title: "minimum index sum of two lists"
 published: true
 created:  2020 Feb 22 09:06:40 PM
-tags: [python, leetcode, easy, list]
+tags: [python, leetcode, easy, list, dict]
 categories: [tech]
 
 ---
@@ -77,3 +77,8 @@ class Solution:
         d = {x: list1.index(x) + list2.index(x) for x in set(list1) & set(list2)}
         return [x for x in d if d[x] == min(d.values())]
 ```
+
+tips:
+* dict comprehension!
+
+
