@@ -3,7 +3,7 @@ layout: post
 title: "find-all-numbers-disappeared-in-an-array"
 published: true
 created:  2020 Feb 24 10:07:30 AM
-tags: [easy, list, python, leetcode]
+tags: [easy, list, python, leetcode, brute force]
 categories: [tech]
 
 ---
@@ -39,3 +39,51 @@ TABLE OF CONTENT
 || 
 || Output:
 || [5,6]
+
+# ping
+
+## plain brute force: timeout
+
+```python
+class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        res=[]
+        for i in range(1, max(len(nums), max(nums or [0]))+1):
+            if i not in nums:
+                res.append(i)
+        return res
+```
+
+## passed
+
+```python
+class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        res = []
+        len1, nums = max(len(nums), max(nums or [0])), sorted(list(set(nums)))
+        nums.insert(0, 0)
+        nums.append(len1+1)
+        for i in range(len(nums)-1):
+            if nums[i+1] - nums[i] > 1:
+                res.extend(range(nums[i]+1, nums[i+1]))
+        return res
+```
+
+# lmv
+
+    """
+    https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/discuss/313703
+
+    * Lang:    python3
+    * Author:  ndave
+    * Votes:   14
+    """
+
+```python
+class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        for n in nums:
+            a = abs(n) - 1
+            if nums[a] > 0: nums[a] *= -1
+        return [i+1 for i in range(len(nums)) if nums[i] > 0]
+```
