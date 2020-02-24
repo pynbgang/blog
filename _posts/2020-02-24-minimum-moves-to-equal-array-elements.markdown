@@ -3,7 +3,7 @@ layout: post
 title: "minimum-moves-to-equal-array-elements"
 published: true
 created:  2020 Feb 24 11:44:22 AM
-tags: [lintcode, python, easy, medium, list, math]
+tags: [lintcode, python, easy, medium, list, math, brute force]
 categories: [tech]
 
 ---
@@ -42,6 +42,20 @@ TABLE OF CONTENT
 || Only three moves are needed (remember each move increments two elements):
 || 
 || [1,2,3]  =>  [2,3,3]  =>  [3,4,3]  =>  [4,4,4]
+
+# ping: brute force: time exceeded
+
+```python
+class Solution:
+    def minMoves(self, nums: List[int]) -> int:
+        res = 0
+        while len(set(nums))>1:
+            nums.sort()
+            gaps = nums[-1] - nums[0]
+            res += gaps
+            nums = [nums[i]+gaps for i in range(len(nums)-1)] + [nums[-1]]
+        return res
+```
 
 # lmv
 
