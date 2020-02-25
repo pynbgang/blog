@@ -48,7 +48,7 @@ original order.
 || 
 || Constraints:
 || 
-|| 
+
 || 	0 <= logs.length <= 100
 || 	3 <= logs[i].length <= 100
 || 	logs[i] is guaranteed to have an identifier, and a word after the identifier.

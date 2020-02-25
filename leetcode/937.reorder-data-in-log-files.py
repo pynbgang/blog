@@ -7,5 +7,9 @@
 # @lc code=start
 class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
-        
+        def helper(s):
+            l = s.split()
+            let = True if str(l[1]) > str('0') else False
+
+        return sorted(logs, key=helper)
 # @lc code=end
