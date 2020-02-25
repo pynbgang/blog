@@ -33,14 +33,15 @@ class Solution:
                     break
         return count
 
-# ping: very slow
+# ping: 2 treat conditions differently: passed
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
         count, newdup = 0, True
         nums.sort()
         if k > 0:
-            for num in set(nums):
-                if num+k in set(nums):
+            nums = set(nums)
+            for num in nums:
+                if num+k in nums:
                     count += 1
         if k == 0:
             for i in range(len(nums)-1):
@@ -51,21 +52,15 @@ class Solution:
                     newdup = True
         return count
 
-"""
-||   ✔ Accepted
-||   ✔ 72/72 cases passed (7788 ms)
-||   ✔ Your runtime beats 5 % of python3 submissions
-||   ✔ Your memory usage beats 96.77 % of python3 submissions (14.2 MB)
-"""
-
-# ping: use Counter: same, slow
+# ping: use Counter, not faster
 from collections import Counter
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
         count = 0
         if k > 0:
-            for num in set(nums):
-                if num+k in set(nums):
+            nums = set(nums)
+            for num in nums:
+                if num+k in nums:
                     count += 1
         if k == 0:
             d = Counter(nums)
