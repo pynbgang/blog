@@ -57,6 +57,8 @@ unique pairs.
 || All the integers in the given input belong to the range: [-1e7, 1e7].
 
 ## ping: fail
+
+```python
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
         count = 0
@@ -69,8 +71,11 @@ class Solution:
                 count += 1
                 nums.remove(nums+k)
         return count
+```
 
 ## ping: time limit exceeded
+
+```python
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
         nums.sort()
@@ -82,8 +87,11 @@ class Solution:
                     count += 1
                     break
         return count
+```
 
 ## ping: very slow
+
+```python
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
         count, newdup = 0, True
@@ -107,8 +115,11 @@ class Solution:
 ||   ✔ Your runtime beats 5 % of python3 submissions
 ||   ✔ Your memory usage beats 96.77 % of python3 submissions (14.2 MB)
 """
+```
 
 ## ping: use Counter: same, slow
+
+```python
 from collections import Counter
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
@@ -121,8 +132,11 @@ class Solution:
             d = Counter(nums)
             count = sum(1 for num in d if d[num] > 1)
         return count
+```
 
 ## lmv
+
+```python
 from collections import Counter
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
@@ -148,8 +162,11 @@ class Solution:
                     pairs.add((num, otherNum) if num <= otherNum else (otherNum, num))
 
         return len(pairs)
+```
 
 ## internet https://blog.csdn.net/fuxuemingzhu/article/details/79255633
+
+```python
 class Solution(object):
     def findPairs(self, nums, k):
         """
@@ -171,3 +188,4 @@ class Solution(object):
                 if num + k in nums:
                     res += 1
             return res
+```
