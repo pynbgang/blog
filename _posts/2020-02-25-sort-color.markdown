@@ -19,7 +19,7 @@ TABLE OF CONTENT
 
 https://www.lintcode.com/problem/sort-colors/description?_from=ladder&&fromId=99
 
-## mine
+## ping: brute force
 
 ```python
 class Solution:
