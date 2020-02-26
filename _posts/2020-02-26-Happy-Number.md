@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "two-sum-ii-input-array-is-sorted"
+title: "Happy-Number"
 published: true
 created:  2020 Feb 26 02:45:47 PM
 tags: [python, list, leetcode, easy]
