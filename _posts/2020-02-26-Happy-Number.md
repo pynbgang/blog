@@ -15,7 +15,7 @@ TABLE OF CONTENT
 
 - - -
 
-# [two-sum-ii-input-array-is-sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/)
+# [Happy Number](https://leetcode.com/problems/happy-number/)
 
 ||Write an algorithm to determine if a number is "happy".                                                                                                                                                                                                                                                                                                         
 ||                                                                                                                                                                                                                                                                                                                                                                
