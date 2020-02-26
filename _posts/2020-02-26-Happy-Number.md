@@ -2,7 +2,7 @@
 layout: post
 title: "two-sum-ii-input-array-is-sorted"
 published: true
-created:  2020 Feb 23 02:45:47 PM
+created:  2020 Feb 26 02:45:47 PM
 tags: [python, list, leetcode, easy]
 categories: [tech]
 
