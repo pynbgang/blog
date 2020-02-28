@@ -34,22 +34,22 @@ class Solution: # ping: compacted
 
         return sorted(logs, key=helper)
 
-    """
-    ||   ✔ Accepted
-    ||   ✔ 63/63 cases passed (24 ms)
-    ||   ✔ Your runtime beats 99.38 % of python3 submissions
-    ||   ✔ Your memory usage beats 100 % of python3 submissions (12.8 MB)
-    """
+        """
+        ||   ✔ Accepted
+        ||   ✔ 63/63 cases passed (24 ms)
+        ||   ✔ Your runtime beats 99.38 % of python3 submissions
+        ||   ✔ Your memory usage beats 100 % of python3 submissions (12.8 MB)
+        """
 class Solution: # ping: oneliner
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
         return sorted(logs, key=lambda s: '0'+s[s.index(' ')+1:]+' '+s[0:s.index(' ')] if s[s.index(' ')+1].isalpha() else 'a')
 
-    """
-    ||   ✔ Accepted
-    ||   ✔ 63/63 cases passed (36 ms)
-    ||   ✔ Your runtime beats 56.1 % of python3 submissions
-    ||   ✔ Your memory usage beats 100 % of python3 submissions (12.7 MB)
-    """
+        """
+        ||   ✔ Accepted
+        ||   ✔ 63/63 cases passed (36 ms)
+        ||   ✔ Your runtime beats 56.1 % of python3 submissions
+        ||   ✔ Your memory usage beats 100 % of python3 submissions (12.7 MB)
+        """
 
 class Solution: # lmv
     """
@@ -71,11 +71,11 @@ class Solution: # lmv
             else: A.append(g)
         return [" ".join(i) for i in sorted(A, key = lambda x: x[1:]+[x[0]]) + B]
 
-    """
-    ||   ✔ Accepted
-    ||   ✔ 63/63 cases passed (32 ms)
-    ||   ✔ Your runtime beats 83.02 % of python3 submissions
-    ||   ✔ Your memory usage beats 100 % of python3 submissions (12.8 MB)
-    """
+        """
+        ||   ✔ Accepted
+        ||   ✔ 63/63 cases passed (32 ms)
+        ||   ✔ Your runtime beats 83.02 % of python3 submissions
+        ||   ✔ Your memory usage beats 100 % of python3 submissions (12.8 MB)
+        """
 
 # @lc code=end
