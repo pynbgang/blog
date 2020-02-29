@@ -85,7 +85,8 @@ class Solution:
     A[i]+i + A[j]-j
     ------   ------
 
-for any j, maintain a maxi (A[i]+i), and max res **for current j** is maxi+A[j]-j
-final res is max of all these max
+* for any j, maintain a maxi (A[i]+i), 
+* max res **for current j** is maxi+A[j]-j
+* final res is max of all these max
 
 

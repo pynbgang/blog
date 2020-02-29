@@ -3,7 +3,7 @@ layout: post
 title: "Remove Linked List Elements"
 published: true
 created:  2020 Feb 27 02:45:47 PM
-tags: [python, linked list, leetcode, easy]
+tags: [python, linkedlist, leetcode, easy]
 categories: [tech]
 
 ---
@@ -17,17 +17,17 @@ TABLE OF CONTENT
 
 # [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)
 
-||Remove all elements from a linked list of integers that have value val.em.                                                                         
-||Example:                                                                                                                                          
-||Input:  1->2->6->3->4->5->6, val = 6                                      
-||Output: 1->2->3->4->5                                                                                                                                                                                                                                                                                                                                                                                     
-||Example 1:                                                                                                                                                        
-||                                                                                                                                                                  
-||Input: [8,1,5,2,6]                                                                                                                                                
-||Output: 11                                                                                                                                                        
-||                                                                                                                                                                                                                                                                                                                                                                                                                                          
+||Remove all elements from a linked list of integers that have value val.em.
+||Example:
+||Input:  1->2->6->3->4->5->6, val = 6
+||Output: 1->2->3->4->5
+||Example 1:
+||
+||Input: [8,1,5,2,6]
+||Output: 11
+||
 
-## Owen - fast/slow pointers 
+## Owen - fast/slow pointers
 
 ```python
 class Solution(object):
@@ -50,6 +50,18 @@ class Solution(object):
         return headp
 ```
 
+## ping
 
+```python
+class Solution:
+    def removeElements(self, head: ListNode, val: int) -> ListNode:
+        dummy = p = ListNode(0); dummy.next=head
+        while p.next:
+            if p.next.val is val:
+                p.next=p.next.next
+            else:
+                p=p.next
+        return dummy.next
+```
 
 
