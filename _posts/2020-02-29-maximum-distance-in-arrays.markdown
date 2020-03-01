@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Maximum Distance in Arrays"
-published: false
+published: true
 created:  2020 Feb 29 09:58:16 PM
-tags: [life]
+tags: [python, list, easy, leetcode, media]
 categories: [tech]
 
 ---
@@ -52,4 +52,4 @@ TABLE OF CONTENT
     || The total number of the integers in all the m arrays will be in the range of [2, 10000].
     || The integers in the m arrays will be in the range of [-10000, 10000].
 
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Rnr7vK2k788" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
