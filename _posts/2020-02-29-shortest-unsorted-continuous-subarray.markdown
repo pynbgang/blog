@@ -3,7 +3,7 @@ layout: post
 title: "Shortest Unsorted Continuous Subarray"
 published: true
 created:  2020 Feb 29 09:09:28 PM
-tags: [list, python, leetcode, easy]
+tags: [list, python, leetcode, easy, zip, media]
 categories: [tech]
 
 ---
@@ -120,3 +120,4 @@ class Solution:     #lmv, nothing special
     """
 ```
 
+<iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/Ti5fdLn-ZTg" width="480"></iframe>
