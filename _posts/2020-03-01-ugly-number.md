@@ -3,7 +3,7 @@ layout: post
 title: "Ugly Number"
 published: true
 created:  2020 Mar 01 02:45:47 PM
-tags: [python, math, leetcode, easy, set, precedence]
+tags: [python, math, leetcode, easy, set, precedence, media]
 categories: [tech]
 
 ---
@@ -115,3 +115,4 @@ regarding `num % p == 0 < num`:
 it is NOT: `(num % p) == (0 < num)`
 instead it is: `(num % p) and (0 < num)`
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Wz4WWds2HjQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
