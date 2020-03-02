@@ -3,7 +3,7 @@ layout: post
 title: "Maximum Distance in Arrays"
 published: true
 created:  2020 Feb 29 09:58:16 PM
-tags: [python, list, easy, leetcode, media]
+tags: [python, list, easy, leetcode, media, set]
 categories: [tech]
 
 ---
@@ -99,6 +99,7 @@ class Solution:     #ping: failed, answer not correct
 class Solution:     #ping: passed
 
     def isinsameset(self, low, high, arrays):
+        #can two value belong diff arrays or not, if yes return the gap
         set1 = set(); set2 = set()
         for i in range(len(arrays)):
             if low in arrays[i]:
@@ -112,12 +113,12 @@ class Solution:     #ping: passed
 
     def maxDistance(self, arrays: List[List[int]]) -> int:
         l = []
-        for array in arrays: 
-            l.extend([array[0], array[-1]])
-        l = sorted(list(set(l)))
-        res = self.isinsameset(l[0], l[-1], arrays)
-        if res is not -1: return res
-        else:
+        for array in arrays:                            #merge arrays, but only
+            l.extend([array[0], array[-1]])             #use the two ends
+        l = sorted(list(set(l)))                        #remove dup and sort
+        res = self.isinsameset(l[0], l[-1], arrays)     #check the 2 ends
+        if res is not -1: return res    #if lucky 2 ends belongs to diff arr
+        else:                           #otherwise, use each end to scan
             return max(
                 max(self.isinsameset(l[i], l[-1], arrays) for i in range(len(l)-1)),
                 max(self.isinsameset(l[0], l[i], arrays) for i in range(1, len(l)))
@@ -130,6 +131,13 @@ class Solution:     #ping: passed
         ||   ✔ Your memory usage beats 50 % of python3 submissions (15.8 MB)
         """
 ```
+
+## tips
+
+* `set1=set2=set()` is diff with `set1=set(); set2=set()`: python refer hell
+* when merge arrays, only use min/max elements. others are no use
+* review set operation: `set1 != set2` and others
+* one of the 2 num of the max distance must be from the highest/lowest num of all nums
 
 ## lmv
 
