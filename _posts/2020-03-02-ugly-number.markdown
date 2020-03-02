@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "ugly number"
-published: false
+published: true
 created:  2020 Mar 02 02:27:07 PM
-tags: [life]
+tags: [python, leetcode, easy, number]
 categories: [tech]
 
 ---
