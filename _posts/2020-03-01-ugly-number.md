@@ -1,4 +1,4 @@
----
+u---
 layout: post
 title: "Ugly Number"
 published: true
@@ -27,7 +27,7 @@ TABLE OF CONTENT
 ||Output: 11                                                                                                                                                        
 ||                                                                                                                                                                                                                                                                                                                                                                                                                                          
 
-## Owen - fast/slow pointers 
+## Owen - recursive 
 
 ```python
 class Solution(object):
