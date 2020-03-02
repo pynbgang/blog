@@ -1,4 +1,4 @@
-u---
+---
 layout: post
 title: "Ugly Number"
 published: true
@@ -17,17 +17,17 @@ TABLE OF CONTENT
 
 # [Ugly Number](https://leetcode.com/problems/ugly-number/submissions/)
 
-||Write a program to check whether a given number is an ugly number.                                                                         
-||                                                                                                                                          
+||Write a program to check whether a given number is an ugly number.
+||
 ||Ugly numbers are positive numbers whose prime factors only include 2, 3, 5.
-||Output: 1->2->3->4->5                                                                                                                                                                                                                                                                                                                                                                                     
-||Example 1:                                                                                                                                                        
-||                                                                                                                                                                  
-||Input: [8,1,5,2,6]                                                                                                                                                
-||Output: 11                                                                                                                                                        
-||                                                                                                                                                                                                                                                                                                                                                                                                                                          
+||Output: 1->2->3->4->5
+||Example 1:
+||
+||Input: [8,1,5,2,6]
+||Output: 11
+||
 
-## Owen - recursive 
+## Owen - recursive
 
 ```python
 class Solution(object):
@@ -37,7 +37,7 @@ class Solution(object):
         k=self.helper(num)
         if k[0]:return self.isUgly(num/k[1])
         return False
-    
+
     def helper(self,num):
         flag=False
         for i in [2,3,5]:
