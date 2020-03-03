@@ -82,7 +82,7 @@ class Solution:  #lmv
         return ugly[-1]
 ```
 
-## illustration
+## tips
 
 * init only 1 ugly `nums`: [1]
 * muliply 2, 3, 5, get new ugly num 2,3,5, min(2,3,5)=2, so `x2` win. `nums`:[1,2]

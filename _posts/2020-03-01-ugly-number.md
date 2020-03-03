@@ -3,7 +3,7 @@ layout: post
 title: "Ugly Number"
 published: true
 created:  2020 Mar 01 02:45:47 PM
-tags: [python, math, leetcode, easy, set, precedence, media]
+tags: [python, math, leetcode, easy, set, precedence, math, prime, media]
 categories: [tech]
 
 ---
