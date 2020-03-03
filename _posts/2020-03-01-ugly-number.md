@@ -70,19 +70,22 @@ class Solution(object):
         return (False,0)
 ```
 
-## ping and lmv
+## ping: brute force
+
+* for any num just search for all its prime
+* see if the primes are within given ugly factors
 
 ```python
-class Solution:     #ping: prime issue
+class Solution:                         #ping: use prime issue idea
     def isUgly(self, num: int) -> bool:
-        num1, i, set1 = num, 2, set()
-        while i**2 <= num:
-            if not num % i:
+        num1, i, set1 = num, 2, set()   #save orig num, start pri from 2
+        while i**2 <= num:              #only need to scan upto sqrt(num)
+            if not num % i:             #record each prime found in a set
                 set1.add(i)
                 num //= i
             else:
                 i += 1
-        set1.add(num)   #don't forget the last factor
+        set1.add(num)                   #add the last factor in the end
         return True if set1.issubset({2,3,5}) or num1==1 else False
 
         """
@@ -91,7 +94,14 @@ class Solution:     #ping: prime issue
         ||   ✔ Your runtime beats 5.44 % of python3 submissions
         ||   ✔ Your memory usage beats 100 % of python3 submissions (12.7 MB)
         """
+```
 
+## lmv
+
+* use the given "ugly factors" to divide the num
+* see if can reach 1 in the end
+
+```python
 class Solution:     #lmv
     def isUgly(self, num: int) -> bool:
         for p in 2, 3, 5:
@@ -110,10 +120,9 @@ class Solution:     #lmv
 
 ## tip
 
-
 regarding `num % p == 0 < num`:
 it is NOT: `(num % p) == (0 < num)`
-instead it is: `(num % p) and (0 < num)`
+it is: `(num % p) and (0 < num)`
 
 ## media
 
