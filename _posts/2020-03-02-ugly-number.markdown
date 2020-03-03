@@ -3,7 +3,7 @@ layout: post
 title: "ugly number ii"
 published: true
 created:  2020 Mar 02 02:27:07 PM
-tags: [python, leetcode, medium, number, math, prime, media]
+tags: [python, leetcode, medium, number, math, prime, media, vitas]
 categories: [tech]
 
 ---

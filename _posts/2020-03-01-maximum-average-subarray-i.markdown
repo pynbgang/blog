@@ -3,7 +3,7 @@ layout: post
 title: "maximum-average-subarray-i"
 published: true
 created:  2020 Mar 01 11:24:04 PM
-tags: [python, easy, list, leetcode, media]
+tags: [python, easy, list, leetcode, media, wumochou]
 categories: [tech]
 
 ---

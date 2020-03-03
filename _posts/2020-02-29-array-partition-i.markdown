@@ -3,7 +3,7 @@ layout: post
 title: "array-partition-i"
 published: true
 created:  2020 Feb 29 02:29:37 PM
-tags: [lintcode, python, easy, list, media]
+tags: [lintcode, python, easy, list, media, tanyonglin]
 categories: [tech]
 
 ---

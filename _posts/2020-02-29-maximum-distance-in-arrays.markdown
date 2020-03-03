@@ -3,7 +3,7 @@ layout: post
 title: "Maximum Distance in Arrays"
 published: true
 created:  2020 Feb 29 09:58:16 PM
-tags: [python, list, easy, leetcode, media, set]
+tags: [python, list, easy, leetcode, media, set, denglijun]
 categories: [tech]
 
 ---
