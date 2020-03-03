@@ -3,7 +3,7 @@ layout: post
 title: "ugly number ii"
 published: true
 created:  2020 Mar 02 02:27:07 PM
-tags: [python, leetcode, medium, number, math, prime]
+tags: [python, leetcode, medium, number, math, prime, media]
 categories: [tech]
 
 ---
@@ -133,3 +133,9 @@ illustrated below:
 ## good reference
 
 * https://www.geeksforgeeks.org/ugly-numbers/
+
+## media
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-RkvdJ1WreU?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
