@@ -32,7 +32,8 @@ TABLE OF CONTENT
     || 	A.length >= 3
     || 	There exists some 0 < i < A.length - 1 such that A[0] < A[1] < ... A[i-1] < A[i] > A[i+1] > ... > A[A.length - 1]
     || 
-    || Given an array that is definitely a mountain, return any i such that A[0] < A[1] < ... A[i-1] < A[i] > A[i+1] > ... > A[A.length - 1].
+    || Given an array that is definitely a mountain, return any i such
+    that A[0] < A[1] < ... A[i-1] < A[i] > A[i+1] > ... > A[A.length - 1].
     || 
     || Example 1:
     || Input: [0,1,0]
@@ -48,4 +49,17 @@ TABLE OF CONTENT
     || 	0 <= A[i] <= 10^6
     || 	A is a mountain, as defined above.
 
+## ping: just find the index of the max
 
+```python
+class Solution:
+    def peakIndexInMountainArray(self, A: List[int]) -> int:
+        return A.index(max(A))
+
+        """
+        ||   ✔ Accepted
+        ||   ✔ 32/32 cases passed (64 ms)
+        ||   ✔ Your runtime beats 99.84 % of python3 submissions
+        ||   ✔ Your memory usage beats 96.97 % of python3 submissions (14 MB)
+        """
+```
