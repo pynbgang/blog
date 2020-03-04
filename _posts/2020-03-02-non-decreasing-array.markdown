@@ -3,7 +3,7 @@ layout: post
 title: "non-decreasing-array"
 published: true
 created:  2020 Mar 02 09:43:51 PM
-tags: [leetcode, python, easy, list]
+tags: [leetcode, python, easy, list, media, talkshow]
 categories: [tech]
 
 ---
@@ -143,3 +143,7 @@ class Solution:     #internet
                     nums[x] = nums[x - 1]
         return True
 ```
+
+## media
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7tzXZES-FI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
