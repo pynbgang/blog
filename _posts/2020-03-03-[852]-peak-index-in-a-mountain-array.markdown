@@ -2,7 +2,7 @@
 layout: post
 title: "[852] Peak Index in a Mountain Array"
 published: true
-created:  2020 Mar 04 01:32:56 AM
+created:  2020 Mar 03 01:32:56 AM
 tags: [leetcode, python, easy, list]
 categories: [tech]
 

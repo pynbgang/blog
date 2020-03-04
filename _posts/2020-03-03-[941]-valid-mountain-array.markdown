@@ -2,7 +2,7 @@
 layout: post
 title: "[941] Valid Mountain Array"
 published: true
-created:  2020 Mar 04 12:17:00 PM
+created:  2020 Mar 03 12:17:00 PM
 tags: [python, leetcode, easy, list]
 categories: [tech]
 
