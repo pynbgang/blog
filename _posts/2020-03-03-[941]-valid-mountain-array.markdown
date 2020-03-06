@@ -3,7 +3,7 @@ layout: post
 title: "[941] Valid Mountain Array"
 published: true
 created:  2020 Mar 03 12:17:00 PM
-tags: [python, leetcode, easy, list]
+tags: [python, leetcode, easy, list, comment]
 categories: [tech]
 
 ---
@@ -99,3 +99,7 @@ class Solution:     #ping: with loop
         ||   ✔ Your memory usage beats 47.37 % of python3 submissions (14.1 MB)
         """
 ```
+
+## tip
+
+comment for long lines
