@@ -1,0 +1,78 @@
+---
+layout: post
+title: "[392] Is Subsequence"
+published: true
+created:  2020 Mar 05 10:08:19 PM
+tags: [python, leetcode, easy, iter, all]
+categories: [tech]
+
+---
+
+TABLE OF CONTENT
+
+* auto-gen TOC:
+{:toc}
+
+- - -
+
+# [[989] Is Subsequence](https://leetcode.com/problems/is-subsequence/)
+
+    || Given a string s and a string t, check if s is subsequence of t.                                                                                                                                                                                                      
+    ||                                                                                                                                                                                                                                                                       
+    || You may assume that there is only lower case English letters in both s and t. t is potentially a very long (length ~= 500,000) string, and s is a short string (<=100).                                                                                               
+    ||                                                                                                                                                                                                                                                                       
+    || A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, "ace" is a subsequence of "abcde" while "aec" is not).
+    ||                                                                                                                                                                                                                                                                       
+    || Example 1:                                                                                                                                                                                                                                                            
+    || s = "abc", t = "ahbgdc"                                                                                                                                                                                                                                               
+    ||                                                                                                                                                                                                                                                                       
+    || Return true.                                                                                                                                                                                                                                                          
+                                                                                                                                                                                                                                                                          
+       Example 2:                                                                                                                                                                                                                                                            
+    || s = "axc", t = "ahbgdc"                                                                                                                                                                                                                                               
+    ||                                                                                                                                                                                                                                                                       
+    || Return false.                                                                                                                                                                                                                                                         
+
+Owen: str, int
+
+```python
+class Solution(object):
+    def isSubsequence(self, s, t):
+        if not s and t:return True
+        i,j=0,0
+        while (i<len(s) and j<len(t)):
+            if s[i]!=t[j]:j+=1
+            else:
+                i+=1
+                j+=1
+        if i<len(s):return False
+        return True
+
+        """
+```
+
+## lmv
+
+    || [Python3] Improving the Leetcode Solution and Avoiding the Use of 'str', 'int' and 'map'
+    || 
+    || https://leetcode.com/problems/add-to-array-form-of-integer/discuss/437674
+    || 
+    || * Lang:    python3
+    || * Author:  Dr_Sean
+    || * Votes:   6
+    || 
+    || # Notes:
+    || - Leetcode provided a simple [solution](https://leetcode.com/problems/add-to-array-form-of-integer/solution/), but it is not efficient. K has 5 digits at most, but A can have 10000 elements. This means that the summation might finish after 5 iterations, but the loop will continue for 10000 times! I added a condition to avoid this.
+    || - I think the purpose of this question is to provide a summation based on elementary school math, and avoid other functions such as \'str\', \'int\' and \'map\'. 
+    || - The Leetcode solution does not work for Python3, but slight changes would make it compatible for both Python/ Python3.
+    || 
+    || 
+    || # Python/ Python3 code:
+    || ```
+    || class Solution(object):           
+    ||     def isSubsequence(self, s, t):
+    ||         t = iter(t)               
+    ||         return all(c in t for c in s)
+    || 
+    || 
+    || ```
