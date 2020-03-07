@@ -33,7 +33,8 @@ TABLE OF CONTENT
     ||7                                                                                                                                                
     ||                                                                                                                                                                                                                                                                                                                                                                                      
       Explanation:                                                                                                                                     
-Owen: recursive                                                                        
+
+Owen: recursive
 
 ```python
 # Definition for a binary tree node.
@@ -51,9 +52,9 @@ class Solution(object):
         print self.sum1
         return self.sum1
     def helper(self,root):
-        if not root:return 
+        if not root:return
         if not root.left and not root.right:
-            return 
+            return
         if root.left and (not root.left.left and not root.left.right ):self.sum1+=root.left.val
         self.helper(root.left)
         self.helper(root.right)

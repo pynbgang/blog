@@ -57,4 +57,23 @@ class Solution(object):     #lmv: use iter
         ||   ✔ Your runtime beats 83 % of python3 submissions
         ||   ✔ Your memory usage beats 26.67 % of python3 submissions (17.4 MB)
         """
+
+class Solution(object):
+    def isSubsequence(self, s, t):
+        if not s and t:return True
+        i,j=0,0
+        while (i<len(s) and j<len(t)):
+            if s[i]!=t[j]:
+                j+=1
+            else:
+                i+=1
+                j+=1
+        if i<len(s):return False
+        return True
+        """
+        ||   ✔ Accepted
+        ||   ✔ 14/14 cases passed (292 ms)
+        ||   ✔ Your runtime beats 19.95 % of python3 submissions
+        ||   ✔ Your memory usage beats 26.67 % of python3 submissions (17.3 MB)
+        """
 # @lc code=end

@@ -52,8 +52,6 @@ class Solution(object):
                 j+=1
         if i<len(s):return False
         return True
-
-        """
 ```
 
 ## ping: in: time exceeded
