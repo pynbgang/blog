@@ -34,10 +34,12 @@ class Solution:     #lmv: with combinations
 from itertools import combinations
 class Solution:     #ping: small changes to lmv
     def readBinaryWatch(self, n: int) -> List[str]:
-        T, m = [], [480,240,120,60,32,16,8,4,2,1]
-        for i in combinations(m,n):
-            h, m = divmod(sum(i),60)
-            if {4,8,16,32}.issubset(i) or h >= 12: continue
+        T, m = [], [480,240,120,60,32,16,8,4,2,1] #comb of picking n from m
+        #           ---hour bits-- --min bits---
+        for i in combinations(m,n):     #for each possible pick, get sum then
+            h, m = divmod(sum(i),60)    #divmod 60 to get hour and min number
+            if h >= 12 or {4,8,16,32}.issubset(i): #hour can't ge 12
+                continue                #sum of min bits can't gt 60
             T.append(str(h)+':'+'0'*(m < 10)+str(m))
         return T
 
