@@ -3,7 +3,7 @@ layout: post
 title: "[401] binary-watch"
 published: true
 created:  2020 Mar 07 11:47:32 AM
-tags: [python, leetcode, easy, combinations]
+tags: [python, leetcode, easy, itertools, combinations, divmod, set, oneliner]
 categories: [tech]
 
 ---
@@ -40,9 +40,12 @@ TABLE OF CONTENT
     || Note:
     || 
     || The order of output does not matter.
-    || The hour must not contain a leading zero, for example "01:00" is not valid, it should be "1:00".
-    || The minute must be consist of two digits and may contain a leading zero, for example "10:2" is not valid, it should be "10:02".
+    || The hour must not contain a leading zero, for example "01:00" is not
+    valid, it should be "1:00".
+    || The minute must be consist of two digits and may contain a leading zero,
+    for example "10:2" is not valid, it should be "10:02".
 
+![image](https://user-images.githubusercontent.com/2038044/76150230-13a1ce00-6076-11ea-8595-6b8f55a167fc.png)
 
 ## lmv: brute force
 
@@ -79,3 +82,34 @@ class Solution:     #lmv: with combinations
         """
 ```
 
+## ping: small changes
+
+```python
+from itertools import combinations
+class Solution:     #ping: small changes to lmv
+    def readBinaryWatch(self, n: int) -> List[str]:
+        T, m = [], [480,240,120,60,32,16,8,4,2,1]
+        for i in combinations(m,n):
+            h, m = divmod(sum(i),60)
+            if {4,8,16,32}.issubset(i) or h >= 12: continue
+            T.append(str(h)+':'+'0'*(m < 10)+str(m))
+        return T
+```
+
+## ping: sick oneliner
+
+```python
+from itertools import combinations
+class Solution:     #ping: sick oneliner
+    def readBinaryWatch(self, n: int) -> List[str]:
+        return ([str(sum(i)//60)+':'+'0'*(sum(i)%60<10)+str(sum(i)%60)
+                 for i in combinations([480,240,120,60,32,16,8,4,2,1],n)
+                 if sum(i)//60 < 12 and not {4,8,16,32}.issubset(i)
+               ])
+        """
+        ||   ✔ Accepted
+        ||   ✔ 10/10 cases passed (24 ms)
+        ||   ✔ Your runtime beats 94.76 % of python3 submissions
+        ||   ✔ Your memory usage beats 100 % of python3 submissions (12.7 MB)
+        """
+```
