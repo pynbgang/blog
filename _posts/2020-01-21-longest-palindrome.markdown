@@ -15,7 +15,24 @@ TABLE OF CONTENT
 
 - - -
 
-# [longest-palindrome](https://www.lintcode.com/problem/longest-palindrome/description?_from=ladder&&fromId=99)
+# [[409] Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
+
+    ||Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+    ||
+    ||This is case sensitive, for example "Aa" is not considered a palindrome here.
+    ||
+    ||Note:
+    ||Assume the length of given string will not exceed 1,010.
+    ||
+    ||Example:
+    ||
+    ||Input:
+      "abccccdd"
+
+    ||Output:
+    ||7
+    ||Explaination: One longest palindrome that can be built is "dccaccd", whose length is 7.
+
 
 ## wangmazi
 
@@ -133,3 +150,24 @@ with Counter: "minus" idea (total_len - sum_of_odd + 1 if there is odd ever)
         oddsum=sum([1 for v in collections.Counter(s).values() if v % 2])
         return len(s)-oddsum+1 if oddsum else len(s)
 ```
+
+## Owen
+
+```python
+class Solution(object):
+    def longestPalindrome(self, s):
+        if len(s)==1:return 1
+        dict1={}
+        for i in s:dict1[i]=dict1.get(i,0)+1
+        even=0
+        flag=False
+        for i in dict1.keys():
+            if dict1[i]%2==0:
+                even+=dict1[i]
+            else:
+                flag=True
+                even+=dict1[i]-1
+        if flag:return even+1
+        return even
+```
+
