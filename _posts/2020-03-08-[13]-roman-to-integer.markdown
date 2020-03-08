@@ -76,3 +76,56 @@ TABLE OF CONTENT
     || Input: "MCMXCIV"
     || Output: 1994
     || Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+
+## lmv: convert all substraction to addition
+
+```python
+class Solution:     #lmv: convert all substraction to addition
+    def romanToInt(self, s: str) -> int:
+        translations = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000
+        }
+        number = 0
+        s = s.replace("IV", "IIII").replace("IX", "VIIII")
+        s = s.replace("XL", "XXXX").replace("XC", "LXXXX")
+        s = s.replace("CD", "CCCC").replace("CM", "DCCCC")
+        for char in s:
+            number += translations[char]
+        return number
+```
+
+## wangmazi: compare adjacent nums to decide - or +
+```python
+class Solution:     #wangmazi, compare adjacent nums to decide - or +
+    # @param {string} s
+    # @return {integer}
+    def romanToInt(self, s):
+        ROMAN = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000
+        }
+        if s == "":
+            return 0
+        index = len(s) - 2
+        sum = ROMAN[s[-1]]
+        while index >= 0:
+            if ROMAN[s[index]] < ROMAN[s[index + 1]]:
+                sum -= ROMAN[s[index]]
+            else:
+                sum += ROMAN[s[index]]
+            index -= 1
+        return sum
+
+```
+
