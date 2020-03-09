@@ -2,7 +2,7 @@
 layout: post
 title: "[14] longest-common-prefix"
 published: true
-created:  2020 Mar 08 05:43:20 PM
+created:  2020 Mar 09 05:43:20 PM
 tags: [python, leetcode, easy, set, string, find]
 categories: [tech]
 
