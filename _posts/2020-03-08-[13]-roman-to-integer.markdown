@@ -3,7 +3,7 @@ layout: post
 title: "[13] Roman to Integer"
 published: true
 created:  2020 Mar 08 03:03:26 PM
-tags: [python, leetcode, string, number, easy]
+tags: [python, leetcode, string, number, easy, replace]
 categories: [tech]
 
 ---
@@ -129,3 +129,6 @@ class Solution:     #wangmazi, compare adjacent nums to decide - or +
 
 ```
 
+## tips
+
+* replace.replace.replace

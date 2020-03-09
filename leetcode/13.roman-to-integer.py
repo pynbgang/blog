@@ -34,6 +34,7 @@ class Solution:     #ping: gave up
                     sum += 1
                     i += 1
                 while i < len1 and s[i] is 'I':
+                    pass
 
 class Solution:     #lmv: convert all substraction to addition
     def romanToInt(self, s: str) -> int:
@@ -79,4 +80,10 @@ class Solution:     #wangmazi, compare adjacent nums to decide - or +
             index -= 1
         return sum
 
+        """
+        ||   ✔ Accepted
+        ||   ✔ 3999/3999 cases passed (40 ms)
+        ||   ✔ Your runtime beats 88.3 % of python3 submissions
+        ||   ✔ Your memory usage beats 100 % of python3 submissions (12.9 MB)
+        """
 # @lc code=end
