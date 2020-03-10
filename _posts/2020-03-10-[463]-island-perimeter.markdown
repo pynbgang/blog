@@ -51,3 +51,6 @@ TABLE OF CONTENT
     || Output: 16
     || 
     || Explanation: The perimeter is the 16 yellow stripes in the image below:
+
+
+![image](https://user-images.githubusercontent.com/2038044/76366270-eff1b880-62ff-11ea-960a-e81b1a2e959f.png)
