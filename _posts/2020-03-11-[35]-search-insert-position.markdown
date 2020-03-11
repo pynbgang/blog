@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[35] Search Insert Position"
-published: false
+published: true
 created:  2020 Mar 11 10:35:01 AM
 tags: [python, leetcode, easy]
 categories: [tech]
