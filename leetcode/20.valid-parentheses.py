@@ -31,6 +31,12 @@ if 1:
                         return False
             return not stack
 
+        """
+        ||   ✔ Accepted
+        ||   ✔ 76/76 cases passed (32 ms)
+        ||   ✔ Your runtime beats 35.31 % of python3 submissions
+        ||   ✔ Your memory usage beats 100 % of python3 submissions (12.8 MB)
+        """
 S = Solution()
 test = "[{[{}]"
 print(S.isValid(test))

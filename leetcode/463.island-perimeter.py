@@ -38,4 +38,16 @@ class Solution:     #lmv
         ||   ✔ Your runtime beats 99.75 % of python3 submissions
         ||   ✔ Your memory usage beats 100 % of python3 submissions (12.8 MB)
         """
+
+def islandPerimeter(self, grid):    #lmv
+    return sum(sum(map(operator.ne, [0] + row, row + [0]))
+               for row in grid + map(list, zip(*grid)))
+
+    """
+    ||   ✔ Accepted
+    ||   ✔ 5833/5833 cases passed (500 ms)
+    ||   ✔ Your runtime beats 90.6 % of python3 submissions
+    ||   ✔ Your memory usage beats 100 % of python3 submissions (12.9 MB)
+    """
+
 # @lc code=end

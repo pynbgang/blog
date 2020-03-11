@@ -90,6 +90,8 @@ def islandPerimeter(self, grid):
                for row in grid + map(list, zip(*grid)))
 ```
 
+idea:
+
 * scan rows, count all flips (0->1, 1->0) horizontally, as horizontal boundaries
 * flip matrix, do same, to count all flips vertically, as vertical boundaries
 * sum all boundaries

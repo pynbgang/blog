@@ -350,6 +350,3 @@ TABLE OF CONTENT
     ||   　   [ 58 ] Length of Last Word                                          Easy   (32.43 %)
     ||   　   [ 38 ] Count and Say                                                Easy   (42.83 %)
     ||   　   [ 35 ] Search Insert Position                                       Easy   (41.41 %)
-    ||   　   [ 28 ] Implement strStr()                                           Easy   (33.63 %)
-    ||   　 ✘ [ 20 ] Valid Parentheses                                            Easy   (37.97 %)
-    ||   　   [ 14 ] Longest Common Prefix                                        Easy   (34.62 %)
