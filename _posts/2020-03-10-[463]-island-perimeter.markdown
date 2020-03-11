@@ -82,7 +82,7 @@ idea:
     * do it horiontally
     * flip matrix, and repeat, to do it vertically
 
-## owen (lmv?): + only method
+## owen (lmv): + only method and his own
 
 ```python
 class Solution(object):
@@ -104,7 +104,7 @@ class Solution(object):
         if j+1<=len(grid[0])-1 and grid[i][j+1]==1:count+=1
         return count
         
-        
+ #LMV oneline        
 def islandPerimeter(self, grid):
     return sum(sum(map(operator.ne, [0] + row, row + [0]))
                for row in grid + map(list, zip(*grid)))
