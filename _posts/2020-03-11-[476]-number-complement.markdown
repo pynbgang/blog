@@ -50,6 +50,8 @@ TABLE OF CONTENT
     || 	This question is the same as
     ||  1009: https://leetcode.com/problems/complement-of-base-10-integer/
 
+## ping: brute force, bit flip
+
 ```python
 class Solution:     #ping: brute force: bit flip
     def findComplement(self, num: int) -> int:
@@ -60,10 +62,19 @@ class Solution:     #ping: brute force: bit flip
         ||   ✔ Your runtime beats 85.4 % of python3 submissions
         ||   ✔ Your memory usage beats 100 % of python3 submissions (12.8 MB)
         """
+```
+
+## owen: `(2**n-1)-num`
+
+```python
 class Solution(object):     #owen: (2**n-1)-num
     def findComplement(self, num):
         return 2 ** (len(bin(num))-2) - 1 - num
+```
 
+## lmv:  `num ^ (2**n-1)`
+
+```python
 class Solution:     #lmv: num ^ (2**n-1)
     def findComplement(self, num: int) -> int:
         return num ^ (2 ** num.bit_length() - 1)
@@ -75,5 +86,4 @@ class Solution:     #lmv: num ^ (2**n-1)
         * Author:  w2schmitt
         * Votes:   3
         """
-"""
-
+```
