@@ -3,7 +3,7 @@ layout: post
 title: "[28] Implement strStr()"
 published: true
 created:  2020 Mar 11 10:28:08 AM
-tags: [python, leetcode, easy]
+tags: [python, leetcode, easy, find]
 categories: [tech]
 
 ---
@@ -32,18 +32,12 @@ TABLE OF CONTENT
     needle is not part of haystack.
     || 
     || Example 1:
-    || 
-    || 
     || Input: haystack = "hello", needle = "ll"
     || Output: 2
     || 
-    || 
     || Example 2:
-    || 
-    || 
     || Input: haystack = "aaaaa", needle = "bba"
     || Output: -1
-    || 
     || 
     || Clarification:
     || 
@@ -51,3 +45,13 @@ TABLE OF CONTENT
     question to ask during an interview.
     || For the purpose of this problem, we will return 0 when needle is an
     empty string. This is consistent to C's strstr() and Java's indexOf().
+
+# ping: find
+
+this is exactly python string `find`
+```python
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        return haystack.find(needle)
+```
+
