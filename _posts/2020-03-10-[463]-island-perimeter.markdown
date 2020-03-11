@@ -57,7 +57,7 @@ TABLE OF CONTENT
 ![image](https://user-images.githubusercontent.com/2038044/76366270-eff1b880-62ff-11ea-960a-e81b1a2e959f.png)
 -->
 
-## ping
+## ping: + and - method
 
 ```python
 class Solution:     #ping
@@ -74,6 +74,79 @@ class Solution:     #ping
         ||   ✔ Your runtime beats 90.89 % of python3 submissions
         ||   ✔ Your memory usage beats 100 % of python3 submissions (12.9 MB)
         """
+```
+idea:
+
+* sum all lines for each cube (x4 each)
+* deduct adjacent lines for each adjacent cubes (x2 each adjacency)
+    * do it horiontally
+    * flip matrix, and repeat, to do it vertically
+
+## owen (lmv?): + only method
+
+```python
+def islandPerimeter(self, grid):
+    return sum(sum(map(operator.ne, [0] + row, row + [0]))
+               for row in grid + map(list, zip(*grid)))
+```
+
+* scan rows, count all flips (0->1, 1->0) horizontally, as horizontal boundaries
+* flip matrix, do same, to count all flips vertically, as vertical boundaries
+* sum all boundaries
+
+break down:
+
+```python
+def islandPerimeter(self, grid):
+    return (
+        sum(
+            sum(
+                map(operator.ne, [0] + row, row + [0])
+            )
+            for row in grid + map(list, zip(*grid))
+        )
+    )
+```
+
+count all "flip"(change) in list:
+
+    `sum( map(operator.ne, [0] + row, row + [0]) )`:
+
+illustration:
+
+    [1, 1, 1, 1] =>
+
+    map(operator.ne, [0] + row, row + [0]) =>
+
+    [0, 1, 1, 1, 1]
+     A  A  A  A  A
+     |  |  |  |  |
+     1  0  0  0  1      => 2 flips (L:water->island, R:island->water)
+     |  |  |  |  |
+     v  v  v  v  v
+    [1, 1, 1, 1, 0]
+
+same as to compare each adjacent item:
+
+    [0, 1, 1, 1, 1, 0]
+    ---
+    1 ---
+        0 ---
+            0 ----      => 2 flips
+            0 ----
+                1
+
+## xiaofo (last year)
+
+```python
+class Solution:
+    def islandPerimeter(self, grid: List[List[int]]) -> int:
+        res = 0 
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j]:
+                    res += 4 - 1 * (i > 0 and grid[i - 1][j]) - 1 * (i < len(grid) - 1 and grid[i + 1][j]) - 1 * (j > 0 and grid[i][j - 1]) - 1 * (j < len(grid[0]) - 1 and grid[i][j + 1])
+        return res
 ```
 
 ## lmv
@@ -99,60 +172,11 @@ class Solution:     #lmv
         """
 ```
 
-## owen (lmv?) TODO
-
-```python
-def islandPerimeter(self, grid):
-    return sum(sum(map(operator.ne, [0] + row, row + [0]))
-               for row in grid + map(list, zip(*grid)))
-```
-
-break it:
-
-```python
-def islandPerimeter(self, grid):
-    return (
-        sum(
-            sum(
-                map(operator.ne, [0] + row, row + [0])
-                )
-            for row in grid + map(list, zip(*grid))
-            )
-        )
-```
-
-    [[0,1,0,0],
-    [1,1,1,0],
-    [0,1,0,0],
-    [1,1,0,0]]
-
-    -------
-    [0,0,1,0,0] 
-    [0,1,0,0,0]
-    ------
-     0,1,1,0,0
-
-    -------
-    [0,1,1,0,0] 
-    [1,1,0,0,0]
-    ------
-    1,0,0,1,1
-
-## xiaofo (last year)
-
-```python
-class Solution:
-    def islandPerimeter(self, grid: List[List[int]]) -> int:
-        res = 0 
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j]:
-                    res += 4 - 1 * (i > 0 and grid[i - 1][j]) - 1 * (i < len(grid) - 1 and grid[i + 1][j]) - 1 * (j > 0 and grid[i][j - 1]) - 1 * (j < len(grid[0]) - 1 and grid[i][j + 1])
-        return res
-```
-
 ## tips
 
-* zip(*list)
-* map func can have multiple parameters!
+* list expansion: `*` + `zip`: zip(*list)
+* `operator.ne` .le .eq .ge .gt ...
+* `map` func can have multiple parameters! when it does, requiring same amount
+  of iterables (list)
+
 
