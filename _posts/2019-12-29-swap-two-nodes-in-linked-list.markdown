@@ -10,7 +10,6 @@ tags:
     - lintcode
     - medium
     - python
-    - dayoushi
     - wangmazi
 created:  2019 Dec 29 11:53:49 PM
 categories: [tech]
@@ -28,12 +27,15 @@ TABLE OF CONTENT
 
 # [swap-two-nodes-in-linked-list](https://www.lintcode.com/problem/swap-two-nodes-in-linked-list/description?_from=ladder&&fromId=99)
 
+<!--
+
 ## 古人云
 
 ![image](https://user-images.githubusercontent.com/2038044/71569321-4048d080-2a9c-11ea-8832-55b0c9b02958.png)
 ![image](https://user-images.githubusercontent.com/2038044/71569303-18596d00-2a9c-11ea-9121-683edd653e8c.png)
 
 古人云： 重提kb九月末，空叹流年不禁过
+-->
 
 ## mine (swap value only)
 

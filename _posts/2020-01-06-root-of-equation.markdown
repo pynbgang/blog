@@ -3,7 +3,7 @@ layout: post
 title: "root-of-equation"
 published: true
 created:  2020 Jan 06 09:40:23 AM
-tags: [lintcode, dayoushi, python, math, ping, wangmazi]
+tags: [lintcode, python, math, ping, wangmazi]
 categories: [tech]
 
 ---
