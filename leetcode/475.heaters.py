@@ -56,7 +56,7 @@ class Solution:     #ping: brute force: time limit exceeded
 
 class Solution:     #jj: same, one liner
     def findRadius(self, houses: List[int], heaters: List[int]) -> int:
-        return max([min([abs(heater - house) for heater in heaters]) for house in houses])
+        return max(min(abs(heater - house) for heater in heaters) for house in houses)
 
 class Solution:     #jj: pass
     def findRadius(self, houses: List[int], heaters: List[int]) -> int:
@@ -66,7 +66,7 @@ class Solution:     #jj: pass
             while h > stk[-1] and heaters:  #find the closest heaters
                 stk.append(heaters.pop(0))
             stk = stk[-2:] if len(stk) > 2 else stk
-            res = max(res, min([abs(s - h) for s in stk]))
+            res = max(res, min(abs(s - h) for s in stk))
         return res
 
         """

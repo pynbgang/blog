@@ -55,6 +55,149 @@ TABLE OF CONTENT
     || Explanation: The two heater was placed in the position 1 and 4. We need
     to use radius 1 standard, then all the houses can be warmed.
 
+## ping: brute force, time exceeded
+
+```python
+from typing import List
+class Solution:     #ping: brute force: time limit exceeded
+    def findRadius(self, houses: List[int], heaters: List[int]) -> int:
+        res = 0
+        for house in houses:
+            min_radius = 10 ** 9
+            for heaters in heaters:
+                min_radius = min(min_radius, abs(house - heater))
+                if min_radius is 0:
+                    break
+            res = max(min_radius, res)
+        return res
+
+class Solution:     #jj: same, one liner
+    def findRadius(self, houses: List[int], heaters: List[int]) -> int:
+        return max([min(abs(heater - house) for heater in heaters]) for house in houses)
+```
+
+## xiaofo
+
+```python
+class Solution:     #jj: pass
+    def findRadius(self, houses: List[int], heaters: List[int]) -> int:
+        houses, heaters = sorted(houses), sorted(heaters)   #sorted both
+        stk, res = [heater.pop(0)], 0       #use a stack, pop 1st heater into it
+        for h in houses:                    #loop each house
+            while h > stk[-1] and heaters:  #find its closest heaters
+                stk.append(heaters.pop(0))
+            stk = stk[-2:] if len(stk) > 2 else stk
+            res = max(res, min([abs(s - h) for s in stk]))
+        return res
+
+        """
+        ||   ✔ Accepted
+        ||   ✔ 30/30 cases passed (412 ms)
+        ||   ✔ Your runtime beats 29.13 % of python3 submissions
+        ||   ✔ Your memory usage beats 8.33 % of python3 submissions (16.4 MB)
+        """
+```
+
+idea:
+
+* if a house is smaller than smallest heater
+    * this house's radius is their diff
+    * `3  (5)  (9)` => radius = 5-3
+* if a house is bigger than smallest heater
+    * keep searching next (bigger) heater, until find a heater bigger than house
+    * this house's radius is the bigger diff between house and 2 heaters
+    * `(5) 6  (9)`  => radius = 9-6 (>6-5)
+
+run code:
+
+    1   3       7   9       houses
+          4   6        10   heaters
+
+house 1:
+
+    1   3       7   9       houses
+    -
+          4   6        10   heaters
+          ^init: pop to stk
+              6        10   heaters
+          4                 stk
+          ^bigger than house, no more pop
+          res=4-1=3
+
+house 3:
+
+    1   3       7   9       houses
+        -
+              6        10   heaters
+          4                 stk
+          ^bigger than house, no more pop
+              6        10   heaters
+          res=max(3, 4-3)=3
+
+house 7:
+
+    1   3       7   9       houses
+                -
+              6        10   heaters
+          4                 stk
+          ^smaller than house, pop heater
+                       10   heaters
+          4   6             stk
+              ^smaller than house, pop heater
+                       []   heaters
+          4   6        10   stk
+                       ^bigger than house, stop popping heater
+                       house 7 is between heater 6 and 10, drop other heaters
+              6        10   stk
+                       check which heater house 7 is closer to: 6
+                       res=max(3, 7-6)=3
+
+house 9:
+
+    1   3       7   9       houses
+                    -
+              6        10   stk
+                       []   heaters
+                       ^bigger than house but heater is empty
+
+
+
+
+## wangmazi
+```python
+class Solution:     #wangmazi
+    """
+    先对于加热器数组排序。
+    对于每个房屋i，在加热器数组里使用二分查找找到距离房屋i最近的加热器的位置，
+    最后的答案为所有房屋答案的最大值。
+    """
+    def findRadius(self, houses, heaters):
+        # Write your code here
+        heaters.sort()
+        ans = 0
+        for house in houses:
+            ans=max(ans,self.closestHeater(house,heaters))
+        return ans
+
+    def closestHeater(self,house,heaters):
+        start = 0
+        end = len(heaters) - 1
+        while start + 1 < end:
+            m = start + (end - start) // 2
+            if heaters[m] == house:
+                return 0
+            elif heaters[m] < house:
+                start = m
+            else:
+                end = m
+        return min(abs(house - heaters[start]), abs(heaters[end] - house))
+
+S = Solution()
+houses = [1, 2, 3, 4]
+heaters = [1, 4]
+S.findRadius(houses, heaters)
+```
+
 ## lmv
 
 ```python
@@ -93,83 +236,5 @@ def findRadius(houses, heaters):    #lmv
         maxRadius = max(maxRadius, min([abs(h-house) for h in heaters[i:i+2]]))
 
     return maxRadius
-```
-
-## ping: brute force, time exceeded
-
-```python
-from typing import List
-class Solution:     #ping: brute force: time limit exceeded
-    def findRadius(self, houses: List[int], heaters: List[int]) -> int:
-        res = 0
-        for house in houses:
-            min_radius = 10 ** 9
-            for heaters in heaters:
-                min_radius = min(min_radius, abs(house - heater))
-                if min_radius is 0:
-                    break
-            res = max(min_radius, res)
-        return res
-
-class Solution:     #jj: same, one liner
-    def findRadius(self, houses: List[int], heaters: List[int]) -> int:
-        return max([min([abs(heater - house) for heater in heaters]) for house in houses])
-```
-
-## xiaofo
-
-```python
-class Solution:     #jj: pass
-    def findRadius(self, houses: List[int], heaters: List[int]) -> int:
-        houses, heaters = sorted(houses), sorted(heaters)   #sorted both
-        stk, res = [heater.pop(0)], 0       #use a stack, pop 1st heater into it
-        for h in houses:                    #loop each house
-            while h > stk[-1] and heaters:  #find the closest heaters
-                stk.append(heaters.pop(0))
-            stk = stk[-2:] if len(stk) > 2 else stk
-            res = max(res, min([abs(s - h) for s in stk]))
-        return res
-
-        """
-        ||   ✔ Accepted
-        ||   ✔ 30/30 cases passed (412 ms)
-        ||   ✔ Your runtime beats 29.13 % of python3 submissions
-        ||   ✔ Your memory usage beats 8.33 % of python3 submissions (16.4 MB)
-        """
-```
-
-## wangmazi
-```python
-class Solution:     #wangmazi
-    """
-    先对于加热器数组排序。
-    对于每个房屋i，在加热器数组里使用二分查找找到距离房屋i最近的加热器的位置，
-    最后的答案为所有房屋答案的最大值。
-    """
-    def findRadius(self, houses, heaters):
-        # Write your code here
-        heaters.sort()
-        ans = 0
-        for house in houses:
-            ans=max(ans,self.closestHeater(house,heaters))
-        return ans
-
-    def closestHeater(self,house,heaters):
-        start = 0
-        end = len(heaters) - 1
-        while start + 1 < end:
-            m = start + (end - start) // 2
-            if heaters[m] == house:
-                return 0
-            elif heaters[m] < house:
-                start = m
-            else:
-                end = m
-        return min(abs(house - heaters[start]), abs(heaters[end] - house))
-
-S = Solution()
-houses = [1, 2, 3, 4]
-heaters = [1, 4]
-S.findRadius(houses, heaters)
 ```
 

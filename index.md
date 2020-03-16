@@ -5,7 +5,9 @@ tagline: -- tech (programming, networking) tips
 ---
 {% include JB/setup %}
 
+<!--
 ![image](https://user-images.githubusercontent.com/2038044/76429344-4a812800-6385-11ea-9353-6f8288aaa7dd.png)
+-->
 
 <ul class="listing">
 {% for post in site.posts %}
