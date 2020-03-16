@@ -75,6 +75,19 @@ class Solution:     #jj: same, one liner
     def findRadius(self, houses: List[int], heaters: List[int]) -> int:
         return max([min(abs(heater - house) for heater in heaters]) for house in houses)
 ```
+## Owen
+```python
+import sys
+class Solution(object):
+    def findRadius(self, houses, heaters):
+        heaters = sorted(heaters) + [sys.maxint]
+        i ,rmax = 0,0
+        for x in sorted(houses):
+            while x >= sum(heaters[i:i+2]) / 2.:
+                i += 1
+            rmax = max(rmax, abs(heaters[i] - x))
+        return rmax
+```
 
 ## xiaofo
 
