@@ -76,6 +76,7 @@ class Solution:     #jj: same, one liner
         return max([min(abs(heater - house) for heater in heaters]) for house in houses)
 ```
 ## Owen
+
 ```python
 import sys
 class Solution(object):
