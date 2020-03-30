@@ -39,7 +39,7 @@ TABLE OF CONTENT
     || ]
 
 ## owen fake DP
-extend the scale of matrix to +2 and +2
+DP is not best way in this case...since using to many for,if i can optimize to 2 for ,it must beat DFS
 
 ```python
 class Solution(object):
