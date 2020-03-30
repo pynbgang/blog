@@ -37,33 +37,16 @@ class Solution(object):
             for i in range(len(board)):
                 if board[i][j]!=".":temp+=board[i][j]
             if  len(temp)!=len(set(temp)):return False
-        temp,temp1,temp2="","",""
-        for i in range(0,3):
-            for j in range(0,3):
-                if board[i][j]!=".":temp+=board[i][j]
-                if board[i][j+3]!=".":temp1+=board[i][j+3]
-                if board[i][j+6]!=".":temp2+=board[i][j+6]
-        if  len(temp)!=len(set(temp)):return False
-        if  len(temp1)!=len(set(temp1)) :return False
-        if  len(temp2)!=len(set(temp2)):return False
-        temp,temp1,temp2="","",""
-        for i in range(3,6):
-            for j in range(0,3):
-                if board[i][j]!=".":temp+=board[i][j]
-                if board[i][j+3]!=".":temp1+=board[i][j+3]
-                if board[i][j+6]!=".":temp2+=board[i][j+6]
-        if  len(temp)!=len(set(temp)):return False
-        if  len(temp1)!=len(set(temp1)):return False
-        if  len(temp2)!=len(set(temp2)):return False
-        temp,temp1,temp2="","",""
-        for i in range(6,9):
-            for j in range(0,3):
-                if board[i][j]!=".":temp+=board[i][j]
-                if board[i][j+3]!=".":temp1+=board[i][j+3]
-                if board[i][j+6]!=".":temp2+=board[i][j+6]
-        if  len(temp)!=len(set(temp)):return False
-        if  len(temp1)!=len(set(temp1)):return False
-        if  len(temp2)!=len(set(temp2)):return False
+        for z in range(3):
+            temp,temp1,temp2="","",""
+            for i in range(z*3,z*3+3):
+                for j in range(0,3):
+                    if board[i][j]!=".":temp+=board[i][j]
+                    if board[i][j+3]!=".":temp1+=board[i][j+3]
+                    if board[i][j+6]!=".":temp2+=board[i][j+6]
+            if  len(temp)!=len(set(temp)):return False
+            if  len(temp1)!=len(set(temp1)):return False
+            if  len(temp2)!=len(set(temp2)):return False
         return True
         
 ```
