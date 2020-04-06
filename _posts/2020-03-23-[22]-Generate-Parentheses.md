@@ -104,24 +104,24 @@ class Solution:     #lmv debug
         self.spaces=0
         def generate(p, left, right, parens=[]):
             if left:
-                print(' '*self.spaces, 'left not 0, use left...', sep='')
-                print(' '*self.spaces+'L:generate(', '"', p, '+(', '",', left-1, ',', right, ')', sep='')
+                print(' '*self.spaces, '|left not 0, use left...', sep='')
+                print(' '*self.spaces+'|L:generate(', '"', p, '+(', '",', left-1, ',', right, ')', sep='')
                 self.spaces+=4
                 generate(p + '(', left-1, right)
             if right > left:
-                print(' '*self.spaces, 'right bigger, use right...', sep='')
-                print(' '*self.spaces+'R:generate(', '"', p, '+)', '",', left, ',', right-1, ')', sep='')
+                print(' '*self.spaces, '|right bigger, use right...', sep='')
+                print(' '*self.spaces+'|R:generate(', '"', p, '+)', '",', left, ',', right-1, ')', sep='')
                 self.spaces+=4
                 generate(p + ')', left, right-1)
             if not right:
                 parens += p,
-                print(' '*self.spaces, 'right 0...', sep='')
-                print(' '*self.spaces+'get', '"', p, '"', sep='')
-            print(' '*self.spaces+'return', sep='')
+                print(' '*self.spaces, '|right 0...', sep='')
+                print(' '*self.spaces+'|get', '"', p, '"', sep='')
+            print(' '*self.spaces+'|return', sep='')
             self.spaces-=4
             return parens
-        print("start...")
-        print('generate(', '"",', n, ',', n, ')', sep='')
+        print("|start...")
+        print('|generate(', '"",', n, ',', n, ')', sep='')
         return generate('', n, n)
 
 S=Solution()
@@ -130,34 +130,34 @@ S.generateParenthesis(2)
 
 output:
 
-    start...
-    generate("",2,2)
-    left not 0, use left...
-    L:generate("+(",1,2)
-        left not 0, use left...
-        L:generate("(+(",0,2)
-            right bigger, use right...
-            R:generate("((+)",0,1)
-                right bigger, use right...
-                R:generate("(()+)",0,0)
-                    right 0...
-                    get"(())"
-                    return
-                return
-            return
-        right bigger, use right...
-        R:generate("(+)",1,1)
-            left not 0, use left...
-            L:generate("()+(",0,1)
-                right bigger, use right...
-                R:generate("()(+)",0,0)
-                    right 0...
-                    get"()()"
-                    return
-                return
-            return
-        return
-    return
+    |start...
+    |generate("",2,2)
+    |left not 0, use left...
+    |L:generate("+(",1,2)
+        |left not 0, use left...
+        |L:generate("(+(",0,2)
+            |right bigger, use right...
+            |R:generate("((+)",0,1)
+                |right bigger, use right...
+                |R:generate("(()+)",0,0)
+                    |right 0...
+                    |get"(())"
+                    |return
+                |return
+            |return
+        |right bigger, use right...
+        |R:generate("(+)",1,1)
+            |left not 0, use left...
+            |L:generate("()+(",0,1)
+                |right bigger, use right...
+                |R:generate("()(+)",0,0)
+                    |right 0...
+                    |get"()()"
+                    |return
+                |return
+            |return
+        |return
+    |return
     Out[92]: ['(())', '()()']
 
 ## lmv: solution2
