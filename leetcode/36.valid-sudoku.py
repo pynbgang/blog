@@ -48,4 +48,16 @@ class Solution:     #ping: brute force, compacted
                     return False
         return True
 
+class Solution:     #ping: brute force, even compacted
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        for l in (                          #compose a superboard
+            board +                         #from original board, plus
+            list(map(list, zip(*board))) +  #rotated board, and subbox rows
+            [[board[x][y] for x in range(i, i+3) for y in range(j, j+3)] for i in (0,3,6) for j in (0,3,6)]
+            ):
+            if ("." not in l and len(set(l)) !=9) or \
+               ("." in l and len(set(l)) != sorted(l, reverse=True).index('.') + 1):
+                return False
+        return True
+
 # @lc code=end

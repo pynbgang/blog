@@ -151,3 +151,55 @@ class Solution:     #ping: brute force, compacted
         return True
 ```
 
+even compacted:
+
+```python
+class Solution:     #ping: brute force, even compacted
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        for l in (                          #compose a superboard
+            board +                         #from original board, plus
+            list(map(list, zip(*board))) +  #rotated board, and subbox rows
+            [[board[x][y] for x in range(i, i+3) for y in range(j, j+3)] for i in (0,3,6) for j in (0,3,6)]
+            ):
+            if ("." not in l and len(set(l)) !=9) or \
+               ("." in l and len(set(l)) != sorted(l, reverse=True).index('.') + 1):
+                return False
+        return True
+
+```
+
+## takeaways
+
+* sudoku [suˈdoʊkuː] 数独，九宫格游戏
+
+* how to rotate a 2D array (also seen in 463) ?
+
+        list(map(list, zip(*board)))
+                           ------       stared expression to extend list into its items
+                       ------------     rotated, items as tuple(not list), type zip(not list)
+             ----------------------     convert all inner tuples into lists
+        ----------------------------    convert the outter zip into list
+
+        [ins] In [1]: board=[[1,2,3],[4,5,6]]             
+
+        [ins] In [2]: zip(*board)                         
+        Out[2]: <zip at 0x7ffcb0126f88>
+
+        [ins] In [3]: list(zip(*board))                   
+        Out[3]: [(1, 4), (2, 5), (3, 6)]
+
+        [ins] In [4]: list(map(list, zip(*board)))        
+        Out[4]: [[1, 4], [2, 5], [3, 6]]
+
+  in this case not need map, `zip(*board)` will do.
+
+* how to iterate sudoku?
+
+        [[board[x][y] for x in range(i, i+3) for y in range(j, j+3)] for i in (0,3,6) for j in (0,3,6)]
+
+* how to comment in a super long line (also seen in 941)?
+
+        x in (abc ..    # this is abc
+            def ..      # this is def
+            )
+
