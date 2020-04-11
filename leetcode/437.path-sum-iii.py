@@ -71,14 +71,14 @@ class Solution(object):         #lmv: debug
             print(' '*self.spaces+msg, sep='')
         hit = 0
         for t in targets:
-            msg="| take " + str(t) + " from " + str(targets)
+            msg="| take a target: " + str(t) + " from " + str(targets)
             print(' '*self.spaces+msg, sep='')
             if not t-node.val:
                 hit += 1                  # count if sum == target
-                msg="| node val " + str(node.val) + " match " + str(t) + " hit:" + str(hit)
+                msg="| match target: " + str(t) + " hit:" + str(hit)
                 print(' '*self.spaces+msg, sep='')
             else:
-                msg="| node val " + str(node.val) + " not match " + str(t) + " hit:" + str(hit) + ", diff: " + str(t-node.val)
+                msg="| not match target: " + str(t) + " hit:" + str(hit) + ", diff: " + str(t-node.val)
                 print(' '*self.spaces+msg, sep='')
         targets = [t-node.val for t in targets]+[origin] # update the targets
         msg="| update targets: " + str(targets)
