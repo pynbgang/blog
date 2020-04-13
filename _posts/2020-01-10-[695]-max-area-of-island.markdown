@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "max-area-of-island (continue)"
+title: "[695]-max-area-of-island (continue)"
 published: true
 created:  2020 Jan 10 11:38:11 AM
 tags: [wangmazi, xiaofo, map, operator, dfs, dict, complex, lintcode, leetcode, global]
