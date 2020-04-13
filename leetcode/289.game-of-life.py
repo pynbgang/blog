@@ -138,7 +138,38 @@ class Solution(object):     # ping: compact the above
                 sum1 = (sum(d.get(i+j*1j+1j**k, 0) for k in range(4)) +
                         d.get(i+1+j*1j+1j, 0) + d.get(i-1+j*1j-1j, 0) +
                         d.get(i+1+j*1j-1j, 0) + d.get(i-1+j*1j+1j, 0))
-                if (d.get(i+j*1j,0) and not 2<=sum1<=3) or (not d.get(i+j*1j,0) and sum1==3): grid[i][j] = int(not(grid[i][j]))
-        return grid
+                if (d.get(i+j*1j,0) and not 2<=sum1<=3) or (not d.get(i+j*1j,0) and sum1==3):
+                    grid[i][j] = int(not(grid[i][j]))
 
+class Solution:         #jj
+    def gameOfLife(self, board: List[List[int]]) -> None:
+        offset, r, c = [[i, j] for i in range(-1, 2) for j in range(-1, 2) if i or j], len(board), len(board[0])
+        for i in range(r):      #^^ build "offset" in list of tuples
+            for j in range(c):  #get each node's sum of 8-neighbors
+                nei = sum([board[i + oi][j + oj] > 0 for oi, oj in offset if i + oi in range(r) and j + oj in range(c)])
+                print("neighbor is: ", nei)
+                print("board is(before): ", board[i][j])
+                board[i][j] += nei if board[i][j] else - nei
+                print("board is(after): ", board[i][j])
+        for i in range(r):
+            for j in range(c):
+                board[i][j] = 1 * (board[i][j] in (-3, 3, 4))
+
+        """
+        ||   ✔ Accepted
+        ||   ✔ 23/23 cases passed (32 ms)
+        ||   ✔ Your runtime beats 61.4 % of python3 submissions
+        ||   ✔ Your memory usage beats 10 % of python3 submissions (14.1 MB)
+        """
+
+class Solution(object):     # ping: dict + offset (from jj)
+    def gameOfLife(self, grid):
+        # use a dict to record board info, a tupple list to record offset
+        d = {(i, j): val for i, row in enumerate(grid) for j, val in enumerate(row)}
+        o = [(i, j) for i in range(-1, 2) for j in range(-1, 2) if i or j]
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                sum1 = sum(d.get((i+oi, j+oj), 0) for oi, oj in o)
+                if (d.get((i, j)) and not 2<=sum1<=3) or (not d.get((i,j)) and sum1==3):
+                    grid[i][j] = int(not(grid[i][j]))
 # @lc code=end
