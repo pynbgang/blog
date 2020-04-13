@@ -46,6 +46,7 @@ class Solution(object): #lmv
         ||   ✔ Your runtime beats 68.83 % of python3 submissions
         ||   ✔ Your memory usage beats 5 % of python3 submissions (20.7 MB)
         """
+
 class Solution(object): #owen
     def countBits(self, num):
         res = [0]
