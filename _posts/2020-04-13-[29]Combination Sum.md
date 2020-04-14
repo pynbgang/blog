@@ -51,6 +51,7 @@ TABLE OF CONTENT
         if target==0:
             list1.sort()
             if list1 not in self.l:self.l.append(list1)
+            …………………………………………………………………………………………………………
             return 
         for i in range(len(candidates)):
             self.helper(candidates,target-candidates[i],list1+[candidates[i]])
