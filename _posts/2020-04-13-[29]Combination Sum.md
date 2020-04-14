@@ -39,12 +39,12 @@ TABLE OF CONTENT
 ## Owen  DFS,but need to think a way to remove the bold line                                                                                                                                                                                     
 
 ```python
-	class Solution(object):
+class Solution(object):
     def combinationSum(self, candidates, target):
         self.l = []
         candidates.sort()
         self.helper(candidates, target, [])
-        return [i for i in self.l if sum(i)==target]
+        return self.l
 
     def helper(self, candidates, target, list1):
         if target<0:return
