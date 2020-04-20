@@ -28,22 +28,22 @@ TABLE OF CONTENT
 ## Owen: follow basic rules
 
 ```python
-			class Solution(object):
-			    def reverseStr(self, s, k):
-			        if len(s)==1:return s
-			        if k==0:return s
-			        if k==len(s):return s[::-1]
-			        m=len(s)/k
-			        l=[]
-			        for i in range(m):
-			            l.append(s[i*k:(i+1)*k])
-			        l.append(s[m*k:])
-			        str1=""
-			        for i in range(len(l)):
-			            if i%2==0:str1+=l[i][::-1]
-			            else:str1+=l[i]
-			        return str1
-			        """
+	class Solution(object):
+	    def reverseStr(self, s, k):
+		if len(s)==1:return s
+		if k==0:return s
+		if k==len(s):return s[::-1]
+		m=len(s)/k
+		l=[]
+		for i in range(m):
+		    l.append(s[i*k:(i+1)*k])
+		l.append(s[m*k:])
+		str1=""
+		for i in range(len(l)):
+		    if i%2==0:str1+=l[i][::-1]
+		    else:str1+=l[i]
+		return str1
+		"""
 ```
 
 ## owen: recursive
