@@ -40,17 +40,7 @@ plt.show()
 ```
 
 # Kelly Criterion 
-These two factors are then put into Kelly's equation which is:
+- https://www.investopedia.com/articles/trading/04/091504.asp
+-	https://zhuanlan.zhihu.com/p/21084686
 
-\begin{aligned} & K\% = W - \frac{\left(1-W\right )}{R}\\ \textbf{where:}\\ &K\% = \text{The Kelly percentage}\\ &W = \text{Winning probability}\\ &R = \text{Win/loss ratio}\\ \end{aligned} 
-where:
-​	  
-K%=W− 
-R
-(1−W)
-​	 
-K%=The Kelly percentage
-W=Winning probability
-R=Win/loss ratio
-​	https://zhuanlan.zhihu.com/p/21084686
 
