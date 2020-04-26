@@ -3,7 +3,7 @@ layout: post
 title: "Super Reduced String"
 published: true
 created:  2020 Feb 19 11:04:01 PM
-tags: [python, string, recursive, list, hackerrank, stringtips, easy, medium]
+tags: [python, string, recursion, list, hackerrank, stringtips, easy, medium]
 categories: [tech]
 
 ---

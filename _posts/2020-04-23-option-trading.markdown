@@ -15,7 +15,9 @@ TABLE OF CONTENT
 
 - - -
 
-# owen studing on basic knowledge of pandas,yfinace,matplotlib.
+# owen 
+
+studing on basic knowledge of pandas,yfinace,matplotlib.
 
 ```python
 import yfinance as yf
@@ -60,6 +62,6 @@ if __name__ == "__main__":
 
 # Kelly Criterion 
 - https://www.investopedia.com/articles/trading/04/091504.asp
--	https://zhuanlan.zhihu.com/p/21084686
+- https://zhuanlan.zhihu.com/p/21084686
 
 

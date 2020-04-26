@@ -3,7 +3,7 @@ layout: post
 title: "nested list weight sum"
 published: true
 created:  2020 Feb 22 02:21:06 PM
-tags: [python, lintcode, leetcode, easy, list, recursive, queue, comment]
+tags: [python, lintcode, leetcode, easy, list, recursion, queue, comment]
 categories: [tech]
 
 ---
