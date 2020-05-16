@@ -15,7 +15,8 @@ TABLE OF CONTENT
 
 - - -
 
-# owen 
+# owen
+# new updated is under /optiontrading
 
 studing on basic knowledge of pandas,yfinace,matplotlib.
 
