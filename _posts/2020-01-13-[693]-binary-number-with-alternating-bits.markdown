@@ -3,7 +3,7 @@ layout: post
 title: "[693] Binary Number with Alternating Bits"
 published: true
 created:  2020 Apr 13 12:16:56 PM
-tags: [python, leetcode, easy, recursion]
+tags: [python, leetcode, easy, recursion, all, any]
 categories: [tech]
 
 ---
@@ -56,7 +56,6 @@ TABLE OF CONTENT
     || Output: True
     || Explanation:
     || The binary representation of 10 is: 1010.
-    || Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values.
 
 ## Owen:
 
@@ -105,3 +104,48 @@ class Solution(object):
         if str1[0]==str1[1]:return False
         else:return self.helper(str1[1:])
 ```
+
+## lmv
+
+```python
+class Solution(object):     #lmv
+    def hasAlternatingBits(self, n):
+        return "00" not in bin(n) and "11" not in bin(n)
+        """
+        ✔ Accepted
+        ✔ 204/204 cases passed (32 ms)
+        ✔ Your runtime beats 39.62 % of python3 submissions
+        ✔ Your memory usage beats 20 % of python3 submissions (13.9 MB)
+        """
+```
+
+## ping
+
+```python
+class Solution:     #ping: brute force, using all/any
+    def hasAlternatingBits(self, n: int) -> bool:
+        oddbits = [int(c) for c in bin(n)[2:][1::2]]
+        evenbits = [int(c) for c in bin(n)[2:][::2]]
+        return all(oddbits) and not any(evenbits) or all(evenbits) and not any(oddbits)
+        #     "all oddbits are 1" and all evenbits are 0 ("not" any eventbits is 1), or
+        #     "all evenbits are 1" and all oddbits are 0 (not any oddbits is 1)
+        """
+        ✔ Accepted
+        ✔ 204/204 cases passed (24 ms)
+        ✔ Your runtime beats 91.72 % of python3 submissions
+        ✔ Your memory usage beats 20 % of python3 submissions (13.8 MB)
+        """
+```
+
+## tips
+
+it looks like:
+
+* `all` counts `False` 
+* `any` counts `True`. 
+
+that explains why:
+
+* `all('')` returns `True` 
+* `any('')` returns `False`
+
