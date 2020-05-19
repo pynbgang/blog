@@ -16,7 +16,7 @@ def caifuziyou(stocklist):
     days0to15_data = bt.get_stock_data(bt.get_data(15), bt.get_data(0), *stocklist)
     days0to30_data = bt.get_stock_data(bt.get_data(30), bt.get_data(0), *stocklist)
     kelly_data={}
-    probability_rate=np.array([0.2,0.5,0.3,1.0])
+    probability_rate=np.array([0.2,0.5,0.5,0.8])
     for i in days0to100_data:
         try:
             '''
@@ -30,20 +30,21 @@ def caifuziyou(stocklist):
             startprice = days0to100_data[i]['Adj Close'].tolist()[-1]
             temp1,temp2,temp3,temp4=0.0,0.0,0.0,0.0
             bsum=0
-            for j in range(100):
+            for j in range(1000):
                 pricelist=bt.perdict10days(startprice, mu, dt, sigma, days=10)
-                if bt.incornot(list(pricelist))>0.03:
+                if bt.incornot(list(pricelist))>=0.03:
                     temp1+=1
                     bsum+=bt.incornot(list(pricelist))
             b=bsum/temp1
-            temp1=float(temp1)/100
+            temp1=float(temp1)/1000
             if bt.incornot(days0to5_data[i]['Adj Close'].tolist())>0.03:temp2=1
             if bt.incornot(days0to15_data[i]['Adj Close'].tolist()) > 0.06: temp3 = 1
             if bt.incornot(days0to30_data[i]['Adj Close'].tolist()) > 0.07: temp4 = 1
             p=sum(probability_rate*np.array([temp1,temp2,temp3,temp4]))/sum(probability_rate)
-            kelly_data[i]=[i,startprice,p,b*8]
+            kelly_data[i]=[i,startprice,p,b*9]
         except:
             pass
+    print("got final data")
     l=[]
     for i in kelly_data:
         kelly_data[i].append(bt.kelly_caculation(kelly_data[i][-2],kelly_data[i][-1]))
