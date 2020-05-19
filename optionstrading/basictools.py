@@ -1,97 +1,107 @@
-import numpy as np
-import csv
-import seaborn as sns
-import pandas as pd
-import matplotlib.pyplot as plt
-import basictools as bt
-import pandas_datareader as pdr
 import yfinance as yf
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from pandas.plotting import register_matplotlib_converters
+register_matplotlib_converters()
+import datetime
 import os
-import time
-sns.set(style="whitegrid")
+import pandas_datareader as pdr
+import csv
 
-def caifuziyou(stocklist):
-    earningdate = bt.get_next_event(*stocklist)
-    latest_option_date={}
-    optiondata_call={}
-    optiondata_put={}
-    for i in earningdate:
-        temp=yf.Ticker(i)
-        for j in sorted(temp.options):
-            if 3<bt.get_date_delta(j,earningdate[i])<35:
-                latest_option_date[i]=j
+def get_stock_data(start_time,end_time,*stocklist):
+    if not stocklist:return {}
+    data_dict={}
+    days = [10, 20, 50]
+    for i  in stocklist:
+        try:
+            data1 = yf.download(i,start_time,end_time)
+            for day in days:
+                columnday = str(day) + " days"
+                data1[columnday] = data1['Adj Close'].rolling(day).mean()
+            data_dict[i]=data1[["Adj Close","10 days","20 days","50 days"]]
+        except:pass
+    return data_dict
+
+def get_next_event(*stocklist):
+    if not stocklist: return {}
+    data_next_ear_data={}
+    for i in stocklist:
+        try:
+            temp = yf.Ticker(i)
+            templist=temp.calendar.loc['Earnings Date'].tolist()
+            if templist:
+                data_next_ear_data[i]=str(templist[0])[0:10]
+        except:pass
+    return data_next_ear_data
+
+def get_data(days):
+    cur=datetime.date.today()
+    delta=datetime.timedelta(days=days)
+    return str(cur-delta)
+
+def get_date_delta(str1,str2):
+    date_time_obj1 = datetime.datetime.strptime(str1, '%Y-%m-%d')
+    date_time_obj2 = datetime.datetime.strptime(str2, '%Y-%m-%d')
+    l=str(date_time_obj1-date_time_obj2).split()
+    if "days," in l:return int(l[0])
+    else:return 0
+
+def get_options_data(date_str,cp="call",*stocklist):
+    if not stocklist: return {}
+    data_options={}
+    for i in stocklist:
+        try:
+            temp=yf.Ticker(i)
+            if cp=="put":data_options[i]=temp.option_chain(date_str).puts
+            else:data_options[i]=temp.option_chain(date_str).calls
+        except:pass
+    return data_options
+
+def mail_notice(msg,*maillist):
+    for i in maillist:
+        try:
+            str1 ="sudo echo " + "\'"+msg+" "+" \'" +"| "+"mail -s " +"\'" + "less then 10 days left to earning call" + "\' " +i
+            os.system(str1)
+        except:pass
+    return
+
+
+def perdict10days(startprice,mu,dt,sigma,days=10):
+    price=np.zeros(days)
+    price[0]=startprice
+    shock=np.zeros(days)
+    drift=np.zeros(days)
+    for x in range(1,days):
+        shock[x]=np.random.normal(loc=mu*dt,scale=sigma*np.sqrt(dt))
+        drift[x]=mu*dt
+        price[x]=price[x-1]+(price[x-1]*(drift[x]+shock[x]))
+    return price
+
+def kelly_caculation(p,b):
+    if b*p<=1-p:return 0
+    return (p*(b+1)-1)/b
+
+def closestprice(pricelist,price):
+    l= [abs(i-price) for i in pricelist]
+    result=list(zip(pricelist,l))
+    result.sort(key=lambda x:x[1])
+    return result[0][0]
+
+def incornot(list1):
+    return float(list1[-1]-list1[0])/list1[0]
+
+
+def rmvdate(str1):
+    if not str1:return []
+    list1=str1.replace(" ","").split(",")
+    temp=[]
+    for i in list1:
+        for j in range(len(i)):
+            if i[j]=="2":
+                temp.append((i[0:j],i[j:]))
                 break
-        if i in latest_option_date:
-            optiondata_call[i] = temp.option_chain(latest_option_date[i]).calls
-            optiondata_put[i] = temp.option_chain(latest_option_date[i]).puts
-
-    '''
-    check the stock flipping  more than 2%
-    '''
-    days0to100_data = bt.get_stock_data(bt.get_data(100), bt.get_data(0), *stocklist)
-    days0to30_data = bt.get_stock_data(bt.get_data(30), bt.get_data(0), *stocklist)
-    days30to60_data = bt.get_stock_data(bt.get_data(90), bt.get_data(0), *stocklist)
-    days60to90_data = bt.get_stock_data(bt.get_data(180), bt.get_data(91), *stocklist)
-    kelly_data={}
-    probability_rate=np.array([0.3,1.0,0.5,0.125])
-    for i in latest_option_date:
-        '''
-        get p
-        '''
-        days0to100_data[i]["daily"] = days0to100_data[i]['Adj Close'].pct_change()
-        days = 10
-        dt = 1.0000 / days
-        mu = days0to100_data[i]["daily"].mean()
-        sigma = days0to100_data[i]["daily"].std()
-        startprice = days0to100_data[i]['Adj Close'].tolist()[-1]
-        temp1,temp2,temp3,temp4=0.0,0.0,0.0,0.0
-        for j in range(100):
-            pricelist=bt.perdict10days(startprice, mu, dt, sigma, days=10)
-            if bt.incornot(list(pricelist))>0.02:temp1+=1
-        temp1=float(temp1)/100
-        if bt.incornot(days0to30_data[i]['Adj Close'].tolist())>0.05:temp2=1
-        if bt.incornot(days30to60_data[i]['Adj Close'].tolist()) > 0.1: temp3 = 1
-        if bt.incornot(days60to90_data[i]['Adj Close'].tolist()) > 0.3: temp4 = 1
-        p=sum(probability_rate*np.array([temp1,temp2,temp3,temp4]))/sum(probability_rate)
-        if p>=0.6:corp="call"
-        elif p<=0.2:corp="put"
-        else:corp="hold"
-        if corp=="call":kelly_data[i]=[corp,i,latest_option_date[i],p]
-        elif corp=="put":kelly_data[i]=[corp,i,latest_option_date[i],1-p]
-        else:kelly_data[i]=[corp,i,-1,-1]
-        '''
-        get b
-        '''
-        strikelist_call=optiondata_call[i]["strike"].tolist()
-        strikelist_put = optiondata_put[i]["strike"].tolist()
-        target=bt.closestprice(strikelist_call,startprice)
-        if optiondata_call[i].loc[lambda df: df['strike'] == target][["bid","ask"]].sum(axis=1).tolist()!=[]:
-            option_call_price=optiondata_call[i].loc[lambda df: df['strike'] == target][["bid","ask"]].sum(axis=1).tolist()[0]/2
-        else:option_call_price=100
-        if optiondata_put[i].loc[lambda df: df['strike'] == target][["bid", "ask"]].sum(axis=1).tolist() != []:
-            option_put_price = optiondata_put[i].loc[lambda df: df['strike'] == target][["bid", "ask"]].sum(axis=1).tolist()[0]/2
-        else:option_put_price=100
-        if option_call_price==0 or not option_call_price :option_call_price=1000
-        if option_put_price == 0 or not  option_put_price: option_put_price = 1000
-        b_call=((startprice*0.04-option_call_price)/option_call_price)
-        b_put=((startprice*0.04-option_put_price)/option_put_price)
-        if kelly_data[i][0]=="call":
-            kelly_data[i].append(b_call)
-            kelly_data[i].append(option_call_price)
-            kelly_data[i].append(target)
-        if kelly_data[i][0] == "put":
-            kelly_data[i].append(b_put)
-            kelly_data[i].append(option_put_price)
-            kelly_data[i].append(target)
-    for i in kelly_data:
-        if kelly_data[i][0]!="hold":kelly_data[i].append(bt.kelly_caculation(kelly_data[i][-4],kelly_data[i][-3]))
-        else:kelly_data[i]=[]
-    l=[]
-    for i in kelly_data:
-        if kelly_data[i]==[] or kelly_data[i][-1]==0:continue
-        l.append(kelly_data[i])
-    return l
+    return temp
 
 if __name__ == "__main__":
     pass
-
