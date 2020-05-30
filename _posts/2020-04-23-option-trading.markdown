@@ -42,8 +42,9 @@ axes[0].yaxis.grid(True)
 axes[1].plot_date(x2,z,"-")
 fig.autofmt_xdate()
 plt.show()
+```
 
----phase 1
+```python
 import yfinance as yf
 import matplotlib.pyplot as plt
 import numpy as np
@@ -153,6 +154,7 @@ if __name__ == "__main__":
 ```
 
 # Kelly Criterion 
+
 - https://www.investopedia.com/articles/trading/04/091504.asp
 - https://zhuanlan.zhihu.com/p/21084686
 

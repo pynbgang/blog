@@ -1,0 +1,222 @@
+---
+layout: post
+title: "[650] 2 Keys Keyboard"
+published: true
+created:  2020 May 24 11:34:17 AM
+tags: [python, leetcode, math, prime, medium]
+categories: [tech]
+
+---
+
+TABLE OF CONTENT
+
+* auto-gen TOC:
+{:toc}
+
+- - -
+
+
+# [[650] 2 Keys Keyboard](https://leetcode.com/problems/2-keys-keyboard/description)
+
+    || * algorithms
+    || * Medium (48.07%)
+    || * Likes:    1068
+    || * Dislikes: 85
+    || * Total Accepted:    52K
+    || * Total Submissions: 107.1K
+    || * Testcase Example:  '3'
+    || * Source Code:       650.2-keys-keyboard.py
+    || 
+    || Initially on a notepad only one character 'A' is present. You can
+    perform two operations on this notepad for each step:
+    || 
+    || 	Copy All: You can copy all the characters present on the notepad (partial copy is not allowed).
+    || 	Paste: You can paste the characters which are copied last time.
+    || 
+    || Given a number n. You have to get exactly n 'A' on the notepad by
+    performing the minimum number of steps permitted. Output the minimum number
+    of steps to get n 'A'.
+    || 
+    || Example 1:
+    || 
+    || Input: 3
+    || Output: 3
+    || Explanation:
+    || Intitally, we have one character 'A'.
+    || In step 1, we use Copy All operation.
+    || In step 2, we use Paste operation to get 'AA'.
+    || In step 3, we use Paste operation to get 'AAA'.
+    || 
+    || Note:
+    || 
+    || 	The n will be in the range [1, 1000].
+
+
+## ping: sum of all primes
+
+collected from Internet
+
+this can be converted to a question of "sum of all primes".
+not exactly sure why yet, but examples shows it is true.
+
+
+```python
+class Solution:     #sum of all primes
+    def minSteps(self, n: int) -> int:
+        res = 0
+        for i in range(2, n + 1):   #iterate to find all primes
+            while n % i == 0:       #when found one
+                res += i; n /= i    #sum it, and continue to factor the remainder
+        return res
+```
+
+examples:
+
+* 15 = 3 x 5
+  * first make clipboard has 3A, then paste 5 times (+5), how? 
+  * copy A                      => +1 operation
+  * paste 2 times (A A). got 3A => +2 operations
+  * copy 3A                     => +1 operation
+  * paste 4 times               => +4 operations
+
+* 30 = 15 x 2
+  * ..continue
+  * copy 15A                    => +1 operation
+  * paste 1 time                => +1 operation
+
+* 16 = 8 x 2 = 4 x 2 x 2
+  * make clipboard has 8A, then paste 1 time, how?
+  * make clipboard has 4A, then paste 1 time, and copy 8A, how?
+    * copy A, paste 3 times, copy 4A (5 oper)
+    * copy A, paste A, copy 2A, paste 2A, copy 4A (5 oper)
+
+```python
+class Solution:         #sum of all primes
+    def minSteps(self, n: int) -> int:
+        res = 0 #iterate to find all primes, w/ sqrt old trick from #?
+        for i in range(2, int(math.sqrt(n)) + 1): # use each num in range
+            while n % i == 0:   #to devide, if exact dividable
+                res += i        #add it and
+                n /= i          #repeat same num, until not exactly dividable
+        # either totally divided (to 1), or one last prime left (7 in 2x2x3x7)
+        return int(res if n==1 else res+n) #collect the last prime if any
+```
+
+## ping: the easiest to understand code
+
+https://leetcode-cn.com/problems/2-keys-keyboard/solution/python-bi-jiao-rong-yi-li-jie-de-tan-xin-si-xiang-/
+
+```python
+class Solution(object):
+    def minSteps(self, n):
+        a, b, s = 1, 0, 0  #当前记事本上的字符数, 剪切板里的字符数, 操作步数
+        while a < n:             #在已有字符数到达目标前循环：
+            if (n-a) % a == 0:   #  仅当所剩字符数能被当前字符数整除，
+                b = a; s += 1    #  此情况下可以复制，步骤加一
+            a += b; s += 1       #  （无论是否已复制）黏贴, 步骤加一
+        return s
+```
+
+## lmv
+
+2 Keys Keyboard
+
+Python Clean Solution with Explanation (faster than 93.31%) with 24 ms runtime.
+
+https://leetcode.com/problems/2-keys-keyboard/discuss/471478
+
+* Lang:    python3
+* Author:  IdeoG
+* Votes:   1
+
+```
+Details
+Runtime: 24 ms, faster than 93.91% of Python3 online submissions for 2 Keys Keyboard.
+Memory Usage: 12.7 MB, less than 100.00% of Python3 online submissions for 2 Keys Keyboard.
+```
+
+    Min steps to iterate from 1 to n while have only 2 ops: copy all and paste
+
+    n=2: \'A\' -> copy -> paste -> \'AA\'
+    n=3: \'A\' -> copy -> paste -> paste -> \'AAA\'
+    n=4: \'A\' -> copy -> paste -> copy -> paste -> \'AAAA\'
+    n=5: \'A\' -> copy -> paste -> paste -> paste -> paste -> \'AAAAA\'
+        In that case we can just paste and copy last combination, since. if we paste
+        n+1 % 2 == 1 -> 1,3,5,7,.. we can paste only 1,3,5,7,.. els
+
+        So, when we should decide is COPY possible?
+    n=6: \'A\' -> copy -> paste -> copy -> paste -> paste -> \'AAAAAA\' 6=1*2*3
+        or   -> copy -> paste -> paste -> copy -> paste -> \'AAAAAA\'
+    n=7: \'A\' -> copy -> paste -> paste -> paste -> paste -> .. ans=7
+        Note: prime numbers we can\'t copy multiple times! Only once when n=1
+    n=8: copy->paste->copy->paste->copy->paste 8=2*4
+                \'AA\'         \'AAAA\'      \'AAAAAAAA\'
+    n=30: 30=1,2,3,5,10,15,30
+
+        1. build weighted graph, in forward notation: (vertex,weight or N_PASTE to achieve vertex)
+
+            1: (2,1), (3,2), (5,4), (10,9), (15,14), (30,29)
+            2: (6,2), (10,4), (30,14)
+            3: (15,4), (30,9)
+            5: (10,1), (15,2), (30,5)
+            6: (30,4)
+            10: (30,2)
+            15: (30,1)
+            30: (30,0)
+            Note!  and plus 1 for COPY operation
+
+        2. use dfs to track best path:
+            so: 1->2->10->30 = 1+4+2 + 3 = 10
+                    ->30 = 1+4+14 + 2 = 29
+                1->3->15->30 = 2+4+1 + 3 = 10
+                    ->30 = 2+9 + 2 = 13
+                and so on
+
+    n=27 (graph): 27=3,9,27
+            1: (3,3), (9,9), (27,27)
+            3: (9,3), (27,9)
+            9: (27,3)
+            27: None
+        Q1: How to build the structure above?
+            1. Find all factors
+        Q2: How to improve performance?
+            1. Can we remove weight and replace it by value//key? A: Yes => 32ms -> 24ms
+
+    M = log(N)
+    T ~ O(N + log(N)*log(N) + log(N)+K) in theory
+
+
+```python
+from collections import defaultdict
+
+class Solution:
+    def minSteps(self, n: int) -> int:
+        graph = defaultdict(list)
+        for num in range(2, n + 1):  # T ~ O(N) to find all factors
+            if n % num == 0:
+                graph[1].append(num)
+
+        for i, vertex in enumerate(graph[1]):  
+        # T ~ O(M*M*1), where M - number of factors; to build graph
+            for v in graph[1][i + 1:]:  # O(M*1)
+                if v % vertex == 0:
+                    graph[vertex].append(v)
+
+                value = v * vertex
+                if value in graph[vertex]:  # O(1)
+                    graph[vertex].append(value)
+
+        params = {\'min_n_steps\': n}
+
+        def backtracking(key, n_steps):
+            if key == n:
+                params[\'min_n_steps\'] = min(n_steps, params[\'min_n_steps\'])
+                return
+
+            for k in graph[key]:
+                backtracking(k, n_steps + k // key)
+
+        backtracking(1, 0)  # T ~ O(M+K), where K is number of edges; for dfs
+        return params[\'min_n_steps\']
+```
+
