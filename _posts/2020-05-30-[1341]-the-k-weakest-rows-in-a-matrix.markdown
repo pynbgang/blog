@@ -3,7 +3,7 @@ layout: post
 title: "[1341] The K Weakest Rows in a Matrix"
 published: true
 created:  2020 May 30 12:22:28 PM
-tags: [python, leetcode]
+tags: [python, leetcode, easy, sum, sort, list]
 categories: [tech]
 
 ---
