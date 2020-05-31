@@ -98,7 +98,8 @@ class Solution:
 ```
 
 ## Owen within zip
-'''python
+
+```python
 class Solution(object):
     def kWeakestRows(self, mat, k):
         list1=[i for i in range(len(mat))]
@@ -107,6 +108,8 @@ class Solution(object):
         list3.sort(key=lambda x:x[1])
         return [i[0] for i in list3[0:k]]
 ```
+
+
 ## lmv
 
     || [Python] One-Liner using Sorting
