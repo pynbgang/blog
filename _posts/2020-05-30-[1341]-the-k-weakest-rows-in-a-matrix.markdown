@@ -97,7 +97,7 @@ class Solution:
         return [t[i][0] for i in range(k)]
 ```
 
-##Owen within zip
+## Owen within zip
 '''python
 class Solution(object):
     def kWeakestRows(self, mat, k):
