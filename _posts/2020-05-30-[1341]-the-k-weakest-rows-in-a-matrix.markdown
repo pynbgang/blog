@@ -15,6 +15,8 @@ TABLE OF CONTENT
 
 - - -
 
+
+
 # [[1341] The K Weakest Rows in a Matrix](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/description/)
 
     || * algorithms
@@ -94,6 +96,19 @@ class Solution:
         t=sorted([(i, (sum(mat[i]))) for i in range(len(mat))], key=lambda x: x[1])
         return [t[i][0] for i in range(k)]
 ```
+
+## Owen within zip
+
+```python
+class Solution(object):
+    def kWeakestRows(self, mat, k):
+        list1=[i for i in range(len(mat))]
+        list2=[sum(i) for i in mat]
+        list3=list(zip(list1,list2))
+        list3.sort(key=lambda x:x[1])
+        return [i[0] for i in list3[0:k]]
+```
+
 
 ## lmv
 
