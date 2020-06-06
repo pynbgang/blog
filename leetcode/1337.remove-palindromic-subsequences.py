@@ -7,5 +7,5 @@
 # @lc code=start
 class Solution:
     def removePalindromeSub(self, s: str) -> int:
-        
+
 # @lc code=end
