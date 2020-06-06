@@ -67,15 +67,15 @@ class Solution:     #lmv
     """
 
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
-        queue, ans = [[0]], []
-        while len(queue):
-            top = queue.pop(0)
-            if top[-1] == len(graph):
-                ans.append(top)
-                continue
-            for nei in graph[top[-1]]:
-                queue.append(top + [nei])
-        return ans
+        pathq, res = [[0]], []        #queue to save all paths, init with node 0
+        while len(pathq):
+            firstpath = pathq.pop(0)  #dequeue first path
+            if firstpath[-1] == len(graph) - 1: #check if last node reaches end
+                res.append(firstpath) #if yes, save this full path to result
+                continue              #and check next path
+            for nei in graph[firstpath[-1]]:    #otherwise, get all it's neighbors
+                pathq.append(firstpath + [nei]) #connect it's nei into the path
+        return res                    #and append back into paths queue
 ```
 
 ## lmv debugging
@@ -125,6 +125,32 @@ class Solution:     #lmv debugging
         return ans
 ```
 
+running flows:
+
+    [ins] In [77]: graph                                                                 
+    Out[77]: [[1, 2], [3], [3], []]
+
+    top is [0], queue is []
+    from graph[top[-1]] that is graph[0]=[1, 2], get nei 1
+    use this nei to extend top, and append new top into queue
+    queue is now [[0, 1]]
+    from graph[top[-1]] that is graph[0]=[1, 2], get nei 2
+    use this nei to extend top, and append new top into queue
+    queue is now [[0, 1], [0, 2]]
+    top is [0, 1], queue is [[0, 2]]
+    from graph[top[-1]] that is graph[1]=[3], get nei 3
+    use this nei to extend top, and append new top into queue
+    queue is now [[0, 2], [0, 1, 3]]
+    top is [0, 2], queue is [[0, 1, 3]]
+    from graph[top[-1]] that is graph[2]=[3], get nei 3
+    use this nei to extend top, and append new top into queue
+    queue is now [[0, 1, 3], [0, 2, 3]]
+    top is [0, 1, 3], queue is [[0, 2, 3]]
+    reach the end, append top [0, 1, 3] into ans [[0, 1, 3]]
+    top is [0, 2, 3], queue is []
+    reach the end, append top [0, 2, 3] into ans [[0, 1, 3], [0, 2, 3]]
+
+
 ## lmv illustration
 
     queue:                              use a queue, to hold all path 
@@ -156,14 +182,14 @@ class Solution:     #lmv debugging
 ```python
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
-        end, cur, res = len(graph) - 1, [[0]], []
-        while cur:
-            path = cur.pop()
-            for p in graph[path[-1]]:
-                if p == end:
-                    res.append(path + [p])
-                else:
-                    cur.append(path + [p])
+        endnode, pathq, res = len(graph) - 1, [[0]], []
+        while pathq:                            #repeat below until pathq is empty
+            path = pathq.pop()                  #keep dequeuing first path
+            for node in graph[path[-1]]:        #check all it's neighbors
+                if node == endnode:             #if a nei is end node
+                    res.append(path + [node])   #this is a full path, save in result
+                else:                           #otherwise, not a full path yet
+                    pathq.append(path + [node]) #connect path with this new node, and enqueue
         return res
 ```
 

@@ -66,14 +66,14 @@ class Solution:     #lmv
     """
 
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
-        queue, ans = [[0]], []
-        while len(queue):
-            top = queue.pop(0)
-            if top[-1] == len(graph) - 1:
-                ans.append(top)
-                continue
-            for nei in graph[top[-1]]:
-                queue.append(top + [nei])
-        return ans
+        pathq, res = [[0]], []        #queue to save all paths, init with node 0
+        while len(pathq):
+            firstpath = pathq.pop(0)  #dequeue first path
+            if firstpath[-1] == len(graph) - 1: #check if last node reaches end
+                res.append(firstpath) #if yes, save this full path to result
+                continue              #and check next path
+            for nei in graph[firstpath[-1]]:    #otherwise, get all it's neighbors
+                pathq.append(firstpath + [nei]) #connect it's nei into the path
+        return res                    #and append back into paths queue
 
 # @lc code=end
