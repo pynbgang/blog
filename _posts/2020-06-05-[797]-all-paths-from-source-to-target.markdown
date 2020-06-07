@@ -3,7 +3,7 @@ layout: post
 title: "[797] All Paths From Source to Target"
 published: true
 created:  2020 Jun 05 07:23:48 PM
-tags: [python, leetcode, medium, queue, bfs, dfs]
+tags: [python, leetcode, medium, queue, bfs, dfs, debug, recursion]
 categories: [tech]
 
 ---
@@ -196,17 +196,86 @@ class Solution:
 ### dfs
 
 ```python
-class Solution:
+class Solution:     #jj: dfs
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
-        def helper(end, cur):
-            if cur == end:
-                return [[cur]]
-            res = []
-            for p in graph[cur]:
-                res += [[cur] + l for l in helper(end, p)]
+        def helper(endnode, node):
+            if node == endnode:         #if reaches end
+                return [[node]]         #just return end node as current path
+            res = []                    #if not reaches end, check each neighbors
+            for nei in graph[node]:     #conn curr node and each nei to update path
+                res += [[node] + l for l in helper(endnode, nei)] #and save in res
             return res
         return helper(len(graph) - 1, 0)
 ```
+
+### dfs debug
+
+```python
+from typing import List
+class Solution:     #jj: dfs
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        self.spaces=0
+        def helper(endnode, node):
+            print(">>>>entering helper") 
+            print(' '*self.spaces, "get a node: ", node)
+            if node == endnode:
+                print(' '*self.spaces, "<<<<reaches end, return this node", [[node]])
+                return [[node]]
+            res = []
+            print(' '*self.spaces, "not reaches end yet, it's neighbors: ", graph[node])
+            for nei in graph[node]:
+                print("get one neighbor ", nei)
+                self.spaces += 4
+                path = [[node] + l for l in helper(endnode, nei)]
+                res += path
+                print("path is to connect current node %s and each neighbors %s: %s" % (node, nei, path))
+                print("add it into res: ", res)
+                self.spaces -= 4
+            print(' '*self.spaces, "<<<<return result", res)
+            return res
+        return helper(len(graph) - 1, 0)
+
+S=Solution()
+graph=[[1,2], [3], [3], []]
+S.allPathsSourceTarget(graph)
+```
+
+    >>>>entering helper
+        get a node:  0
+        not reaches end yet, get it's neighbors:  [1, 2]
+
+        get one neighbor  1
+        >>>>entering helper
+            get a node:  1
+            not reaches end yet, get neighbors of this node:  [3]
+            get one neighbor  3
+            >>>>entering helper
+                get a node:  3
+            <<<<reaches end, return this node [[3]]
+            path is to connect current node 1 and each neighbors 3: [[1, 3]]
+            add it into res:  [[1, 3]]
+        <<<<return result [[1, 3]]
+
+        path is to connect current node 0 and each neighbors 1: [[0, 1, 3]]
+        add it into res:  [[0, 1, 3]]
+
+        get one neighbor  2
+        >>>>entering helper
+            get a node:  2
+            not reaches end yet, it's neighbors:  [3]
+            get one neighbor  3
+            >>>>entering helper
+                get a node:  3
+            <<<<reaches end, return this node [[3]]
+            path is to connect current node 2 and each neighbors 3: [[2, 3]]
+            add it into res:  [[2, 3]]
+        <<<<return result [[2, 3]]
+
+        path is to connect current node 0 and each neighbors 2: [[0, 2, 3]]
+        add it into res:  [[0, 1, 3], [0, 2, 3]]
+
+    <<<<return result [[0, 1, 3], [0, 2, 3]]
+
 
 ## others
 
@@ -230,4 +299,4 @@ class Solution(object):
 
 ## good resources
 
-* https://www.youtube.com/watch?v=L38V_q3lrvM
+* https://www.youtube.com/watch?v=L38V_q3lrvM good explain of the problem

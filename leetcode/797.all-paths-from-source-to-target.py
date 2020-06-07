@@ -6,7 +6,7 @@
 
 # @lc code=start
 
-class Solution:     #lmv debugging
+class Solution:     #lmv(bfs) debugging
 
     """
     Python Short BFS
@@ -50,7 +50,7 @@ class Solution:     #lmv debugging
                 print("queue is now", queue)
         return ans
 
-class Solution:     #lmv
+class Solution:     #lmv(bfs)
 
     """
     Python Short BFS
@@ -75,5 +75,33 @@ class Solution:     #lmv
             for nei in graph[firstpath[-1]]:    #otherwise, get all it's neighbors
                 pathq.append(firstpath + [nei]) #connect it's nei into the path
         return res                    #and append back into paths queue
+
+
+class Solution:     #jj: dfs
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        def helper(endnode, node):
+            if node == endnode:
+                return [[node]]
+            res = []
+            for nei in graph[node]:
+                res += [[node] + l for l in helper(endnode, nei)]
+            return res
+        return helper(len(graph) - 1, 0)
+
+class Solution(object):
+    def allPathsSourceTarget(self, graph):
+        """
+        :type graph: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        res = []
+        self.dfs(graph, 0, len(graph) - 1, res, [0])
+        return res
+
+    def dfs(self, graph, start, end, res, path):
+        if start == end:
+            res.append(path)
+        for node in graph[start]:
+            self.dfs(graph, node, end, res, path + [node])
 
 # @lc code=end
