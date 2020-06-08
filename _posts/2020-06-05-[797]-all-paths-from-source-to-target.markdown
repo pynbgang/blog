@@ -277,15 +277,11 @@ S.allPathsSourceTarget(graph)
     <<<<return result [[0, 1, 3], [0, 2, 3]]
 
 
-## others
+## dfs others
 
 ```python
 class Solution(object):
     def allPathsSourceTarget(self, graph):
-        """
-        :type graph: List[List[int]]
-        :rtype: List[List[int]]
-        """
         res = []
         self.dfs(graph, 0, len(graph) - 1, res, [0])
         return res
@@ -296,6 +292,79 @@ class Solution(object):
         for node in graph[start]:
             self.dfs(graph, node, end, res, path + [node])
 ```
+
+### debugging
+
+```python
+class Solution(object):
+    def allPathsSourceTarget(self, graph):
+        """
+        :type graph: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        res = []
+        print("init dfs: start node 0, path [0]"
+        self.dfs(graph, 0, len(graph) - 1, res, [0])
+        return res
+
+    def dfs(self, graph, start, end, res, path):
+        print(">>>>entering dfs with %s as start node" % start) 
+        if start == end:
+            print("reaches end, append path %s in res %s" % (path, res))
+            res.append(path)
+            print("res updated to %s" ,res)
+        print("get neighbors of start node %s: %s" % (start, graph[start]))
+        for nei in graph[start]:
+            print("use neighbor %s to update path %s: %s" % (nei, path, path+[nei]))
+            self.dfs(graph, nei, end, res, path + [nei])
+        print("<<<<leaving dfs") 
+```
+
+S=Solution()
+graph=[[1,2], [3], [3], []]
+S.allPathsSourceTarget(graph)
+
+### work flow
+
+    init dfs: start node 0, path [0]
+
+    >>>>entering dfs with 0 as start node
+        1. get neighbors of start node 0: [1, 2]
+
+        2. use neighbor 1 to update path [0]: [0, 1]
+
+        3. >>>>entering dfs with 1 as start node
+
+            3.1 get neighbors of start node 1: [3]
+
+            3.2 use neighbor 3 to update path [0, 1]: [0, 1, 3]
+
+            3.3 >>>>entering dfs with 3 as start node
+                reaches end, append path [0, 1, 3] in res []
+                res updated to [[0, 1, 3]]
+                get neighbors of start node 3: []
+            <<<<leaving dfs
+
+          <<<<leaving dfs
+
+        4. use neighbor 2 to update path [0]: [0, 2]
+
+        5. >>>>entering dfs with 2 as start node
+
+            5.1 get neighbors of start node 2: [3]
+
+            5.2 use neighbor 3 to update path [0, 2]: [0, 2, 3]
+
+            5.3 >>>>entering dfs with 3 as start node
+                reaches end, append path [0, 2, 3] in res [[0, 1, 3]]
+                res updated to [[0, 1, 3], [0, 2, 3]]
+                get neighbors of start node 3: []
+            <<<<leaving dfs
+
+         <<<<leaving dfs
+    <<<<leaving dfs
+
+    Out[67]: [[0, 1, 3], [0, 2, 3]]
 
 ## good resources
 

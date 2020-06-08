@@ -88,7 +88,7 @@ class Solution:     #jj: dfs
             return res
         return helper(len(graph) - 1, 0)
 
-class Solution(object):
+class Solution(object):     #dfs: other (internet)
     def allPathsSourceTarget(self, graph):
         """
         :type graph: List[List[int]]
@@ -104,4 +104,14 @@ class Solution(object):
         for node in graph[start]:
             self.dfs(graph, node, end, res, path + [node])
 
+class Solution(object):     #dfs: other (internet), slight change
+    def allPathsSourceTarget(self, graph):
+        return self.dfs(graph, 0, len(graph) - 1, [], [0])
+
+    def dfs(self, graph, start, end, res, path):
+        if start == end:
+            res.append(path)
+        for node in graph[start]:
+            self.dfs(graph, node, end, res, path + [node])
+        return res
 # @lc code=end
