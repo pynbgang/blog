@@ -78,7 +78,7 @@ class Solution:     #lmv
         return res                    #and append back into paths queue
 ```
 
-## lmv debugging
+### lmv debugging
 ```python
 class Solution:     #lmv debugging
 
@@ -151,7 +151,7 @@ running flows:
     reach the end, append top [0, 2, 3] into ans [[0, 1, 3], [0, 2, 3]]
 
 
-## lmv illustration
+### lmv illustration
 
     queue:                              use a queue, to hold all path 
     queue: [[0]]                        init the queue with ONE path that has only node 0 in it
@@ -240,6 +240,8 @@ graph=[[1,2], [3], [3], []]
 S.allPathsSourceTarget(graph)
 ```
 
+### dfs illustration
+
     >>>>entering helper
         get a node:  0
         not reaches end yet, get it's neighbors:  [1, 2]
@@ -324,7 +326,7 @@ S=Solution()
 graph=[[1,2], [3], [3], []]
 S.allPathsSourceTarget(graph)
 
-### work flow
+### work illustration
 
     init dfs: start node 0, path [0]
 
