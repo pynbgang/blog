@@ -18,7 +18,7 @@ all posts:
 <ul class="listing">
 {% for post in site.posts %}
 
-  {* if post.top == true *}
+  {% if post.top == true %}
 
     {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
     {% if year != y %}
@@ -30,7 +30,7 @@ all posts:
         <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
     </li>
 
-  {* endif *}
+  {% endif %}
 
   {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
   {% if year != y %}
