@@ -3,7 +3,7 @@ layout: post
 title: "sorted"
 published: true
 created:  2020 Jan 05 10:21:22 PM
-tags: [liaoxuefeng, python, sorted, py2]
+tags: [liaoxuefeng, python, sorted, python2]
 categories: [tech]
 
 ---
@@ -43,19 +43,6 @@ TABLE OF CONTENT
 ```
 
 
-## py2 and py3
-
-感觉py3的key和它“取代”了的py2 的cmp完全两回事。
-
-* py2的cmp是提供了对比较“算法”的自定制功能
-* py3的key是提供了对原始”数据“的一个包装或者映射。
-* py3对比较算法没有改变。如需改变仍然需要调用类似py2的cmp函数。
-  见[sorted-in-py3](https://pynbgang.github.io/tech/2020/01/05/largest-number/#sorted-in-p3)
-
-<!--
-{{ site.url }}/assets/2020-01-05-largest-number.markdown
--->
-
 ## sorted exercise1
 
 假设我们用一组tuple表示学生名字和成绩：
@@ -88,4 +75,17 @@ def by_name(tup):
 L2 = sorted(L, key=by_name, reverse=True)
 print(L2)
 ```
+
+## py2 and py3
+
+感觉py3的key 和 它“取代”了的py2的cmp 完全两回事。
+
+* py2的cmp是提供了对比较“算法”的自定制功能
+* py3的key是提供了对原始”数据“的一个包装或者映射。
+* py3对比较算法没有改变。如需改变仍然需要调用类似py2的cmp函数。
+  见[sorted-in-py3](https://pynbgang.github.io/tech/2020/01/05/largest-number/#sorted-in-p3)
+
+<!--
+{{ site.url }}/assets/2020-01-05-largest-number.markdown
+-->
 

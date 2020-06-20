@@ -4,7 +4,7 @@ title: "global nonlocal"
 published: true
 date: 2020-01-09
 created:  2020 Jan 10 07:38:47 PM
-tags: [global, nonlocal]
+tags: [python, global]
 categories: [tech]
 
 ---
@@ -19,7 +19,7 @@ TABLE OF CONTENT
 
 # examples
 
-## example: refer is fine
+## refer is fine
 
 ```python
 x = 5
@@ -34,7 +34,7 @@ def myfnc():
 myfnc()
 ```
 
-## example: change triggers errors
+## change triggers errors
 
 ```python
 x = 5
@@ -58,7 +58,7 @@ myfnc()
 
     UnboundLocalError: local variable 'x' referenced before assignment
 
-## example: use global
+## solution: use global: now change is ok
 
 ```python
 x = 5
@@ -76,7 +76,7 @@ myfnc()
 ```
 
 
-## example: global can't solve one scenario
+## global can't solve one scenario
 
 ```python
 x = 5
@@ -90,7 +90,7 @@ def myfnc():
         print("inside myfnc2", x, ' ', y)
         x = 10 #在嵌套的方程中对x重新赋值
         print("x = ", x)
-        y = 10 #在嵌套的方程中对x重新赋值
+        y = 10 #在嵌套的方程中对y重新赋值
         print("y = ", y)
     myfnc2()
 
@@ -104,6 +104,8 @@ myfnc()
           9         print("x = ", x)
 
     NameError: name 'y' is not defined
+
+因为使用了global后，系统到最外层去找，但是此处最外层没有定义y
 
 ## example: use nonlocal
 
@@ -128,6 +130,7 @@ def myfnc():
 myfnc()
 ```
 
-
+global:   仅仅到最外层去找。  
+nonlocal: 字面意思就是除了local之外的任何层，包含，但不限于最外层（global）
 
 

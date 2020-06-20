@@ -13,6 +13,7 @@ resources/tips/notes:
 
 * [about strings](https://towardsdatascience.com/41-questions-to-test-your-knowledge-of-python-strings-9eb473aa8fe8)
 * [fucking-algorithm](https://github.com/labuladong/fucking-algorithm)
+* 算法4
 
 <ul class="listing">
 

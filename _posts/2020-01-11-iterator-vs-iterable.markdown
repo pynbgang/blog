@@ -3,7 +3,7 @@ layout: post
 title: "iterator vs iterable"
 published: true
 created:  2020 Jan 11 12:41:31 PM
-tags: [python, iterable, iterator, generator, zip, py2]
+tags: [python, iterable, iterator, generator, zip, python2]
 categories: [tech]
 
 ---
