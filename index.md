@@ -17,7 +17,7 @@ resources/tips/notes:
 <ul class="listing">
 {% for post in site.posts %}
 
-**topped posts**:
+<div>topped posts</div>
 
   {% if post.top == true %}
 
@@ -33,7 +33,7 @@ resources/tips/notes:
 
   {% endif %}
 
-**all posts**:
+<div>all posts</div>
 
   {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
   {% if year != y %}
