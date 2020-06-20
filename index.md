@@ -9,6 +9,10 @@ tagline: -- tech (programming, networking) tips
 ![image](https://user-images.githubusercontent.com/2038044/76429344-4a812800-6385-11ea-9353-6f8288aaa7dd.png)
 -->
 
+resources/tips/notes:
+
+* https://towardsdatascience.com/41-questions-to-test-your-knowledge-of-python-strings-9eb473aa8fe8
+
 <ul class="listing">
 {% for post in site.posts %}
   {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
