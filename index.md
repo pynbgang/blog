@@ -11,11 +11,12 @@ tagline: -- tech (programming, networking) tips
 
 <ul class="listing">
 
-resources/tips/notes:  
+resources/tips/notes:
 
 * [about strings](https://towardsdatascience.com/41-questions-to-test-your-knowledge-of-python-strings-9eb473aa8fe8)
+* [fucking-algorithm](https://github.com/labuladong/fucking-algorithm)
 
-topped posts:  
+topped posts:
 
 {% for post in site.posts %}
   {% if post.top == true %}
