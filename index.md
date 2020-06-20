@@ -13,10 +13,11 @@ resources/tips/notes:
 
 * [about strings](https://towardsdatascience.com/41-questions-to-test-your-knowledge-of-python-strings-9eb473aa8fe8)
 
-all posts:
 
 <ul class="listing">
 {% for post in site.posts %}
+
+**topped posts**:
 
   {% if post.top == true %}
 
@@ -31,6 +32,8 @@ all posts:
     </li>
 
   {% endif %}
+
+**all posts**:
 
   {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
   {% if year != y %}
