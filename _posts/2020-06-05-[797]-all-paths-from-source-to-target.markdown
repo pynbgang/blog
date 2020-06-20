@@ -5,6 +5,7 @@ published: true
 created:  2020 Jun 05 07:23:48 PM
 tags: [python, leetcode, medium, queue, bfs, dfs, debug, recursion]
 categories: [tech]
+top: true
 
 ---
 
