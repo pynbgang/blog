@@ -294,7 +294,7 @@ with 're.VERBOSE', comment can be added:
 
     In [78]: m.groupdict()
     Out[78]: {'bytes_sent': '2326', 'remote_host': '127.0.0.1', 'status': '200'}
-    
+
 ## re.split()
 
 ```python

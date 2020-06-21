@@ -20,18 +20,18 @@ TABLE OF CONTENT
 
 ## facts
 
-iterable::  anything that can be iterated over
+iterable::  anything that can be iterated over: `for i in iter1`
 
 - string/list/tuple/dict/set
-- iterator (e.g. generator) - because you can do `for i in iter1`
+- iterator (e.g. generator)
 
-iterator:: the agents that perform the iteration.
+iterator:: the `agent` that perform the iteration.
 
 - objects support `next()`
 - create from:
   - BIFs (e.g enumerate, zip, reversed, list(), etc)
   - generator
-- `iter(iter1) is iter1`
+- if iter1 is already an iterator, then `iter(iter1) is iter1`
 
 ____
 Python 的 Iterator 对象表示的是一个数据流， Iterator 对象可
@@ -61,21 +61,22 @@ ____
 ```python
 l=[1,2,3,4]
 i = iter(l)
-list(zip(i, i))
+list(zip(i, i))         #zip do "next" on one same iterator
 [(1, 2), (3, 4)]
 ```
 
 ```python
 l=[1,2,3,4]
-list(zip(l, l))
+list(zip(l, l))         #zip do "next" on two diff iterator
 [(1, 1), (2, 2), (3, 3), (4, 4)]
 ```
 
 why? because:
 
 ```python
+l=[1,2,3,4]
 i=iter(l); iter(i) is i         #True
-iter(l) is not iter(l)          #False
+iter(l) is not iter(l)          #True
 ```
 
 and what zip does:
@@ -84,7 +85,6 @@ and what zip does:
 - next() on both get a new tuple
 - first test give **same** iterators
 - 2nd test give **two** iterators (same content though)
-
 
 ## iterable or not
 
@@ -103,9 +103,8 @@ and what zip does:
 
 next: will be called by 'for/while' loop internally.
 
-- py3:
-+
---
+### py3:
+
     In [72]: l
     Out[72]: [2, 1, 0, 0]
 
@@ -131,9 +130,8 @@ convert to iterator
 
     In [77]: next(iter1)
     Out[77]: 1
---
 
-- py2
+### py2
 
     >>> l
     ['a', 'b', 'c']
