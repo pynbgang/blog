@@ -28,7 +28,7 @@ def handle_clinet(conn,addr):
             print(msg)
             if msg==DICMSG:connected=False
             else:
-                temp1=sp.caifuziyou([msg][0])
+                temp1=sp.caifuziyou([msg])[0]
                 temp= " ".join([str(i) for i in temp1])
                 print "sent "+temp
                 conn.send(temp.encode(FORMAT))
