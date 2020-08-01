@@ -16,32 +16,33 @@ class Solution:  #ping
         l2.append(0)
         for i in range(len(l2) - 1):
             l2[i], l2[i + 1] = l2[i] % 10, l2[i + 1] + l2[i] // 10
-        return "0" if str1 == str2 == '0' else ''.join(
-            num2str[i] for i in l2)[::-1].lstrip('0')
+        return "0" if str1 == str2 == '0' else ''.join(num2str[i] for i in l2)[::-1].lstrip('0')
 
 
 class Solution:  #owen on field
     def addStrings(self, str1, str2):
-        if not str1 and str2:
-            return str2
-        if not str2 and str1:
-            return str1
-        if len(str2) > len(str1):
-            return self.addStrings(str2, str1)
-        l1 = list(str1)
-        l2 = ["0"] * (len(str1) - len(str2)) + list(str2)
-        listcarry = [0] + [0] * len(str1)
-        sumstr = ""
-        for i in range(len(l1) - 1, -1, -1):
-            temp = int(l1[i]) + int(l2[i]) + listcarry[i + 1]
+        if not str1 or not str2:                #special cases: one str is null
+            return str2 if not str1 else str2
+        if len(str2) > len(str1):               #make sure str1 is longer
+            return self.addStrings(str2, str1)  #str to list, & prepare a n+1
+        l1, carry = list(str1), [0]*(len(str1)+1)     #list to save carry
+        l2 = ["0"] * (len(str1) - len(str2)) + list(str2) #make l2 same length
+        sumstr = ""                             #init result string
+        for i in range(len(l1) - 1, -1, -1):    #calculate reversely (from ones)
+            temp = int(l1[i]) + int(l2[i]) + carry[i + 1]
             if temp < 10:
                 sumstr += str(temp)
             else:
                 sumstr += str(temp)[-1]
-                listcarry[i] = 1
-        if listcarry[0] == 1:
-            return "1" + sumstr[::-1]
-        return sumstr[::-1]
+                carry[i] = 1
+        return "1" + sumstr[::-1] if carry[0] else sumstr[::-1]
 
+#                i     |len(l1)-1
+#                v     v
+#l1:      [1, 2, 3, 4, 5]
+#l2:      [0, 0, 6, 7, 8]
+#carry:[0, 0, 0, 0, 0, 0]
+#                ^     ^
+#                i+1   |len(l1)
 
 # @lc code=end

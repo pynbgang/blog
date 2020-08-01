@@ -38,6 +38,13 @@ TABLE OF CONTENT
 
 ## code (owen in field)
 
+重点
+
+- 不能直接更换字符串到数字
+- 需要考虑到一些特殊的CASE比如进位 
+- 这个CODE里没有COVER这个情况如果某个输入是"00000012312313131"
+- 不能多位数相加 (可以个位)
+
 ```python
 def addtwostring(str1,str2):
     if not str1 and str2:
@@ -62,7 +69,7 @@ def addtwostring(str1,str2):
     return sumstr[::-1]
 ```
 
-## ping
+## ping: w/o int str
 
 ```python
 def addtwostring(str1,str2):
@@ -170,9 +177,12 @@ def addStrings(self, num1, num2):
 Would the one liner be acceptable in the contest?
 
 
-# 重点
+## tips
 
-- 不能直接更换字符串到数字
-- 需要考虑到一些特殊的CASE比如进位 
-- 这个CODE里没有COVER这个情况如果某个输入是"00000012312313131"
-- 不能多位数相加 (可以个位)
+* str to list: list(str1), [i for i in str1]
+* list to str: "".join(list1)
+* list x N: [0,1] * 10
+* list1+list2: list1.extend(list2)
+* revert str/list: str1/list1[::-1]
+* iterate reversely: range(len(str1)-1, -1, -1)
+* zip(seq1, seq2) => dict

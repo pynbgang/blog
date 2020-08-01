@@ -3,7 +3,7 @@ layout: post
 title: "map reduce filter"
 published: true
 created:  2020 Jan 04 07:39:29 PM
-tags: [python, map, reduce, filter, lambda, zip, prime, generator, liaoxuefeng, math]
+tags: [python, functools, map, reduce, filter, lambda, zip, prime, generator, liaoxuefeng, math, reversed]
 categories: [tech]
 
 ---
@@ -25,6 +25,8 @@ map(f, l)
 #same as
 [f(i) for i in l]
 ```
+
+高阶函数 - 函数做参数。
 
 ## example1: sqrt of list
 
@@ -81,7 +83,7 @@ output:
 
     25
 
-## example2: list to num
+## example2: sum of list
 
 
 ```python
@@ -103,7 +105,7 @@ output:
 
 ```python
 from functools import reduce
-DIGITS=dict( ( zip('0123456789', range(10)) )  )
+digits=dict( ( zip('0123456789', range(10)) )  )
 
 def str2int(s):
 
@@ -111,7 +113,7 @@ def str2int(s):
         return x * 10 + y
 
     def char2num(s):
-        return DIGITS[s]
+        return digits[s]
 
     return reduce(fn, map(char2num, s))
 ```
@@ -131,9 +133,9 @@ def str2int(s):
 
 ```python
 from functools import reduce
-DIGITS=dict( ( zip('0123456789', range(10)) )  )
+digits=dict( ( zip('0123456789', range(10)) )  )
 def str2int(s):
-    return reduce(lambda x,y: x*10+y, map(lambda s:DIGITS[s], s))
+    return reduce(lambda x,y: x*10+y, map(lambda s:digits[s], s))
 ```
 
 # map reduce exercises
@@ -180,10 +182,10 @@ from functools import reduce
 
 def str2float(s):
 
-    DIGITS=dict( ( zip('0123456789', range(10)) )  )
+    digits=dict( ( zip('0123456789', range(10)) )  )
 
     def map1(c):
-        return DIGITS[c] if c in '0123456789' else '.'
+        return digits[c] if c in '0123456789' else '.'
 
     def rd1(x, y):
         return x*10+y
@@ -222,19 +224,13 @@ else:
 
 ```python
 from functools import reduce
-
 def str2float(s):
-
-    DIGITS=dict( ( zip('0123456789', range(10)) )  )
-
-    l=list(map(lambda c: DIGITS[c] if c in '0123456789' else '.', s))
-    l1=l[0:l.index('.')]
-    l2=l[l.index('.')+1:]
-
+    digits=dict( zip('0123456789', range(10)) )
+    l=list(map(lambda c: digits[c] if c in '0123456789' else '.', s))
+    l1, l2 = l[0:l.index('.')], l[l.index('.')+1:]
     return reduce(lambda x,y:x*10+y, l1) + reduce(lambda x,y:x*0.1+y, reversed(l2)) * 0.1
 
 print('str2float(\'123.456\') =', str2float('123.456'))
-
 if abs(str2float('123.456') - 123.456) < 0.00001:
     print('测试成功!')
 else:
@@ -247,10 +243,9 @@ else:
 
 ```python
 from functools import reduce
-
 def str2float(s):
-    DIGITS=dict( ( zip('0123456789', range(10)) )  )
-    l=list(map(lambda c: DIGITS[c] if c in '0123456789' else '.', s))
+    digits=dict( zip('0123456789', range(10)) ) #build str to int map
+    l=list(map(lambda c: digits[c] if c in '0123456789' else '.', s)) #to list
     power, div = len(l)-l.index('.')-1, 1       #get power 123.23 => 2
     for i in range(power): div *= 10            #get div (/100) per power(2)
     l.pop(l.index('.'))                         #remove '.' in list
@@ -265,7 +260,13 @@ else:
 
 ```
 
-
+1. map: "123.23" => [1, 2, 3, '.', 2, 3]
+2. locate "." position: 3
+3. base on that, calculate how much to divide (100) if
+   we want to get 123.23 from 12323
+3. remove "." => [1,2,3,2,3]
+4. reduce: [1,2,3,2,3] => 12323
+5. 12323/100 = 123.23
 
 # filter
 
