@@ -4,7 +4,7 @@ title: "global nonlocal"
 published: true
 date: 2020-01-09
 created:  2020 Jan 10 07:38:47 PM
-tags: [python, global]
+tags: [python, global, nonlocal]
 categories: [tech]
 
 ---
