@@ -51,7 +51,7 @@ class Solution:
             return [r1, r2] if r1<r2 else [r2,r1]
 ```
 
-keys:
+## tips:
 
             -b+-sqrt(b^2-4ac)
     root =  -----------------

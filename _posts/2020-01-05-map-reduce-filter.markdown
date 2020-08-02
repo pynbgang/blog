@@ -337,14 +337,19 @@ idea:
         =>          it=[x,5,7,x,11,13,xx,17,19,xx,23,25]
         =>          it=[5,7,11,13,17,19,23,25]
         最小的数'5' 已经尝试过所有比自己小的奇数(3)，都不能整除，所以5必是素数
+        primes() return 2, print 2
 
         yield next(it) => yield 5
         it=[i for i in [5,7,11,13,17,19,23,25] if i % 5]
         =>          it=[x,7,11,13,17,19,23,xx]
         =>          it=[7,11,13,17,19,23]
         最小的数'7' 已经尝试过所有比自己小的奇数(3,5)，都不能整除，所以7必是素数
+        primes() return 3, print 3
 
         yield next(it) => yield 7
+        ......
+        primes() return 5, print 5
+
         ......
 
 

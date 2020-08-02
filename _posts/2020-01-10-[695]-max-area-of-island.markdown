@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[695]-max-area-of-island (continue)"
+title: "[695]-max-area-of-island"
 published: true
 created:  2020 Jan 10 11:38:11 AM
-tags: [wangmazi, xiaofo, map, operator, dfs, dict, complex, lintcode, leetcode, global]
+tags: [wangmazi, xiaofo, map, operator, dfs, dict, complex, lintcode, leetcode, medium, global]
 categories: [tech]
 
 ---
@@ -58,108 +58,10 @@ TABLE OF CONTENT
 * https://leetcode.com/problems/max-area-of-island/
 * https://www.lintcode.com/problem/max-area-of-island/description
 
-## owen original
-
-```python
-count=0
-class Solution:
-    """
-    @param grid: a 2D array
-    @return: the maximum area of an island in the given 2D array
-    """
-
-    def maxAreaOfIsland(self, grid):
-        # write your code here
-        if not grid or not grid[0]:
-            return 0
-        ret, temp = 0, 0
-        global count
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == 1:
-                    ret += 1
-                    count=0
-                    self.removeIsland(grid, i, j)
-                    temp=max(temp,count)
-                    print temp
-
-        return temp
-
-    def removeIsland(self, grid, i, j):
-        global count
-        count+=1
-        grid[i][j] = 0
-        if i > 0 and grid[i - 1][j] == 1:
-            self.removeIsland(grid, i - 1, j)
-        if i < len(grid) - 1 and grid[i + 1][j] == 1:
-            self.removeIsland(grid, i + 1, j)
-        if j > 0 and grid[i][j - 1] == 1:
-            self.removeIsland(grid, i, j - 1)
-        if j < len(grid[0]) - 1 and grid[i][j + 1] == 1:
-            self.removeIsland(grid, i, j + 1)
-```
-
-key:
-
-* 递归时候简单变量的更新比较tricky。
-  * 子过程中更新的简单变量，不会自动更新“回”父过程中
-  * 使用返回值可以累积
-* 此处使用了global。
-
-## owen: after removal global
-
-```python
-class Solution:
-    """
-    @param grid: a 2D array
-    @return: the maximum area of an island in the given 2D array
-    """
-
-    def maxAreaOfIsland(self, grid):
-        # write your code here
-        if not grid or not grid[0]:
-            return 0
-        temp = 0
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == 1:
-                    count=self.removeIsland(grid, i, j, 0)
-                    temp=max(temp,count)
-        return temp
-
-    def removeIsland(self, grid, i, j, count):
-        count+=1
-        grid[i][j] = 0
-        if i > 0 and grid[i - 1][j] == 1:
-            count=self.removeIsland(grid, i - 1, j, count)
-        if i < len(grid) - 1 and grid[i + 1][j] == 1:
-            count=self.removeIsland(grid, i + 1, j, count)
-        if j > 0 and grid[i][j - 1] == 1:
-            count=self.removeIsland(grid, i, j - 1, count)
-        if j < len(grid[0]) - 1 and grid[i][j + 1] == 1:
-            count=self.removeIsland(grid, i, j + 1, count)
-        return count
-```
-
-## wangmazi
+## wangmazi (最清晰)
 
 ```python
 class Solution(object):
-
-    def dfs(self,grid,i,j,count):
-        ## 针对某一个1，求”岛面积“，即所在周边所有连续1的数量。dfs递归思路
-
-        ## 已知为1，置零
-        grid[i][j] = 0
-
-        ## 一一查看当前点的“周边”四个点
-        for m,n in [(i-1,j),(i+1,j),(i,j-1),(i,j+1)]:
-            ## 如果这四个边界点在有效范围内并且也为1， 则
-            if m>=0 and m<len(grid) and n>=0 and n<len(grid[0]) and grid[m][n]:
-                ## 对这边界为1的点再次dfs递归，并扩展总数量
-                count = 1 + self.dfs(grid,m,n,count)
-        ## 最后返回总的连续1的数量
-        return count
 
     def maxAreaOfIsland(self, grid):
         """
@@ -182,28 +84,23 @@ class Solution(object):
 
         return max_ones
 
+    def dfs(self,grid,i,j,count):
+        ## 针对某一个1，求”岛面积“，即所在周边所有连续1的数量。dfs递归思路
+
+        ## 已知为1，置零
+        grid[i][j] = 0
+
+        ## 一一查看当前点的“周边”四个点
+        for m,n in [(i-1,j),(i+1,j),(i,j-1),(i,j+1)]:
+            ## 如果这四个边界点在有效范围内并且也为1， 则
+            if m>=0 and m<len(grid) and n>=0 and n<len(grid[0]) and grid[m][n]:
+                ## 对这边界为1的点再次dfs递归，并扩展总数量
+                count = 1 + self.dfs(grid,m,n,count)
+        ## 最后返回总的连续1的数量
+        return count
 ```
 
-## jj
-
-```python
-class Solution:
-    from typing import List
-    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-        def dfs(g, r, c):
-            if 0 <= r < len(g) and 0 <= c < len(g[0]) and g[r][c]:
-                g[r][c] = 0
-                return 1 + dfs(g, r + 1, c) + dfs(g, r - 1, c) + \
-                           dfs(g, r, c + 1) + dfs(g, r, c - 1)
-            return 0
-        rtn = 0
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                rtn = max(rtn, dfs(grid, i, j))
-        return rtn
-```
-
-## jj2 (best)
+## jj2 (最短最精妙)
 
 ### the zb code
 
@@ -219,7 +116,7 @@ class Solution:
         return max(map(area, set(grid)))
 ```
 
-takeaways:
+### tips/takeaways
 
 ### about dict comprehension breakdown:
 
@@ -318,4 +215,119 @@ so:
 ### about map
 
 see other blogs
+
+## others
+
+### owen
+
+#### original
+
+```python
+count=0
+class Solution:
+    """
+    @param grid: a 2D array
+    @return: the maximum area of an island in the given 2D array
+    """
+
+    def maxAreaOfIsland(self, grid):
+        # write your code here
+        if not grid or not grid[0]:
+            return 0
+        ret, temp = 0, 0
+        global count
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == 1:
+                    ret += 1
+                    count=0
+                    self.removeIsland(grid, i, j)
+                    temp=max(temp,count)
+                    print temp
+
+        return temp
+
+    def removeIsland(self, grid, i, j):
+        global count
+        count+=1
+        grid[i][j] = 0
+        if i > 0 and grid[i - 1][j] == 1:
+            self.removeIsland(grid, i - 1, j)
+        if i < len(grid) - 1 and grid[i + 1][j] == 1:
+            self.removeIsland(grid, i + 1, j)
+        if j > 0 and grid[i][j - 1] == 1:
+            self.removeIsland(grid, i, j - 1)
+        if j < len(grid[0]) - 1 and grid[i][j + 1] == 1:
+            self.removeIsland(grid, i, j + 1)
+```
+
+key:
+
+* 递归时候简单变量的更新比较tricky。
+  * 子过程中更新的简单变量，不会自动更新“回”父过程中
+  * 使用返回值可以累积
+* 此处使用了global。
+
+#### after removal global
+
+```python
+class Solution:
+    """
+    @param grid: a 2D array
+    @return: the maximum area of an island in the given 2D array
+    """
+
+    def maxAreaOfIsland(self, grid):
+        # write your code here
+        if not grid or not grid[0]:        #special conditions: grid == [], [[]]
+            return 0
+        res = 0
+        for i in range(len(grid)):         #iterate every row..
+            for j in range(len(grid[0])):  #..and column for any 1
+                if grid[i][j] == 1:        #once found, check all its neighbors 
+                    count = self.removeIsland(grid, i, j, 0)  #and return count
+                    res = max(res,count)   #keep tracking the max of all counts
+        return res
+
+    def removeIsland(self, grid, i, j, count): #check a node's all neighbors
+        count+=1                          #and count 1s
+        grid[i][j] = 0                    #flip the checked node to avoid dups
+        if i > 0 and grid[i - 1][j] == 1:                       #moving up
+            count=self.removeIsland(grid, i - 1, j, count)
+        if i < len(grid) - 1 and grid[i + 1][j] == 1:           #moving down
+            count=self.removeIsland(grid, i + 1, j, count)
+        if j > 0 and grid[i][j - 1] == 1:                       #moving left
+            count=self.removeIsland(grid, i, j - 1, count)
+        if j < len(grid[0]) - 1 and grid[i][j + 1] == 1:        #moving right
+            count=self.removeIsland(grid, i, j + 1, count)
+        return count
+```
+
+### jj
+
+#### solution (after peeping most voted solution)
+
+```python
+class Solution:
+    from typing import List
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        def dfs(g, r, c):
+            if 0 <= r < len(g) and 0 <= c < len(g[0]) and g[r][c]:
+                g[r][c] = 0
+                return 1 + dfs(g, r + 1, c) + dfs(g, r - 1, c) + \
+                           dfs(g, r, c + 1) + dfs(g, r, c - 1)
+            return 0
+        rtn = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                rtn = max(rtn, dfs(grid, i, j))
+        return rtn
+```
+
+#### takeaway
+
+- use dfs to explore an 'island'
+- set each element to 0 while exploring to avoid repeated traversal, after dfs,
+  the island should have disappeared from the map
+
 

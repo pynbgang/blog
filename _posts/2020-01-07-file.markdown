@@ -188,16 +188,16 @@ with open('test.txt', 'rb') as f:
 ### quick test
 
 ```python
-[ins] In [1]: f=open('2020-01-07-file.markdown')                                
+[ins] In [1]: f=open('2020-01-07-file.markdown')
 
-[ins] In [2]: s=[] 
-        ...: with open('2020-01-07-file.markdown') as f: 
-        ...:     for i in range(10): 
-        ...:         s.append(f.readline()) 
-        ...:                                                                   
+[ins] In [2]: s=[]
+        ...: with open('2020-01-07-file.markdown') as f:
+        ...:     for i in range(10):
+        ...:         s.append(f.readline())
+        ...:
 
-[ins] In [3]: s                                                                 
-Out[3]: 
+[ins] In [3]: s
+Out[3]:
 ['---\n',
 'layout: post\n',
 'title: "file"\n',
