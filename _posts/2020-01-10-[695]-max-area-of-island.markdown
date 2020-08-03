@@ -3,7 +3,7 @@ layout: post
 title: "[695]-max-area-of-island"
 published: true
 created:  2020 Jan 10 11:38:11 AM
-tags: [wangmazi, xiaofo, map, operator, dfs, dict, complex, lintcode, leetcode, medium, global, recursion]
+tags: [wangmazi, xiaofo, map, operator, dfs, dict, complex, lintcode, leetcode, medium, global, recursion, grid]
 categories: [tech]
 
 ---
@@ -25,34 +25,34 @@ TABLE OF CONTENT
     || * Total Submissions: 217.4K
     || * Testcase Example:  '[[1,1,0,0,0],[1,1,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]'
     || * Source Code:       695.max-area-of-island.py
-    || 
+    ||
     || Given a non-empty 2D array grid of 0's and 1's, an island is a group of
     1's (representing land) connected 4-directionally (horizontal or vertical.)
     You may assume all four edges of the grid are surrounded by water.
-    || 
+    ||
     || Find the maximum area of an island in the given 2D array. (If there is
     no island, the maximum area is 0.)
-    || 
+    ||
     || Example 1:
-    || 
-    || 
+    ||
+    ||
     || [[0,0,1,0,0,0,0,1,0,0,0,0,0],
-    || ⁠[0,0,0,0,0,0,0,1,1,1,0,0,0],
-    || ⁠[0,1,1,0,1,0,0,0,0,0,0,0,0],
-    || ⁠[0,1,0,0,1,1,0,0,1,0,1,0,0],
-    || ⁠[0,1,0,0,1,1,0,0,1,1,1,0,0],
-    || ⁠[0,0,0,0,0,0,0,0,0,0,1,0,0],
-    || ⁠[0,0,0,0,0,0,0,1,1,1,0,0,0],
-    || ⁠[0,0,0,0,0,0,0,1,1,0,0,0,0]]
-    || 
+    ||  [0,0,0,0,0,0,0,1,1,1,0,0,0],
+    ||  [0,1,1,0,1,0,0,0,0,0,0,0,0],
+    ||  [0,1,0,0,1,1,0,0,1,0,1,0,0],
+    ||  [0,1,0,0,1,1,0,0,1,1,1,0,0],
+    ||  [0,0,0,0,0,0,0,0,0,0,1,0,0],
+    ||  [0,0,0,0,0,0,0,1,1,1,0,0,0],
+    ||  [0,0,0,0,0,0,0,1,1,0,0,0,0]]
+    ||
     || Given the above grid, return 6. Note the answer is not 11, because the island must be connected 4-directionally.
-    || 
+    ||
     || Example 2:
-    || 
-    || 
+    ||
+    ||
     || [[0,0,0,0,0,0,0,0]]
     || Given the above grid, return 0.
-    || 
+    ||
     || Note: The length of each dimension in the given grid does not exceed 50.
 
 * https://leetcode.com/problems/max-area-of-island/
@@ -116,27 +116,25 @@ class Solution(object):
         return max(map(area, set(grid)))
 ```
 
-### tips/takeaways
-
 ### about dict comprehension breakdown:
 
-    ```python
-    grid = [[11, 12], [21, 22]]
-    d={i + j*1j: val for i, row in enumerate(grid) for j, val in enumerate(row)}
-    d
-    {0j: 11, 1j: 12, (1+0j): 21, (1+1j): 22}
-    ```
+```python
+grid = [[11, 12], [21, 22]]
+d={i + j*1j: val for i, row in enumerate(grid) for j, val in enumerate(row)}
+d
+{0j: 11, 1j: 12, (1+0j): 21, (1+1j): 22}
+```
 
 equals to:
 
-    ```python
-    grid = [[11, 12], [21, 22]]
-    d={}
-    for i, row in enumerate(grid):
-        for j, val in enumerate(row):
-            d[i+j*1j]=val
-    d
-    ```
+```python
+grid = [[11, 12], [21, 22]]
+d={}
+for i, row in enumerate(grid):
+    for j, val in enumerate(row):
+        d[i+j*1j]=val
+d
+```
 
 ### about python complex
 
@@ -172,6 +170,17 @@ basic form:
     [ins] In [57]: 1j ** 3
     Out[57]: (-0-1j)
 
+
+it happens to be the points in coordinate sytem:
+
+            |
+            - 1j**1
+            |
+    ----|---+---|----------
+     1j**2  |   1j**0
+            - 1j**3
+            |
+
 ### about python 'a and b' trick
 
     [ins] In [17]: 0 and print(123)
@@ -184,6 +193,15 @@ same as:
     `a if not a else b`
 
 evaluate a first, (only) if True, evaluate b
+
+similiarly, 'a or b':
+
+    [ins] In [36]: 0 or print(123)
+    123
+
+    [ins] In [37]: 1 or print(123)
+    Out[37]: 1
+
 
 ### about python precedence
 
@@ -284,7 +302,7 @@ class Solution:
         res = 0
         for i in range(len(grid)):         #iterate every row..
             for j in range(len(grid[0])):  #..and column for any 1
-                if grid[i][j] == 1:        #once found, check all its neighbors 
+                if grid[i][j] == 1:        #once found, check all its neighbors
                     count = self.removeIsland(grid, i, j, 0)  #and return count
                     res = max(res,count)   #keep tracking the max of all counts
         return res
