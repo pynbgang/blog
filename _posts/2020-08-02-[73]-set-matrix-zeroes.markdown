@@ -69,7 +69,7 @@ TABLE OF CONTENT
 
 # ping
 
-#Owen 
+# Owen 
 
 ```python
 class Solution(object):
