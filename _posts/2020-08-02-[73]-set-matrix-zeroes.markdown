@@ -88,6 +88,27 @@ class Solution:     #ping
                 matrix[row][i] = 0
 ```
 
+## Owen 
+
+```python
+class Solution(object):
+    def setZeroes(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: None Do not return anything, modify matrix in-place instead.
+        """
+        l=[]
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if matrix[i][j]==0:l.append([i,j])
+        for x in l:
+            for i in range(len(matrix)):
+                matrix[i][x[1]]=0
+            for i in range(len(matrix[0])):
+                matrix[x[0]][i]=0
+        return matrix
+```
+
 ## lmv
 
 ```python
