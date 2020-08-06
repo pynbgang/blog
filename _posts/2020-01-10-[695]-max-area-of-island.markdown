@@ -3,7 +3,7 @@ layout: post
 title: "[695]-max-area-of-island"
 published: true
 created:  2020 Jan 10 11:38:11 AM
-tags: [wangmazi, xiaofo, map, operator, dfs, dict, complex, lintcode, leetcode, medium, global, recursion, grid]
+tags: [wangmazi, xiaofo, map, operator, dfs, dict, complex, lintcode, leetcode, medium, global, recursion, matrix]
 categories: [tech]
 
 ---
