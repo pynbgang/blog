@@ -130,3 +130,34 @@ class Solution:     #lmv
         if firstRowHasZero:
             matrix[0] = [0] * n
 ```
+
+## tips
+
+* use first row to record if the corresponding column of each its number has 0
+
+
+       +--------------+
+       | 0| x| x| x|0 |  #<--- serving each column
+       +--------------+
+       | x| x| x| x|0 |
+       | x| x| x| x|x |
+       | 0| x| x| x|0 |
+
+
+* use first column to record if the corresponding row of each its number has 0
+
+       +--------------+
+       | 0| x| 0| x|0 |
+       +--------------+
+       | 0| x| x| x|0 |
+       | x| x| x| x|x |
+       | 0| x| x| x|0 |
+
+        ^
+        |
+        serving each row, but except 1st row
+
+* first number in first row belongs to first row's role (recording existence of
+    0 in it's column, not recording existence of 0 in it's row)
+
+

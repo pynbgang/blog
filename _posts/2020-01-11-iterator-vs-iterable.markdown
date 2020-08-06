@@ -83,8 +83,8 @@ and what zip does:
 
 - convert both params to iterator
 - next() on both get a new tuple
-- first test give **same** iterators
-- 2nd test give **two** iterators (same content though)
+- first example zip is working on **same** iterators
+- 2nd example zip is working on **two** iterators (same content though)
 
 ## iterable or not
 

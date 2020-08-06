@@ -3,7 +3,7 @@ layout: post
 title: "pickle and json"
 published: true
 created:  2020 Jan 11 02:44:01 PM
-tags: [pickle, json, module, liaoxuefeng, python]
+tags: [pickle, json, module, liaoxuefeng, python, notes]
 categories: [tech]
 
 ---
@@ -17,7 +17,7 @@ TABLE OF CONTENT
 
 # pickling/serialization/flattening
 
-## pickle
+## pickle.dumps/loads
 
 ```python
 import pickle
@@ -30,7 +30,7 @@ reborn = pickle.loads(data)
 print(reborn)
 ```
 
-## json
+## json.dumps/loads
 
     JSON 类型   Python 类型
     =============================
@@ -86,7 +86,7 @@ rebuild = json.loads(
 print(rebuild)
 ```
 
-about the built-in `__dict__` attributes
+### about the built-in `__dict__` attributes
 
 ```python
 [ins] In [29]: class Student(object):

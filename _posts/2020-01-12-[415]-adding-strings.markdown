@@ -27,7 +27,8 @@ TABLE OF CONTENT
     || * Testcase Example:  '"0"\n"0"'
     || * Source Code:       415.add-strings.py
     || 
-    || Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
+    || Given two non-negative integers num1 and num2 represented as string,
+    return the sum of num1 and num2.
     || 
     || Note:
     || 
@@ -93,8 +94,9 @@ def addtwostring(str1,str2):
     str2num=dict((zip('0123456789', range(10))))
     num2str=dict((zip(range(10), '0123456789')))
 
+    # string to reverse list
     # '123' -> ['1','2','3'] -> ['3','2','1']
-    #  '49'  ->['4','9']     -> ['9','4']
+    #  '49'  ->    ['4','9']     -> ['9','4']
     l1, l2 = [i for i in str1][::-1] , [i for i in str2][::-1]
     #or, 
     #l1, l2 = sorted(str1, reverse=True), sorted(str2, reverse=True)
@@ -111,10 +113,12 @@ def addtwostring(str1,str2):
     l2.append(0)
 
     # process carry, for each num, keep only ones, contribute the tens
+    # [2, 7, 1, 0]
     for i in range(len(l2)-1):
         l2[i], l2[i+1] = l2[i] % 10, l2[i+1] + l2[i] // 10
 
     # back to string, reverse, and remove leading '0'
+    # [2, 7, 1, 0] -> "2710" -> "0172" -> "172"
     return "0" if str1==str2=='0' else ''.join(num2str[i] for i in l2)[::-1].lstrip('0')
 
 
