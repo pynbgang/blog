@@ -4,7 +4,8 @@ title: "[415] Add Strings"
 author: "owen"
 published: true
 created:  2020 Jan 13 23:13:29 PM
-tags: [python, string, int, fb, math, lstrip, assert, zip]
+tags: [python, string, int, fb, math, lstrip, assert, zip, itertools,
+zip_longest, map, reduce]
 categories: [tech]
 
 ---
@@ -26,12 +27,12 @@ TABLE OF CONTENT
     || * Total Submissions: 386.4K
     || * Testcase Example:  '"0"\n"0"'
     || * Source Code:       415.add-strings.py
-    || 
+    ||
     || Given two non-negative integers num1 and num2 represented as string,
     return the sum of num1 and num2.
-    || 
+    ||
     || Note:
-    || 
+    ||
     || The length of both num1 and num2 is < 5100.
     || Both num1 and num2 contains only digits 0-9.
     || Both num1 and num2 does not contain any leading zero.
@@ -42,7 +43,7 @@ TABLE OF CONTENT
 重点
 
 - 不能直接更换字符串到数字
-- 需要考虑到一些特殊的CASE比如进位 
+- 需要考虑到一些特殊的CASE比如进位
 - 这个CODE里没有COVER这个情况如果某个输入是"00000012312313131"
 - 不能多位数相加 (可以个位)
 
@@ -98,7 +99,7 @@ def addtwostring(str1,str2):
     # '123' -> ['1','2','3'] -> ['3','2','1']
     #  '49'  ->    ['4','9']     -> ['9','4']
     l1, l2 = [i for i in str1][::-1] , [i for i in str2][::-1]
-    #or, 
+    #or,
     #l1, l2 = sorted(str1, reverse=True), sorted(str2, reverse=True)
 
     # get the longer one to iterate
@@ -170,16 +171,73 @@ Formated for added clarity, although everything can be put on the same line:
 ```python
 def addStrings(self, num1, num2):
      return str(
-              reduce(lambda a, b: 10*a + b, 
+              reduce(lambda a, b: 10*a + b,
                  map(lambda x: ord(x[0])+ord(x[1])-2*ord('0'),
                    list(itertools.izip_longest(num1[::-1], num2[::-1], fillvalue='0'))[::-1]
-                 ) 
+                 )
               )
             )
 ```
 
 Would the one liner be acceptable in the contest?
 
+### lmv1
+
+
+```python
+class Solution:     #lmv
+    def addStrings(self, num1, num2):
+        #num1="3451"; num2="823"
+        #z=[('1', '3'), ('5', '2'), ('4', '8'), ('3', '0')]
+        z = itertools.zip_longest(num1[::-1], num2[::-1], fillvalue='0')
+        res, carry, zero2 = [], 0, 2*ord('0')
+        for i in z:
+            #cur_sum = ord(i[0]) - ord('0') + ord(i[1]) - ord('0') + carry
+            cur_sum = ord(i[0]) + ord(i[1]) - zero2 + carry
+            res.append(str(cur_sum % 10))
+            carry = cur_sum // 10
+        return ('1' if carry else '') + ''.join(res[::-1])
+```
+
+### lmv2: oneliner
+
+```python
+class Solution:     #lmv
+    def addStrings(self, num1, num2):
+        return str(
+            reduce(lambda a, b: 10*a + b,
+                map(lambda x: ord(x[0])+ord(x[1])-2*ord('0'),
+                    list(itertools.zip_longest(num1[::-1], num2[::-1], fillvalue='0'))[::-1]
+                )
+            )
+        )
+```
+
+    num1="3451"; num2="823"
+
+    [ins] In [70]: l=list(itertools.zip_longest(num1[::-1],
+            ...: num2[::-1], fillvalue='0'))
+
+    [ins] In [72]: l
+    Out[72]: [('1', '3'), ('5', '2'), ('4', '8'), ('3', '0')
+    ]
+
+    [ins] In [71]: l[::-1]
+    Out[71]: [('3', '0'), ('4', '8'), ('5', '2'), ('1', '3')
+    ]
+
+    [ins] In [74]: l1=list(map(lambda x: ord(x[0])+ord(x[1])
+            ...: -2*ord('0'),l))
+
+    [ins] In [75]: l1
+    Out[75]: [4, 7, 12, 3]
+
+    [ins] In [78]: reduce(lambda a, b: 10*a+b, l1)
+    Out[78]: 4823
+
+### problem (jj/owen)
+
+in reduce 10*a+b may not satisfy the requirement
 
 ## tips
 
@@ -189,4 +247,5 @@ Would the one liner be acceptable in the contest?
 * list1+list2: list1.extend(list2)
 * revert str/list: str1/list1[::-1]
 * iterate reversely: range(len(str1)-1, -1, -1)
-* zip(seq1, seq2) => dict
+* dict(zip(seq1, seq2))
+* zip_longest
