@@ -10,6 +10,7 @@ tags:
     - medium
     - python
     - xiaofo
+    - max
 created:  2020 Jan 12 07:37:12 AM
 categories: [tech]
 published: true
@@ -32,9 +33,13 @@ TABLE OF CONTENT
     || * Testcase Example:  '[[1,1,0],[0,1,0],[0,1,0]]\n[[0,0,0],[0,1,1],[0,0,1]]'
     || * Source Code:       835.image-overlap.py
     || 
-    || Two images A and B are given, represented as binary, square matrices of the same size.  (A binary matrix has only 0s and 1s as values.)
+    || Two images A and B are given, represented as binary, square matrices of
+    the same size.  (A binary matrix has only 0s and 1s as values.)
     || 
-    || We translate one image however we choose (sliding it left, right, up, or down any number of units), and place it on top of the other image.  After, the overlap of this translation is the number of positions that have a 1 in both images.
+    || We translate one image however we choose (sliding it left, right, up, or
+    down any number of units), and place it on top of the other image.  After,
+    the overlap of this translation is the number of positions that have a 1 in
+    both images.
     || 
     || (Note also that a translation does not include any kind of rotation.)
     || 
@@ -58,7 +63,9 @@ TABLE OF CONTENT
     || 	1 <= A.length = A[0].length = B.length = B[0].length <= 30
     || 	0 <= A[i][j], B[i][j] <= 1
 
-## solution (again after peeping most voted solution) 
+## solution 
+
+(again after peeping most voted solution) 
 
 ```python
 class Solution:
@@ -72,8 +79,12 @@ class Solution:
                 d[p] = d.get(p, 0) + 1
         return max(d.values() or [0]) 
 ```
-## takeaway 
+## tips/takeaway 
 
 - get coordinates of all 1 for both A and B
-- for each pair of points from A and B, compare coordinates to get the offset needed for them to overlap, and put in dict using offset as key
+- for each pair of points from A and B, compare coordinates to get the offset
+  needed for them to overlap, and put in a dict using offset as key
 - the offset with maximum value would be the answer
+- max 的固定用法 max( expr or [0])  覆盖了如果前面表达式可能为空列表的特例
+
+

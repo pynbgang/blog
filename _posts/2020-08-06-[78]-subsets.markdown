@@ -3,7 +3,7 @@ layout: post
 title: "[78] Subsets"
 published: true
 created:  2020 Aug 06 04:16:48 PM
-tags: [python, leetcode, medium]
+tags: [python, leetcode, medium, recursion]
 categories: [tech]
 
 ---
@@ -79,6 +79,7 @@ class Solution:
         return res + [[nums[0]] + r for r in res]
 ```
 
+## tips
 假设拿出来第一个剩下的知道答案了，现在问你怎么根据部分答案组成新的答案.
 递归的核心就是构造推演算法
 

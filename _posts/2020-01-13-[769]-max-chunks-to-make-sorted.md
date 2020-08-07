@@ -27,9 +27,51 @@ TABLE OF CONTENT
 
 # [max-chunks-to-make-sorted](https://leetcode.com/problems/max-chunks-to-make-sorted/)
 
+    || [769] Max Chunks To Make Sorted  
+    || 
+    || https://leetcode.com/problems/max-chunks-to-make-sorted/description/
+    || 
+    || * algorithms
+    || * Medium (53.52%)
+    || * Likes:    791
+    || * Dislikes: 120
+    || * Total Accepted:    38.6K
+    || * Total Submissions: 70.5K
+    || * Testcase Example:  '[4,3,2,1,0]'
+    || * Source Code:       769.max-chunks-to-make-sorted.py
+    || 
+    || Given an array arr that is a permutation of [0, 1, ..., arr.length - 1],
+    we split the array into some number of "chunks" (partitions), and
+    individually sort each chunk.  After concatenating them, the result equals
+    the sorted array.
+    || 
+    || What is the most number of chunks we could have made?
+    || 
+    || Example 1:
+    || 
+    || Input: arr = [4,3,2,1,0]
+    || Output: 1
+    || Explanation:
+    || Splitting into two or more chunks will not return the required result.
+    || For example, splitting into [4, 3], [2, 1, 0] will result in [3, 4, 0, 1,
+    2], which isn't sorted.
+    || 
+    || 
+    || Example 2:
+    || Input: arr = [1,0,2,3,4]
+    || Output: 4
+    || Explanation:
+    || We can split into two chunks, such as [1, 0], [2, 3, 4].
+    || However, splitting into [1, 0], [2], [3], [4] is the highest number of chunks possible.
+    || 
+    || Note:
+    || 
+    || 	arr will have length in range [1, 10].
+    || 	arr[i] will be a permutation of [0, 1, ..., arr.length - 1].
+
 https://www.lintcode.com/problem/max-chunks-to-make-sorted/description
 
-## solution1 (most voted answer 1) 
+## solution1 (most voted answer) 
 
 ```python
 class Solution:
@@ -98,6 +140,28 @@ class Solution(object):
 ```
 
 
+## solution: lmv
+
+https://leetcode.com/problems/max-chunks-to-make-sorted/discuss/586378
+
+* Lang:    python3
+* Author:  ozoli
+* Votes:   0
+
+`arr[i]` and `i` define an interval which has to be in the same chunk to ensure
+that after sorting they end up in their correct place. After obtaining all the
+initial interval which (the boundary conditions), we merge overlapping
+intervals. The count of resulting distinct intervals is the solution `NlogN`
+because of sort
+
+    0 1 2 3 4 5
+    3 2 1 0 4 5
+
+    0 1 2 3 4 5
+    3 2 0 1 4 5
+    3 1 2 2 0 0
+
+
 ## takeaway 
 
 - each chunk should have same set of numbers while seperate from other chunks,
@@ -108,7 +172,7 @@ class Solution(object):
   hit the condition min(arr[i:])>max(arr[0:i]),basing on that ,the An=An-1+1 or
   An=An-1+0 ,then return the last An
 
-## misc notes
+## notes (ping)
 
 ideas are:
 
