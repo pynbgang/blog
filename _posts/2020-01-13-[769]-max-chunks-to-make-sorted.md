@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "max-chunks-to-make-sorted"
+title: "[769]-max-chunks-to-make-sorted"
 subtitle: ""
 date: 2020-01-13
 author: "xiaofo"
@@ -84,8 +84,23 @@ class Solution:
         return res
 ```
 
+cut whenever max of previous num equals to current index.
 
-## solution2 (steal idea from another most voted answer but simplify into better code) 
+    0 1 2 3 4 5
+    3 2 1 0|4|5
+
+    0 1 2 3 4 5
+    3 2 0 1|4|5
+
+    0 1 2 3 4 5
+    5 4 3 2 1 0
+
+    0 1 2 3 4 5
+    0|1|2|3|4|5
+
+## solution2 
+
+(steal idea from another most voted answer but simplify into better code) 
 
 ```python
 class Solution:
@@ -98,7 +113,9 @@ class Solution:
         return res
 ```
 
-## solution3 (from owen'blind guess)
+## solution3
+
+(from owen'blind guess)
 
 ```python
 class Solution(object):
@@ -153,13 +170,6 @@ that after sorting they end up in their correct place. After obtaining all the
 initial interval which (the boundary conditions), we merge overlapping
 intervals. The count of resulting distinct intervals is the solution `NlogN`
 because of sort
-
-    0 1 2 3 4 5
-    3 2 1 0 4 5
-
-    0 1 2 3 4 5
-    3 2 0 1 4 5
-    3 1 2 2 0 0
 
 
 ## takeaway 
