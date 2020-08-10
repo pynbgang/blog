@@ -5,12 +5,8 @@
 #
 
 # @lc code=start
-class Solution:
-    def maxChunksToSorted(self, arr: List[int]) -> int:
-        pass
 
-
-class Solution(object):
+class Solution(object):     #lmv
     def maxChunksToSorted(self, arr):
         """
         :type arr: List[int]
@@ -30,4 +26,14 @@ class Solution(object):
                 stack.append([a[0], max(a[1], interval[1])])
 
         return len(stack)
+
+class Solution:     #ping
+    def maxChunksToSorted(self, arr: List[int]) -> int:
+        if not arr: return 1
+        res = 0
+        for i in range(len(arr)):      #whenever index equals curr max, split
+            if i==max(arr[:i+1]):
+                res += 1
+        return res
+
 # @lc code=end

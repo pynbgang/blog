@@ -171,6 +171,28 @@ initial interval which (the boundary conditions), we merge overlapping
 intervals. The count of resulting distinct intervals is the solution `NlogN`
 because of sort
 
+```python
+class Solution(object):     #lmv
+    def maxChunksToSorted(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: int
+        """
+
+        intervals = []
+        for i, n in enumerate(arr):
+            intervals.append([min(i, arr[i]), max(i, arr[i])])
+        intervals.sort()
+        stack = []
+        for interval in intervals:
+            if not stack or  interval[0] > stack[-1][1]:
+                stack.append(interval)
+            else:
+                a = stack.pop()
+                stack.append([a[0], max(a[1], interval[1])])
+
+        return len(stack)
+```
 
 ## takeaway 
 
@@ -190,3 +212,15 @@ ideas are:
     solution2: cut whenever: current sum of index == sum of nums (same as solution1)
     solution3: cut whenever: min(left) < max(right) 
     solution4: dfs
+
+
+```python
+class Solution:
+    def maxChunksToSorted(self, arr: List[int]) -> int:
+        if not arr: return 1
+        res = 0
+        for i in range(len(arr)):  #whenever index equals curr max so far, split
+            if i==max(arr[:i+1]):
+                res += 1
+        return res
+```
