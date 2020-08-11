@@ -1,0 +1,48 @@
+---
+layout: post
+title: "[90] Subsets II"
+published: true
+created:  2020 Aug 10 10:19:58 AM
+tags: [python, leetcode, medium]
+categories: [tech]
+
+---
+
+TABLE OF CONTENT
+
+* auto-gen TOC:
+{:toc}
+
+- - -
+
+
+[[90] Subsets II](https://leetcode.com/problems/subsets-ii/description/)
+
+    || * algorithms
+    || * Medium (45.03%)
+    || * Likes:    1722
+    || * Dislikes: 75
+    || * Total Accepted:    285.6K
+    || * Total Submissions: 606.6K
+    || * Testcase Example:  '[1,2,2]'
+    || * Source Code:       90.subsets-ii.py
+    || 
+    || Given a collection of integers that might contain duplicates, nums,
+    return all possible subsets (the power set).
+    || 
+    || Note: The solution set must not contain duplicate subsets.
+    || 
+    || Example:
+    || 
+    || Input: [1,2,2]
+    || Output:
+    || [
+    || ⁠ [2],
+    || ⁠ [1],
+    || ⁠ [1,2,2],
+    || ⁠ [2,2],
+    || ⁠ [1,2],
+    || ⁠ []
+    || ]
+
+

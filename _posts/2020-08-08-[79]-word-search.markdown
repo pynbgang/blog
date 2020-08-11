@@ -183,7 +183,14 @@ true at one position.
                    for i in range(len(board))     #any position match can succeed
                    for j in range(len(board[0]))) #then return True
 
-because *any will return when first True is seen*
+because *any will return when first True is seen*, to test it out:
+
+    def test():
+        for i, b in enumerate([True, True, False, False]):
+            print(i, b)
+            yield b
+    print(any(test()))
+
 
 however, below code will go though all matrix, even if a True is returned in
 previous position:

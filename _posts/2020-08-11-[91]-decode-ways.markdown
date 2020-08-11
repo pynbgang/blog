@@ -1,0 +1,94 @@
+---
+layout: post
+title: "[91] Decode Ways"
+published: true
+created:  2020 Aug 11 01:17:10 PM
+tags: [python, leetcode, medium]
+categories: [tech]
+
+---
+
+TABLE OF CONTENT
+
+* auto-gen TOC:
+{:toc}
+
+- - -
+
+# [[91] Decode Ways](https://leetcode.com/problems/decode-ways/description/)
+
+    || * algorithms
+    || * Medium (23.53%)
+    || * Likes:    2800
+    || * Dislikes: 2920
+    || * Total Accepted:    411.4K
+    || * Total Submissions: 1.7M
+    || * Testcase Example:  '"12"'
+    || * Source Code:       91.decode-ways.py
+    || 
+    || A message containing letters from A-Z is being encoded to numbers using the following mapping:
+    || 
+    || 
+    || 'A' -> 1
+    || 'B' -> 2
+    || ...
+    || 'Z' -> 26
+    || 
+    || Given a non-empty string containing only digits, determine the total number of ways to decode it.
+    || 
+    || Example 1:
+    || 
+    || Input: "12"
+    || Output: 2
+    || Explanation: It could be decoded as "AB" (1 2) or "L" (12).
+    || 
+    || Example 2:
+    || 
+    || Input: "226"
+    || Output: 3
+    || Explanation: It could be decoded as "BZ" (2 26), "VF" (22 6), or "BBF" (2 2 6).
+
+## owen
+
+```python
+class Solution(object):
+    def numDecodings(self, s):
+        if not s or s[0]=="0":
+            return 0
+        dp = [0 for x in range(len(s) + 1)]
+        dp[0] = 1
+        dp[1] = 1 if 0 < int(s[0]) <= 9 else 0
+        for i in range(2, len(s) + 1):
+            if 0 < int(s[i-1]) <= 9:
+                dp[i] += dp[i - 1]
+            if s[i-2:i][0] != '0' and int(s[i-2:i]) <= 26:
+                dp[i] += dp[i - 2]
+        return dp[-1]
+```
+
+## jj
+```python
+class Solution:
+    def numDecodings(self, s: str) -> int:
+        res, s = [1, 1], s[::-1]
+        for i, c in enumerate(s):
+            r1, r2 = res[-1], res[-2] * (int(c + s[i - 1]) in range(10, 27)) if i else 0
+            res.append((r1 + r2) * (c != "0"))
+        return res[-1]
+```
+
+## oneliner
+```python
+def numDecodings(self, s):
+    return reduce(lambda(v,w,p),d:(w,(d>'0')*w+(9<int(p+d)<27)*v,d),s,(0,s>'',''))[1]*1
+```
+
+```python
+def numDecodings(self, s):
+    v, w, p = 0, int(s>''), ''
+    for d in s:
+        v, w, p = w, (d>'0')*w + (9<int(p+d)<27)*v, d
+    return w
+```
+
+
