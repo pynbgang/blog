@@ -24,10 +24,13 @@ TABLE OF CONTENT
 ```python
 r'input\n' # 非转义原生字符，经处理'\n'变成了'\\'和'n'。也就是\n表示的是两个字符，而不是换行。
 Out[84]: 'input\\n'
+
 b'input\n' # bytes字节符，打印以b开头。
 Out[85]: b'input\n'
+
 u'input\n' # unicode编码字符，python3默认字符串编码方式。
 Out[86]: 'input\n'
+
 vers='python 3.6'; f"该功能是{vers}新增"
 Out[87]: '该功能是python 3.6新增'
 ```
@@ -60,7 +63,7 @@ else:
 ## MATCH.group(s)
 
 ```python
-m = re.match(r'^(\d{3})-(\d{3,8})$', '010-12345')
+m = re.match(r'^(\d{3})-(\d{3,8})', '010-12345-abc')
 m
 m.groups()
 m.group(0)
@@ -105,13 +108,13 @@ m.groups()
 
 .greedy: `\d+`
 
-re.match(r'^(\d+)(0*)$', '102300').groups()
+    re.match(r'^(\d+)(0*)$', '102300').groups()
 
     Out[45]: ('102300', '')
 
 .nongreedy: `\d+?`
 
-re.match(r'^(\d+?)(0*)$', '102300').groups()
+    re.match(r'^(\d+?)(0*)$', '102300').groups()
 
     Out[46]: ('1023', '00')
 

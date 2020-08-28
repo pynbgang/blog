@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "fizz-buzz"
+title: "[412] fizz-buzz"
 published: true
 created:  2020 Jan 18 07:30:17 PM
-tags: [python, lintcode, easy, string]
+tags: [python, lintcode, leetcode, easy, string]
 categories: [tech]
 
 ---
@@ -15,7 +15,50 @@ TABLE OF CONTENT
 
 - - -
 
-# easy: [fizz-buzz](https://www.lintcode.com/problem/fizz-buzz/description)
+# [[412] Fizz Buzz](https://leetcode.com/problems/fizz-buzz/description/)
+
+    || * algorithms
+    || * Easy (60.96%)
+    || * Likes:    971
+    || * Dislikes: 1311
+    || * Total Accepted:    375.7K
+    || * Total Submissions: 594.6K
+    || * Testcase Example:  '1'
+    || * Source Code:       412.fizz-buzz.py
+    || 
+    || Write a program that outputs the string representation of numbers from 1 to n.
+    || 
+    || But for multiples of three it should output “Fizz” instead of the number
+    and for the multiples of five output “Buzz”. For numbers which are
+    multiples of both three and five output “FizzBuzz”.
+    || 
+    || Example:
+    || 
+    || n = 15,
+    || 
+    || Return:
+    || [
+    ||   "1",
+    ||   "2",
+    ||   "Fizz",
+    ||   "4",
+    ||   "Buzz",
+    ||   "Fizz",
+    ||   "7",
+    ||   "8",
+    ||   "Fizz",
+    ||   "Buzz",
+    ||   "11",
+    ||   "Fizz",
+    ||   "13",
+    ||   "14",
+    ||   "FizzBuzz"
+    || ]
+    || 
+    || 
+    || [Finished in 5 seconds]
+
+see also [fizz-buzz](https://www.lintcode.com/problem/fizz-buzz/description)
 
     9. Fizz Buzz
 
@@ -102,7 +145,7 @@ class Solution:
         ]
 ```
 
-tips:
+## tips
 
 * with any giving number, only one item will stay and the
 others will be empty ''. so '+' effectively becomes 'or'.

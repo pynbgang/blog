@@ -26,7 +26,8 @@ TABLE OF CONTENT
     || * Testcase Example:  '[1,2,3]'
     || * Source Code:       78.subsets.py
     ||
-    || Given a set of distinct integers, nums, return all possible subsets (the power set).
+    || Given a set of distinct integers, nums, return all possible subsets (the
+    power set).
     ||
     || Note: The solution set must not contain duplicate subsets.
     ||
@@ -83,3 +84,13 @@ class Solution:
 假设拿出来第一个剩下的知道答案了，现在问你怎么根据部分答案组成新的答案.
 递归的核心就是构造推演算法
 
+    [1,2]              each+[3] 
+        null            3
+        1, 2            13,23
+        12              123
+
+    [1,2,3]
+        null
+        1,2,    + 3
+        12      +23+13
+                +123

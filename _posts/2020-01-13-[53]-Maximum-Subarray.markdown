@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Max Sum Contiguous Subarray"
+title: "[[53] Maximum Subarray]"
 author: "owen"
 published: true
 created:  2020 Jan 13 23:34:22 PM
@@ -16,35 +16,37 @@ TABLE OF CONTENT
 
 - - -
 
-# [maximum-subarray](https://www.lintcode.com/problem/maximum-subarray/description)
+# [[53] Maximum Subarray](https://leetcode.com/problems/maximum-subarray/description/)
+
+    || * algorithms
+    || * Easy (45.52%)
+    || * Likes:    6326
+    || * Dislikes: 272
+    || * Total Accepted:    777.5K
+    || * Total Submissions: 1.7M
+    || * Testcase Example:  '[-2,1,-3,4,-1,2,1,-5,4]'
+    || 
+    || Given an integer array nums, find the contiguous subarray (containing at
+    least one number) which has the largest sum and return its sum.
+    || 
+    || Example:
+    || 
+    || 
+    || Input: [-2,1,-3,4,-1,2,1,-5,4],
+    || Output: 6
+    || Explanation: [4,-1,2,1] has the largest sum = 6.
+    || 
+    || 
+    || Follow up:
+    || 
+    || If you have figured out the O(n) solution, try coding another solution
+    using the divide and conquer approach, which is more subtle.
+
+* [maximum-subarray](https://www.lintcode.com/problem/maximum-subarray/description)
+* https://www.interviewbit.com/problems/max-sum-contiguous-subarray/
 
 Find the contiguous subarray within an array, A of length N which has the
 largest sum
-
-
-see all leetcode [[53] Maximum Subarray](https://leetcode.com/problems/maximum-subarray/description/)
-
-|| * algorithms
-|| * Easy (45.52%)
-|| * Likes:    6326
-|| * Dislikes: 272
-|| * Total Accepted:    777.5K
-|| * Total Submissions: 1.7M
-|| * Testcase Example:  '[-2,1,-3,4,-1,2,1,-5,4]'
-|| 
-|| Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
-|| 
-|| Example:
-|| 
-|| 
-|| Input: [-2,1,-3,4,-1,2,1,-5,4],
-|| Output: 6
-|| Explanation: [4,-1,2,1] has the largest sum = 6.
-|| 
-|| 
-|| Follow up:
-|| 
-|| If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 
 # owen
 
@@ -95,8 +97,10 @@ class Solution:
 
 # ping
 
-* https://leetcode.com/problems/maximum-subarray/
-* https://www.interviewbit.com/problems/max-sum-contiguous-subarray/
+brute force:
+
+    def maxSubArray(self, nums):
+            return max(max(sum(nums[i:j+1]) for j in range(i, len(nums))) for i in range(len(nums)))
 
 ## how it works?
 
@@ -113,10 +117,11 @@ class Solution:
 
    示意：
 
+                    m           n
         1   2   3   -7  -1  5   2   -1
                     ----------       sums(m,n)
-        -------------------------       pres: 0到n的简单累加
-        --------------                  pres: 0到m的简单累加
+        ----------------------          pres: 0到n的简单累加
+        ----------                      pres: 0到m的简单累加
 
    因此m，n任意区间求和转化为两个从0开始的遍历，但问题仍为on2
 
@@ -216,6 +221,7 @@ class Solution:
         return maxs
 ```
 
-so: just iterate and accumlate sums. if previous sum becomes negative, drop it (by set 0)
+so: just iterate and accumlate sums. if previous sum becomes negative, drop it
+(by set 0)
 
 much easier to understand?

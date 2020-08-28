@@ -92,8 +92,8 @@ def addtwostring(str1,str2):
 def addtwostring(str1,str2):
     # char <--> digit mapping
     # str2num={'0':0, '1':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9}
-    str2num=dict((zip('0123456789', range(10))))
-    num2str=dict((zip(range(10), '0123456789')))
+    str2num=dict((zip('0123456789', range(10))))  #generate mapping while avoid
+    num2str={str2num[k]:k for k in str2num}      #using 'int' and 'str'
 
     # string to reverse list
     # '123' -> ['1','2','3'] -> ['3','2','1']
@@ -146,7 +146,7 @@ https://leetcode.com/problems/add-strings/discuss/90449
 
 ```python
 def addStrings(self, num1, num2):
-    z = itertools.izip_longest(num1[::-1], num2[::-1], fillvalue='0')
+    z = itertools.zip_longest(num1[::-1], num2[::-1], fillvalue='0')
     res, carry, zero2 = [], 0, 2*ord('0')
     for i in z:
         cur_sum = ord(i[0]) + ord(i[1]) - zero2 + carry
@@ -173,7 +173,7 @@ def addStrings(self, num1, num2):
      return str(
               reduce(lambda a, b: 10*a + b,
                  map(lambda x: ord(x[0])+ord(x[1])-2*ord('0'),
-                   list(itertools.izip_longest(num1[::-1], num2[::-1], fillvalue='0'))[::-1]
+                   list(itertools.zip_longest(num1[::-1], num2[::-1], fillvalue='0'))[::-1]
                  )
               )
             )

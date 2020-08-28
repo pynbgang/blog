@@ -68,4 +68,20 @@ class Solution:     #lmv
             )
         )
 
+
+class Solution:  #ping: pratice (Wed 26 Aug 2020 10:43:33 PM DST)
+    def addStrings(self, str1: str, str2: str) -> str:
+        #' 23': [0, 2, 3]
+        #'678': [6, 7, 8]
+        list1, list2, len1, len2  = list(str1), list(str2), len(str1), len(str2)
+        if len1 > len2:     #string2list, then make sure first one is no longer
+            list1, list2 = list2, list1
+            len1, len2 = len2, len1
+        list1 = ['0'] * (len2 - len1) + list1   #padding '0' in prefix
+        for i in range(len2-1, 0, -1):  #calc from low power(higher index)
+            sum1 = int(list1[i]) + int(list2[i]) #keep reminder and move carry
+            list1[i], list1[i-1] = str(sum1 % 10), str(int(list1[i-1]) + sum1 // 10)
+        list1[0] = str(int(list1[0]) + int(list2[0])) #the last digit
+        return "0" if str1==str2=='0' else "".join(list1).lstrip('0')
+
 # @lc code=end

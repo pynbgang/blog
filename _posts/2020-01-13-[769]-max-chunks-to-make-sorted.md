@@ -84,7 +84,7 @@ class Solution:
         return res
 ```
 
-cut whenever max of previous num equals to current index.
+split whenever: max of previous num equals to current index.
 
     0 1 2 3 4 5
     3 2 1 0|4|5
@@ -219,7 +219,7 @@ class Solution:
     def maxChunksToSorted(self, arr: List[int]) -> int:
         if not arr: return 1
         res = 0
-        for i in range(len(arr)):  #whenever index equals curr max so far, split
+        for i in range(len(arr)):  #whenever id equals curr max, can split
             if i==max(arr[:i+1]):
                 res += 1
         return res

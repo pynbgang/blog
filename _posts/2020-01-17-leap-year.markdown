@@ -73,7 +73,11 @@ return not n % 400 or not n % 4 and n % 100
 return bool(not n % 400 or not n % 4 and n % 100)
 ```
 
-use `not (xxx)`:
+code read as: a leap year is:
+* either dividable by 400, or
+* dividable by 4 and not dividable by 100
+
+use the `not (xxx)` form:
 
 is:
 * divisible by 4 and not divisible by 100 , or
@@ -84,6 +88,8 @@ equals to:
 is not:
 * not divisible by 4 or divisible by 100 , and
 * not divisible by 400
+
+so: 
 
 ```python
 return bool(not (n % 4 or not n % 100) and n % 400)
