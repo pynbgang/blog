@@ -13,4 +13,9 @@ class Solution:
             div, mod = divmod(div, 10)
             rev      = rev * 10 + mod
         return rev == x
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        return str(x) == str(x)[::-1]
+
 # @lc code=end

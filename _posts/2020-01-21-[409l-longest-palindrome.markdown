@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "longest-palindrome"
+title: "[409] longest-palindrome"
 published: true
 created:  2020 Jan 21 01:28:00 PM
-tags: [dict, python, module, Counter, easy, lintcode]
+tags: [dict, python, module, Counter, easy, lintcode, collections]
 categories: [tech]
 
 ---
@@ -17,7 +17,8 @@ TABLE OF CONTENT
 
 # [[409] Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
 
-    ||Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+    ||Given a string which consists of lowercase or uppercase letters, find the
+    length of the longest palindromes that can be built with those letters.
     ||
     ||This is case sensitive, for example "Aa" is not considered a palindrome here.
     ||
@@ -63,7 +64,8 @@ class Solution:
         return len(s) - remove +1 if remove else len(s)
 ```
 
-## jj (best)
+## jj ("minus" idea: smart)
+
 
 ```python
 def longestPalindrome(self, s):
@@ -74,11 +76,7 @@ def longestPalindrome(self, s):
     for c in s:
         d[c] = d.get(c, 0) + 1
 
-    ##how many letters that appears odd times?
-    ##2 conditions:
-    ##  - 1 time (single letter): won't be useful except 1 of them
-    ##  - 3,5, times (odd letter)  : can be used only even times (except just one letter)
-    n = sum([1 for v in d.values() if v % 2 == 1])
+    n = sum(1 for v in d.values() if v % 2)
 
     return len(s) - n + 1 if n else len(s)
 ```
@@ -93,7 +91,9 @@ def longestPalindrome(self, s):
     return sum(d.values()) - n + 1 if n else sum(d.values())
 ```
 
-## ping
+## ping: 
+
+### solution1
 
 ```python
 class Solution:
@@ -127,7 +127,28 @@ class Solution:
         return sum1+1 if extra else sum1
 ```
 
-## ping (Counter version+stolen idea)
+### solution2
+
+```python
+#(2020-08-28) 
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        d, count, isthereodd = {}, 0, 0
+        for i in s:
+            d[i] = d.get(i, 0) + 1
+        for i in d.values():
+            if not i % 2:
+                count += i
+            if i % 2:
+                count += i-1
+                if not isthereodd:
+                    count += 1
+                    isthereodd = 1
+        return count
+```
+
+
+### Counter version
 
 with Counter: "plus" idea (sum of even plus 1 if there is odd ever)
 
@@ -147,7 +168,7 @@ with Counter: "minus" idea (total_len - sum_of_odd + 1 if there is odd ever)
 ```python
     def longestPalindrome(self, s):
         # write your code here
-        oddsum=sum([1 for v in collections.Counter(s).values() if v % 2])
+        oddsum=sum(1 for v in collections.Counter(s).values() if v % 2)
         return len(s)-oddsum+1 if oddsum else len(s)
 ```
 
@@ -170,4 +191,24 @@ class Solution(object):
         if flag:return even+1
         return even
 ```
+
+## tips
+
+### "plus" idea:
+
+just add up even and odd nums seperately and carefully.
+
+### "minus" idea:
+
+if a letter appear even times, then just add the count of it into result.
+if a letter appear odd time(s), it's kind of tricky:
+
+2 conditions:
+
+- a letter appears just 1 time: won't be useful except only 1 of them
+- a letter appears n(>1) times : the extra 1 time for each letter can't be
+  used, except only 1 of them
+
+so overall, need to minus 1 from each every letter which appears odd times, and
+plus 1 -- that is if there is any "odd time" letter.
 

@@ -212,7 +212,7 @@ how to evaluate `a and b + c` ?
 
 <!--
         四则位移与异或
-        外加比较非与或
+        小大等于非与或
 -->
 
 operator precedence口诀

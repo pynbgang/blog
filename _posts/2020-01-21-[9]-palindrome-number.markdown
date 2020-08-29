@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "palindrome-number"
+title: "[9] palindrome-number"
 published: true
 created:  2020 Jan 21 01:59:22 PM
-tags: [easy, python, lintcode]
+tags: [easy, python, lintcode, leetcode]
 categories: [tech]
 
 ---
@@ -15,12 +15,8 @@ TABLE OF CONTENT
 
 - - -
 
-# [palindrome-number](https://www.lintcode.com/problem/palindrome-number/description)
+# [[9] Palindrome Number](https://leetcode.com/problems/palindrome-number/description/)
 
-    || [9] Palindrome Number  
-    || 
-    || https://leetcode.com/problems/palindrome-number/description/
-    || 
     || * algorithms
     || * Easy (46.45%)
     || * Likes:    1959
@@ -28,35 +24,34 @@ TABLE OF CONTENT
     || * Total Accepted:    820.1K
     || * Total Submissions: 1.8M
     || * Testcase Example:  '121'
-    || 
-    || Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
-    || 
+    ||
+    || Determine whether an integer is a palindrome. An integer is a palindrome
+    when it reads the same backward as forward.
+    ||
     || Example 1:
-    || 
-    || 
+    ||
     || Input: 121
     || Output: true
-    || 
-    || 
+    ||
     || Example 2:
-    || 
-    || 
+    ||
     || Input: -121
     || Output: false
-    || Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
-    || 
-    || 
+    || Explanation: From left to right, it reads -121. From right to left, it
+    becomes 121-. Therefore it is not a palindrome.
+    ||
     || Example 3:
-    || 
-    || 
+    ||
     || Input: 10
     || Output: false
     || Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
-    || 
-    || 
+    ||
+    ||
     || Follow up:
-    || 
+    ||
     || Coud you solve it without converting the integer to a string?
+
+see also: [palindrome-number](https://www.lintcode.com/problem/palindrome-number/description)
 
 ## int/str (best, cheat way)
 
@@ -74,7 +69,7 @@ class Solution(object):
     '''
     题意：判断数字是否为回文数
     翻转数字比较相等即可
-    注意负数不是回文数    
+    注意负数不是回文数
     '''
     def isPalindrome(self, x):
         if x < 0 : return False
@@ -85,7 +80,7 @@ class Solution(object):
         return rev == x
 ```
 
-ping: with divmod
+## ping: with divmod
 
 ```python
 class Solution:
@@ -127,7 +122,7 @@ class Solution:
             return sum
 ```
 
-tips:
+## tips:
 
 * using list
 * using recursion
