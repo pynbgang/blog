@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "restore-ip-addresses"
+title: "[93] restore-ip-addresses"
 date: 2020-01-22
 author: "Owen"
 tags: 
@@ -10,6 +10,7 @@ tags:
     - medium
     - dfs
     - brute force
+    - pending
 
 created:  2020 Jan 22 11:35:49 PM
 categories: [tech]
@@ -25,7 +26,27 @@ TABLE OF CONTENT
 
 - - -
 
-# [restore-ip-addresses](https://www.lintcode.com/problem/restore-ip-addresses/description)
+# [[93] Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/description/)
+
+    || * algorithms
+    || * Medium (33.45%)
+    || * Likes:    941
+    || * Dislikes: 409
+    || * Total Accepted:    166.8K
+    || * Total Submissions: 498.5K
+    || * Testcase Example:  '"25525511135"'
+    || * Source Code:       93.restore-ip-addresses.py
+    || 
+    || Given a string containing only digits, restore it by returning all
+    possible valid IP address combinations.
+    || 
+    || Example:
+    || 
+    || 
+    || Input: "25525511135"
+    || Output: ["255.255.11.135", "255.255.111.35"]
+
+see also [restore-ip-addresses](https://www.lintcode.com/problem/restore-ip-addresses/description)
 
 ## owen
 
@@ -71,7 +92,7 @@ class Solution:
     '111.1.111.111', '111.11.11.111', '111.11.111.11', '111.111.1.111',
     '111.111.11.11', '111.111.111.1']
 
-## a solution in leetcode (best, easy to understand)
+## lmv (best, easy to understand)
 
 ### code
 
@@ -96,7 +117,8 @@ class Solution:
 
 ### idea
 
-just brute force iterating different methods to cut in four pieces, and check each result.
+just brute force iterating different methods to cut in four pieces, and check
+each result.
 
     s1,s2,s3,s4=s[:i],s[i:j],s[j:k],s[k:]
 
@@ -162,6 +184,37 @@ ipstr="12345678"
 S.restoreIpAddresses(ipstr)
 ```
 Out[16]: ['1.234.56.78', '12.34.56.78', '123.4.56.78', '123.45.6.78', '123.45.67.8']
+
+### revisit
+
+```python
+#(Sat 29 Aug 2020 04:45:32 PM DST)
+class Solution(object):
+  def restoreIpAddresses(self, s):
+    res = []
+    for i in [1,2,3]:
+      for j in [i+1, i+2, i+3]:
+         for k in [j+1, j+2, j+3]:
+           ip1, ip2, ip3, ip4 = s[:i], s[i:j], s[j:k], s[k:]
+           if all(len(ip)>0 and int(ip) <= 255 and (ip[0] != '0' if len(ip) > 1 else True) for ip in [ip1, ip2, ip3, ip4]):
+             res.append(ip1 + "." + ip2 + "." + ip3 + "." + ip4)
+    return res
+
+
+class Solution(object):
+  def restoreIpAddresses(self, s):
+    return [
+      s[:i] + "." + s[i:j] + "." + s[j:k] + "." + s[k:]
+      for i in [1,2,3] for j in [i+1, i+2, i+3] for k in [j+1, j+2, j+3]
+      if all(
+        len(ip)>0 and
+        int(ip) <= 255 and
+        (ip[0] != '0' if len(ip) > 1 else True)
+        for ip in [s[:i], s[i:j], s[j:k], s[k:]]
+      )
+    ]
+#(Sat 29 Aug 2020 05:32:07 PM DST)
+```
 
 ## wangmazi: DFS
 
@@ -342,3 +395,8 @@ dfs(ipstr, 0, ips, '')
                     if 3<=len(ipstr)==len(345678)==6: yes
                       if int(ipstr[:3]=='345')==345 <= 255? no
                       if ipstr[0]=='0'? no
+
+## pending
+
+not quite understand the DFS
+

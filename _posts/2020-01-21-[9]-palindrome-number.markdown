@@ -3,7 +3,7 @@ layout: post
 title: "[9] palindrome-number"
 published: true
 created:  2020 Jan 21 01:59:22 PM
-tags: [easy, python, lintcode, leetcode]
+tags: [easy, python, lintcode, leetcode, recursion]
 categories: [tech]
 
 ---
@@ -73,10 +73,10 @@ class Solution(object):
     '''
     def isPalindrome(self, x):
         if x < 0 : return False
-        remainders, rev = x, 0
-        while remainders:
-            ones, remainders = remainders % 10, remainders // 10
-            rev = rev * 10 + ones
+        quotient, rev = x, 0
+        while quotient:
+            remainder, quotient = quotient % 10, quotient // 10
+            rev = rev * 10 + remainder
         return rev == x
 ```
 
@@ -127,4 +127,3 @@ class Solution:
 * using list
 * using recursion
 * using return value in recursion
-* prduct of a list
