@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Palindromic Substrings"
+title: "[647] Palindromic Substrings"
 subtitle: "abc"
 date: 2020-01-23
 author: "Owen"
@@ -12,6 +12,7 @@ tags:
     - interview
     - string
     - wangmazi
+    - pending
 created:  20120 Jan 23 00:14:49 AM
 categories: [tech]
 published: true
@@ -26,7 +27,40 @@ TABLE OF CONTENT
 
 - - -
 
-# [palindromic-substrings](https://www.lintcode.com/problem/palindromic-substrings/description)
+# [[647] Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/description/)
+
+  || * algorithms
+  || * Medium (59.02%)
+  || * Likes:    2903
+  || * Dislikes: 120
+  || * Total Accepted:    200.1K
+  || * Total Submissions: 328.9K
+  || * Testcase Example:  '"abc"'
+  || * Source Code:       647.palindromic-substrings.py
+  || 
+  || Given a string, your task is to count how many palindromic substrings in this string.
+  || 
+  || The substrings with different start indexes or end indexes are counted as
+  different substrings even they consist of same characters.
+  || 
+  || Example 1:
+  || 
+  || 
+  || Input: "abc"
+  || Output: 3
+  || Explanation: Three palindromic strings: "a", "b", "c".
+  || 
+  || Example 2:
+  || 
+  || Input: "aaa"
+  || Output: 6
+  || Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
+  || 
+  || Note:
+  || 
+  || 	The input string length won't exceed 1000.
+
+see also [palindromic-substrings](https://www.lintcode.com/problem/palindromic-substrings/description)
 
 ## Owen(within helper function On2)
 
@@ -71,21 +105,19 @@ class Solution:
 
 ```python
 class Solution:
-   
     def countPalindromicSubstrings(self, str):
         dp = [[0 for j in range(len(str))] for i in range(len(str))]
         ans = 0
         for i in range(len(str)):
             for j in range(i + 1):
                 if(str[j] == str[i] and (i - j <= 2 or dp[j + 1][i - 1] == 1)):
-                    #need to understand how this dp logical comes from 
+                    #pending: need to understand how this dp logical comes from 
                     dp[j][i] = 1
                 ans += dp[j][i]
         return ans
 ```
 
 ## ping
-
 
 ```python
 class Solution:
@@ -121,3 +153,10 @@ class Solution:
         )
 ```
 
+
+```python
+#revisit: (Sat 29 Aug 2020 07:48:04 PM DST)
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        return sum(s[i:j] == s[i:j][::-1] for i in range(len(s)) for j in range(i+1, len(s)+1))
+```

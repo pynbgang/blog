@@ -8,7 +8,6 @@
 
 
 class Solution(object):
-    """
     # [[1,3],[2,6],[8,10],[15,18]]
     def merge(self, intervals):
         #:type intervals: List[List[int]]
@@ -43,8 +42,8 @@ class Solution(object):
 
         res.append(int_p)
         return res
-    """
 
+class Solution(object):
     def merge(self, intervals):
         # @param intervals, a list of Interval
         # @return a list of Interval

@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Maximal Rectangle"
+title: "[85]-Maximal Rectangle"
 date: 2020-01-24
 author: "Owen"
-tags: 
+tags:
     - lintcode
     - hard
     - python
-    - google 
-    - 
+    - google
+    -
 created:  20120 Jan 24 12:39:49 PM
 categories: [tech]
 published: true
@@ -23,9 +23,36 @@ TABLE OF CONTENT
 
 - - -
 
-#  [Maximal Rectangle](https://www.lintcode.com/problem/maximal-rectangle/description)
 
-## Owen 
+# [[85] Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/description/)
+
+    || * algorithms
+    || * Hard (35.72%)
+    || * Likes:    3102
+    || * Dislikes: 71
+    || * Total Accepted:    187.4K
+    || * Total Submissions: 493.8K
+    || * Testcase Example:  '[["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]'
+    || * Source Code:       85.maximal-rectangle.py
+    || 
+    || Given a 2D binary matrix filled with 0's and 1's, find the largest
+    rectangle containing only 1's and return its area.
+    || 
+    || Example:
+    || 
+    || 
+    || Input:
+    || [
+    || ["1","0","1","0","0"],
+    || ["1","0","1","1","1"],
+    || ["1","1","1","1","1"],
+    || ["1","0","0","1","0"]
+    || ]
+    || Output: 6
+
+see also [Maximal Rectangle](https://www.lintcode.com/problem/maximal-rectangle/description)
+
+## Owen
 
 original approach is too slow..
 
@@ -37,14 +64,14 @@ class Solution:
         height = [0] + height + [0]
 
         # monotonic stack in the sense that height_ext[id_stack[:]] is monotonic
-        id_stack = []  
+        id_stack = []
 
         area = 0
         for i, h in enumerate(height):
             # find the left / right first smaller than itself
             # montone increasing pop out all top element from stack if larger
             # than new comer
-            while id_stack and h <= height[id_stack[-1]]: 
+            while id_stack and h <= height[id_stack[-1]]:
             # kick out all greater than comming value h
                 id = id_stack.pop()
                 nh = height[id]
@@ -76,7 +103,7 @@ class Solution:
 
 ```
 
-### Basic idea on how to solve this 
+### Basic idea on how to solve this
 
 - 首先HELPER函数是为了检查每行 LIST的最大面积
 - 所以需要构建一个新的2D MATRIX M ，是为了收集这行+上面的所有行的和

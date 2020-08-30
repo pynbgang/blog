@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "largest-rectangle-in-histogram"
+title: "[84]-largest-rectangle-in-histogram"
 published: true
 created:  2020 Jan 31 10:29:15 AM
-tags: [wangmazi, python, stack, hard]
+tags: [wangmazi, python, leetcode, lintcode, stack, hard]
 categories: [tech]
 
 ---
@@ -15,7 +15,31 @@ TABLE OF CONTENT
 
 - - -
 
-# [largest-rectangle-in-histogram](http://www.lintcode.com/problem/largest-rectangle-in-histogram/description)
+# [[84] Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)
+
+  || * algorithms
+  || * Hard (33.27%)
+  || * Likes:    2767
+  || * Dislikes: 66
+  || * Total Accepted:    219.9K
+  || * Total Submissions: 660.9K
+  || * Testcase Example:  '[2,1,5,6,2,3]'
+  || * Source Code:       84.largest-rectangle-in-histogram.py
+  || 
+  || Given n non-negative integers representing the histogram's bar height
+  where the width of each bar is 1, find the area of largest rectangle in the
+  histogram.
+  || 
+  || Above is a histogram where width of each bar is 1, given height = [2,1,5,6,2,3].
+  || 
+  || The largest rectangle is shown in the shaded area, which has area = 10 unit.
+  || 
+  || Example:
+  || 
+  || Input: [2,1,5,6,2,3]
+  || Output: 10
+
+see also [largest-rectangle-in-histogram](http://www.lintcode.com/problem/largest-rectangle-in-histogram/description)
 
 ## ping: the hard way
 
