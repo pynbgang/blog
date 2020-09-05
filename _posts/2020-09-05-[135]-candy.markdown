@@ -1,0 +1,109 @@
+---
+layout: post
+title: "[135] Candy"
+published: true
+created:  2020 Sep 05 11:45:47 AM
+tags: [python, leetcode, hard]
+categories: [tech]
+
+---
+
+TABLE OF CONTENT
+
+* auto-gen TOC:
+{:toc}
+
+- - -
+
+# [[135] Candy](https://leetcode.com/problems/candy/description/)
+
+    || * algorithms
+    || * Hard (30.16%)
+    || * Likes:    1057
+    || * Dislikes: 171
+    || * Total Accepted:    135.5K
+    || * Total Submissions: 426K
+    || * Testcase Example:  '[1,0,2]'
+    || * Source Code:       135.candy.py
+    || 
+    || There are N children standing in a line. Each child is assigned a rating value.
+    || You are giving candies to these children subjected to the following requirements:
+    || 
+    || 	Each child must have at least one candy.
+    || 	Children with a higher rating get more candies than their neighbors.
+    || 
+    || What is the minimum candies you must give?
+    || 
+    || Example 1:
+    || 
+    || Input: [1,0,2]
+    || Output: 5
+    || Explanation: You can allocate to the first, second and third child with 2, 1, 2 candies respectively.
+    || 
+    || Example 2:
+    || 
+    || Input: [1,2,2]
+    || Output: 4
+    || Explanation: You can allocate to the first, second and third child with
+    1, 2, 1 candies respectively.
+    || ⁠            The third child gets 1 candy because it satisfies the above
+    two conditions.
+
+## jj
+
+```python
+class Solution:
+    def candy(self, ratings: List[int]) -> int:
+        l = len(ratings)
+        res = [0] * l
+        for i in range(l):
+            if (i == 0 or ratings[i] <= ratings[i - 1]) and (i == l - 1 or ratings[i] <= ratings[i + 1]):
+                res[i] = 1
+            elif i > 0 and ratings[i] > ratings[i - 1]:
+                res[i] = res[i - 1] + 1
+        for i in range(l - 2, -1, -1):
+            if not res[i] or (ratings[i] > ratings[i + 1] and (i == 0 or ratings[i] > ratings[i - 1])):
+                res[i] = max(res[i], res[i + 1] + 1)
+        return sum(res)
+```
+
+## lmv
+
+```python
+class Solution:
+    """
+    Python two pass solution (left to right, then right to left).
+
+    https://leetcode.com/problems/candy/discuss/42881
+
+    * Lang:    python3
+    * Author:  OldCodingFarmer
+    * Votes:   16
+    """
+    def candy(self, ratings):
+        res = len(ratings) * [1]
+        for i in range(1, len(ratings)):        # from left to right, searching increasement
+            if ratings[i] > ratings[i-1]:
+                res[i] = res[i-1] + 1
+        for i in range(len(ratings)-1, 0, -1):  # from right to left, searching increasement
+            if ratings[i-1] > ratings[i]:
+                res[i-1] = max(res[i-1], res[i]+1)
+        return sum(res)
+```
+
+where:
+
+    res[i-1] = max(res[i-1], res[i]+1)
+
+is same as:
+
+    if ratings[i-1] > ratings[i] and res[i-1] <= res[i]:
+        res[i-1] = res[i] + 1
+
+
+illustration:
+
+    34543212
+    11111111    #<---res
+    12311112    #<---first loop
+    12543212    #<---2nd loop

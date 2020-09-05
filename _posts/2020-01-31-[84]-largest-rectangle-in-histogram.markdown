@@ -41,7 +41,7 @@ TABLE OF CONTENT
 
 see also [largest-rectangle-in-histogram](http://www.lintcode.com/problem/largest-rectangle-in-histogram/description)
 
-## ping: the hard way
+## ping: brute force
 
 timeout
 
@@ -60,6 +60,22 @@ class Solution:
 ```
 
 ## wangmazi
+
+```python
+class Solution:
+    def largestRectangleArea(self, heights):
+        ids, area = [], 0
+        for id, height in enumerate(heights + [0]):
+            while ids and height < heights[ids[-1]]:
+                popped_id = ids.pop()
+                left_id = ids[-1] if ids else -1
+                width = id - left_id - 1
+                area = max(area, width * heights[popped_id])
+            ids.append(id)
+        return area
+```
+
+with comments:
 
 ```python
 class Solution:
