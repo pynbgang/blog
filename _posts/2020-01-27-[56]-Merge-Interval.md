@@ -61,8 +61,10 @@ see also: [Merge Intervals](https://www.interviewbit.com/problems/merge-interval
 just a sort can solve this issue
 
 ```python
-#Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).
-#You may assume that the intervals were initially sorted according to their start times.
+#Given a set of non-overlapping intervals, insert a new interval into the
+#intervals (merge if necessary).
+#You may assume that the intervals were initially sorted according to their
+#start times.
 #Example 1:
 #Given intervals [1,3],[6,9] insert and merge [2,5] would result in [1,5],[6,9].
 

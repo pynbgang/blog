@@ -26,15 +26,14 @@ TABLE OF CONTENT
 || * Testcase Example:  '"hit"\n"cog"\n["hot","dot","dog","lot","log","cog"]'
 || * Source Code:       127.word-ladder.py
 || 
-|| Given two words (beginWord and endWord), and a dictionary's word list, find the length of shortest transformation sequence from beginWord to endWord, such that:
-|| 
+|| Given two words (beginWord and endWord), and a dictionary's word list, find
+the length of shortest transformation sequence from beginWord to endWord, such
+that:
 || 
 || 	Only one letter can be changed at a time.
 || 	Each transformed word must exist in the word list.
 || 
-|| 
 || Note:
-|| 
 || 
 || 	Return 0 if there is no such transformation sequence.
 || 	All words have the same length.
@@ -56,10 +55,7 @@ TABLE OF CONTENT
 || Explanation: As one shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog",
 || return its length 5.
 || 
-|| 
 || Example 2:
-|| 
-|| 
 || Input:
 || beginWord = "hit"
 || endWord = "cog"
