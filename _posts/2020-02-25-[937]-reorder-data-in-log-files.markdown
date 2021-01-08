@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "reorder-data-in-log-files"
+title: "[937]-reorder-data-in-log-files"
 published: true
 created:  2020 Feb 25 11:51:59 AM
 tags: [easy, lintcode, list, string, python, sorted]
