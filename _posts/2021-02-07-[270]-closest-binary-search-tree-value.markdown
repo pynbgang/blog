@@ -3,7 +3,7 @@ layout: post
 title: "[270] Closest Binary Search Tree Value"
 published: true
 created:  2021 Feb 07 22:29:00
-tags: [python, leetcode, easy, tree, bst]
+tags: [python, leetcode, easy, tree, bst, dfs, bfs, min]
 categories: [tech]
 
 ---
@@ -50,4 +50,29 @@ TABLE OF CONTENT
     || 
     || Output: 4
 
+# solution
+
+```python
+class Solution:     #leetcode: DFS
+    def closestValue(self, root: TreeNode, target: float) -> int:
+        def inorder(r: TreeNode):
+            return (inorder(r.left) + [r.val] + inorder(r.right)) if r else []
+        return min(inorder(root), key = lambda x: abs(target - x))
+```
+
+```python
+class Solution:         #BFS, with q
+    def closestValue(self, root: TreeNode, target: float) -> int:
+        nodes, values = [root], []
+        while nodes:
+            values.append(nodes[0].val)
+            root = nodes.pop(0)
+            if root.left:  nodes.append(root.left)
+            if root.right: nodes.append(root.right)
+        return min(values, key = lambda x: abs(x-target))
+```
+
+# tips
+
+* min with key
 

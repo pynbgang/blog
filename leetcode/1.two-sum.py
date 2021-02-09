@@ -6,30 +6,12 @@
 
 # @lc code=start
 
-class Solution(object):
+class Solution(object):     #brute force
     def twoSum(self, nums, target):
         for i in range(len(nums) - 1):
             for j in range(i+1, len(nums)):
                 if nums[i] + nums[j] == target:
                     return [i, j]
-        return [-1, -1]
-
-class Solution(object):
-    def twoSum(self, nums, target):
-        # hash用于建立数值到下标的映射
-        hash = {}
-        # 循环nums数值，并添加映射
-        for i in range(len(nums)):
-            # print(i, ":", nums[i], hash)
-            if target - nums[i] in hash:
-                # print(
-                #     "found it! %d (%d - %d) in hash" %
-                #     (target - nums[i], target, nums[i])
-                # )
-                return [hash[target - nums[i]], i]
-            # print("not in current hash, put into it")
-            hash[nums[i]] = i
-        # 无解的情况
         return [-1, -1]
 
 class Solution(object):
@@ -94,5 +76,23 @@ class Solution:
         ✔ Your runtime beats 92.62 % of python3 submissions
         ✔ Your memory usage beats 58.6 % of python3 submissions (14.2 MB)
         """
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        # hash用于建立数值到下标的映射
+        hash = {}
+        # 循环nums数值，并添加映射
+        for i in range(len(nums)):
+            # print(i, ":", nums[i], hash)
+            if target - nums[i] in hash:
+                # print(
+                #     "found it! %d (%d - %d) in hash" %
+                #     (target - nums[i], target, nums[i])
+                # )
+                return [hash[target - nums[i]], i]
+            # print("not in current hash, put into it")
+            hash[nums[i]] = i
+        # 无解的情况
+        return [-1, -1]
 
 # @lc code=end
