@@ -120,6 +120,8 @@ class Solution:     #lmv
 
 # tips
 
+## regex tips
+
 1. regarding `r'(.)\1*'`
    match repeating chars
 
@@ -174,6 +176,8 @@ class Solution:     #lmv
     to
 
         `pro--gram files`
+
+## how it works together
 
 back to this 3 lines lmv solution:
 
