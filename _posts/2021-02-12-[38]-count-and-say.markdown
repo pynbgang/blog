@@ -110,9 +110,8 @@ just go to example to understand what it is about...
 ```python
 class Solution:     #lmv
     def countAndSay(self, n):
-        s = '1'; n = 6
+        s = '1'
         for _ in range(n - 1):
-            print(s)
             s = re.sub(r'(.)\1*', lambda m: str(len(m.group(0))) + m.group(1), s)
             #          ---------   -------------------------------------------
             #           regex           repl
@@ -158,7 +157,7 @@ class Solution:     #lmv
         <re.Match object; span=(11, 12), match='-'>
         Out[94]: 'pro--gram files'
 
-    regex is `-{1,2}`, string is  'pro----gram-files', 
+    regex is `-{1,2}`, string is  `pro----gram-files`, 
     there are totally 3 matches `--` `--` and `-`, each passed as a
     match type of object `matchobj`, the matched string is saved as `.group(0)`
     of each match objects.
@@ -171,8 +170,32 @@ class Solution:     #lmv
         `pro----gram-files`
             ^^^^    ^
             - -    blank
+
     to
 
         `pro--gram files`
 
+back to this 3 lines lmv solution:
 
+        s = '1'
+        for _ in range(n - 1):
+            s = re.sub(r'(.)\1*', lambda m: str(len(m.group(0))) + m.group(1), s)
+
+the core is this one line:
+
+    s = re.sub(r'(.)\1*', lambda m: str(len(m.group(0))) + m.group(1), s)
+
+for example let's say s is `1211`: the expected output is `111221`
+
+* regex a is `r'(.)\1*'`, matches any repetitive chars, like in this example `1` or `2`, or `11`
+* func is `lambda m: str(len(m.group(0))) + m.group(1)`. 
+  * input is `m` - a match object.
+  * output is `str(len(m.group(0))) + m.group(1)`, which are two parts:
+    * a: string form of `m.group(0)` 's length. `m.group(0)` is the whole matched
+      part of the string. for our regex, the matched part will be `1` or `2`,
+      or `11`. the string form of their lengths are `1`, `1`, `2` respectively.
+    * b: `m.group(1)`, which is the "1st" string captured by `()`, in
+      this case the single char. so it's `1`, `2`, `1`, respectively.
+    * a+b will be connecting `11` `12` and `11`, that is `111211`. this is
+      because the func will be called for each every match.
+* repeat `n-1` times. because the init `s='1'` count once.
