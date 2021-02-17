@@ -22,4 +22,31 @@ class Solution:
                )
             ): return "IPv6"
         return "Neither"
+
+class Solution:     #(Sun Feb 14 00:01:58 2021)
+    def validIPAddress(self, IP: str) -> str:
+        if (IP.count('.') == 3 and
+            all(
+                s.isnumeric() and
+                0<= int(s) <= 255 and
+                (s[0] !='0' if len(s) > 1 else True)
+                for s in IP.split('.')
+            )
+           ): return "IPv4"
+        if (IP.count(':') == 7 and
+            all(1 <= len(s) <= 4 and
+                all(
+                    c in '0123456789abcdefABCDEF'
+                    for c in s
+                )
+                for s in IP.split(':')
+            )
+           ): return "IPv6"
+        return "Neither"
+
+S=Solution()
+IP="1.0.1."
+IP="2001:db8:85a3|| :8a2E:0370:7334"
+S.validIPAddress(IP)
+
 # @lc code=end
