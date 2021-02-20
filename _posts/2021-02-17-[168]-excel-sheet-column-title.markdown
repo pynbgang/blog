@@ -120,9 +120,15 @@ class Solution:     #lmv
 
 # tips
 
-main headache is, this is like base 26 except:
+1. main headache is, this is like base 26 except:
 * there is no 0, base26 will start with 0
 * there is 26, base26 will stop at 25
 
 so there is this `-1` mapping between excel and base26.
+
+2. this is good:
+
+        capitals = [chr(x) for x in range(ord('A'), ord('Z')+1)]
+
+    comparing with `[ABCDEFGHIJKLMNOPQRSTUVWXYZ]
 
