@@ -19,7 +19,7 @@ if __name__ == '__main__':
                 pool.apply_async(rc.build_directory,args = (dir_name,))
             pool.close()
             pool.join()
-            
+
         ###get memory usage
             cli_cmd="cli show chassis routing-engine \|match memo   "
             pool1=Pool(5)

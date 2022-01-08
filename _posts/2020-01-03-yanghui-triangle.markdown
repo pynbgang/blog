@@ -68,40 +68,40 @@ illustration:
     [1, 1, 0]
 
 
-### about zip
+## about zip
 
 zip
 
-    In [45]: a = [1,2,3] 
-        ...: b = [4,5,6] 
-        ...: c = [4,5,6,7,8]                                                        
+    In [45]: a = [1,2,3]
+        ...: b = [4,5,6]
+        ...: c = [4,5,6,7,8]
 
     In [58]: z=zip(a,b)
-    In [60]: from collections import Iterable                                       
-    In [61]: isinstance(z, Iterable)                                         
+    In [60]: from collections import Iterable
+    In [61]: isinstance(z, Iterable)
     Out[61]: True
 
-    In [46]: x=list(z)                                                       
+    In [46]: x=list(z)
 
-    In [47]: x                                                                      
+    In [47]: x
     Out[47]: [(1, 4), (2, 5), (3, 6)]
 
 unzip: zip(*...)
 
     In [49]: y=zip(*z)
 
-    In [50]: y                                                                      
+    In [50]: y
     Out[50]: <zip at 0x7f50fd2bb808>
 
-    In [51]: a1,a2=y                                                                
+    In [51]: a1,a2=y
 
-    In [52]: a1                                                                     
+    In [52]: a1
     Out[52]: (1, 2, 3)
 
-    In [53]: a2                                                                     
+    In [53]: a2
     Out[53]: (4, 5, 6)
 
-    In [54]: a1,a2,a3=y                                                             
+    In [54]: a1,a2,a3=y
     ---------------------------------------------------------------------------
     ValueError                                Traceback (most recent call last)
     <ipython-input-54-41d44e776e2a> in <module>

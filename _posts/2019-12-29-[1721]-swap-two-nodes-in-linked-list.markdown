@@ -27,6 +27,39 @@ TABLE OF CONTENT
 
 # [swap-two-nodes-in-linked-list](https://www.lintcode.com/problem/swap-two-nodes-in-linked-list/description?_from=ladder&&fromId=99)
 
+    || [1721] Swapping Nodes in a Linked List  
+    || 
+    || https://leetcode.com/problems/swapping-nodes-in-a-linked-list/description/
+    || 
+    || * algorithms
+    || * Medium (65.69%)
+    || * Likes:    1306
+    || * Dislikes: 64
+    || * Total Accepted:    85.2K
+    || * Total Submissions: 129.7K
+    || * Testcase Example:  '[1,2,3,4,5]\n2'
+    || 
+    || You are given the head of a linked list, and an integer k.
+    || 
+    || Return the head of the linked list after swapping the values of the k^th node from the beginning and the k^th node from the end (the list is 1-indexed).
+    || 
+    || Example 1:
+    || 
+    || Input: head = [1,2,3,4,5], k = 2
+    || Output: [1,4,3,2,5]
+    || 
+    || Example 2:
+    || 
+    || Input: head = [7,9,6,6,7,8,3,0,9,5], k = 5
+    || Output: [7,9,6,6,8,7,3,0,9,5]
+    || 
+    || Constraints:
+    || 
+    || 	The number of nodes in the list is n.
+    || 	1 <= k <= n <= 10^5
+    || 	0 <= Node.val <= 100
+
+
 <!--
 
 ## 古人云

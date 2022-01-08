@@ -115,36 +115,40 @@ v6:
   * 2001:db8:85a3:0:0:8A2E:0370:7334 is valid
 * "extra" leading zeros is invalid. e.g. 02001:0db8:85a3:0000:0000:8a2e:0370:7334
 
-## jj2 (best)
+## jj
+
+### jj2 (best)
 
 ```python
 class Solution:
     def validIPAddress(self, IP: str) -> str:
         if (IP.count(".") == 3 and          #v4 must be 3 parts seperated by .
             all(                                 #and each part has to be:
-                s.isnumeric()
-                and int(s) <= 255                #number, < 255,
+                s.isnumeric()                    #a number
+                and int(s) <= 255                #< 255,
                 and (len(s) == 1 or s[0] != "0") #first digit can't be "0"
                 for s in IP.split(".")           #unless it is just 0.
                )
            ): return "IPv4"
         if (IP.count(":") == 7 and          #v6 must be 7 parts seprated by :
             all(                                #and each part has to be:
-                all(c in "0123456789abcdefABCDEF" for c in s) #from this chars
-                and 0 < len(s) <= 4             #less or equal to 4 digits
-                for s in IP.split(":")          #but not null (1111::1111)
+                all(c in "0123456789abcdefABCDEF" for c in s) #1. from these chars
+                and 0 < len(s) <= 4             #2. <= 4 digits
+                for s in IP.split(":")          #3. > 0 - not null (1111::1111)
                )
             ): return "IPv6"
         return "Neither"
 ```
 
+takeaways:
+
 * no temp var, use oneliner list comprehension `for s in IP.split`
 * `x or y` instead of `expr if else`
 * avoid `all('') = true` trick
 * use `all(list expression)`, instead of `all([list])`
-* use () to break long expression
+* use `()` to break long expressions, so comments can be placed on the right side
 
-long line version:
+### long line version:
 
 ```python
 class Solution:
@@ -280,7 +284,9 @@ class Solution(object):
         return 'Neither'
 ```
 
-* make use of exception
+take aways:
+
+* make use of exception!
 
 ## other zb solutions
 

@@ -14,22 +14,7 @@ class Solution(object):     #brute force
                     return [i, j]
         return [-1, -1]
 
-class Solution(object):
-    # improve, w/o hash
-    def twoSum(self, nums, target):
-        # 循环nums数值，并添加映射
-        for i in range(len(nums)):
-            # print(i, ":", nums[i])
-            if target - nums[i] in nums[i+1:]:
-                # print(
-                #     "found it! %d (%d - %d) in nums" %
-                #     (target - nums[i], target, nums[i])
-                # )
-                return [i, i+1+nums[i+1:].index(target - nums[i])]
-        # 无解的情况
-        return [-1, -1]
-
-class Solution(object):
+class Solution(object):     #using "in", no comment, easiest
     # no comment
     def twoSum(self, nums, target):
         for i in range(len(nums)):
@@ -37,9 +22,22 @@ class Solution(object):
                 return [i, i+1+nums[i+1:].index(target - nums[i])]
         return [-1, -1]
 
+class Solution(object):     #using "in", debug version
+    def twoSum(self, nums, target):
+        # 循环nums数值，并添加映射
+        for i in range(len(nums)):
+            print(i, ":", nums[i])
+            if target - nums[i] in nums[i+1:]:
+                print(
+                    "found it! %d (%d - %d) in nums" %
+                    (target - nums[i], target, nums[i])
+                )
+                return [i, i+1+nums[i+1:].index(target - nums[i])]
+        # 无解的情况
+        return [-1, -1]
 
-class Solution(object):
-    # one liner: doesn't work:
+
+class Solution(object):     # one liner: doesn't work:
     def twoSum(self, nums, target):
         return [
             [i, i+1+nums[i+1:].index(target - nums[i])]
@@ -58,16 +56,36 @@ class Solution(object):
         ✘ Stdout:
         """
 
-class Solution:
+class Solution(object):     #with dict
+    def twoSum(self, nums, target):
+        #use dict to record the 1st num
+        # d用于建立数值到下标的映射
+        d = {}
+        # 循环nums数值，并添加映射
+        for i in range(len(nums)):
+            # print(i, ":", nums[i], d)
+            if target - nums[i] in d:
+                # print(
+                #     "found it! %d (%d - %d) in d" %
+                #     (target - nums[i], target, nums[i])
+                # )
+                return [d[target - nums[i]], i]
+            # print("not in current d, put into it")
+            d[nums[i]] = i
+        # 无解的情况
+        return [-1, -1]
+
+class Solution:             #with dict, another version
+    #use dict to record the expected 2nd num
     # @return a tuple, (index1, index2)
     # 8:42
     def twoSum(self, num, target):
-        map = {}
+        d = {}
         for i in range(len(num)):
-            if num[i] not in map:
-                map[target - num[i]] = i
+            if num[i] not in d:
+                d[target - num[i]] = i
             else:
-                return map[num[i]], i
+                return d[num[i]], i
         return -1, -1
 
         """
@@ -76,23 +94,5 @@ class Solution:
         ✔ Your runtime beats 92.62 % of python3 submissions
         ✔ Your memory usage beats 58.6 % of python3 submissions (14.2 MB)
         """
-
-class Solution(object):
-    def twoSum(self, nums, target):
-        # hash用于建立数值到下标的映射
-        hash = {}
-        # 循环nums数值，并添加映射
-        for i in range(len(nums)):
-            # print(i, ":", nums[i], hash)
-            if target - nums[i] in hash:
-                # print(
-                #     "found it! %d (%d - %d) in hash" %
-                #     (target - nums[i], target, nums[i])
-                # )
-                return [hash[target - nums[i]], i]
-            # print("not in current hash, put into it")
-            hash[nums[i]] = i
-        # 无解的情况
-        return [-1, -1]
 
 # @lc code=end

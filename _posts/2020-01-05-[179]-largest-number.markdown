@@ -15,21 +15,57 @@ TABLE OF CONTENT
 
 - - -
 
-# largest-number
+# [[179] largest-number](https://leetcode.com/problems/largest-number/description/)
+
+    # algorithms
+    # Medium (32.24%)
+    # Likes:    4205
+    # Dislikes: 376
+    # Total Accepted:    290.5K
+    # Total Submissions: 901.1K
+    # Testcase Example:  '[10,2]'
+    #
+    # Given a list of non-negative integers nums, arrange them such that they form
+    # the largest number and return it.
+    #
+    # Since the result may be very large, so you need to return a string instead of
+    # an integer.
+    #
+    #
+    # Example 1:
+    #
+    #
+    # Input: nums = [10,2]
+    # Output: "210"
+    #
+    #
+    # Example 2:
+    #
+    #
+    # Input: nums = [3,30,34,5,9]
+    # Output: "9534330"
+    #
+    #
+    #
+    # Constraints:
+    #
+    #
+    # 1 <= nums.length <= 100
+    # 0 <= nums[i] <= 10^9
 
 https://www.lintcode.com/problem/largest-number/description?_from=ladder&&fromId=99
 
 ## wangmazi
 
-py2:
+### py2:
 
 ```python
-class Solution:    
+class Solution:
     # @param num: A list of non negative integers
     # @return: A string
     def largestNumber(self, num):
         nums = sorted(
-            nums, 
+            nums,
             cmp=lambda x, y: 1 if str(x) + str(y) < str(y) + str(x) else -1
         )
         largest = ''.join([str(x) for x in nums])
@@ -41,21 +77,21 @@ class Solution:
         return largest[i:]
 ```
 
-py3:
+### py3:
 
 ```python
-class Solution:    
+class Solution:
     # @param num: A list of non negative integers
     # @return: A string
     def largestNumber(self, num):
         import functools
         nums = sorted(
-            nums, 
+            nums,
             key=functools.cmp_to_key(
                 lambda x, y: 1 if str(x) + str(y) < str(y) + str(x) else -1
             )
         )
-        largest = ''.join([str(x) for x in nums])
+        largest = ''.join(str(x) for x in nums)
         i, length = 0, len(largest)
         while i + 1 < length:
             if largest[i] != '0':
@@ -64,21 +100,20 @@ class Solution:
         return largest[i:]
 ```
 
+## about sorted 
 
-## sorted in p2
+### py2
 
 p2: `sorted` with `cmp`
 
     In [1]: nums=[2, 20, 23,3]
 
-    In [2]: nums = sorted(nums, cmp=lambda x, y: 1 if str(x) + str(y) < str(y) + str
-       ...: (x) else -1)
+    In [2]: nums = sorted(nums, cmp=lambda x, y: 1 if str(x) + str(y) < str(y) + str(x) else -1)
 
             In [3]: nums
             Out[3]: [3, 23, 2, 20]
 
-            In [4]: nums = sorted(nums, cmp=lambda x, y: -1 if str(x) + str(y) < str(y) + st
-               ...: r(x) else 1)
+            In [4]: nums = sorted(nums, cmp=lambda x, y: -1 if str(x) + str(y) < str(y) + str(x) else 1)
 
             In [5]: nums
             Out[5]: [20, 2, 23, 3]
@@ -104,7 +139,7 @@ will get:
 
     x2+y20=220 > y20+x2=202 => 1 => [x, y] => [2, 20]
 
-## sorted in p3
+### py3
 
 p3: `sorted` with `key` and `functools.cmp_to_key`
 

@@ -108,7 +108,6 @@ from functools import reduce
 digits=dict( ( zip('0123456789', range(10)) )  )
 
 def str2int(s):
-
     def fn(x, y):
         return x * 10 + y
 
@@ -118,15 +117,18 @@ def str2int(s):
     return reduce(fn, map(char2num, s))
 ```
 
+how it works:
+
                               +--1.map--+
                               |         |
                            ---+----     v
-    return  reduce(fn, map(char2num,    s))
+     return reduce(fn, map(char2num,    s))
+                   |                  "13579"
                    |   ----------------------
-                   |        [1, 3, 5, 7, 9]
+                   |     2. [1, 3, 5, 7, 9]
                    |              A
-                   |              |
-                   +---2.reduce---+
+                   |              | ==> 4. 13579
+                   +---3.reduce---+
 
 
 ## example4: implement `int()` (lamda version)
@@ -138,9 +140,9 @@ def str2int(s):
     return reduce(lambda x,y: x*10+y, map(lambda s:digits[s], s))
 ```
 
-# map reduce exercises
+# more exercises
 
-## exercise1: map
+## exercise1: map 实现capitalize
 
 利用map()函数，把用户输入的不规范的英文名字，变为首字母大写，其他小写的规范名字
 。输入：['adam', 'LISA', 'barT']，输出：['Adam', 'Lisa', 'Bart']：
@@ -148,13 +150,20 @@ def str2int(s):
 ```python
 def normalize(name):
     return name.capitalize()
-L1 = ['adam', 'LISA', 'barT']
-L2 = list(map(normalize, L1))
-print(L2)
+ls = ['adam', 'LISA', 'barT']
+res = list(map(normalize, ls))
+print(res)
 
 ```
+or:
 
-## exercise2: reduce
+```
+ls = ['adam', 'LISA', 'barT']
+res = list(map(lambda x: x.capitalize(), ls))
+print(res)
+```
+
+## exercise2: reduce 实现乘法器
 
 Python提供的sum()函数可以接受一个list并求和，请编写一个prod()函数，可以接受一个
 list并利用reduce()求积：
@@ -172,10 +181,11 @@ else:
     print('测试失败!')
 ```
 
-## exercise3: map and reduce
+## exercise3: map and reduce: str2float
 
 利用map和reduce编写一个str2float函数，把字符串'123.456'转换成浮点数123.456：
 
+### v1
 
 ```python
 from functools import reduce
@@ -219,8 +229,7 @@ else:
            --------------    -------------------------
            121                      2.3
 
-## exercise3: map and reduce (lambda)
-
+### v2: lambda
 
 ```python
 from functools import reduce
@@ -239,7 +248,7 @@ else:
 ```
 
 
-## exercise3: zb solution
+### v3: zb solution
 
 ```python
 from functools import reduce
