@@ -130,7 +130,9 @@ def myfnc():
 myfnc()
 ```
 
-global:   仅仅到最外层去找。  
-nonlocal: 字面意思就是除了local之外的任何层，包含，但不限于最外层（global）
+## conclusion
+
+* global:   仅仅到"最"外层去找。  
+* nonlocal: 字面意思就是除了local之外的任何层，包含，但不限于最外层（global）
 
 

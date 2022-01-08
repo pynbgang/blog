@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "file"
+title: "file operations"
 published: true
 created:  2020 Jan 07 09:13:34 PM
 tags: [file, python, py2]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "largest number"
+title: "[179] largest number"
 published: true
 created:  2020 Jan 05 07:54:57 PM
 tags: [lintcode, python, sorted, join, lambda, functools, wangmazi]
@@ -100,7 +100,42 @@ class Solution:
         return largest[i:]
 ```
 
-## about sorted 
+## lmv
+
+```python
+class LargerNumKey(str):
+    def __lt__(x, y):
+        return x+y > y+x
+
+class Solution:
+    def largestNumber(self, nums):
+        largest_num = ''.join(sorted(map(str, nums), key=LargerNumKey))
+        return '0' if largest_num[0] == '0' else largest_num
+```
+
+* rewrite the `>` sign
+* read as: 
+    * q: when should we believe `x < (__le__) y` ? 
+    * a: when x+y > y+x
+* x=3, y=30: xy > yx is true, so we believe `x<y`, so sort will get
+  descending order
+* a more straightaway is:
+
+```python
+class LargerNumKey(str):
+    def __lt__(x, y):
+        return x+y < y+x
+        #          ^
+
+class Solution:
+    def largestNumber(self, nums):
+        largest_num = ''.join(sorted(map(str, nums), key=LargerNumKey, reverse=True))
+        #                                                              ^^^^^^^^^^^
+        return '0' if largest_num[0] == '0' else largest_num
+```
+
+
+## about sorted
 
 ### py2
 

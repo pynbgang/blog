@@ -54,9 +54,7 @@ ____
 - `iter()`: iterable(e.g. list) to iterator
 - `list()`: iterator to a list
 
-
 ## test cases
-
 
 ```python
 l=[1,2,3,4]
@@ -71,7 +69,7 @@ list(zip(l, l))         #zip do "next" on two diff iterator
 [(1, 1), (2, 2), (3, 3), (4, 4)]
 ```
 
-why? because:
+why? because: "iter on iter do not generate a new iter."
 
 ```python
 l=[1,2,3,4]
@@ -90,10 +88,10 @@ and what zip does:
 
     In [528]: from collections import Iterable
 
-    In [529]: isinstance('abc',Iterable)
+    In [529]: isinstance('abc', Iterable)
     Out[529]: True
 
-    In [530]: isinstance(100,Iterable)
+    In [530]: isinstance(100, Iterable)
     Out[530]: False
 
     In [11]: isinstance(range(2), Iterable)
@@ -101,12 +99,11 @@ and what zip does:
 
 ## iterators or not? (support next() or not)
 
-next: will be called by 'for/while' loop internally.
+`next()`: will be called by 'for/while' loop internally.
 
 ### py3:
 
-    In [72]: l
-    Out[72]: [2, 1, 0, 0]
+    l = [2, 1, 0, 0]
 
 not an iterator
 

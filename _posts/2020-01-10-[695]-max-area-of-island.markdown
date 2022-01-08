@@ -45,7 +45,8 @@ TABLE OF CONTENT
     ||  [0,0,0,0,0,0,0,1,1,1,0,0,0],
     ||  [0,0,0,0,0,0,0,1,1,0,0,0,0]]
     ||
-    || Given the above grid, return 6. Note the answer is not 11, because the island must be connected 4-directionally.
+    || Given the above grid, return 6. Note the answer is not 11, because the
+    || island must be connected 4-directionally.
     ||
     || Example 2:
     ||
@@ -72,33 +73,47 @@ class Solution(object):
         ## 空输入就啥别说了
         if not grid: return
 
-        ## 整个排列坐标系
-        rows, cols = len(grid), len(grid[0])
+        ## 算下最大行列数
+        rows, cols, max_ones = len(grid), len(grid[0]), 0
 
-        ## 全坐标暴力搜索1，找到后对它求个值（它所在连续1区间的数量）
-        ## 具体求法另议
+        ## 全坐标暴力搜索1，找到后, 求它所在的连续1区间的数量
+        ## 具体求法另写
         for i in range(rows):
             for j in range(cols):
                 if grid[i][j]:
-                    max_ones = max(max_ones,self.dfs(grid,i,j,1))
+                    max_ones = max(max_ones, self.dfs(grid,i,j,1))
 
         return max_ones
 
     def dfs(self,grid,i,j,count):
-        ## 针对某一个1，求”岛面积“，即所在周边所有连续1的数量。dfs递归思路
+        ## 给定某一个1的坐标，求”岛面积“，即所在周边所有连续1的数量。dfs递归思路
+        ## 输入： 
+        ##   grid, 
+        ##   当前1的坐标i, j;
+        ##   当前已知的连续1的数量 count, 最开始为1, 即当前的这个数值为1的点
+        ## 输出：
+        ##   返回值，在作为输入参数的count基础上，不断扩充之后的， 连续1的总数量
 
-        ## 已知为1，置零
+        ## 当前的1已经计入了作为输入参数的count (1)，置零,避免后续搜索中重复计算
         grid[i][j] = 0
 
         ## 一一查看当前点的“周边”四个点
         for m,n in [(i-1,j),(i+1,j),(i,j-1),(i,j+1)]:
-            ## 如果这四个边界点在有效范围内并且也为1， 则
+            ## 如果这四个边界点在有效范围内,                   并且也为1， 则
             if m>=0 and m<len(grid) and n>=0 and n<len(grid[0]) and grid[m][n]:
                 ## 对这边界为1的点再次dfs递归，并扩展总数量
                 count = 1 + self.dfs(grid,m,n,count)
         ## 最后返回总的连续1的数量
         return count
 ```
+
+### takeaways
+
+* 递归的设计技巧
+  * 输入参数的设计
+  * 返回值的设计
+* `for m,n in [seq of seq]`
+* 用max在循环中累积最大值
 
 ## jj2 (最短最精妙)
 
@@ -120,7 +135,9 @@ class Solution(object):
 
 ```python
 grid = [[11, 12], [21, 22]]
-d={i + j*1j: val for i, row in enumerate(grid) for j, val in enumerate(row)}
+d = {i + j*1j: val for i, row in enumerate(grid) for j, val in enumerate(row)}
+#    --------:---      ------                        ------
+#    key:value         outer loop                    inner loop
 d
 {0j: 11, 1j: 12, (1+0j): 21, (1+1j): 22}
 ```
@@ -168,10 +185,9 @@ basic form:
     Out[56]: (-1+0j)    #<---虚数平方为-1
 
     [ins] In [57]: 1j ** 3
-    Out[57]: (-0-1j)
+    Out[57]: (-0-1j)    #<---2: -1, 1: 自身，=> 负自身
 
-
-it happens to be the points in coordinate sytem:
+it happens to be the 4 "surrounding" points in coordinate sytem:
 
             |
             - 1j**1
