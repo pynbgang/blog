@@ -1,0 +1,586 @@
+Fri May  7 11:51:20 EDT 2021
+cli show interfaces \|match " ae\|xe-\|gr-\|lt-\|et-\|ge-\|pps" \|no-more \| except description
+Physical interface: xe-0/0/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-0/0/0.16386 (Index 385) (SNMP ifIndex 921)
+Physical interface: xe-0/0/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-0/0/1.16386 (Index 436) (SNMP ifIndex 1007)
+Physical interface: xe-0/0/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-0/0/2.16386 (Index 437) (SNMP ifIndex 1014)
+Physical interface: xe-0/0/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-0/0/3.16386 (Index 438) (SNMP ifIndex 1028)
+Physical interface: xe-0/1/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-0/1/0.16386 (Index 439) (SNMP ifIndex 1031)
+Physical interface: xe-0/1/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-0/1/1.16386 (Index 440) (SNMP ifIndex 1034)
+Physical interface: xe-0/1/2, Enabled, Physical link is Up
+  Input rate     : 2168 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-0/1/2.16386 (Index 441) (SNMP ifIndex 1035)
+Physical interface: xe-0/1/3, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 1208 bps (0 pps)
+  Logical interface xe-0/1/3.16386 (Index 442) (SNMP ifIndex 1036)
+Physical interface: xe-0/2/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-0/2/0.16386 (Index 443) (SNMP ifIndex 1037)
+Physical interface: xe-0/2/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-0/2/1.16386 (Index 444) (SNMP ifIndex 1059)
+Physical interface: xe-0/2/2, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-0/2/2.16386 (Index 445) (SNMP ifIndex 1072)
+Physical interface: xe-0/2/3, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-0/2/3.16386 (Index 446) (SNMP ifIndex 1080)
+Physical interface: xe-0/3/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 1208 bps (0 pps)
+  Logical interface xe-0/3/0.16386 (Index 447) (SNMP ifIndex 1086)
+Physical interface: xe-0/3/1, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 1208 bps (0 pps)
+  Logical interface xe-0/3/1.16386 (Index 448) (SNMP ifIndex 892)
+Physical interface: xe-0/3/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-0/3/2.16386 (Index 449) (SNMP ifIndex 1087)
+Physical interface: xe-0/3/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-0/3/3.16386 (Index 450) (SNMP ifIndex 1088)
+Physical interface: xe-1/0/0, Enabled, Physical link is Up
+  Input rate     : 1288 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/0/0.16386 (Index 466) (SNMP ifIndex 1168)
+Physical interface: xe-1/0/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/0/1.16386 (Index 467) (SNMP ifIndex 1169)
+Physical interface: xe-1/0/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/0/2.16386 (Index 468) (SNMP ifIndex 1167)
+Physical interface: xe-1/0/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/0/3.16386 (Index 469) (SNMP ifIndex 1170)
+Physical interface: xe-1/1/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/1/0.16386 (Index 470) (SNMP ifIndex 1171)
+Physical interface: xe-1/1/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/1/1.16386 (Index 471) (SNMP ifIndex 1181)
+Physical interface: xe-1/1/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/1/2.16386 (Index 472) (SNMP ifIndex 1182)
+Physical interface: xe-1/1/3, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/1/3.16386 (Index 473) (SNMP ifIndex 1187)
+Physical interface: xe-1/2/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/2/0.16386 (Index 474) (SNMP ifIndex 1191)
+Physical interface: xe-1/2/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/2/1.16386 (Index 475) (SNMP ifIndex 1193)
+Physical interface: xe-1/2/2, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/2/2.16386 (Index 476) (SNMP ifIndex 1194)
+Physical interface: xe-1/2/3, Enabled, Physical link is Up
+  Input rate     : 2176 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/2/3.16386 (Index 477) (SNMP ifIndex 1195)
+Physical interface: xe-1/3/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/3/0.16386 (Index 478) (SNMP ifIndex 1196)
+Physical interface: xe-1/3/1, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/3/1.16386 (Index 479) (SNMP ifIndex 1201)
+Physical interface: xe-1/3/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/3/2.16386 (Index 480) (SNMP ifIndex 1202)
+Physical interface: xe-1/3/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-1/3/3.16386 (Index 481) (SNMP ifIndex 1203)
+Physical interface: xe-2/0/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-2/0/0.16386 (Index 375) (SNMP ifIndex 505)
+Physical interface: xe-2/0/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-2/0/1.16386 (Index 421) (SNMP ifIndex 525)
+Physical interface: xe-2/0/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-2/0/2.16386 (Index 422) (SNMP ifIndex 644)
+Physical interface: xe-2/0/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-2/0/3.16386 (Index 423) (SNMP ifIndex 655)
+Physical interface: xe-2/1/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-2/1/0.16386 (Index 424) (SNMP ifIndex 732)
+Physical interface: xe-2/1/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 1256 bps (0 pps)
+  Logical interface xe-2/1/1.16386 (Index 425) (SNMP ifIndex 841)
+Physical interface: xe-2/1/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 1256 bps (0 pps)
+  Logical interface xe-2/1/2.16386 (Index 426) (SNMP ifIndex 845)
+Physical interface: xe-2/1/3, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-2/1/3.16386 (Index 427) (SNMP ifIndex 887)
+Physical interface: xe-2/2/0, Enabled, Physical link is Up
+  Input rate     : 1296 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-2/2/0.16386 (Index 428) (SNMP ifIndex 888)
+Physical interface: xe-2/2/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-2/2/1.16386 (Index 429) (SNMP ifIndex 893)
+Physical interface: xe-2/2/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-2/2/2.16386 (Index 430) (SNMP ifIndex 894)
+Physical interface: xe-2/2/3, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 1256 bps (0 pps)
+  Logical interface xe-2/2/3.16386 (Index 431) (SNMP ifIndex 895)
+Physical interface: xe-2/3/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-2/3/0.16386 (Index 432) (SNMP ifIndex 896)
+Physical interface: xe-2/3/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-2/3/1.16386 (Index 433) (SNMP ifIndex 897)
+Physical interface: xe-2/3/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-2/3/2.16386 (Index 434) (SNMP ifIndex 900)
+Physical interface: xe-2/3/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-2/3/3.16386 (Index 435) (SNMP ifIndex 920)
+Physical interface: xe-3/0/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-3/0/0.16386 (Index 415) (SNMP ifIndex 1089)
+Physical interface: xe-3/0/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-3/0/1.16386 (Index 451) (SNMP ifIndex 1091)
+Physical interface: xe-3/0/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-3/0/2.16386 (Index 452) (SNMP ifIndex 1094)
+Physical interface: xe-3/0/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-3/0/3.16386 (Index 453) (SNMP ifIndex 1097)
+Physical interface: xe-3/1/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-3/1/0.16386 (Index 454) (SNMP ifIndex 1101)
+Physical interface: xe-3/1/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 1256 bps (0 pps)
+  Logical interface xe-3/1/1.16386 (Index 455) (SNMP ifIndex 1102)
+Physical interface: xe-3/1/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-3/1/2.16386 (Index 456) (SNMP ifIndex 1128)
+Physical interface: xe-3/1/3, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-3/1/3.16386 (Index 457) (SNMP ifIndex 1129)
+Physical interface: xe-3/2/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-3/2/0.16386 (Index 458) (SNMP ifIndex 1150)
+Physical interface: xe-3/2/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-3/2/1.16386 (Index 459) (SNMP ifIndex 1152)
+Physical interface: xe-3/2/2, Enabled, Physical link is Up
+  Input rate     : 2176 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-3/2/2.16386 (Index 460) (SNMP ifIndex 1153)
+Physical interface: xe-3/2/3, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-3/2/3.16386 (Index 461) (SNMP ifIndex 1156)
+Physical interface: xe-3/3/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-3/3/0.16386 (Index 462) (SNMP ifIndex 1159)
+Physical interface: xe-3/3/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-3/3/1.16386 (Index 463) (SNMP ifIndex 1160)
+Physical interface: xe-3/3/2, Enabled, Physical link is Up
+  Input rate     : 1320 bps (1 pps)
+  Output rate    : 1256 bps (0 pps)
+  Logical interface xe-3/3/2.16386 (Index 464) (SNMP ifIndex 1161)
+Physical interface: xe-3/3/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-3/3/3.16386 (Index 465) (SNMP ifIndex 1162)
+Physical interface: xe-4/0/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/0/0.16386 (Index 499) (SNMP ifIndex 1266)
+Physical interface: xe-4/0/1, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/0/1.16386 (Index 498) (SNMP ifIndex 1268)
+Physical interface: xe-4/0/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/0/2.16386 (Index 500) (SNMP ifIndex 1271)
+Physical interface: xe-4/0/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/0/3.16386 (Index 501) (SNMP ifIndex 1272)
+Physical interface: xe-4/1/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/1/0.16386 (Index 502) (SNMP ifIndex 1274)
+Physical interface: xe-4/1/1, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/1/1.16386 (Index 503) (SNMP ifIndex 1330)
+Physical interface: xe-4/1/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/1/2.16386 (Index 504) (SNMP ifIndex 1339)
+Physical interface: xe-4/1/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/1/3.16386 (Index 505) (SNMP ifIndex 1340)
+Physical interface: xe-4/2/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/2/0.16386 (Index 506) (SNMP ifIndex 1341)
+Physical interface: xe-4/2/1, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/2/1.16386 (Index 507) (SNMP ifIndex 1342)
+Physical interface: xe-4/2/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/2/2.16386 (Index 508) (SNMP ifIndex 1344)
+Physical interface: xe-4/2/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/2/3.16386 (Index 509) (SNMP ifIndex 1350)
+Physical interface: xe-4/3/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/3/0.16386 (Index 510) (SNMP ifIndex 1351)
+Physical interface: xe-4/3/1, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/3/1.16386 (Index 511) (SNMP ifIndex 1352)
+Physical interface: xe-4/3/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-4/3/2.16386 (Index 512) (SNMP ifIndex 1353)
+Physical interface: xe-4/3/3, Enabled, Physical link is Up
+  Input rate     : 1800 bps (2 pps)
+  Output rate    : 336 bps (0 pps)
+  Logical interface xe-4/3/3.0 (Index 570) (SNMP ifIndex 745)
+    Protocol aenet, AE bundle: ae6.0
+Physical interface: xe-7/0/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/0/0.16386 (Index 514) (SNMP ifIndex 1356)
+Physical interface: xe-7/0/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/0/1.16386 (Index 515) (SNMP ifIndex 1364)
+Physical interface: xe-7/0/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/0/2.16386 (Index 516) (SNMP ifIndex 1363)
+Physical interface: xe-7/0/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/0/3.16386 (Index 517) (SNMP ifIndex 1366)
+Physical interface: xe-7/1/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/1/0.16386 (Index 518) (SNMP ifIndex 1367)
+Physical interface: xe-7/1/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/1/1.16386 (Index 519) (SNMP ifIndex 1368)
+Physical interface: xe-7/1/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/1/2.16386 (Index 520) (SNMP ifIndex 1403)
+Physical interface: xe-7/1/3, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/1/3.16386 (Index 521) (SNMP ifIndex 1414)
+Physical interface: xe-7/2/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/2/0.16386 (Index 522) (SNMP ifIndex 1420)
+Physical interface: xe-7/2/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/2/1.16386 (Index 523) (SNMP ifIndex 1415)
+Physical interface: xe-7/2/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/2/2.16386 (Index 524) (SNMP ifIndex 1421)
+Physical interface: xe-7/2/3, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/2/3.16386 (Index 525) (SNMP ifIndex 1422)
+Physical interface: xe-7/3/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/3/0.16386 (Index 526) (SNMP ifIndex 1425)
+Physical interface: xe-7/3/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/3/1.16386 (Index 527) (SNMP ifIndex 1423)
+Physical interface: xe-7/3/2, Enabled, Physical link is Up
+  Input rate     : 2248 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/3/2.16386 (Index 528) (SNMP ifIndex 1424)
+Physical interface: xe-7/3/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-7/3/3.16386 (Index 529) (SNMP ifIndex 1430)
+Physical interface: xe-8/0/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-8/0/0.16386 (Index 530) (SNMP ifIndex 1431)
+Physical interface: xe-8/0/1, Enabled, Physical link is Up
+  Input rate     : 2176 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-8/0/1.16386 (Index 531) (SNMP ifIndex 1432)
+Physical interface: xe-8/0/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-8/0/2.16386 (Index 532) (SNMP ifIndex 1433)
+Physical interface: xe-8/0/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-8/0/3.16386 (Index 533) (SNMP ifIndex 1434)
+Physical interface: xe-8/1/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-8/1/0.16386 (Index 534) (SNMP ifIndex 1436)
+Physical interface: xe-8/1/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 1256 bps (0 pps)
+  Logical interface xe-8/1/1.16386 (Index 535) (SNMP ifIndex 1474)
+Physical interface: xe-8/1/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-8/1/2.16386 (Index 536) (SNMP ifIndex 1475)
+Physical interface: xe-8/1/3, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-8/1/3.16386 (Index 537) (SNMP ifIndex 1477)
+Physical interface: xe-8/2/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-8/2/0.16386 (Index 538) (SNMP ifIndex 1507)
+Physical interface: xe-8/2/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-8/2/1.16386 (Index 539) (SNMP ifIndex 1512)
+Physical interface: xe-8/2/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-8/2/2.16386 (Index 540) (SNMP ifIndex 1513)
+Physical interface: xe-8/2/3, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-8/2/3.16386 (Index 541) (SNMP ifIndex 1522)
+Physical interface: xe-8/3/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-8/3/0.16386 (Index 542) (SNMP ifIndex 1514)
+Physical interface: xe-8/3/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 1256 bps (0 pps)
+  Logical interface xe-8/3/1.16386 (Index 543) (SNMP ifIndex 1515)
+Physical interface: xe-8/3/2, Enabled, Physical link is Up
+  Input rate     : 1320 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-8/3/2.16386 (Index 544) (SNMP ifIndex 1520)
+Physical interface: xe-8/3/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-8/3/3.16386 (Index 545) (SNMP ifIndex 1521)
+Physical interface: xe-9/0/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/0/0.16386 (Index 482) (SNMP ifIndex 1204)
+Physical interface: xe-9/0/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/0/1.16386 (Index 483) (SNMP ifIndex 1208)
+Physical interface: xe-9/0/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/0/2.16386 (Index 484) (SNMP ifIndex 1211)
+Physical interface: xe-9/0/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/0/3.16386 (Index 485) (SNMP ifIndex 1216)
+Physical interface: xe-9/1/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/1/0.16386 (Index 486) (SNMP ifIndex 1249)
+Physical interface: xe-9/1/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/1/1.16386 (Index 487) (SNMP ifIndex 1255)
+Physical interface: xe-9/1/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/1/2.16386 (Index 488) (SNMP ifIndex 1215)
+Physical interface: xe-9/1/3, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/1/3.16386 (Index 489) (SNMP ifIndex 1218)
+Physical interface: xe-9/2/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/2/0.16386 (Index 490) (SNMP ifIndex 1254)
+Physical interface: xe-9/2/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/2/1.16386 (Index 491) (SNMP ifIndex 1256)
+Physical interface: xe-9/2/2, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/2/2.16386 (Index 492) (SNMP ifIndex 1257)
+Physical interface: xe-9/2/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/2/3.16386 (Index 493) (SNMP ifIndex 1262)
+Physical interface: xe-9/3/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/3/0.16386 (Index 494) (SNMP ifIndex 1263)
+Physical interface: xe-9/3/1, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 1256 bps (0 pps)
+  Logical interface xe-9/3/1.16386 (Index 495) (SNMP ifIndex 1343)
+Physical interface: xe-9/3/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/3/2.16386 (Index 496) (SNMP ifIndex 1264)
+Physical interface: xe-9/3/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-9/3/3.16386 (Index 497) (SNMP ifIndex 1265)
+Physical interface: xe-10/0/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/0/0.16386 (Index 546) (SNMP ifIndex 1529)
+Physical interface: xe-10/0/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/0/1.16386 (Index 547) (SNMP ifIndex 1523)
+Physical interface: xe-10/0/2, Enabled, Physical link is Up
+  Input rate     : 2176 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/0/2.16386 (Index 548) (SNMP ifIndex 1524)
+Physical interface: xe-10/0/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/0/3.16386 (Index 549) (SNMP ifIndex 1526)
+Physical interface: xe-10/1/0, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/1/0.16386 (Index 550) (SNMP ifIndex 1530)
+Physical interface: xe-10/1/1, Enabled, Physical link is Up
+  Input rate     : 2176 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/1/1.16386 (Index 551) (SNMP ifIndex 1532)
+Physical interface: xe-10/1/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/1/2.16386 (Index 552) (SNMP ifIndex 1567)
+Physical interface: xe-10/1/3, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/1/3.16386 (Index 553) (SNMP ifIndex 1568)
+Physical interface: xe-10/2/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/2/0.16386 (Index 554) (SNMP ifIndex 1569)
+Physical interface: xe-10/2/1, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/2/1.16386 (Index 555) (SNMP ifIndex 1570)
+Physical interface: xe-10/2/2, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/2/2.16386 (Index 556) (SNMP ifIndex 1571)
+Physical interface: xe-10/2/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/2/3.16386 (Index 557) (SNMP ifIndex 1572)
+Physical interface: xe-10/3/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/3/0.16386 (Index 558) (SNMP ifIndex 1578)
+Physical interface: xe-10/3/1, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/3/1.16386 (Index 559) (SNMP ifIndex 1579)
+Physical interface: xe-10/3/2, Enabled, Physical link is Up
+  Input rate     : 880 bps (1 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/3/2.16386 (Index 560) (SNMP ifIndex 1580)
+Physical interface: xe-10/3/3, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-10/3/3.16386 (Index 561) (SNMP ifIndex 1581)
+Physical interface: ae6, Enabled, Physical link is Up
+  Input rate     : 1800 bps (2 pps)
+  Output rate    : 360 bps (0 pps)
+  Logical interface ae6.0 (Index 571) (SNMP ifIndex 834)
+    Statistics        Packets        pps         Bytes          bps
+% 
+#_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# 

@@ -1,0 +1,590 @@
+Fri May  7 11:50:42 EDT 2021
+cli show interfaces \|match " ae\|xe-\|gr-\|lt-\|et-\|ge-\|pps" \|no-more \| except description
+Physical interface: xe-0/0/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-0/0/1, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-0/0/1.710 (Index 438) (SNMP ifIndex 779)
+  Logical interface xe-0/0/1.32767 (Index 439) (SNMP ifIndex 658)
+Physical interface: xe-0/0/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-0/0/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-0/1/0, Enabled, Physical link is Up
+  Input rate     : 3856 bps (6 pps)
+  Output rate    : 2480 bps (4 pps)
+  Logical interface xe-0/1/0.0 (Index 441) (SNMP ifIndex 663)
+    Protocol aenet, AE bundle: ae11.0
+Physical interface: xe-0/1/1, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-0/1/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-0/1/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-0/2/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-0/2/1, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-0/2/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-0/2/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-0/3/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-0/3/1, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-0/3/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-0/3/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/0/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/0/1, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/0/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/0/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/0/4, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/0/5, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/0/6, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/0/7, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/0/8, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/0/9, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/1/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/1/1, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/1/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/1/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/1/4, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/1/5, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/1/6, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/1/7, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/1/8, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-1/1/9, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-1/2/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-1/3/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-2/0/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface xe-2/0/0.100 (Index 65541) (SNMP ifIndex 715)
+  Logical interface xe-2/0/0.32767 (Index 141073) (SNMP ifIndex 716)
+Physical interface: xe-2/1/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-2/2/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: xe-2/3/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/0/0, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface ge-4/0/0.11 (Index 141074) (SNMP ifIndex 738)
+  Logical interface ge-4/0/0.32767 (Index 196612) (SNMP ifIndex 739)
+Physical interface: ge-4/0/1, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/0/2, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/0/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/0/4, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/0/5, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/0/6, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/0/7, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/0/8, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface ge-4/0/8.1 (Index 66072) (SNMP ifIndex 783)
+  Logical interface ge-4/0/8.2 (Index 141075) (SNMP ifIndex 784)
+  Logical interface ge-4/0/8.3 (Index 196614) (SNMP ifIndex 785)
+  Logical interface ge-4/0/8.4 (Index 408) (SNMP ifIndex 786)
+  Logical interface ge-4/0/8.5 (Index 65544) (SNMP ifIndex 787)
+  Logical interface ge-4/0/8.6 (Index 141076) (SNMP ifIndex 788)
+  Logical interface ge-4/0/8.7 (Index 196617) (SNMP ifIndex 789)
+  Logical interface ge-4/0/8.8 (Index 409) (SNMP ifIndex 790)
+  Logical interface ge-4/0/8.9 (Index 65546) (SNMP ifIndex 791)
+  Logical interface ge-4/0/8.10 (Index 141077) (SNMP ifIndex 792)
+  Logical interface ge-4/0/8.11 (Index 196619) (SNMP ifIndex 793)
+  Logical interface ge-4/0/8.12 (Index 410) (SNMP ifIndex 794)
+  Logical interface ge-4/0/8.13 (Index 65548) (SNMP ifIndex 795)
+  Logical interface ge-4/0/8.14 (Index 141078) (SNMP ifIndex 796)
+  Logical interface ge-4/0/8.15 (Index 196621) (SNMP ifIndex 797)
+  Logical interface ge-4/0/8.16 (Index 411) (SNMP ifIndex 798)
+  Logical interface ge-4/0/8.17 (Index 65550) (SNMP ifIndex 799)
+  Logical interface ge-4/0/8.18 (Index 141079) (SNMP ifIndex 800)
+  Logical interface ge-4/0/8.19 (Index 196623) (SNMP ifIndex 801)
+  Logical interface ge-4/0/8.20 (Index 412) (SNMP ifIndex 802)
+  Logical interface ge-4/0/8.21 (Index 65552) (SNMP ifIndex 803)
+  Logical interface ge-4/0/8.22 (Index 141080) (SNMP ifIndex 804)
+  Logical interface ge-4/0/8.23 (Index 196625) (SNMP ifIndex 805)
+  Logical interface ge-4/0/8.24 (Index 413) (SNMP ifIndex 806)
+  Logical interface ge-4/0/8.25 (Index 65554) (SNMP ifIndex 807)
+  Logical interface ge-4/0/8.26 (Index 141081) (SNMP ifIndex 808)
+  Logical interface ge-4/0/8.27 (Index 196627) (SNMP ifIndex 809)
+  Logical interface ge-4/0/8.28 (Index 414) (SNMP ifIndex 810)
+  Logical interface ge-4/0/8.29 (Index 65556) (SNMP ifIndex 811)
+  Logical interface ge-4/0/8.30 (Index 141082) (SNMP ifIndex 812)
+  Logical interface ge-4/0/8.31 (Index 196629) (SNMP ifIndex 813)
+  Logical interface ge-4/0/8.32 (Index 415) (SNMP ifIndex 814)
+  Logical interface ge-4/0/8.33 (Index 65558) (SNMP ifIndex 815)
+  Logical interface ge-4/0/8.34 (Index 141083) (SNMP ifIndex 816)
+  Logical interface ge-4/0/8.35 (Index 196631) (SNMP ifIndex 817)
+  Logical interface ge-4/0/8.36 (Index 416) (SNMP ifIndex 818)
+  Logical interface ge-4/0/8.37 (Index 65560) (SNMP ifIndex 819)
+  Logical interface ge-4/0/8.38 (Index 141084) (SNMP ifIndex 820)
+  Logical interface ge-4/0/8.39 (Index 196633) (SNMP ifIndex 821)
+  Logical interface ge-4/0/8.40 (Index 417) (SNMP ifIndex 822)
+  Logical interface ge-4/0/8.41 (Index 65562) (SNMP ifIndex 823)
+  Logical interface ge-4/0/8.42 (Index 141085) (SNMP ifIndex 824)
+  Logical interface ge-4/0/8.43 (Index 196635) (SNMP ifIndex 825)
+  Logical interface ge-4/0/8.44 (Index 418) (SNMP ifIndex 826)
+  Logical interface ge-4/0/8.45 (Index 65564) (SNMP ifIndex 827)
+  Logical interface ge-4/0/8.46 (Index 141086) (SNMP ifIndex 828)
+  Logical interface ge-4/0/8.47 (Index 196637) (SNMP ifIndex 829)
+  Logical interface ge-4/0/8.48 (Index 419) (SNMP ifIndex 830)
+  Logical interface ge-4/0/8.49 (Index 65566) (SNMP ifIndex 831)
+  Logical interface ge-4/0/8.50 (Index 141087) (SNMP ifIndex 832)
+  Logical interface ge-4/0/8.51 (Index 196639) (SNMP ifIndex 833)
+  Logical interface ge-4/0/8.52 (Index 420) (SNMP ifIndex 834)
+  Logical interface ge-4/0/8.53 (Index 65568) (SNMP ifIndex 835)
+  Logical interface ge-4/0/8.54 (Index 141088) (SNMP ifIndex 836)
+  Logical interface ge-4/0/8.55 (Index 196641) (SNMP ifIndex 837)
+  Logical interface ge-4/0/8.56 (Index 421) (SNMP ifIndex 838)
+  Logical interface ge-4/0/8.57 (Index 65570) (SNMP ifIndex 839)
+  Logical interface ge-4/0/8.58 (Index 141089) (SNMP ifIndex 840)
+  Logical interface ge-4/0/8.59 (Index 196643) (SNMP ifIndex 841)
+  Logical interface ge-4/0/8.60 (Index 422) (SNMP ifIndex 842)
+  Logical interface ge-4/0/8.61 (Index 65572) (SNMP ifIndex 843)
+  Logical interface ge-4/0/8.62 (Index 141090) (SNMP ifIndex 844)
+  Logical interface ge-4/0/8.63 (Index 196645) (SNMP ifIndex 845)
+  Logical interface ge-4/0/8.64 (Index 423) (SNMP ifIndex 846)
+  Logical interface ge-4/0/8.65 (Index 65574) (SNMP ifIndex 847)
+  Logical interface ge-4/0/8.66 (Index 141091) (SNMP ifIndex 848)
+  Logical interface ge-4/0/8.67 (Index 196647) (SNMP ifIndex 849)
+  Logical interface ge-4/0/8.68 (Index 424) (SNMP ifIndex 850)
+  Logical interface ge-4/0/8.69 (Index 65576) (SNMP ifIndex 851)
+  Logical interface ge-4/0/8.70 (Index 141092) (SNMP ifIndex 852)
+  Logical interface ge-4/0/8.71 (Index 196649) (SNMP ifIndex 853)
+  Logical interface ge-4/0/8.72 (Index 425) (SNMP ifIndex 854)
+  Logical interface ge-4/0/8.73 (Index 65578) (SNMP ifIndex 855)
+  Logical interface ge-4/0/8.74 (Index 141093) (SNMP ifIndex 856)
+  Logical interface ge-4/0/8.75 (Index 196651) (SNMP ifIndex 857)
+  Logical interface ge-4/0/8.76 (Index 426) (SNMP ifIndex 858)
+  Logical interface ge-4/0/8.77 (Index 65580) (SNMP ifIndex 859)
+  Logical interface ge-4/0/8.78 (Index 141094) (SNMP ifIndex 860)
+  Logical interface ge-4/0/8.79 (Index 196653) (SNMP ifIndex 861)
+  Logical interface ge-4/0/8.80 (Index 427) (SNMP ifIndex 862)
+  Logical interface ge-4/0/8.81 (Index 65582) (SNMP ifIndex 863)
+  Logical interface ge-4/0/8.82 (Index 141095) (SNMP ifIndex 864)
+  Logical interface ge-4/0/8.83 (Index 196655) (SNMP ifIndex 865)
+  Logical interface ge-4/0/8.84 (Index 428) (SNMP ifIndex 866)
+  Logical interface ge-4/0/8.85 (Index 65584) (SNMP ifIndex 867)
+  Logical interface ge-4/0/8.86 (Index 141096) (SNMP ifIndex 868)
+  Logical interface ge-4/0/8.87 (Index 196657) (SNMP ifIndex 869)
+  Logical interface ge-4/0/8.88 (Index 429) (SNMP ifIndex 870)
+  Logical interface ge-4/0/8.89 (Index 65586) (SNMP ifIndex 871)
+  Logical interface ge-4/0/8.90 (Index 141097) (SNMP ifIndex 872)
+  Logical interface ge-4/0/8.91 (Index 196659) (SNMP ifIndex 873)
+  Logical interface ge-4/0/8.92 (Index 430) (SNMP ifIndex 874)
+  Logical interface ge-4/0/8.93 (Index 65588) (SNMP ifIndex 875)
+  Logical interface ge-4/0/8.94 (Index 141098) (SNMP ifIndex 876)
+  Logical interface ge-4/0/8.95 (Index 196661) (SNMP ifIndex 877)
+  Logical interface ge-4/0/8.96 (Index 431) (SNMP ifIndex 878)
+  Logical interface ge-4/0/8.97 (Index 65590) (SNMP ifIndex 879)
+  Logical interface ge-4/0/8.98 (Index 141099) (SNMP ifIndex 880)
+  Logical interface ge-4/0/8.99 (Index 196663) (SNMP ifIndex 881)
+  Logical interface ge-4/0/8.100 (Index 432) (SNMP ifIndex 882)
+  Logical interface ge-4/0/8.101 (Index 65592) (SNMP ifIndex 883)
+  Logical interface ge-4/0/8.102 (Index 141100) (SNMP ifIndex 884)
+  Logical interface ge-4/0/8.103 (Index 196665) (SNMP ifIndex 885)
+  Logical interface ge-4/0/8.104 (Index 433) (SNMP ifIndex 886)
+  Logical interface ge-4/0/8.105 (Index 65594) (SNMP ifIndex 887)
+  Logical interface ge-4/0/8.106 (Index 141101) (SNMP ifIndex 888)
+  Logical interface ge-4/0/8.107 (Index 196667) (SNMP ifIndex 889)
+  Logical interface ge-4/0/8.108 (Index 434) (SNMP ifIndex 890)
+  Logical interface ge-4/0/8.109 (Index 65596) (SNMP ifIndex 891)
+  Logical interface ge-4/0/8.110 (Index 141102) (SNMP ifIndex 892)
+  Logical interface ge-4/0/8.111 (Index 196669) (SNMP ifIndex 893)
+  Logical interface ge-4/0/8.112 (Index 435) (SNMP ifIndex 894)
+  Logical interface ge-4/0/8.113 (Index 65598) (SNMP ifIndex 895)
+  Logical interface ge-4/0/8.114 (Index 141103) (SNMP ifIndex 896)
+  Logical interface ge-4/0/8.115 (Index 196671) (SNMP ifIndex 897)
+  Logical interface ge-4/0/8.116 (Index 436) (SNMP ifIndex 898)
+  Logical interface ge-4/0/8.117 (Index 65941) (SNMP ifIndex 899)
+  Logical interface ge-4/0/8.118 (Index 141104) (SNMP ifIndex 900)
+  Logical interface ge-4/0/8.119 (Index 197014) (SNMP ifIndex 901)
+  Logical interface ge-4/0/8.120 (Index 437) (SNMP ifIndex 902)
+  Logical interface ge-4/0/8.121 (Index 65974) (SNMP ifIndex 903)
+  Logical interface ge-4/0/8.122 (Index 141105) (SNMP ifIndex 904)
+  Logical interface ge-4/0/8.123 (Index 197047) (SNMP ifIndex 905)
+  Logical interface ge-4/0/8.124 (Index 440) (SNMP ifIndex 906)
+  Logical interface ge-4/0/8.125 (Index 65977) (SNMP ifIndex 907)
+  Logical interface ge-4/0/8.126 (Index 141106) (SNMP ifIndex 908)
+  Logical interface ge-4/0/8.127 (Index 197050) (SNMP ifIndex 909)
+  Logical interface ge-4/0/8.128 (Index 443) (SNMP ifIndex 910)
+  Logical interface ge-4/0/8.129 (Index 65980) (SNMP ifIndex 911)
+  Logical interface ge-4/0/8.130 (Index 141107) (SNMP ifIndex 912)
+  Logical interface ge-4/0/8.131 (Index 197053) (SNMP ifIndex 913)
+  Logical interface ge-4/0/8.132 (Index 446) (SNMP ifIndex 914)
+  Logical interface ge-4/0/8.133 (Index 65983) (SNMP ifIndex 915)
+  Logical interface ge-4/0/8.134 (Index 141108) (SNMP ifIndex 916)
+  Logical interface ge-4/0/8.135 (Index 197056) (SNMP ifIndex 917)
+  Logical interface ge-4/0/8.136 (Index 449) (SNMP ifIndex 918)
+  Logical interface ge-4/0/8.137 (Index 65986) (SNMP ifIndex 919)
+  Logical interface ge-4/0/8.138 (Index 141109) (SNMP ifIndex 920)
+  Logical interface ge-4/0/8.139 (Index 197059) (SNMP ifIndex 921)
+  Logical interface ge-4/0/8.140 (Index 452) (SNMP ifIndex 922)
+  Logical interface ge-4/0/8.141 (Index 65989) (SNMP ifIndex 923)
+  Logical interface ge-4/0/8.142 (Index 141110) (SNMP ifIndex 924)
+  Logical interface ge-4/0/8.143 (Index 197062) (SNMP ifIndex 925)
+  Logical interface ge-4/0/8.144 (Index 455) (SNMP ifIndex 926)
+  Logical interface ge-4/0/8.145 (Index 65992) (SNMP ifIndex 927)
+  Logical interface ge-4/0/8.146 (Index 141111) (SNMP ifIndex 928)
+  Logical interface ge-4/0/8.147 (Index 197065) (SNMP ifIndex 929)
+  Logical interface ge-4/0/8.148 (Index 458) (SNMP ifIndex 930)
+  Logical interface ge-4/0/8.149 (Index 65995) (SNMP ifIndex 931)
+  Logical interface ge-4/0/8.150 (Index 141112) (SNMP ifIndex 932)
+  Logical interface ge-4/0/8.151 (Index 197068) (SNMP ifIndex 933)
+  Logical interface ge-4/0/8.152 (Index 461) (SNMP ifIndex 934)
+  Logical interface ge-4/0/8.153 (Index 65998) (SNMP ifIndex 935)
+  Logical interface ge-4/0/8.154 (Index 141113) (SNMP ifIndex 936)
+  Logical interface ge-4/0/8.155 (Index 197071) (SNMP ifIndex 937)
+  Logical interface ge-4/0/8.156 (Index 464) (SNMP ifIndex 938)
+  Logical interface ge-4/0/8.157 (Index 66001) (SNMP ifIndex 939)
+  Logical interface ge-4/0/8.158 (Index 141114) (SNMP ifIndex 940)
+  Logical interface ge-4/0/8.159 (Index 197074) (SNMP ifIndex 941)
+  Logical interface ge-4/0/8.160 (Index 467) (SNMP ifIndex 942)
+  Logical interface ge-4/0/8.161 (Index 66004) (SNMP ifIndex 943)
+  Logical interface ge-4/0/8.162 (Index 141115) (SNMP ifIndex 944)
+  Logical interface ge-4/0/8.163 (Index 197077) (SNMP ifIndex 945)
+  Logical interface ge-4/0/8.164 (Index 470) (SNMP ifIndex 946)
+  Logical interface ge-4/0/8.165 (Index 66007) (SNMP ifIndex 947)
+  Logical interface ge-4/0/8.166 (Index 141116) (SNMP ifIndex 948)
+  Logical interface ge-4/0/8.167 (Index 197080) (SNMP ifIndex 949)
+  Logical interface ge-4/0/8.168 (Index 473) (SNMP ifIndex 950)
+  Logical interface ge-4/0/8.169 (Index 66010) (SNMP ifIndex 951)
+  Logical interface ge-4/0/8.170 (Index 141117) (SNMP ifIndex 952)
+  Logical interface ge-4/0/8.171 (Index 197083) (SNMP ifIndex 953)
+  Logical interface ge-4/0/8.172 (Index 476) (SNMP ifIndex 954)
+  Logical interface ge-4/0/8.173 (Index 66013) (SNMP ifIndex 955)
+  Logical interface ge-4/0/8.174 (Index 141118) (SNMP ifIndex 956)
+  Logical interface ge-4/0/8.175 (Index 197086) (SNMP ifIndex 957)
+  Logical interface ge-4/0/8.176 (Index 479) (SNMP ifIndex 958)
+  Logical interface ge-4/0/8.177 (Index 66016) (SNMP ifIndex 959)
+  Logical interface ge-4/0/8.178 (Index 141119) (SNMP ifIndex 960)
+  Logical interface ge-4/0/8.179 (Index 197089) (SNMP ifIndex 961)
+  Logical interface ge-4/0/8.180 (Index 482) (SNMP ifIndex 962)
+  Logical interface ge-4/0/8.181 (Index 66019) (SNMP ifIndex 963)
+  Logical interface ge-4/0/8.182 (Index 141120) (SNMP ifIndex 964)
+  Logical interface ge-4/0/8.183 (Index 197092) (SNMP ifIndex 965)
+  Logical interface ge-4/0/8.184 (Index 485) (SNMP ifIndex 966)
+  Logical interface ge-4/0/8.185 (Index 66022) (SNMP ifIndex 967)
+  Logical interface ge-4/0/8.186 (Index 141121) (SNMP ifIndex 968)
+  Logical interface ge-4/0/8.187 (Index 197095) (SNMP ifIndex 969)
+  Logical interface ge-4/0/8.188 (Index 488) (SNMP ifIndex 970)
+  Logical interface ge-4/0/8.189 (Index 66025) (SNMP ifIndex 971)
+  Logical interface ge-4/0/8.190 (Index 141122) (SNMP ifIndex 972)
+  Logical interface ge-4/0/8.191 (Index 197098) (SNMP ifIndex 973)
+  Logical interface ge-4/0/8.192 (Index 491) (SNMP ifIndex 974)
+  Logical interface ge-4/0/8.193 (Index 66028) (SNMP ifIndex 975)
+  Logical interface ge-4/0/8.194 (Index 141123) (SNMP ifIndex 976)
+  Logical interface ge-4/0/8.195 (Index 197101) (SNMP ifIndex 977)
+  Logical interface ge-4/0/8.196 (Index 494) (SNMP ifIndex 978)
+  Logical interface ge-4/0/8.197 (Index 66031) (SNMP ifIndex 979)
+  Logical interface ge-4/0/8.198 (Index 141124) (SNMP ifIndex 980)
+  Logical interface ge-4/0/8.199 (Index 197104) (SNMP ifIndex 981)
+  Logical interface ge-4/0/8.200 (Index 497) (SNMP ifIndex 982)
+  Logical interface ge-4/0/8.201 (Index 66034) (SNMP ifIndex 983)
+  Logical interface ge-4/0/8.202 (Index 141125) (SNMP ifIndex 984)
+  Logical interface ge-4/0/8.203 (Index 197107) (SNMP ifIndex 985)
+  Logical interface ge-4/0/8.204 (Index 500) (SNMP ifIndex 986)
+  Logical interface ge-4/0/8.205 (Index 66037) (SNMP ifIndex 987)
+  Logical interface ge-4/0/8.206 (Index 141126) (SNMP ifIndex 988)
+  Logical interface ge-4/0/8.207 (Index 197110) (SNMP ifIndex 989)
+  Logical interface ge-4/0/8.208 (Index 503) (SNMP ifIndex 990)
+  Logical interface ge-4/0/8.209 (Index 66040) (SNMP ifIndex 991)
+  Logical interface ge-4/0/8.210 (Index 141127) (SNMP ifIndex 992)
+  Logical interface ge-4/0/8.211 (Index 197113) (SNMP ifIndex 993)
+  Logical interface ge-4/0/8.212 (Index 506) (SNMP ifIndex 994)
+  Logical interface ge-4/0/8.213 (Index 66043) (SNMP ifIndex 995)
+  Logical interface ge-4/0/8.214 (Index 141128) (SNMP ifIndex 996)
+  Logical interface ge-4/0/8.215 (Index 197116) (SNMP ifIndex 997)
+  Logical interface ge-4/0/8.216 (Index 509) (SNMP ifIndex 998)
+  Logical interface ge-4/0/8.217 (Index 66046) (SNMP ifIndex 999)
+  Logical interface ge-4/0/8.218 (Index 141129) (SNMP ifIndex 1000)
+  Logical interface ge-4/0/8.219 (Index 197119) (SNMP ifIndex 1001)
+  Logical interface ge-4/0/8.220 (Index 512) (SNMP ifIndex 1002)
+  Logical interface ge-4/0/8.221 (Index 66049) (SNMP ifIndex 1003)
+  Logical interface ge-4/0/8.222 (Index 141130) (SNMP ifIndex 1004)
+  Logical interface ge-4/0/8.223 (Index 197122) (SNMP ifIndex 1005)
+  Logical interface ge-4/0/8.224 (Index 515) (SNMP ifIndex 1006)
+  Logical interface ge-4/0/8.225 (Index 66052) (SNMP ifIndex 1007)
+  Logical interface ge-4/0/8.32767 (Index 141131) (SNMP ifIndex 1008)
+Physical interface: ge-4/0/9, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/1/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/1/1, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/1/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/1/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/1/4, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/1/5, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/1/6, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/1/7, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/1/8, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/1/9, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/2/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/2/1, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/2/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/2/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/2/4, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/2/5, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/2/6, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/2/7, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/2/8, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/2/9, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/3/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/3/1, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/3/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/3/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/3/4, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/3/5, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/3/6, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/3/7, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/3/8, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-4/3/9, Enabled, Physical link is Up
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface ge-4/3/9.100 (Index 141132) (SNMP ifIndex 776)
+  Logical interface ge-4/3/9.32767 (Index 197128) (SNMP ifIndex 777)
+Physical interface: ge-5/0/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/0/1, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/0/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/0/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/0/4, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/0/5, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/0/6, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/0/7, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/0/8, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/0/9, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/1/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/1/1, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/1/2, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/1/3, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/1/4, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/1/5, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/1/6, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/1/7, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/1/8, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ge-5/1/9, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: et-5/2/0, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+Physical interface: ae10, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface ae10.0 (Index 370) (SNMP ifIndex 668)
+    Statistics        Packets        pps         Bytes          bps
+  Logical interface ae10.11 (Index 369) (SNMP ifIndex 681)
+    Statistics        Packets        pps         Bytes          bps
+  Logical interface ae10.12 (Index 368) (SNMP ifIndex 686)
+    Statistics        Packets        pps         Bytes          bps
+  Logical interface ae10.13 (Index 367) (SNMP ifIndex 671)
+    Statistics        Packets        pps         Bytes          bps
+  Logical interface ae10.14 (Index 366) (SNMP ifIndex 688)
+    Statistics        Packets        pps         Bytes          bps
+  Logical interface ae10.15 (Index 365) (SNMP ifIndex 673)
+    Statistics        Packets        pps         Bytes          bps
+  Logical interface ae10.16 (Index 364) (SNMP ifIndex 679)
+    Statistics        Packets        pps         Bytes          bps
+  Logical interface ae10.17 (Index 363) (SNMP ifIndex 677)
+    Statistics        Packets        pps         Bytes          bps
+  Logical interface ae10.18 (Index 362) (SNMP ifIndex 684)
+    Statistics        Packets        pps         Bytes          bps
+  Logical interface ae10.19 (Index 361) (SNMP ifIndex 675)
+    Statistics        Packets        pps         Bytes          bps
+  Logical interface ae10.32767 (Index 360) (SNMP ifIndex 669)
+    Statistics        Packets        pps         Bytes          bps
+Physical interface: ae11, Enabled, Physical link is Up
+  Input rate     : 3240 bps (5 pps)
+  Output rate    : 2880 bps (4 pps)
+  Logical interface ae11.0 (Index 371) (SNMP ifIndex 664)
+    Statistics        Packets        pps         Bytes          bps
+Physical interface: ae16, Enabled, Physical link is Down
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Logical interface ae16.6010 (Index 375) (SNMP ifIndex 665)
+    Statistics        Packets        pps         Bytes          bps
+  Logical interface ae16.6013 (Index 374) (SNMP ifIndex 666)
+    Statistics        Packets        pps         Bytes          bps
+  Logical interface ae16.6024 (Index 373) (SNMP ifIndex 670)
+    Statistics        Packets        pps         Bytes          bps
+  Logical interface ae16.32767 (Index 372) (SNMP ifIndex 667)
+    Statistics        Packets        pps         Bytes          bps
+% 
+#_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# #_# 
