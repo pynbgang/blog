@@ -36,42 +36,12 @@ TABLE OF CONTENT
     || The length of both num1 and num2 is < 5100.
     || Both num1 and num2 contains only digits 0-9.
     || Both num1 and num2 does not contain any leading zero.
-    || You must not use any built-in BigInteger library or convert the inputs to integer directly.
+    || You must not use any built-in BigInteger library or convert the inputs
+    || to integer directly.
 
-## code (owen in field)
+## ping
 
-重点
-
-- 不能直接更换字符串到数字
-- 需要考虑到一些特殊的CASE比如进位
-- 这个CODE里没有COVER这个情况如果某个输入是"00000012312313131"
-- 不能多位数相加 (可以个位)
-
-```python
-def addtwostring(str1,str2):
-    if not str1 and str2:
-        return str2
-    if not str2 and str1:
-        return str1
-    if len(str2)>len(str1):
-        return addtwostring(str2,str1)
-    l1=list(str1)
-    l2=["0"]*(len(str1)-len(str2))+list(str2)
-    listcarry=[0]+[0]*len(str1)
-    sumstr=""
-    for i in range(len(l1)-1,-1,-1):
-        temp=int(l1[i])+int(l2[i])+listcarry[i+1]
-        if temp<10:
-            sumstr+=str(temp)
-        else:
-            sumstr+=str(temp)[-1]
-            listcarry[i]=1
-    if listcarry[0]==1:
-        return "1"+sumstr[::-1]
-    return sumstr[::-1]
-```
-
-## ping: w/o int str
+### w/o int str
 
 ```python
 def addtwostring(str1,str2):
@@ -86,34 +56,45 @@ def addtwostring(str1,str2):
     return "0" if str1==str2=='0' else ''.join(num2str[i] for i in l2)[::-1].lstrip('0')
 ```
 
-## ping(w/ comments and tests)
+### comments/tests, most readable
+
+
+     123   3, 2, 1
+    6789   9, 8, 7, 6
+    ---    ==========
+    l2:   12, 10, 8, 6
+    l2:   2,  1,  9, 6, 0
+          21960
+          06912
+          6912
 
 ```python
 def addtwostring(str1,str2):
     # char <--> digit mapping
     # str2num={'0':0, '1':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9}
     str2num=dict((zip('0123456789', range(10))))  #generate mapping while avoid
-    num2str={str2num[k]:k for k in str2num}      #using 'int' and 'str'
+    num2str={str2num[k]:k for k in str2num}       #using 'int' and 'str'
 
     # string to reverse list
-    # '123' -> ['1','2','3'] -> ['3','2','1']
-    #  '49'  ->    ['4','9']     -> ['9','4']
-    l1, l2 = [i for i in str1][::-1] , [i for i in str2][::-1]
+    # str1: '123' -> ['1','2','3']     -> ['3','2','1']
+    # str2:  '49'  ->    ['4','9']     -> ['9','4']
+    l1, l2 = [s for s in str1][::-1] , [s for s in str2][::-1]
     #or,
-    #l1, l2 = sorted(str1, reverse=True), sorted(str2, reverse=True)
+    #l1, l2 = reversed(str1), reversed(str2)
+    #l1, l2 = map(reversed, (str1, str2)) 
 
-    # get the longer one to iterate
+    # make sure l2 is the longer one
     if len(l1) >= len(l2): l1, l2 = l2, l1
 
     # convert to digit and plus the 2 lists -> [12, 6, 1]
     for i in range(len(l2)):
         l2[i] = str2num[l1[i]]+str2num[l2[i]] if i < len(l1) else str2num[l2[i]]
 
-
     # give one more digit for carry: [12, 6, 1, 0]
     l2.append(0)
 
     # process carry, for each num, keep only ones, contribute the tens
+    # [12, 6, 1, 0]
     # [2, 7, 1, 0]
     for i in range(len(l2)-1):
         l2[i], l2[i+1] = l2[i] % 10, l2[i+1] + l2[i] // 10
@@ -135,6 +116,8 @@ assert addtwostring(str1, str2) == str(int(str1) + int(str2)), "wrong!"
 ```
 
 ## lmv
+
+### orignal post
 
 Python: 7-line & 52ms (+ 1-liner for fun)
 
@@ -181,13 +164,16 @@ def addStrings(self, num1, num2):
 
 Would the one liner be acceptable in the contest?
 
-### lmv1
+### with comments
 
 
 ```python
 class Solution:     #lmv
     def addStrings(self, num1, num2):
         #num1="3451"; num2="823"
+        #num1="1543"; num2="328"
+        #      1543
+        #      328
         #z=[('1', '3'), ('5', '2'), ('4', '8'), ('3', '0')]
         z = itertools.zip_longest(num1[::-1], num2[::-1], fillvalue='0')
         res, carry, zero2 = [], 0, 2*ord('0')
@@ -199,7 +185,7 @@ class Solution:     #lmv
         return ('1' if carry else '') + ''.join(res[::-1])
 ```
 
-### lmv2: oneliner
+### oneliner version
 
 ```python
 class Solution:     #lmv
@@ -239,13 +225,47 @@ class Solution:     #lmv
 
 in reduce 10*a+b may not satisfy the requirement
 
-## tips
+## takeaways
 
-* str to list: list(str1), [i for i in str1]
-* list to str: "".join(list1)
-* list x N: [0,1] * 10
-* list1+list2: list1.extend(list2)
-* revert str/list: str1/list1[::-1]
-* iterate reversely: range(len(str1)-1, -1, -1)
-* dict(zip(seq1, seq2))
-* zip_longest
+* str to list: `list(str1), [i for i in str1]`
+* list to str: `"".join(list1)`
+* list x N: `[0,1] * 10`
+* list1+list2: `list1.extend(list2)`
+* reverse str/list: `str1/list1[::-1]`
+* iterate reversely: `range(len(str1)-1, -1, -1)`
+* `dict(zip(seq1, seq2))`
+* `zip_longest`
+
+## code (owen in field)
+
+重点
+
+- 不能直接更换字符串到数字
+- 需要考虑到一些特殊的CASE比如进位
+- 这个CODE里没有COVER这个情况如果某个输入是"00000012312313131"
+- 不能多位数相加 (可以个位)
+
+```python
+def addtwostring(str1,str2):
+    if not str1 and str2:
+        return str2
+    if not str2 and str1:
+        return str1
+    if len(str2)>len(str1):
+        return addtwostring(str2,str1)
+    l1=list(str1)
+    l2=["0"]*(len(str1)-len(str2))+list(str2)
+    listcarry=[0]+[0]*len(str1)
+    sumstr=""
+    for i in range(len(l1)-1,-1,-1):
+        temp=int(l1[i])+int(l2[i])+listcarry[i+1]
+        if temp<10:
+            sumstr+=str(temp)
+        else:
+            sumstr+=str(temp)[-1]
+            listcarry[i]=1
+    if listcarry[0]==1:
+        return "1"+sumstr[::-1]
+    return sumstr[::-1]
+```
+

@@ -3,8 +3,6 @@
 #
 # [415] Add Strings
 #
-
-
 # @lc code=start
 class Solution:  #ping
     def addStrings(self, str1: str, str2: str) -> str:
