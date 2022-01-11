@@ -12,6 +12,7 @@ tags:
     - xiaofo
     - enumerate
     - wangmazi
+    - goodone
 created:  2020 Jan 13 22:50:11 AM
 categories: [tech]
 published: true
@@ -73,17 +74,7 @@ https://www.lintcode.com/problem/max-chunks-to-make-sorted/description
 
 ## solution1 (most voted answer) 
 
-```python
-class Solution:
-    def maxChunksToSorted(self, arr: List[int]) -> int:
-        curmax, res = -1, 0
-        for i, n in enumerate(arr):
-            curmax = max(curmax, n)
-            if i == curmax:
-                res += 1
-        return res
-```
-
+### idea
 split whenever: max of previous num equals to current index.
 
     0 1 2 3 4 5
@@ -97,6 +88,19 @@ split whenever: max of previous num equals to current index.
 
     0 1 2 3 4 5
     0|1|2|3|4|5
+
+### code
+
+```python
+class Solution:
+    def maxChunksToSorted(self, arr: List[int]) -> int:
+        curmax, res = -1, 0
+        for i, n in enumerate(arr):
+            curmax = max(curmax, n)
+            if i == curmax:
+                res += 1
+        return res
+```
 
 ## solution2 
 
@@ -134,9 +138,7 @@ class Solution(object):
 ```python
 class Solution(object):
     def maxChunksToSorted(self, arr):
-        checked = [False]*len(arr)
-        count = 0
-        i = 0
+        checked, count, i = [False]*len(arr), 0, 0
         while i < len(arr):
             lmax = dodfs(i, -1)
             i += 1
@@ -156,8 +158,7 @@ class Solution(object):
         return count
 ```
 
-
-## solution: lmv
+## solution: lmv (dfs)
 
 https://leetcode.com/problems/max-chunks-to-make-sorted/discuss/586378
 
@@ -208,10 +209,10 @@ class Solution(object):     #lmv
 
 ideas are:
 
-    solution1: cut whenever: current max == current index
-    solution2: cut whenever: current sum of index == sum of nums (same as solution1)
-    solution3: cut whenever: min(left) < max(right) 
-    solution4: dfs
+* solution1: cut whenever: current max == current index
+s olution2: cut whenever: current sum of index == sum of nums (same as solution1)
+s olution3: cut whenever: `min(right) < max(left)`
+s olution4: dfs
 
 
 ```python

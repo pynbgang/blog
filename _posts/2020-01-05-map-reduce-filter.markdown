@@ -3,7 +3,7 @@ layout: post
 title: "map reduce filter"
 published: true
 created:  2020 Jan 04 07:39:29 PM
-tags: [python, functools, map, reduce, filter, lambda, zip, prime, generator, liaoxuefeng, math, reversed]
+tags: [python, functools, notes, map, reduce, filter, lambda, zip, prime, generator, liaoxuefeng, math, reversed, goodone]
 categories: [tech]
 
 ---

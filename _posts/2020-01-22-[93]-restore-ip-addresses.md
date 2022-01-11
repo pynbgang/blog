@@ -3,7 +3,7 @@ layout: post
 title: "[93] restore-ip-addresses"
 date: 2020-01-22
 author: "Owen"
-tags: 
+tags:
     - list
     - google
     - python
@@ -11,6 +11,7 @@ tags:
     - dfs
     - brute force
     - pending
+    - all
 
 created:  2020 Jan 22 11:35:49 PM
 categories: [tech]
@@ -36,84 +37,19 @@ TABLE OF CONTENT
     || * Total Submissions: 498.5K
     || * Testcase Example:  '"25525511135"'
     || * Source Code:       93.restore-ip-addresses.py
-    || 
+    ||
     || Given a string containing only digits, restore it by returning all
     possible valid IP address combinations.
-    || 
+    ||
     || Example:
-    || 
-    || 
+    ||
+    ||
     || Input: "25525511135"
     || Output: ["255.255.11.135", "255.255.111.35"]
 
 see also [restore-ip-addresses](https://www.lintcode.com/problem/restore-ip-addresses/description)
 
-## owen
-
-```python
-class Solution:
-    def restoreIpAddresses(self, s):
-        if not s or len(s) <= 1:
-            return []
-        ipstr = s
-        list1 = []
-        if len(ipstr) < 4 or len(ipstr) > 12 or not ipstr:
-            return []
-        for i in range(0, 3):
-            if self.helper(ipstr[0:i + 1]) :
-                temp1 = ipstr[0:i + 1] + "."
-                layer1 = ipstr[i + 1:]
-                for j in range(0, 3):
-                    if j < len(layer1) - 1 and self.helper(layer1[0:j + 1]):
-                        temp2 = layer1[0:j + 1] + "."
-                        layer2 = layer1[j + 1:]
-                        for z in range(0, 3):
-                            if z < len(layer2) - 1 and self.helper(layer2[0:z + 1]) and self.helper(layer2[z + 1:]):
-                                temp3 = layer2[0:z + 1] + "." + layer2[z + 1:]
-                                list1.append(temp1 + temp2 + temp3)
-        return list1
-    #helper is here to check whether this part is valid 
-    def helper(self, str1):
-        if len(str1) == 1:
-            return True
-        if int(str1) > 255:
-            return False
-        if str1[0] != "0":
-            return True
-        return False
-```
-
-### test
-
-    k=Solution()
-    print k.allipaddress("1111111111")
-
-    ['1.111.111.111', '11.11.111.111', '11.111.11.111', '11.111.111.11',
-    '111.1.111.111', '111.11.11.111', '111.11.111.11', '111.111.1.111',
-    '111.111.11.11', '111.111.111.1']
-
 ## lmv (best, easy to understand)
-
-### code
-
-```python
-class Solution:
-    def restoreIpAddresses(self, s):
-        res=[]
-        for i in [1,2,3]:
-            for j in [i+1,i+2,i+3]:
-                for k in [j+1,j+2,j+3]:
-                    if k>=len(s):
-                        break
-                    s1,s2,s3,s4=s[:i],s[i:j],s[j:k],s[k:]
-                    add_ip = True
-                    for st in [s1,s2,s3,s4]:
-                        if (st!="0" and st[0]=="0") or int(st)>255:
-                            add_ip=False
-                            break
-                    if add_ip: res.append(s1+"."+s2+"."+s3+"."+s4)
-        return res
-```
 
 ### idea
 
@@ -126,7 +62,7 @@ i=1
 
     i=1, j=2, k=3,4,5
        i j k rest
-      1|2|3|45678 
+      1|2|3|45678
       1|2|34|5678
       1|2|345|678
 
@@ -175,6 +111,28 @@ i=3
       123|456|78|       #<---k>=len(s): break
       123|456|78|       #<---k>=len(s): break
 
+### code
+
+```python
+class Solution:
+    def restoreIpAddresses(self, s):
+        res=[]
+        for i in [1,2,3]:
+            for j in [i+1,i+2,i+3]:
+                for k in [j+1,j+2,j+3]:
+                    if k>=len(s):
+                        break
+                    s1,s2,s3,s4=s[:i],s[i:j],s[j:k],s[k:]
+                    add_ip = True
+                    for st in [s1,s2,s3,s4]:
+                        if (st!="0" and st[0]=="0") or int(st)>255:
+                            add_ip=False
+                            break
+                    if add_ip:
+                        res.append(s1+"."+s2+"."+s3+"."+s4)
+        return res
+```
+
 ### test
 
 ```python
@@ -185,10 +143,9 @@ S.restoreIpAddresses(ipstr)
 ```
 Out[16]: ['1.234.56.78', '12.34.56.78', '123.4.56.78', '123.45.6.78', '123.45.67.8']
 
-### revisit
+### revisit (Sat 29 Aug 2020 04:45:32 PM DST)
 
 ```python
-#(Sat 29 Aug 2020 04:45:32 PM DST)
 class Solution(object):
   def restoreIpAddresses(self, s):
     res = []
@@ -196,7 +153,12 @@ class Solution(object):
       for j in [i+1, i+2, i+3]:
          for k in [j+1, j+2, j+3]:
            ip1, ip2, ip3, ip4 = s[:i], s[i:j], s[j:k], s[k:]
-           if all(len(ip)>0 and int(ip) <= 255 and (ip[0] != '0' if len(ip) > 1 else True) for ip in [ip1, ip2, ip3, ip4]):
+           if all(
+                len(ip)>0 and
+                int(ip) <= 255 and
+                (ip[0] != '0' if len(ip) > 1 else True)
+                for ip in [ip1, ip2, ip3, ip4]
+           ):
              res.append(ip1 + "." + ip2 + "." + ip3 + "." + ip4)
     return res
 
@@ -395,8 +357,53 @@ dfs(ipstr, 0, ips, '')
                     if 3<=len(ipstr)==len(345678)==6: yes
                       if int(ipstr[:3]=='345')==345 <= 255? no
                       if ipstr[0]=='0'? no
+```
 
 ## pending
 
-not quite understand the DFS
+not quite understand the DFS, what the hell is it. useless shit.
+
+## owen
+
+```python
+class Solution:
+    def restoreIpAddresses(self, s):
+        if not s or len(s) <= 1:
+            return []
+        ipstr = s
+        list1 = []
+        if len(ipstr) < 4 or len(ipstr) > 12 or not ipstr:
+            return []
+        for i in range(0, 3):
+            if self.helper(ipstr[0:i + 1]) :
+                temp1 = ipstr[0:i + 1] + "."
+                layer1 = ipstr[i + 1:]
+                for j in range(0, 3):
+                    if j < len(layer1) - 1 and self.helper(layer1[0:j + 1]):
+                        temp2 = layer1[0:j + 1] + "."
+                        layer2 = layer1[j + 1:]
+                        for z in range(0, 3):
+                            if z < len(layer2) - 1 and self.helper(layer2[0:z + 1]) and self.helper(layer2[z + 1:]):
+                                temp3 = layer2[0:z + 1] + "." + layer2[z + 1:]
+                                list1.append(temp1 + temp2 + temp3)
+        return list1
+    #helper is here to check whether this part is valid
+    def helper(self, str1):
+        if len(str1) == 1:
+            return True
+        if int(str1) > 255:
+            return False
+        if str1[0] != "0":
+            return True
+        return False
+```
+
+### test
+
+    k=Solution()
+    print k.allipaddress("1111111111")
+
+    ['1.111.111.111', '11.11.111.111', '11.111.11.111', '11.111.111.11',
+    '111.1.111.111', '111.11.11.111', '111.11.111.11', '111.111.1.111',
+    '111.111.11.11', '111.111.111.1']
 

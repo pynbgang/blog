@@ -8,7 +8,6 @@ tags:
     - hard
     - python
     - google
-    -
 created:  20120 Jan 24 12:39:49 PM
 categories: [tech]
 published: true

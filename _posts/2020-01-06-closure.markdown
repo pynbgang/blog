@@ -3,7 +3,7 @@ layout: post
 title: "closure"
 published: true
 created:  2020 Jan 06 09:59:11 AM
-tags: [closure, python]
+tags: [closure, python, notes]
 categories: [tech]
 
 ---

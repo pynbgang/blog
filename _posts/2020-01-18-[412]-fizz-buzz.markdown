@@ -3,7 +3,7 @@ layout: post
 title: "[412] fizz-buzz"
 published: true
 created:  2020 Jan 18 07:30:17 PM
-tags: [python, lintcode, leetcode, easy, string]
+tags: [python, lintcode, leetcode, easy, string, goodone]
 categories: [tech]
 
 ---

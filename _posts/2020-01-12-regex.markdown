@@ -3,7 +3,7 @@ layout: post
 title: "python regex"
 published: true
 created:  2020 Jan 12 11:49:59 AM
-tags: [regex, python]
+tags: [regex, python, notes, goodone]
 categories: [tech]
 
 ---
@@ -22,13 +22,16 @@ TABLE OF CONTENT
 ## python string prefix: `rbuf`
 
 ```python
-r'input\n' # 非转义原生字符，经处理'\n'变成了'\\'和'n'。也就是\n表示的是两个字符，而不是换行。
+# 非转义原生字符，经处理'\n'变成了'\\'和'n'。也就是\n表示的是两个字符，而非换行
+r'input\n'
 Out[84]: 'input\\n'
 
-b'input\n' # bytes字节符，打印以b开头。
+# bytes字节符，打印以b开头。
+b'input\n'
 Out[85]: b'input\n'
 
-u'input\n' # unicode编码字符，python3默认字符串编码方式。
+# unicode编码字符，python3默认字符串编码方式。
+u'input\n'
 Out[86]: 'input\n'
 
 vers='python 3.6'; f"该功能是{vers}新增"
@@ -36,6 +39,18 @@ Out[87]: '该功能是python 3.6新增'
 ```
 
 ## re.match
+
+简单的判断是否能有"一个"匹配。
+
+基本用法:
+
+```python
+test = '用户输入的字符串'
+if re.match(r'正则表达式', test):
+    print('ok')
+else:
+    print('failed')
+```
 
 ```python
 >>> import re
@@ -52,57 +67,63 @@ Out[52]: <_sre.SRE_Match object; span=(0, 9), match='010-12345'>
 >>>     #<---None
 ```
 
-```python
-test = '用户输入的字符串'
-if re.match(r'正则表达式', test):
-    print('ok')
-else:
-    print('failed')
-```
-
 ## MATCH.group(s)
+
+如有匹配，捕捉"第一个"匹配到的字串, （对比COMPILE.findall, 捕捉所有的匹配字符串)
 
 ```python
 m = re.match(r'^(\d{3})-(\d{3,8})', '010-12345-abc')
-m
-m.groups()
-m.group(0)
-m.group(1)
-m.group(2)
-m.group(3)
+m       #<---是否有匹配
+m.group(0)      #<---原始字符串中所有被匹配到的部分
+m.group(1)      #<---第1个()中regex所匹配到的部分
+m.group(2)      #<---第2个()中regex所匹配到的部分
+m.group(3)      #<---第3个()中regex所匹配到的部分
+m.groups()      #<---所有() 中regex所匹配到的部分组成的列表
 ```
 
-    [ins] In [39]: m                                                                
-    Out[39]: <_sre.SRE_Match object; span=(0, 9), match='010-12345'>
+执行结果：
+```python
+[ins] In [39]: m
+Out[39]: <_sre.SRE_Match object; span=(0, 9), match='010-12345'>
 
-    [ins] In [40]: m.groups()                                                       
-    Out[40]: ('010', '12345')
+[ins] In [40]: m.groups()
+Out[40]: ('010', '12345')
 
-    [ins] In [28]: m.group(0)                                                       
-    Out[28]: '010-12345'
+[ins] In [28]: m.group(0)
+Out[28]: '010-12345'
 
-    [ins] In [29]: m.group(1)                                                       
-    Out[29]: '010'
+[ins] In [29]: m.group(1)
+Out[29]: '010'
 
-    [ins] In [30]: m.group(2)                                                       
-    Out[30]: '12345'
+[ins] In [30]: m.group(2)
+Out[30]: '12345'
 
-    [ins] In [31]: m.group(3)                                                       
-    ---------------------------------------------------------------------------
-    IndexError                                Traceback (most recent call last)
-    <ipython-input-31-974525c8e304> in <module>
-    ----> 1 m.group(3)
+[ins] In [31]: m.group(3)
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-31-974525c8e304> in <module>
+----> 1 m.group(3)
 
-    IndexError: no such group
+IndexError: no such group
+```
+
+example:
 
 ```python
 t = '19:05:30'
-m = re.match(r'^(0[0-9]|1[0-9]|2[0-3]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])$', t)
+s_regex = r'^(0[0-9]|1[0-9]|2[0-3]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])$'
+m = re.match(s_regex, t)
 m.groups()
 ```
 
-    [ins] In [44]: m.groups()                                                       
+    [ins] In [44]: m.groups()
     Out[44]: ('19', '05', '30')
+
+
+```python
+s_regex=r'(\d\d):(\d\d):(\d\d)'                         #range too wide
+s_regex=r'(0\d|1\d|2[0-3]):([0-5][0-9]):([0-5][0-9])'   #better?
+```
 
 ## non-greedy(`?`)
 
@@ -120,6 +141,8 @@ m.groups()
 
 
 ## re.compile (faster)
+
+and better workflow...
 
 ```python
 >>> import re
@@ -152,17 +175,18 @@ match doesn't get a match, since 1st char of the string is ' ' , and a ' xx'
 never match to 'FOO'
 
     In [5]: re_obj.match(search_string)
-    Out [5]:                                                                  
+    Out [5]:
 
 ### 'pos'
 
 change the "start to match" position, so set to '1' - the 2nd char
-'F', so both will match
+'F', so match will also match now:
 
-    In [6]: re_obj.search(search_string, pos=1)
-    Out[99]: <_sre.SRE_Match object; span=(1, 4), match='FOO'>
     In [7]: re_obj.match(search_string, pos=1)
     Out[100]: <_sre.SRE_Match object; span=(1, 4), match='FOO'>
+
+    In [6]: re_obj.search(search_string, pos=2)
+    #<---nothing
 
 ### 'endpos'
 
@@ -174,9 +198,9 @@ char) being the last position to match:
       ^^^
       |||
       |||
-      ||"endpos"
-      |end matching
-     pos: start matching
+      ||"endpos=3"
+      |end matching here
+     "pos=1": start matching here
 
 so 'endpos=3' will fail both:
 
@@ -193,43 +217,50 @@ use 'endpos=4' will make both match succeed:
 
 ## MATCH.start() end() span()
 
+TODO, or no much usage
+
 ## COMPILE.findall()
 
-matches all occurrences of a pattern, not just the first one as search()
+* matches all occurrences of a pattern, not just the first one as search()
+* save all matched string in a list
 
-    In [2]: re_obj = re.compile(r'\bt.*?e\b')
-    In [3]: re_obj.findall("time tame tune tint tire")
-    Out[3]: ['time', 'tame', 'tune', 'tint tire']
+        In [2]: re_obj = re.compile(r'\bt.*?e\b')
+        In [3]: re_obj.findall("time tame tune tint tire")
+        Out[3]: ['time', 'tame', 'tune', 'tint tire']
 
 ## nested re
 
-    In [20]: re_obj = re.compile(
-	...: r"""
-	...:     (A\W+\b(big|small)\b\W+\b
-	...:     (brown|purple)\b\W+\b(cow|dog)\b\W+\b(ran|jumped)\b\W+\b
-	...:     (to|down)\b\W+\b(the)\b\W+\b(street|moon).*?\.)
-	...: """,
-	...: re.VERBOSE)
+```python
+re_obj = re.compile(
+r"""
+    (
+        A\W+\b(big|small)\b\W+\b
+        (brown|purple)\b\W+\b(cow|dog)\b\W+\b(ran|jumped)\b\W+\b
+        (to|down)\b\W+\b(the)\b\W+\b(street|moon).*?\.
+    )
+""",
+re.VERBOSE)
 
-    In [21]: re_obj.findall('A big brown dog ran down the street.\A small purple cow jum
-	...: ped to the moon.')
-    Out[21]:
-    [('A big brown dog ran down the street.',
-    'big',
-    'brown',
-    'dog',
-    'ran',
-    'down',
-    'the',
-    'street'),
-    ('A small purple cow jumped to the moon.',
-    'small',
-    'purple',
-    'cow',
-    'jumped',
-    'to',
-    'the',
-    'moon')]
+re_obj.findall('A big brown dog ran down the street.\A small purple cow jumped to the moon.')
+
+Out[21]:
+[('A big brown dog ran down the street.',
+'big',
+'brown',
+'dog',
+'ran',
+'down',
+'the',
+'street'),
+('A small purple cow jumped to the moon.',
+'small',
+'purple',
+'cow',
+'jumped',
+'to',
+'the',
+'moon')]
+```
 
 it looks like, the \b is redundent, and can be omitted:
 
@@ -261,7 +292,7 @@ it looks like, the \b is redundent, and can be omitted:
     'the',
     'moon')]
 
-## comment, great!
+## comment, with `re.VERBOSE`, great!
 
 with 're.VERBOSE', comment can be added:
 
@@ -282,23 +313,47 @@ with 're.VERBOSE', comment can be added:
         \s*                   # whitespace
         ''', re.VERBOSE)
 
+
 ## named group and groupdict(), great!
 
-    In [73]: combined_log_entry
-    Out[73]: '127.0.0.1 - frank [10/Oct/2000:13:55:36 -0700] "GET /apache_pb.gif HTTP/1.0" 200 2326 http://www.example.com/start.htmlMozilla/4.08 [en] (Win98; I;Nav)'
+`(?P<KEY>...)`: so called a "named group".
+use KEY as key, and matched value as value, to compose a dict
 
-    In [74]: m=log_line_re.match(combined_log_entry)
+    combined_log_entry='127.0.0.1 - frank [10/Oct/2000:13:55:36 -0700] "GET /apache_pb.gif HTTP/1.0" 200 2326 http://www.example.com/start.htmlMozilla/4.08 [en] (Win98; I;Nav)'
 
-    In [75]: m
-    Out[75]: <_sre.SRE_Match at 0x6fffce1c328>
+    m=log_line_re.match(combined_log_entry)
+    m
+    <_sre.SRE_Match at 0x6fffce1c328>
 
-    In [77]: m.groups()
-    Out[77]: ('127.0.0.1', '200', '2326')
+    m.groups()
+    ('127.0.0.1', '200', '2326')
 
-    In [78]: m.groupdict()
-    Out[78]: {'bytes_sent': '2326', 'remote_host': '127.0.0.1', 'status': '200'}
+    m.group('remote_host')                                                            
+    '127.0.0.1'
 
-## re.split()
+    d=m.groupdict()
+    d
+    {'bytes_sent': '2326', 'remote_host': '127.0.0.1', 'status': '200'}
+    d['remote_host']
+
+## summary of python regex extension syntax
+
+.`(?xx)`
+
+* `(?P<KEY>..)` named group, 'P'ython specific (others from perl)
+* `(?P=<KEY>)` backref the named group, 'P'ython specific (others from perl)
+* `(?:..)` non-capturing groups
+* `(?=..)` a positive lookahead assertion
+* `(?!..)` a negative lookahead assertion
+
+.backreferences
+
+* `\1`:         refer by number, in same regex only?
+* `?P=<NAME>`   refer by named group, in same regex only?
+* `\g<1>`:      refer by number
+* `\g<name>`    refer by named group
+
+## re.split(), convenient!
 
 ```python
 re.split(r'[\s,]+', 'a,b, c  d')
@@ -324,27 +379,40 @@ Out[55]: ['a', 'b', 'c', 'd']
 
 * http://www.crifan.com/python_re_sub_detailed_introduction/
 
+basic example L0:
 
 ```python
+result = re.sub('abc',  '',    input)           # Delete pattern abc
+result = re.sub('abc',  'def', input)           # Replace pattern abc -> def
+result = re.sub(r'\s+', ' ',   input)           # Eliminate duplicate whitespaces using wildcards
+result = re.sub('abc(def)ghi', r'\1', input)    # Replace a string with a part of itself
+```
+
+example L1:
+
+
+```python
+#match with a pattern, if matched, replace whole matched strings with 'crifanli'.
+#in the pattern, a same word appears 2 times
 In [8]: inputStr = "hello crifan, nihao crifan";
 ...: replacedStr = re.sub(r"hello (\w+), nihao \1", "crifanli", inputStr);
-                                  -----        --    -------- 
-...: print "replacedStr=",replacedStr; #crifanli
-...:
+#                                 -----        --    --------
+...: print(replacedStr); #crifanli
 replacedStr= crifanli
 
+#match with a pattern, if matched, replace whole matched part of the strings
+#with a certain part of the pattern, which appears 2 times - crifan in this
+#case
 In [7]: inputStr = "hello crifan, nihao crifan";
 ...: replacedStr = re.sub(r"hello (\w+), nihao \1", "\g<1>", inputStr);
-                                  -----        --    -----
-...: print "replacedStr=",replacedStr; #crifan
-...:
+#                                 -----        --    -----
+...: print(replacedStr); #crifan
 replacedStr= crifan
 
+#same as above, but use named group this time
 In [9]: inputStr = "hello crifan, nihao crifan";
-...: replacedStr = re.sub(r"hello (?P<name>\w+), nihao (?P=name)", "\g<name>", in
-...: putStr);
-...: print "replacedStr=",replacedStr; #crifan
-...:
+...: replacedStr = re.sub(r"hello (?P<name>\w+), nihao (?P=name)", "\g<name>", inputStr);
+...: print(replacedStr); #crifanli
 replacedStr= crifan
 
 ```

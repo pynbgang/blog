@@ -3,7 +3,7 @@ layout: post
 title: "[468] Validate IP Address"
 published: true
 created:  2020 Jan 02 03:30:01 PM
-tags: [leetcode, python, lintcode, networking, all, split, count, wangmazi, medium]
+tags: [leetcode, python, lintcode, networking, all, split, count, wangmazi, medium, goodone]
 categories: [tech]
 
 ---

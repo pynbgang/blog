@@ -28,7 +28,6 @@ TABLE OF CONTENT
     || 
     || Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
     || 
-    || 
     || Example 1:
     || Input: a = 1, b = 2
     || Output: 3
@@ -277,13 +276,13 @@ https://blog.csdn.net/qq506124204/article/details/7521996
 * 正数补码：与原码相同
 * 负数补码：求反加一
 
-     1: 0000 0001
-     反 0000 0001
-     补 0000 0001       #<---
-        
-    -1: 1000 0001
-     反 1111 1110 +1
-     补 1111 1111       #<---
+        1: 0000 0001
+        反 0000 0001
+        补 0000 0001       #<---
+            
+        -1: 1000 0001
+        反 1111 1110 +1
+        补 1111 1111       #<---
 
 so: 1 ^ -1 :
 

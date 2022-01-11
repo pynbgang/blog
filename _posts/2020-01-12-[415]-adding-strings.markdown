@@ -4,8 +4,7 @@ title: "[415] Add Strings"
 author: "owen"
 published: true
 created:  2020 Jan 13 23:13:29 PM
-tags: [python, string, int, fb, math, lstrip, assert, zip, itertools,
-zip_longest, map, reduce]
+tags: [python, string, int, fb, math, lstrip, assert, zip, itertools, zip_longest, map, reduce, goodone]
 categories: [tech]
 
 ---

@@ -3,7 +3,7 @@ layout: post
 title: "[179] largest number"
 published: true
 created:  2020 Jan 05 07:54:57 PM
-tags: [lintcode, python, sorted, join, lambda, functools, wangmazi]
+tags: [lintcode, python, sorted, join, lambda, functools, wangmazi, goodone]
 categories: [tech]
 
 ---
@@ -100,7 +100,7 @@ class Solution:
         return largest[i:]
 ```
 
-## lmv
+## lmv (best?)
 
 ```python
 class LargerNumKey(str):

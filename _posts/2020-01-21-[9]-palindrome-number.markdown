@@ -3,7 +3,7 @@ layout: post
 title: "[9] palindrome-number"
 published: true
 created:  2020 Jan 21 01:59:22 PM
-tags: [easy, python, lintcode, leetcode, recursion]
+tags: [easy, python, lintcode, leetcode, recursion, goodone]
 categories: [tech]
 
 ---
@@ -62,7 +62,7 @@ class Solution:
         return num == int(str(num)[::-1])
 ```
 
-## wangmazi (hardway)
+## wangmazi (good)
 
 ```python
 class Solution(object):
@@ -72,12 +72,15 @@ class Solution(object):
     注意负数不是回文数
     '''
     def isPalindrome(self, x):
-        if x < 0 : return False
-        quotient, rev = x, 0
-        while quotient:
-            remainder, quotient = quotient % 10, quotient // 10
-            rev = rev * 10 + remainder
-        return rev == x
+        if x < 0 :
+            return False
+        orig_num, rev_num = x, 0
+        while orig_num:
+            orig_num, remainder  = orig_num // 10, orig_num % 10
+            #or with divmod:
+            #orig_num, remainder  = divmod(orig_num, 10)
+            rev_num = rev_num * 10 + remainder
+        return rev_num == x
 ```
 
 ## ping: with divmod
@@ -92,7 +95,6 @@ class Solution:
             rev      = rev * 10 + mod
         return rev == x
 ```
-
 
 ## ping (harder way: recursion)
 
@@ -121,9 +123,3 @@ class Solution:
                 sum+=tmp[i] * pow(10,i)
             return sum
 ```
-
-## tips:
-
-* using list
-* using recursion
-* using return value in recursion

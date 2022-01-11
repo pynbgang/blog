@@ -18,23 +18,24 @@ TABLE OF CONTENT
 
 # [narcissistic-number](https://www.lintcode.com/problem/narcissistic-number/description?_from=ladder&&fromId=99)
 
-    Narcissistic Number is a number that is the sum of its own digits each raised to the power of the number of digits. See wiki
-    For example the 3-digit decimal number 153 is a narcissistic number because 153 = 13 + 53 + 33.
+    Narcissistic Number is a number that is the sum of its own digits each
+    raised to the power of the number of digits. See wiki
 
-    And the 4-digit decimal number 1634 is a narcissistic number because 1634 = 14 + 64 + 34 + 44.
+    For example the 3-digit decimal number 153 is a narcissistic number because 153 = 1**3 + 5**3 + 3**3.
+    And the 4-digit decimal number 1634 is a narcissistic number because 1634 = 1**4 + 6**4 + 3**4 + 4**4.
 
     Given n, return all narcissistic numbers with n digits.
 
     Example
     Example 1:
-
     Input: 1
     Output: [0,1,2,3,4,5,6,7,8,9]
-    Example 2:
 
+    Example 2:
     Input: 2
     Output: []
     Explanation: There is no Narcissistic Number with 2 digits.
+
     Notice
     You may assume n is smaller than 8.
 
@@ -59,6 +60,8 @@ class Solution:
                 result.append(number)
         return result
 ```
+
+A more compact version:
 
 ```python
 #(Sat 29 Aug 2020 02:16:59 PM DST) 

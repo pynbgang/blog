@@ -3,7 +3,7 @@ layout: post
 title: "socket module"
 published: true
 created:  2020 Jan 07 02:30:52 PM
-tags: [python, socket, module]
+tags: [python, socket, module, notes]
 categories: [tech]
 
 ---

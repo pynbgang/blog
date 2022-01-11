@@ -3,7 +3,7 @@ layout: post
 title: "file operations"
 published: true
 created:  2020 Jan 07 09:13:34 PM
-tags: [file, python, py2]
+tags: [file, python, py2, goodone, notes]
 categories: [tech]
 
 ---
@@ -15,36 +15,19 @@ TABLE OF CONTENT
 
 - - -
 
-## file operations
+# file operations
 
-### file/folder operations
-
-    if os.path.exists(fname):
-
-    >>> import os
-    >>> os.path.isdir('/tmp')
-    True
-    >>> os.chdir('/tmp')
-    >>>
-    >>> cwd=os.getcwd()
-    >>> cwd
-    '/tmp'
-    >>> os.mkdir('example')
-    >>> os.chdir('example')
-    >>> cwd=os.getcwd()
-    >>> cwd
-    '/tmp/example'
-    >>> os.listdir(cwd)
-
-### file read/write w/o 'with'
+## file read/write w/o 'with'
 
 more examples P349
 
-* open
-* read():       read all file
-* read(size):   read "size" file
-* readline():   read one line at a time
-* readlines():  read all lines and return list
+* open(FILE)
+* f.read():             read all file as a string
+    * f.read(size):     read "size" file
+    * f.readline():     read one line at a time
+* f.readlines():        read all lines and return list
+* f.write('abc')        write string into file
+* f.writelines(LIST)    write a list into file
 * f.close
 
 test:
@@ -83,9 +66,8 @@ test:
     for line in open('test.txt'):
         print line
 
-* write('abc')/writelines
 
-### about `with..as..`
+## `with..as..`
 
 use "context manager" with 'with .. as'
 
@@ -96,6 +78,8 @@ or
 
     with open('/path/to/file', 'w') as f:
         f.write('Hello, world!')
+
+### internals
 
 python keyword, using "context manager": internally encapsulated exception
 handling when "__enter__" the class, and when "__exit__" it. this will ensure
@@ -144,7 +128,7 @@ with后面的代码块抛出异常时，exit()方法被执行。开发库时，�
 助的。
 
 
-other usages:
+### other usages:
 
     With open('1.txt') as f1, open('2.txt') as  f2:
         do something
@@ -162,7 +146,7 @@ read further:
 * http://zhoutall.com/archives/325
 * https://blog.csdn.net/u012609509/article/details/72911564
 
-### with `with..as..` (liaoxuefeng)
+### more examples
 
 ```python
 #!/usr/bin/env python3
@@ -185,7 +169,7 @@ with open('test.txt', 'rb') as f:
     print(s)
 ```
 
-### quick test
+## quick test
 
 ```python
 [ins] In [1]: f=open('2020-01-07-file.markdown')
@@ -209,3 +193,23 @@ Out[3]:
 '---\n',
 '\n']
 ```
+
+## file/folder operations
+
+    if os.path.exists(fname):
+
+    >>> import os
+    >>> os.path.isdir('/tmp')
+    True
+    >>> os.chdir('/tmp')
+    >>>
+    >>> cwd=os.getcwd()
+    >>> cwd
+    '/tmp'
+    >>> os.mkdir('example')
+    >>> os.chdir('example')
+    >>> cwd=os.getcwd()
+    >>> cwd
+    '/tmp/example'
+    >>> os.listdir(cwd)
+

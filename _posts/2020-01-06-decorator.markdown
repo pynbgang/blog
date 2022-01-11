@@ -3,7 +3,7 @@ layout: post
 title: "decorator"
 published: true
 created:  2020 Jan 06 03:51:29 PM
-tags: [python, decorator, liaoxuefeng]
+tags: [python, decorator, liaoxuefeng, notes]
 categories: [tech]
 
 ---

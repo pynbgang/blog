@@ -30,4 +30,6 @@ class Solution:
     def fizzBuzz(self, n: int) -> List[str]:
         return [str(i) * bool(i%3 and i%5) + "Fizz" * (not i%3) + "Buzz" * (not i%5) for i in range(1, n+1)]
 
+
+
 # @lc code=end

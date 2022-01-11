@@ -3,7 +3,7 @@ layout: post
 title: "leap year"
 published: true
 created:  2020 Jan 17 10:51:20 AM
-tags: [python, operator, lintcode, easy]
+tags: [python, operator, lintcode, easy, goodone]
 categories: [tech]
 
 ---
@@ -25,9 +25,12 @@ A leap year (also known as an intercalary year or bissextile year) is a
 calendar year containing one additional day.if a year is divisible by 4 and not
 divisible by 100 or divisible by 400,it is a leap year. --wikipedia
 
-* is divisible by 4 and not divisible by 100 , or
-* or divisible by 400
+so: leap year:
 
+* is divisible by 4 and not divisible by 100
+* is divisible by 400
+
+# solution1
 
 ```python
 class Solution:
@@ -49,6 +52,18 @@ class Solution:
             return False
 ```
 
+# solution2 (best)
+
+```python
+return bool(not n % 400 or not n % 4 and n % 100)
+```
+
+read as: a leap year is:
+* either dividable by 400, or
+* dividable by 4 and not dividable by 100
+
+
+## some misc notes
 using python operator precedence: not -> and -> or
 
 ```python
@@ -64,7 +79,7 @@ return n % 400 == 0 or n % 4 == 0 and n % 100 != 0
 using 'not':
 
 ```python
-#wrong: because True and 3 => 3, not True
+#wrong: because True and 3 => 3, 3 does not equal to True
 return not n % 400 or not n % 4 and n % 100
 ```
 
@@ -72,10 +87,6 @@ return not n % 400 or not n % 4 and n % 100
 #correct
 return bool(not n % 400 or not n % 4 and n % 100)
 ```
-
-code read as: a leap year is:
-* either dividable by 400, or
-* dividable by 4 and not dividable by 100
 
 use the `not (xxx)` form:
 

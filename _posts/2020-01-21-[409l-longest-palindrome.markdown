@@ -3,7 +3,7 @@ layout: post
 title: "[409] longest-palindrome"
 published: true
 created:  2020 Jan 21 01:28:00 PM
-tags: [dict, python, module, Counter, easy, lintcode, collections]
+tags: [dict, python, module, Counter, easy, lintcode, collections, goodone]
 categories: [tech]
 
 ---
@@ -116,15 +116,13 @@ class Solution:
         #in either case, just check if there is any letter appears odd times
         #because if yes, then result is sum of their even number (by -1)  plus 1
 
-        extra=False
+        extra=0
         for i in d:
             if d[i] % 2:
                 d[i] -= 1
-                extra=True
-
+                extra=1
         #get sum of count for all duplicated letters
-        sum1=sum([d[i] for i in d])
-        return sum1+1 if extra else sum1
+        return sum(d.values()) + 1*extra
 ```
 
 ### solution2
@@ -147,20 +145,19 @@ class Solution:
         return count
 ```
 
-
 ### Counter version
 
 with Counter: "plus" idea (sum of even plus 1 if there is odd ever)
 
 ```python
-    def longestPalindrome(self, s):
-        # write your code here
-        d2=collections.Counter(collections.Counter(s).values())
-        sums=0, hasodd=False
-        for k,v in d2.items():
-            if k % 2: hasodd=True
-            sums+=v*(k if not k%2 else k-1)
-        return sums+1 if hasodd else sums
+def longestPalindrome(self, s):
+    # write your code here
+    d2=collections.Counter(collections.Counter(s).values())
+    sums=0, hasodd=False
+    for k,v in d2.items():
+        if k % 2: hasodd=True
+        sums+=v*(k if not k%2 else k-1)
+    return sums+1 if hasodd else sums
 ```
 
 with Counter: "minus" idea (total_len - sum_of_odd + 1 if there is odd ever)
@@ -179,7 +176,8 @@ class Solution(object):
     def longestPalindrome(self, s):
         if len(s)==1:return 1
         dict1={}
-        for i in s:dict1[i]=dict1.get(i,0)+1
+        for i in s: 
+            dict1[i]=dict1.get(i,0)+1
         even=0
         flag=False
         for i in dict1.keys():
@@ -196,19 +194,12 @@ class Solution(object):
 
 ### "plus" idea:
 
-just add up even and odd nums seperately and carefully.
+* even counts: plus
+* odd counts: plus but minus 1
+* in the end, if there is at least one odd count, plus 1
 
 ### "minus" idea:
 
-if a letter appear even times, then just add the count of it into result.
-if a letter appear odd time(s), it's kind of tricky:
-
-2 conditions:
-
-- a letter appears just 1 time: won't be useful except only 1 of them
-- a letter appears n(>1) times : the extra 1 time for each letter can't be
-  used, except only 1 of them
-
-so overall, need to minus 1 from each every letter which appears odd times, and
-plus 1 -- that is if there is any "odd time" letter.
-
+* add up all counts
+* minus 1 for each odd counts
+* in the end, if there is at least one odd count, plus 1
